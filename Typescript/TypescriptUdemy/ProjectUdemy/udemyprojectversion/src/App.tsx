@@ -2,32 +2,55 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import ExpenseItem from "./components/ExpenseItem";
+import { ExpenseDate } from "../src/components/ExpenseDate";
+import { IExpenseDate } from "../src/components/ExpenseDateModel";
 
 function App() {
+  const date1: IExpenseDate = {
+    month: 1,
+    day: 12,
+    year: 2021,
+  };
+  const date2: IExpenseDate = {
+    month: 2,
+    day: 12,
+    year: 2020,
+  };
+  const date3: IExpenseDate = {
+    month: 10,
+    day: 23,
+    year: 2022,
+  };
+  const date4: IExpenseDate = {
+    month: 1,
+    day: 12,
+    year: 2022,
+  };
+
   const expenses = [
     {
       id: "e1",
       title: "Toilet Paper",
       amount: 123.57,
-      date: new Date(2021, 2, 21),
+      date: date1,
     },
     {
       id: "e2",
       title: "New TV",
       amount: 200.57,
-      date: new Date(2020, 2, 21),
+      date: date2,
     },
     {
       id: "e3",
       title: "Car Insurance",
       amount: 294.57,
-      date: new Date(2021, 2, 21),
+      date: date3,
     },
     {
       id: "e4",
       title: "New Desk",
       amount: 300.57,
-      date: new Date(2022, 2, 21),
+      date: date4,
     },
   ];
   return (

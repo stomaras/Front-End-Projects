@@ -4,18 +4,15 @@ import ExpenseDate from "./ExpenseDate";
 import { IExpenseItem } from "./ExpenseItemModel";
 
 export const ExpenseItem = (props: IExpenseItem) => {
+  const { expenseTitle, expenseAmount, expenseDate } = props;
   return (
     <div className="expense-item">
       <div>
-        <ExpenseDate
-          month={props.expenseDate.month}
-          day={props.expenseDate.day}
-          year={props.expenseDate.year}
-        />
+        <ExpenseDate date={expenseDate} />
       </div>
       <div className="expense-item__description">
-        <h2>{props.expenseTitle}</h2>
-        <div className="expense-item__price">${props.expenseAmount}</div>
+        <h2>{expenseTitle}</h2>
+        <div className="expense-item__price">${expenseAmount}</div>
       </div>
     </div>
   );

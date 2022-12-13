@@ -46,4 +46,18 @@ Front-End-Projects
   - Box Model
   
     - ![Στιγμιότυπο οθόνης (26)](https://user-images.githubusercontent.com/22882822/207412010-aecfec99-f17c-437d-8e4f-b2db135c88b6.png)
-
+  
+    - Margin Padding
+    
+      - p {
+            margin-top:5px;
+            margin-bottom:5px;
+            margin-right:10px;
+            margin-left:10px;
+        }
+      - p {
+            margin:5px 10px 5px 10px
+        }
+      - p {
+            margin:5px 10px;
+        }

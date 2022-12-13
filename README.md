@@ -42,3 +42,8 @@ Front-End-Projects
     - p {
         color: rgb(0,0,255)
       }
+  
+  - Box Model
+  
+    - ![Στιγμιότυπο οθόνης (26)](https://user-images.githubusercontent.com/22882822/207412010-aecfec99-f17c-437d-8e4f-b2db135c88b6.png)
+

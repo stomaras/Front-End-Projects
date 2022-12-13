@@ -13,3 +13,12 @@ Front-End-Projects
 - Inline  CSS: Directly in the html element(NO!!!)
 - Internal CSS: Using <style> tags within a single document
 - External CSS: Linking an external .css file
+  
+- CSS Selectors : 
+   - a { background-color: yellow; }
+   - { = declaration start
+   - a = selector
+   - background-color = property
+   - yellow = value
+   - ; = declaration separator
+   - } = declaration end

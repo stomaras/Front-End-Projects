@@ -16,9 +16,9 @@ Front-End-Projects
   
 - CSS Selectors : 
    - a { background-color: yellow; }
-   - { = declaration start
-   - a = selector
-   - background-color = property
-   - yellow = value
-   - ; = declaration separator
-   - } = declaration end
+   - { === declaration start
+   - a === selector
+   - background-color === property
+   - yellow === value
+   - ; === declaration separator
+   - } === declaration end

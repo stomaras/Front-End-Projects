@@ -9,3 +9,7 @@ Front-End-Projects
 - Cascading Stylesheets
 - Layout and design
 - Can be extended with Sass/Less
+
+- Inline  CSS: Directly in the html element(NO!!!)
+- Internal CSS: Using <style> tags within a single document
+- External CSS: Linking an external .css file

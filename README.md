@@ -25,20 +25,20 @@ Front-End-Projects
    - with this way will aplly this style in all links everywhere if you want to target a cerain link you could use a class or an id
 
  - Colors in CSS
-  - Color Names
-  - HTML5 Color names
-  - Hexadecimal
-  - RGB
+    - Color Names
+    - HTML5 Color names
+    - Hexadecimal
+    - RGB
   
-  - body {
+    - body {
         color:red;
         background:coral
-    }
+      }
   
-  - h1 {
+    - h1 {
         color:#00ff00;
-    }
+      }
   
-  - p {
-      color: rgb(0,0,255)
-    }
+    - p {
+        color: rgb(0,0,255)
+      }

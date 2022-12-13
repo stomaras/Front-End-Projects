@@ -22,3 +22,4 @@ Front-End-Projects
    - yellow === value
    - ; === declaration separator
    - } === declaration end
+   - with this way will aplly this style in all links everywhere if you want to target a cerain link you could use a class or an id

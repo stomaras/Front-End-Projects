@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Expenses } from "../src/components/Expenses/Expenses";
 
-function App() {
+export const App = () => {
   const date1: Date = new Date(2021, 2, 1);
   const date2: Date = new Date(2022, 12, 2);
   const date3: Date = new Date(2021, 1, 3);
@@ -41,6 +41,6 @@ function App() {
       <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;

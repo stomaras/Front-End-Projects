@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { deflateRawSync } from "zlib";
 
 export type ExpenseDateProps = {
   date: Date;
@@ -11,8 +12,8 @@ const ExpenseDate: FC<ExpenseDateProps> = ({ date }) => {
   return (
     <div className="expense-date">
       <div className="expense-date__month">{month}</div>
-      <div className="expense-date__year">{day}</div>
-      <div className="expense-date__day">{year}</div>
+      <div className="expense-date__year">{year}</div>
+      <div className="expense-date__day">{day}</div>
     </div>
   );
 };

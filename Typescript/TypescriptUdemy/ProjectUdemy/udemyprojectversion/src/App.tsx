@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Expenses } from "./components/Expenses";
+import { Expenses } from "../src/components/Expenses/Expenses";
 
 function App() {
   const date1: Date = new Date(2021, 2, 1);

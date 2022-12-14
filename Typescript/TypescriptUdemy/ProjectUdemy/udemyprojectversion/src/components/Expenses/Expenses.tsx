@@ -2,7 +2,7 @@ import React from "react";
 import { ExpenseItem } from "./ExpenseItem";
 import { IExpenseItem } from "./ExpenseItemModel";
 import "./Expenses.css";
-import Card from "./Card";
+import Card from "../UI/Card";
 
 export const Expenses = (props: any) => {
   return (

@@ -61,3 +61,75 @@ Front-End-Projects
       - p {
             margin:5px 10px;
         }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  # Redux Typescript Udemy
+  
+  - Local State : 
+        - State that belongs to a single component
+        - E.g listening to user input in an input field; toggling a "show more" details field
+        - Should be managed component-inernal with useState() / useReducer()
+  
+  - Cross Component State :
+        - State that affects multiple components
+        - E.g open/close state of a modal overlay
+        - Requires "prop chains" / "prop drilling"
+  
+  - App-Wide State
+        - State that affects the entire app (most / all components)
+        - E.g user authentication status
+
+  - What is "Redux"?
+    - A state management for cross-component or app-wide state
+  
+  - Core Redux Concepts 
+    - Central Data (State) Store
+    - Component set up subscriptions to Data Store, get a slice of redux store and use it
+    - Reducer Function Mutates(=changes) the store data
+    - Component dispatch actions or trigger certain actions 
+    - Action is a typescript object which descibes the kind of operation the reducer should perform
+    - Actions forwarded to the reducer 
+    - Reducer update the state in data store
+    - Data Store updated subsciping components notified

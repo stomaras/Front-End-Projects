@@ -88,6 +88,13 @@ Front-End-Projects
         position: absolute;
         top: 100px;
       }
+  
+  - Position - Fixed/Example
+        Used for something which i want to see on the scrolling of the page
+      .fix-me{
+          position:fixed;
+          top: 400px;
+      }
 
   
   

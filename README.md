@@ -61,7 +61,41 @@ Front-End-Projects
       - p {
             margin:5px 10px;
         }
+        
+    - Positioning in CSS
+      - Static
+      - Relative
+      - Absolute
+      - Fixed
+      - Initial
+      - Inherit
+- Position - Relative/Absolute example
   
+      .p-box{
+        width: 800px;
+        height: 500px;
+        border: 1px solid #000;
+        margin-top: 10px;
+        position: relative;
+      }
+
+      .p-box h1{
+        position: absolute;
+        top: 40px;
+      }
+
+      .p-box h2{
+        position: absolute;
+        top: 100px;
+      }
+  
+  - Position - Fixed/Example
+        Used for something which i want to see on the scrolling of the page
+      .fix-me{
+          position:fixed;
+          top: 400px;
+      }
+
   
   
   

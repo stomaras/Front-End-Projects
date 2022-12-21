@@ -69,7 +69,26 @@ Front-End-Projects
       - Fixed
       - Initial
       - Inherit
+- Position - Relative/Absolute example
   
+      .p-box{
+        width: 800px;
+        height: 500px;
+        border: 1px solid #000;
+        margin-top: 10px;
+        position: relative;
+      }
+
+      .p-box h1{
+        position: absolute;
+        top: 40px;
+      }
+
+      .p-box h2{
+        position: absolute;
+        top: 100px;
+      }
+
   
   
   

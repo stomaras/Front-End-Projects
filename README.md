@@ -167,3 +167,6 @@ Front-End-Projects
     - Actions forwarded to the reducer 
     - Reducer update the state in data store
     - Data Store updated subsciping components notified
+    
+  - React - Redux -Typescript
+    - action object must always has type property

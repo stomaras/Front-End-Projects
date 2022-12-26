@@ -1,10 +1,23 @@
 import {ActionType} from "../action-types";
-import {Action} from "../actions";
 
-const incrementCounter = (number: Number) => {
-    return async (dispatch: any) => {
-        dispatch({
-            type: ActionType.COUNTER_INCREMENT
-        });
+export const incrementCounter = (value: number) => {
+    return {
+        type: ActionType.COUNTER_INCREMENT,
+        payload: value
+    }
+}
+
+
+export const decrementCounter = (value: number) => {
+    return {
+        type: ActionType.COUNTER_DECREMENT,
+        payload: value
+    }
+}
+
+export const toggleCounter = (value:boolean) => {
+    return {
+        type: ActionType.TOGGLE,
+        payload: value
     }
 }

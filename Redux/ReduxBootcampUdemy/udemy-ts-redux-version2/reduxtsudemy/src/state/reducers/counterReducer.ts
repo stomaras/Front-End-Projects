@@ -3,13 +3,13 @@ import {ActionType} from "../action-types";
 import {Action} from "../actions";
 
 interface CounterState {
-    counter:number;
-    error: string | null;
+    counter: number;
+    showCounter: boolean;
 }
 
 const InitialCounterState: CounterState = {
-    counter:0,
-    error: null,
+    counter: 0,
+    showCounter: true,
 };
 
 const reducer = (
@@ -18,11 +18,20 @@ const reducer = (
 ): CounterState => {
     switch (action.type){
         case ActionType.COUNTER_INCREMENT:
-            return { counter: action.payload, error:null };
+            return { 
+                counter: state.counter + action.payload, 
+                showCounter: state.showCounter 
+            };
         case ActionType.COUNTER_DECREMENT:
-            return { counter: action.payload, error:null };
-        case ActionType.COUNTER_ERROR:
-            return { counter: 0, error: action.payload};
+            return { 
+                counter: state.counter - action.payload,
+                showCounter: state.showCounter
+            };
+        case ActionType.TOGGLE:
+            return {
+                counter: state.counter,
+                showCounter: !state.showCounter,
+            }
         default:
             return state;
     }

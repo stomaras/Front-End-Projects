@@ -10,9 +10,10 @@ interface CounterDecrementAction {
     payload:-1
 }
 
-interface CounterFailAction {
-    type:ActionType.COUNTER_ERROR,
-    payload: 'Error';
+interface ToggleAction {
+    type: ActionType.TOGGLE;
 }
 
-export type Action = CounterIncrementAction | CounterDecrementAction | CounterFailAction
+
+
+export type Action = CounterIncrementAction | CounterDecrementAction | ToggleAction;

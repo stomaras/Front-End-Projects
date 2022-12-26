@@ -173,4 +173,4 @@ Front-End-Projects
     - connect function can be used as a wrapper around our class component to connect that class component to the store 
     - using useSelector react redux set automatically a sibscription to the store for this component
     - first we define, actions and actionTypes then we define actionCreators , then we define reducers and then we use them with hooks useSelector, useDispatch
-    - undefined treated as falsy 
+    - undefined treated as falsy , we must always set all other states when we update a piece of state , because we override the old state 

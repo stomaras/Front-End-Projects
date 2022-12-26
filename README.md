@@ -174,3 +174,8 @@ Front-End-Projects
     - using useSelector react redux set automatically a sibscription to the store for this component
     - first we define, actions and actionTypes then we define actionCreators , then we define reducers and then we use them with hooks useSelector, useDispatch
     - undefined treated as falsy , we must always set all other states when we update a piece of state , because we override the old state 
+    - IMPORTANT !!! You should never never mutate the state inside the reducer, you must always return a new state object , we must override the existing state
+                    Objects and arrays are reference values in ts, this can lead to bugs and unpredictable behaviour , ui may not reflecting the state
+                    alaways create a new object of state, always return the state with an immutable way , be carefult that you will never accidentally mutate 
+                    your existing state, but you copy any objects which you added. So you always create a brand new object or array, whenever you need to update 
+                    data.

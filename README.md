@@ -170,3 +170,4 @@ Front-End-Projects
     
   - React - Redux -Typescript
     - action object must always has type property
+    - connect function can be used as a wrapper around our class component to connect that class component to the store 

@@ -1,6 +1,7 @@
 import { type } from "os";
 import {ActionType} from "../action-types";
 import {Action} from "../actions";
+import {createSlice} from '@reduxjs/toolkit';
 
 interface CounterState {
     counter: number;

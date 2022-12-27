@@ -187,4 +187,7 @@ Front-End-Projects
                      in an immutable way.
      - configureStore is like createStore , but if we have multiple state slices in a bigger application we can create a map of reducers you could say
        and behind the scenes configureStore will merge all those reducers into one big reducer.
+     - how we diapstch actions with slices?
+        we use counterSlice.actions ---> object full of keys , keys are the names of the methods
+        counterSlice.actions.toggleCounter() , returns an action object of this shape, {type:'some auto generated unique identifier'}
   

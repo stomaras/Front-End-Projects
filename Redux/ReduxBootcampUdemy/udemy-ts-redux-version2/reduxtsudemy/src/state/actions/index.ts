@@ -1,4 +1,6 @@
 import {ActionType} from "../action-types";
+import {counterSlice} from "../reducers/counterReducer";
+import {authSlice} from "../reducers/authReducer";
 
 interface CounterIncrementAction {
     type:ActionType.COUNTER_INCREMENT;
@@ -17,3 +19,10 @@ interface ToggleAction {
 
 
 export type Action = CounterIncrementAction | CounterDecrementAction | ToggleAction;
+
+export const counterActions = counterSlice.actions;
+export const authActions = authSlice.actions;
+
+
+
+

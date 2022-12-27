@@ -1,34 +1,39 @@
 import React from "react";
 import classes from "./Counter.module.css";
-import {useDispatch, useSelector} from "react-redux";
+// import {useDispatch, useSelector} from "react-redux";
 import {incrementCounter, decrementCounter, toggleCounter} from "../state/action-creators";
+import { useSelector } from "../state/store";
+import { useDispatch } from "react-redux";
+import { counterActions } from "../state/actions/index";
+
 
 export const Counter = () => {  
   const dispatch: any = useDispatch();
-  
-  const reduxState: any = useSelector((state) => state);
-  const {CounterState: {counter}} = reduxState
-  const {CounterState: {showCounter}} = reduxState
+  const count = useSelector((state:any) => state.counter.counter);
+  const showCounter = useSelector((state:any) => state.counter.showCounter);
+  // const reduxState: any = useSelector((state) => state);
+  // const {CounterState: {counter}} = reduxState
+  // const {CounterState: {showCounter}} = reduxState
   
 
   const toggleCounterHandler = () => {
-    dispatch(toggleCounter(showCounter));
+    dispatch(counterActions.toggleCounter());
   };
 
   const handleIncrementCounter = () => {
-    dispatch(incrementCounter(1));
+    dispatch(counterActions.increment());
   };
   const handleDecrementCounter = () => {
-    dispatch(decrementCounter(1));
+    dispatch(counterActions.decrement());
   }
 
   const incrementHandler = () => {
-    dispatch(incrementCounter(5));
+    dispatch(counterActions.increase(5));// {type: SOME_UNIQUE_IDENTIFIER, payload:5}
   }
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
-      {showCounter && <div className={classes.value}>{counter}</div>}
+      {showCounter && <div className={classes.value}>{count}</div>}
       <div>
         <button onClick={handleIncrementCounter}>Increment</button>
         <button onClick={incrementHandler}>Increase by 5</button>

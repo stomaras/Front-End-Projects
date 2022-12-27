@@ -181,4 +181,8 @@ Front-End-Projects
                     data.
     - createSlice : we are preparing slice of our global state , when we have different pieces of state which are not directly related 
                     let's sat an authentication status and counter status, we can create different slices in different files to make our code maintainable.
+    - redux/toolkit: when using redux toolkit and its functions like create slice , we can not accedentally manipulate the existing state.
+                     because redux toolkit internally uses another package, called immer which will detect code like this and will automatically clone the 
+                     existing state, create a new state object, keep all the state which we are not editing and override the state which we are editing 
+                     in an immutable way.
   

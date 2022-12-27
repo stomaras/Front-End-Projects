@@ -33,7 +33,7 @@ export const Counter = () => {
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
-      {showCounter && <div className={classes.value}>{count}</div>}
+      {showCounter && <div data-testid="countValue" className={classes.value}>{count}</div>}
       <div>
         <button onClick={handleIncrementCounter}>Increment</button>
         <button onClick={incrementHandler}>Increase by 5</button>

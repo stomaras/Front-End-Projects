@@ -185,4 +185,6 @@ Front-End-Projects
                      because redux toolkit internally uses another package, called immer which will detect code like this and will automatically clone the 
                      existing state, create a new state object, keep all the state which we are not editing and override the state which we are editing 
                      in an immutable way.
+     - configureStore is like createStore , but if we have multiple state slices in a bigger application we can create a map of reducers you could say
+       and behind the scenes configureStore will merge all those reducers into one big reducer.
   

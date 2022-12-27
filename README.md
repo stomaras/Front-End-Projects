@@ -179,3 +179,6 @@ Front-End-Projects
                     alaways create a new object of state, always return the state with an immutable way , be carefult that you will never accidentally mutate 
                     your existing state, but you copy any objects which you added. So you always create a brand new object or array, whenever you need to update 
                     data.
+    - createSlice : we are preparing slice of our global state , when we have different pieces of state which are not directly related 
+                    let's sat an authentication status and counter status, we can create different slices in different files to make our code maintainable.
+  

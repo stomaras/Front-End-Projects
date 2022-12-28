@@ -1,8 +1,13 @@
 // import counter from "../reducers/counterReducer";
 // import {combineReducers} from "redux";
 import React from "react";
-// const allReducers = combineReducers({
-//     CounterState: counter
-// });
+import { combineReducers } from "redux";
+import counterReducer from "./counterReducer";
+import authReducer from "./authReducer";
 
-// export default allReducers;
+const rootReducer = combineReducers({
+        counter: counterReducer,
+        auth: authReducer
+});
+
+export {rootReducer}

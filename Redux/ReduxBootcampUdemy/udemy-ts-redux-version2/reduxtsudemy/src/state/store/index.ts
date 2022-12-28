@@ -2,11 +2,13 @@ import {applyMiddleware, createStore} from "redux";
 // import allReducers from "../reducers/combineReducer";
 import thunk from "redux-thunk";
 import {counterSlice} from "../reducers/counterReducer";
-import {configureStore} from "@reduxjs/toolkit";
-import { TypedUseSelectorHook } from "react-redux";
+import {configureStore, PreloadedState} from "@reduxjs/toolkit";
+import { TypedUseSelectorHook, useDispatch } from "react-redux";
 import { useSelector as rawUseSelector } from "react-redux";
 import counterReducer from "../reducers/counterReducer";
 import authReducer from "../reducers/authReducer";
+import { rootReducer } from "../reducers/combineReducer";
+import { type } from "os";
 
 export const store = configureStore({
     reducer: {
@@ -15,14 +17,16 @@ export const store = configureStore({
     }
 });
 
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
-console.log(store.getState());
-export const useSelector: TypedUseSelectorHook<RootState> = rawUseSelector;
+export function setupStore(preloadedState?: PreloadedState<RootState>){
+    return configureStore({
+        reducer: rootReducer,
+        preloadedState
+    })
+}
 
-// const store = createStore(
-//     // allReducers,
-//     // applyMiddleware(thunk)
-// );
 
-// export default store;
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>
+export type AppDispatch = AppStore['dispatch'];
+export const useAppSelector: TypedUseSelectorHook<RootState> = rawUseSelector;
+export const useAppDispatch: () => AppDispatch = useDispatch

@@ -4,18 +4,23 @@ import App from './App';
 import {storeState} from "./app-util/initialStoreState";
 import {renderWithProvider} from "./app-util/renderWithProvider";
 import { store } from './state/store';
+import userEvent from '@testing-library/user-event';
+import {counterActions} from "../src/state/actions/index";
+import { stat } from 'fs';
 
 let initialCount:number;
 
-beforeEach(() => {
+beforeEach(async () => {
   renderWithProvider(<App />, store);
   initialCount = store.getState().counter.counter;
-})
+  
+});
+
+
 describe("Renders App  Correctly UI Testing", () => {
   it("Expect header heading to be in the document", () => {
     const headerRedux = screen.getByText(/redux auth/i);
     expect(headerRedux).toBeInTheDocument();
-    screen.debug(undefined,100000);
   });
   it("Expect Counter Component and sub features to be in the document", () => {
     const reduxCounter = screen.getByRole('heading', {  name: /redux counter/i});
@@ -56,3 +61,15 @@ describe("Renders App  Correctly UI Testing", () => {
     expect(loginButton).toBeInTheDocument();
   });
 });
+
+describe("App User Interactions Testing", () => {
+  it("Decrement button click and decrease by 1 counter value each time button clicked", async () => {
+    let state = store.getState().counter;
+    expect(state.counter).toBe(0);
+    store.dispatch(counterActions.decrement());
+    console.error(store.getState());
+
+  });
+});
+
+

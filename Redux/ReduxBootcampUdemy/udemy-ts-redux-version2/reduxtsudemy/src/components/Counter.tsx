@@ -2,15 +2,15 @@ import React from "react";
 import classes from "./Counter.module.css";
 // import {useDispatch, useSelector} from "react-redux";
 import {incrementCounter, decrementCounter, toggleCounter} from "../state/action-creators";
-import { useSelector } from "../state/store";
+import { useAppSelector } from "../state/store";
 import { useDispatch } from "react-redux";
 import { counterActions } from "../state/actions/index";
 
 
 export const Counter = () => {  
   const dispatch: any = useDispatch();
-  const count = useSelector((state:any) => state.counter.counter);
-  const showCounter = useSelector((state:any) => state.counter.showCounter);
+  const count = useAppSelector((state:any) => state.counter.counter);
+  const showCounter = useAppSelector((state:any) => state.counter.showCounter);
   // const reduxState: any = useSelector((state) => state);
   // const {CounterState: {counter}} = reduxState
   // const {CounterState: {showCounter}} = reduxState

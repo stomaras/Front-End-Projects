@@ -23,7 +23,6 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
     store?: AppStore
 }
 
-
 export const renderWithProvidersSlices = (
     ui: React.ReactElement,
     {
@@ -32,7 +31,6 @@ export const renderWithProvidersSlices = (
         store = setupStore(preloadedState),
         ...renderOptions
     }: ExtendedRenderOptions = {}
-
 ) => {
     function Wrapper({children}: PropsWithChildren<{}>): JSX.Element {
         return <Provider store={store}>{children}</Provider>

@@ -13,7 +13,20 @@ HTML Part 1
       - html elements themselves will never de displayed on our web pages, thei job is to tell on the browser 
         how to display content and in which order.
       - this is the job of the browser to interpreter these elements into a beautiful crafted web site 
-
+  - HTML Tags
+      - whatever is written between html tags is called attribute 
+      - html element is the first element in an html document
+      - meta data refers to information about information 
+    
+  - HTML Head Section 
+      - deploying a web site means deploying on the internet so everyone around the world can see it 
+      - html meta data used for identification purposes some of those can be displayed on the browser 
+      - <meta charset="UTF-8"/> , self closing tag , characters that we can use in our website, english , or others you can use special characters like % & *
+      - <meta name="viewport"/> , this is for responsiveness purposes , youw website should look good on all devices 
+      - <meta http-equiv="X-UA-Compatible..."/> , means it is a document mode tag allows web authors to choose what version of Internet Explorer that page 
+        should be rendered as.
+      - <meta name="description" content="This financial service provides consulting">.
+      - <meta name="keywords" content="finance, consulting">, your website will go higher on the global ranking. 
 
 
 HTML Part 2

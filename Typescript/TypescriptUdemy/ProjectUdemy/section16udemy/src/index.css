@@ -7,3 +7,15 @@
   border-color: #ff8800;
   background-color: #fbe8d2;
 }
+
+button:hover,
+button:active {
+  background-color: #33059e;
+  border-color: #33059e;
+}
+
+button:disabled,
+button:disabled:hover,
+button:disabled:active {
+  background-color: #ccc;
+}

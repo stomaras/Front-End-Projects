@@ -3,6 +3,23 @@ Front-End-Projects
 
 #HTML5
 
+HTML Part 1
+  
+  - What is HTML 
+      - html have 2 main sections one is the head section and one is the body section 
+      - body section : the order that html elements stack on each other represents the order of the website 
+      - div , is an html element , the role of an html element is to tell the browser how to display the content 
+      - thw way html elements are structure specify the structure of our web page 
+      - html elements themselves will never de displayed on our web pages, thei job is to tell on the browser 
+        how to display content and in which order.
+      - this is the job of the browser to interpreter these elements into a beautiful crafted web site 
+
+
+
+HTML Part 2
+
+HTML Part 3
+
 
 #CSS3
 

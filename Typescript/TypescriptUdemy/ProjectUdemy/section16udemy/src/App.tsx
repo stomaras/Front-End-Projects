@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import SimpleInput from './components/SimpleInput';
+import { BasicForm } from './components/BasicForm';
 
 function App() {
   return (

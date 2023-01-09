@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, RenderResult, screen } from '@testing-library/react';
+import { fireEvent, render, RenderResult, screen, waitFor } from '@testing-library/react';
 import App from './App';
 import userEvent from '@testing-library/user-event';
 
@@ -21,27 +21,32 @@ beforeEach(() => {
 describe("Testing Infrastructure of Section 16", () => { 
     it('renders Simple Input Correctly', () => {
         expect(appWrapper).toBeInTheDocument();
-
         const name = screen.getByText(/your name/i);
         expect(name).toBeInTheDocument();
-
         const email = screen.getByText(/your e-mail/i);
         expect(email).toBeInTheDocument();
-
         for (let index = 0; index < textBoxes.length; index++) {
             const textBox = textBoxes[index];
             expect(textBox).toBeInTheDocument();
         }
         expect(submitButton).toBeInTheDocument();
         expect(submitButton).toBeDisabled();
-
     },5000);
 });
 
 describe("Testing Infrastructure of Section 16 Interactions", () => {
     it("Name TextBox Type Correctly", async () => {
-        await userEvent.type(textBoxName, "tom");
-        await userEvent.type(textBoxEmail, "tom@gmail.com");
+        await userEvent.type(textBoxName,"tom");
+        await userEvent.type(textBoxEmail,"tom@gmail.com");
         expect(submitButton).toBeEnabled();
-    },5000);
+        await userEvent.click(submitButton);
+        expect(textBoxName).toHaveValue("");
+        expect(textBoxEmail).toHaveValue("");
+    }, 5000);
+    // it("Name warning to be in the document after Blur Event",async  () => {
+    //     fireEvent.focus(textBoxName);
+    //     await userEvent.tab();
+    //     expect(screen.getByText(/name must not be empty\./i)).toBeInTheDocument();
+        
+    // })
 });

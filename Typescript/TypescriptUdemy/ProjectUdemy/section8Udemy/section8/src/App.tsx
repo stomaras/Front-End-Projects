@@ -5,7 +5,7 @@ import AddUser from './components/Users/AddUser';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-testid="app">
       <AddUser/>
     </div>
   );

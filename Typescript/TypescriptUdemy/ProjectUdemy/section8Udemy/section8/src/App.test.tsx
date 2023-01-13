@@ -29,7 +29,7 @@ describe("Section 8 Testing", () => {
     expect(usersList).toBeInTheDocument();
   },5000);
 
-  it("Type name inside text box and age ", async () => {
+  it("Type name inside text box and age click button expect user to be in the document", async () => {
     await user.type(nameField, "Tom");
     expect(nameField).toHaveValue("Tom");
     await user.type(ageField, "25");
@@ -39,6 +39,5 @@ describe("Section 8 Testing", () => {
     expect(screen.getByText(/tom/i)).toBeInTheDocument();
     expect(screen.getByText(/25/i)).toBeInTheDocument();
   },5000);
-
   
 });

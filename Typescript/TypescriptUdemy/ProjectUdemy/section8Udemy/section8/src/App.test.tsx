@@ -22,7 +22,6 @@ describe("Section 8 Testing", () => {
   }, 5000);
 
   it('Expect App Component to be in the document', () => {
-    screen.debug(undefined, 100000);
     expect(nameField).toBeInTheDocument();
     expect(ageField).toBeInTheDocument();
     expect(button).toBeInTheDocument();
@@ -34,10 +33,20 @@ describe("Section 8 Testing", () => {
     expect(nameField).toHaveValue("Tom");
     await user.type(ageField, "25");
     await user.click(button);
-    screen.debug(undefined, 100000);
     expect(screen.getByRole('listitem')).toBeInTheDocument();
     expect(screen.getByText(/tom/i)).toBeInTheDocument();
     expect(screen.getByText(/25/i)).toBeInTheDocument();
+  }, 5000);
+  
+  it("Expect error modal to be in the document after type wrong credentials - click okay button - disappear error modal", async () => {
+    await user.type(ageField, "-1");
+    await user.click(button);
+    const headingError = screen.getByRole('heading', { name: /invalid input/i });
+    expect(headingError).toBeInTheDocument();
+    const okayButton = screen.getByRole('button', { name: /okay/i });
+    expect(okayButton).toBeInTheDocument();
+    await user.click(okayButton);
+    expect(headingError).not.toBeInTheDocument();
   },5000);
   
 });

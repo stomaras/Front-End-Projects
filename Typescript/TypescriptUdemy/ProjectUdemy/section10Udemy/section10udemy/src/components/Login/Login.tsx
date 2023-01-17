@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
@@ -12,21 +12,34 @@ export const Login = (props:any) => {
     const [enteredPassword, setEnteredPassword] = useState('');
     const [passwordIsValid, setPasswordIsValid] = useState(false);
     const [formIsValid, setFormIsValid] = useState(false);
+    
+  // useEffect(() => {
+  //   console.log("EFFECT RUNNING")
+
+  //   return () => {
+  //     console.log('EFFECT CLEAN UP');
+  //   };
+  // },[enteredEmail]);
+  
+  useEffect(() => {
+    const identifier = setTimeout(() => {
+      console.log('Checking form validity!');
+      setFormIsValid(
+        enteredEmail.trim().length > 6 && enteredEmail.includes('@')
+      );
+    }, 500);
+
+    return () => {
+      clearTimeout(identifier);
+    };
+  }, [enteredEmail, enteredPassword]);
   
     const emailChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
       setEnteredEmail(event.target.value);
-  
-      setFormIsValid(
-        event.target.value.includes('@') && enteredPassword.trim().length > 6
-      );
     };
   
     const passwordChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
       setEnteredPassword(event.target.value);
-  
-      setFormIsValid(
-        event.target.value.trim().length > 6 && enteredEmail.includes('@')
-      );
     };
   
     const validateEmailHandler = () => {

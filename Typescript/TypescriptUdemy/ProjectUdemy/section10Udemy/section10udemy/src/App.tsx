@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Navigation } from './components/MainHeader/Navigation';
@@ -51,5 +51,22 @@ useEffect(() => {...}, [dependencies]);
 - 
 
 We need to store somewhere in order to persists the reload.
+
+-------------------------------------Understanding useReducer()---------------------------------------------------------
+useReducer() can be used as a replacment for useState() if you need "more powerful state management"
+
+we use useReducer when we have state update which depends on other states.
+we use useReducer when we have state that belongs together such as the value and the validity of the value
+
+const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
+
+state = the latest state snapshot , is a state management mechanism
+dispatchFn = can be used to dispatch a new action (i.e trigger an update of the state), instead of just setting a new state value, 
+             you will dispatch an action. and that action will be consumed by the first argument you pass to useReducer function
+reducerFn = A function that is triggered automatically once an action is dispatched (via dispatchFn()) - it receives the latest state
+            snapshpot and should return the new, updated state.
+            (prevState, action) => newState
+initialState = the initial state
+initFn = A function to set the initial state programatically.
 
 */

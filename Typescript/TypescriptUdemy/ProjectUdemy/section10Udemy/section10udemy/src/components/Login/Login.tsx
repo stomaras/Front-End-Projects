@@ -3,12 +3,33 @@ import React, { useState, useEffect, useReducer } from 'react';
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
+import { act } from 'react-dom/test-utils';
+import { ActionType } from './actions-types';
+import { Action, UserInputAction } from "./actions/index";
+import { FormField } from './state';
 
-const emailReducer = (state: any, action: any) => {
-  if (action.type === 'USER_INPUT') {
-    return { value: action.val, isValid: action.valid.includes('@')};
+const initialState = {
+  value: '',
+  isValid: false,
+}
+
+const emailReducer = (state: any, action: Action) => {
+  switch (action.type) {
+    case ActionType.USER_INPUT:
+      return {
+        value: action.val,
+        isValid: action.val.includes("@")
+      }
+    case ActionType.INPUT_BLUR:
+      return {
+        value: state.value,
+        isValid: state.value.includes("@")
+      }
+    default:
+      return {
+        initialState
+      }
   }
-  return { value: '', isValid: false };
 }
 
 export const Login = (props:any) => {
@@ -19,7 +40,7 @@ export const Login = (props:any) => {
     const [passwordIsValid, setPasswordIsValid] = useState(false);
   const [formIsValid, setFormIsValid] = useState(false);
   
-  const [emailState, dispatchEmail] = useReducer(emailReducer, {value:'', isValid:false});
+  const [emailState, dispatchEmail] = useReducer(emailReducer, initialState);
     
   // useEffect(() => {
   //   console.log("EFFECT RUNNING")
@@ -43,7 +64,9 @@ export const Login = (props:any) => {
   // }, [enteredEmail, enteredPassword]);
   
     const emailChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-      dispatchEmail({ type: 'USER_INPUT', val: event.target.value });
+      dispatchEmail({
+        type: 'USER_INPUT', val: event.target.value,
+      });
 
       setFormIsValid(
         enteredPassword.trim().length > 6 && emailState.value.includes('@')

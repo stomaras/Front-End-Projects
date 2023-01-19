@@ -1,4 +1,4 @@
-export interface FormField {
+export interface InputState {
     value: string,
     isValid: boolean
 }

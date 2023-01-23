@@ -16,6 +16,8 @@ describe(" Section 10 Testing", () => {
     textFields = screen.getAllByRole("textbox");
     textFieldEmail = screen.getByRole('textbox', { name: /e\-mail/i });
     textFieldPassword = screen.getByLabelText(/password/i);
+    textFields.push(textFieldEmail);
+    textFields.push(textFieldPassword);
     screen.debug(undefined, 100000);
   }, 5000);
   

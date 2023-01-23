@@ -1,13 +1,15 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer, createContext } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Navigation } from './components/MainHeader/Navigation';
 import { Login } from './components/Login/Login';
 import { MainHeader } from './components/MainHeader/MainHeader';
 import { Home } from "./components/Home/Home";
+import {AuthContext} from './store/auth-context';
 
-function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(false);
 
   useEffect(() => {
     const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
@@ -31,14 +33,13 @@ function App() {
   }
 
   return (
-    <React.Fragment>
-      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
-      <main>
-        {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && <Home onLogout={logoutHandler} />}
-      </main>
-    </React.Fragment>
-    
+      <AuthContext.Provider value={{isLoggedIn:isLoggedIn, setIsLoggedIn}}>
+        <MainHeader onLogout={logoutHandler} />
+        <main>
+          {!isLoggedIn && <Login onLogin={loginHandler} />}
+          {isLoggedIn && <Home onLogout={logoutHandler} />}
+        </main>
+      </AuthContext.Provider>
   );
 }
 
@@ -69,4 +70,13 @@ reducerFn = A function that is triggered automatically once an action is dispatc
 initialState = the initial state
 initFn = A function to set the initial state programatically.
 
+------------------------useReducer vs useState-------------------------------
+
+useState: The main state management tool
+          Great for independent pieces of state/data
+          Great if state updates are easy and limited to a few kinds of updates
+
+useReducer: Great if you need "more power"
+            should be considered if you have related pieces of state/data
+            can be helful if you have more complex state updates / actions   
 */

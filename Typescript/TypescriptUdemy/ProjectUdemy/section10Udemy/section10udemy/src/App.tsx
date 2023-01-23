@@ -33,7 +33,7 @@ const App = () => {
   }
 
   return (
-      <AuthContext.Provider value={{isLoggedIn:isLoggedIn, setIsLoggedIn}}>
+      <AuthContext.Provider value={{isLoggedIn:isLoggedIn, setIsLoggedIn, onLogout: logoutHandler}}>
         <MainHeader onLogout={logoutHandler} />
         <main>
           {!isLoggedIn && <Login onLogin={loginHandler} />}
@@ -78,5 +78,14 @@ useState: The main state management tool
 
 useReducer: Great if you need "more power"
             should be considered if you have related pieces of state/data
-            can be helful if you have more complex state updates / actions   
+            can be helful if you have more complex state updates / actions 
+            
+
+Note!!!
+
+with react context you can pass down functions , objects, boolean , string e.t.c
+In most cases you will use props to pass data to components, because props are your mechanism 
+to configure components and to make the reusable , only if you have something which you would forward 
+through a lot of components and you are forwarding it to a component that does something very specific 
+
 */

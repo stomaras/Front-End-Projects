@@ -5,6 +5,9 @@ import { createContext, useState } from "react";
 export type UserStatus = {
     isLoggedIn: boolean
     setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+    onLogout: () => void
 }
 
-export const AuthContext = React.createContext<UserStatus>({isLoggedIn:false} as UserStatus);
+export const AuthContext = React.createContext<UserStatus>({ isLoggedIn: false } as UserStatus);
+
+

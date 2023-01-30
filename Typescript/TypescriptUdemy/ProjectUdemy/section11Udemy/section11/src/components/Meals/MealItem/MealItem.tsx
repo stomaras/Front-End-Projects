@@ -1,4 +1,5 @@
 import classes from "./MealItem.module.css";
+import MealItemForm from "./MealItemForm";
 
 const MealItem = (props: any) => {
 
@@ -20,7 +21,7 @@ const MealItem = (props: any) => {
                 </div>
             </div>
             <div>
-
+                <MealItemForm id={props.id} />
             </div>
         </li>
     )

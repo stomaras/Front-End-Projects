@@ -19,14 +19,12 @@ beforeAll(() => {
 beforeEach(() => {
 
   render(<App />);
-  screen.debug(undefined, 100000);
   // cardButton = screen.getByRole('button');
   mealsSummaryHeader = screen.getByRole('heading', { name: /delicious food, delivered to you/i });
   mealsSummaryP1 = screen.getByText(/choose your favorite meal from our broad selection of available meals and enjoy a delicious lunch or dinner at home\./i);
   mealsSummaryP2 = screen.getByText(/all our meals are cooked with high\-quality ingredients, just\-in\-time and of course by experienced chefs!/i);
   mealsList = document.querySelectorAll('li');
   mealsUl = document.querySelectorAll('ul')[0];
-  screen.debug(undefined, 100000);
 
 }, 5000);
 

@@ -46,6 +46,10 @@ Meals Folder :
 Card Folder : 
 - Will hold all the card related components.
 
+concat() vs push()
+- concat return a new array 
+- push return same array
+
 
 
 

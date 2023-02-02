@@ -1,6 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import { act } from 'react-dom/test-utils';
+import userEvent from '@testing-library/user-event';
 
 
 
@@ -26,6 +28,7 @@ describe(" Section 10 Testing", () => {
     expect(textFieldEmail).toBeInTheDocument();
     expect(textFieldPassword).toBeInTheDocument();
   });
+ 
 });
 
 

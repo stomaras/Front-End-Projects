@@ -77,3 +77,19 @@ const numberStorage = new DataStorage<number>();
 numberStorage.addItem(1);
 numberStorage.addItem(2);
 
+interface CourseGoal {
+    title: string;
+    description: string;
+    completeUntil: Date;
+}
+
+// with partial make all options optional
+function createCourseGoal(title:string, description:string, date: Date): CourseGoal {
+    let courseGoal: Partial<CourseGoal> = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = date;
+    return courseGoal as CourseGoal;
+}
+
+const names: Readonly<string[]> = ['Max', 'Anna'];

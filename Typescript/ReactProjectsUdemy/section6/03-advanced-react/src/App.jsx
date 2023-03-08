@@ -1,9 +1,10 @@
-import Starter from './tutorial/01-useState/starter'
+import List from "./tutorial/05-leverage-javascript/final/List";
+
 function App() {
   return (
     <div className='container'>
-      <Starter/>
-      <Final/>
+      Leverage Javascript
+      <List/>
     </div>
   );
 }

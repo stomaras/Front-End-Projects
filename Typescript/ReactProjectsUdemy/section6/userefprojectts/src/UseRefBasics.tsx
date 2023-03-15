@@ -4,10 +4,21 @@ import { useEffect, useRef, useState } from 'react'
 const UseRefBasics = () => {
     const [value, setValue] = useState(0);
     const ref = useRef<HTMLInputElement | null>(null);
+    const isMounted = useRef<boolean>(false);
 
-    // useEffect(() => {
-    //    console.log(ref);
-    // });
+
+    useEffect(() => {
+        ref.current?.focus();
+    })
+
+    useEffect(() => {
+        if (!isMounted.current) {
+            isMounted.current = true;
+            return 
+        }
+        console.log('re-render');
+        
+    },[value]);
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();

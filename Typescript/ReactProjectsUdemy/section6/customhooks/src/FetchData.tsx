@@ -1,29 +1,11 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+
+import useFetch from './useFetch';
 const url = 'https://api.github.com/users/QuincyLarson';
 
 const FetchData = () => {
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
-    const [user, setUser] = useState(null);
 
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const resp = await fetch(url);
-                const user = await resp.json();
-                setUser(user);
-                console.log(user);
-            } catch (error) {
-                setIsError(true);
-                
-            }
-            setIsLoading(false);
-        };
-        fetchUser();
-    },[]);
+    const {isLoading, isError , data: user} = useFetch(url)
 
     if (isLoading) {
         return <h2>Loading ...</h2>
@@ -35,9 +17,22 @@ const FetchData = () => {
 
   return (
       <div>
-          <h2>Fetch Data</h2>
+          <img style={{ width: '150px', borderRadius: '25px' }} src={user.avatar_url} alt={user.name} />
+          <h2>{user.name}</h2>
+          <h4>works at {user.company}</h4>
     </div>
   )
 }
 
 export default FetchData;
+
+
+/*
+    Challenge
+    - App.jsx import fetch-data
+    - take a look at the component
+    - try to set up custom fetch hook
+    - hint:
+      hook should return isLoading, isError, user and take url as parameter
+*/
+

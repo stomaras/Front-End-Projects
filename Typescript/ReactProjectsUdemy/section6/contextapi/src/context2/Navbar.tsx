@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react'
+import React, { useState, createContext, useContext } from 'react'
 import NavLinks from './NavLinks'
 
 
@@ -20,6 +20,10 @@ export const NavbarContext = createContext<NavbarContent>({
     user: initialPerson,
     logout: () => {}
 });
+
+// custom hook
+
+export const useAppContext = () => useContext(NavbarContext);
 
 
 const Navbar = () => {

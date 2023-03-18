@@ -1,0 +1,8 @@
+- in src create context.tsx
+- setup a global context - GlobalContext
+- setup a component with one state value
+- return GlobalContext.Provider from AppContext
+- wrap the entire application (main.tsx) - children prop "gotcha"
+- setup a custom hook
+- access in App.tsx
+- log result

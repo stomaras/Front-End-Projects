@@ -2,22 +2,37 @@ import React from 'react'
 import { data } from "./data";
 import { people } from "./data";
 import { Person } from './data';
+import { useState, useReducer } from 'react';
+
+
+const initialState = {
+    people:data,
+}
+
+const reducer = () => {
+
+}
+
 
 const UseStateArray = () => {
+
+
+    const [state, dispatch] = useReducer(reducer,initialState);
+
     const [people, setPeople] = React.useState<any>(data);
 
     const removeItem = (id: number) => {
         // let newPeople = people.filter((person: Person) => person.id !== id);
         // setPeople(newPeople);
-        setPeople(people.filter((person: Person) => person.id !== id));
+        // setPeople(people.filter((person: Person) => person.id !== id));
     };
 
     const clearAllItems = () => {
-        setPeople([]);
+        // setPeople([]);
     };
 
     const resetList = () => {
-        setPeople(data);
+        // setPeople(data);
     }
 
   return (

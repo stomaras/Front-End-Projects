@@ -24,3 +24,9 @@ can be a simple div element containing the list of Person components.
 Create a Person component to render the information for each person.
 This component should receive the person data as props and render the image, name, and
 age information.
+
+### Clear List
+
+In App.tsx, add a button to clear the list, and set up
+the functionality by defining a function that resets
+the state variable to an empty array.

@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
-import data from "./data";
+import humans, { Human } from "./data";
 import "./App.css";
+import List from "./List";
 
 function App() {
-  const [people, setPeople] = useState(data);
-  console.log(people);
-  return <div className="App">
-    <h2>Birthday Reminder Starter</h2>;
-  </div>;
+  const [persons, setPersons] = useState<Human[]>(humans);
+  return <main>
+    <section className="container">
+      <h3>{persons.length} birthdays today</h3>
+      <List persons={persons} />
+      <button type="button" className="btn btn-block" onClick={()=>setPersons([])}>Clear all</button>
+    </section>
+  </main>;
 }
 
 export default App;

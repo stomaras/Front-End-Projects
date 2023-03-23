@@ -27,6 +27,9 @@ HTML Part 1
         should be rendered as.
       - <meta name="description" content="This financial service provides consulting">.
       - <meta name="keywords" content="finance, consulting">, your website will go higher on the global ranking. 
+    
+  - Arial-Labels 
+    - in order to query an element with attribute arial-label use findAllByLabelText function of rtl
 
 
 HTML Part 2

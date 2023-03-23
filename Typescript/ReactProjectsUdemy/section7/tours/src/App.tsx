@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Tour, tours } from "./Models/Models";
+import Loading from './Loading';
+import Tours from './Tours';
 
 const url = 'https://course-api.com/react-tours-project';
 
@@ -14,20 +16,29 @@ function App() {
     try {
       const response = await fetch(url);
       const tours = await response.json();
-      console.log(tours);
+      setTours(tours);
     } catch (error) {
       console.log(error);
     }
+    setIsLoading(false);
   }
 
   useEffect(() => {
     fetchTours();
-  },[]);
+  }, []);
+  
+  if (isLoading) {
+    return <main>
+      <Loading/>
+    </main>
+  }
+
+
 
   return (
-    <div className="App">
-      Tours Starter
-    </div>
+    <main className="App">
+      <Tours tours={tours} />
+    </main>
   );
 }
 

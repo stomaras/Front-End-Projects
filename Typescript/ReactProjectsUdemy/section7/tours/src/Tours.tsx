@@ -4,6 +4,7 @@ import Tour from './Tour';
 
 export interface ToursProps{
     tours: tour[];
+    removeTour(id:number): void
 }
 
 const Tours = (props: ToursProps) => {
@@ -16,7 +17,7 @@ const Tours = (props: ToursProps) => {
           <div className="tours">
               {props.tours.map((tour) => {
                   console.log(tour);
-                  return <Tour key={tour.id} {...tour} />
+                  return <Tour key={tour.id} {...tour} removeTour={props.removeTour} />
               })}
           </div>
     </section>

@@ -32,3 +32,10 @@ To implement the "read more" functionality, you can add a button to each Tour co
 that, when clicked, expands the description of the tour. You can achieve this by updating
 the state of the Tour component to toggle a "read more" flag, and conditionally rendering the full
 description based on the flag.
+
+#### Re-fetch Tours
+
+Finally, you can implement a "re-fetch" functionality by adding a button or other
+user-interface element that, when clicked, re-fetches the tours data from the URL and updates
+the state of the Tours component. You may also want to add a loading state again during the
+re-fetching process.

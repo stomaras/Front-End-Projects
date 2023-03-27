@@ -16,3 +16,13 @@ and containing properties such as name, job, image URL, and text.
 
 Then, set up a state value that controls which person
 from the list id displayed
+
+### React Icons (Optional)
+
+npm install react-icons --save
+
+### Render First Person
+
+To render the first person in the list, you can access the first
+item in the reviews array and use its properties to display the person's
+image (inline styles), name, job, and review text.

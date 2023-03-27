@@ -26,3 +26,12 @@ npm install react-icons --save
 To render the first person in the list, you can access the first
 item in the reviews array and use its properties to display the person's
 image (inline styles), name, job, and review text.
+
+### Prev and Next
+
+To allow the user to cycle through the reviews, you can set up
+buttons to display the next and previous reviews in the list.
+You can do this by keeping track of the current index in the reviews
+array, and updating the index when the user clicks the next or previous
+button. You can then use the updated index to access the corresponding person's
+review from the reviews array.

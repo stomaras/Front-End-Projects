@@ -9,9 +9,6 @@ function App() {
   const [index, setIndex] = useState<any>(0)
   const { name, job, image, text } = people[index];
 
-  console.log(1%4);
-  
-
   const checkNumber = (number: Number):Number => {
     if (number > people.length - 1) {
       return 0;  
@@ -40,7 +37,7 @@ function App() {
     if (randomNumber === index) {
       randomNumber = index + 1;
     }
-    // setIndex(checkNumber(randomNumber));
+    setIndex(checkNumber(randomNumber));
   };
   
   
@@ -48,7 +45,7 @@ function App() {
     <main>
       <article className='review'>
         <div className="img-container">
-          <img src={image} alt={name} className="person-img"/>
+          <img src={image} alt={name} className="person-img" />
           <span className='quote-icon'>
             <FaQuoteRight/>
           </span>

@@ -50,6 +50,7 @@ html {
   --textColor: var(--grey-900);
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
+  --lineHeight:1.5rem;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
   --fixed-width: 600px;
@@ -269,6 +270,7 @@ main {
   transition: var(--transition);
   text-align: center;
 }
+
 .review:hover {
   box-shadow: var(--shadow-3);
 }
@@ -305,6 +307,7 @@ main {
   color: var(--white);
 }
 
+/* create img-container background */
 .img-container::before {
   content: '';
   width: 100%;
@@ -315,28 +318,31 @@ main {
   top: -0.25rem;
   right: -0.5rem;
 }
+
 .author {
   margin-bottom: 0.5rem;
 }
+
 .job {
+  margin-bottom: 0.75rem;
   text-transform: uppercase;
   color: var(--primary-500);
   font-size: 0.85rem;
   font-weight: 500;
-  margin-bottom: 0.75rem;
   letter-spacing: var(--letterSpacing);
 }
 
 .info {
   margin-bottom: 0.75rem;
-  line-height: 1.5;
+  line-height: var(--lineHeight);
   color: var(--grey-600);
 }
+
 .btn-container {
   margin-bottom: 1rem;
 }
-.prev-btn,
-.next-btn {
+
+.prev-btn, .next-btn {
   color: var(--primary-700);
   font-size: 1.25rem;
   background: transparent;
@@ -345,12 +351,8 @@ main {
   transition: var(--transition);
   cursor: pointer;
 }
+
 .prev-btn:hover,
-.next-btn:hover {
+.next-btn:hover{
   color: var(--primary-500);
 }
-
-.beer{
-  font-size: 2.5rem;
-}
-

@@ -53,6 +53,7 @@ html {
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
   --fixed-width: 600px;
+  --questionMarginTop: 1rem;
 
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -255,12 +256,12 @@ ul {
 /* ============= PROJECT CSS =============== */
 /* optional */
 
-body {
+body{
   background: var(--primary-100);
 }
-main {
-  min-height: 100vh;
-  /* using flex because of better browser support */
+
+main{
+  min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -268,56 +269,57 @@ main {
 
 .container {
   width: 90vw;
-  margin: 5rem auto;
-  background: var(--white);
-  border-radius: var(--borderRadius);
-  padding: 2.5rem;
   max-width: 800px;
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--borderRadius);
   box-shadow: var(--shadow-3);
 }
+
 .container h1 {
   text-align: center;
   margin-bottom: 3rem;
   color: var(--grey-700);
 }
+
 .question {
+  border: 1px solid red;
   padding: 1rem 1.5rem;
   border: 2px solid var(--grey-200);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   border-radius: var(--borderRadius);
   box-shadow: var(--shadow-3);
-  margin-bottom: 2rem;
 }
 
 .question p {
   color: var(--grey-500);
   line-height: 2;
-  margin-top: 1rem;
+  margin-top: var(--questionMarginTop);
 }
+
 .question header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 1rem;
+  align-items: center;
 }
+
 .question h5 {
   font-weight: 500;
   line-height: 1.5;
   color: var(--grey-700);
 }
+
 .question-btn {
   background: transparent;
   border-color: transparent;
   width: 2rem;
   height: 2rem;
   background: var(--primary-900);
+  color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  color: var(--white);
-  cursor: pointer;
-  /* optional - last item */
-  align-self: flex-start;
-  min-width: 2rem;
 }

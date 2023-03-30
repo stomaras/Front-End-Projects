@@ -7,18 +7,21 @@ export interface SingleQuestionProps{
     info: string;
 }
 
-const SingleQuestion = (props:SingleQuestionProps) => {
+const SingleQuestion = (props: SingleQuestionProps) => {
   
-    const[showInfo, setShowInfo] = useState<boolean>(false)
+    const [showInfo, setShowInfo] = useState(true);
 
     return (
         <article className='question'>
             <header>
                 <h5>{props.title}</h5>
+                <button className='question-btn' onClick={() => setShowInfo(!showInfo)}>
+                    {showInfo ? <AiOutlineMinus/> : <AiOutlinePlus/>}
+                </button>
             </header>
-            <p>{props.info}</p>
-    </article>
-  )
-}
+            {showInfo && <p>{props.info}</p>}
+        </article>
+    );
+};
 
 export default SingleQuestion

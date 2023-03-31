@@ -1,6 +1,6 @@
 
 
-export interface Menu {
+export interface Menus {
     id: number;
     title: string;
     category: string;
@@ -92,6 +92,6 @@ const menu9 = {
 
 
 
-const menu:Menu[] = [menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9];
+const menus:Menus[] = [menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9];
   
-export default menu;
+export default menus;

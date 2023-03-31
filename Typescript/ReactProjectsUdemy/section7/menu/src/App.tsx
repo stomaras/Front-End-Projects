@@ -7,7 +7,7 @@ import Menu from './Menu';
 import Categories from './Categories';
 
 // // get all categories from all items on an array 
- const tempCategories = menus.map((item) => item.category);
+const tempCategories = menus.map((item) => item.category);
 
 // // get unique categories on a Set
  const tempSet = new Set(tempCategories);
@@ -17,7 +17,7 @@ import Categories from './Categories';
 // // then spread the items
 const tempItems = ['all', ...tempSet];
 
-const allCategories = ['all',...new Set(menus.map((item) => item.category))]
+const allCategories = ['all', ...new Set(menus.map((item) => item.category))]
 
 function App() {
   const [menuItems, setMenuItems] = useState<Menus[]>(menus);

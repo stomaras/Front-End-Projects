@@ -47,6 +47,19 @@ In Javascript , The Set Object is a collection of unique values.
 It allows you to store values of any type, such as primitive types
 (numbers, strings, booleans) and object references.
 
+#### Filter Functionality
+
+Set up filter functionality where once the user clicks on the
+button, only the menu items that belong to the selected category are displayed.
+To do this, define a function that takes a category as a parameter and updates
+the state to show only the menu items that belong to that category.
+You can then pass this function down to the Categories component as a prop,
+and attach it to the buttons.
+
+When the user clicks on a category button, the filter function should be called
+with the selected category as a parameter. The function should then update the state
+to show only the menu items that belong to the selected category.
+
 - Create a new Set
   let mySet = new Set();
 

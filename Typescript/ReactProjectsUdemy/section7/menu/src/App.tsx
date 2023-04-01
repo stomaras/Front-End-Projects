@@ -17,17 +17,29 @@ const tempCategories = menus.map((item) => item.category);
 // // then spread the items
 const tempItems = ['all', ...tempSet];
 
-const allCategories = ['all', ...new Set(menus.map((item) => item.category))]
+const allCategories = ['all', ...new Set(menus.map((item) => item.category))];
 
 function App() {
   const [menuItems, setMenuItems] = useState<Menus[]>(menus);
   const [categories, setCategories] = useState<string[]>(allCategories);
+
+  const filterItems = (category: string) => {
+    if (category === 'all') {
+      console.log(category);      
+      setMenuItems(menus);
+      return;
+    }
+    const newItems = menus.filter((item) => item.category === category);    
+    setMenuItems(newItems);
+    return;
+  }
+
   return (
     <main>
       <section className='menu'>
         <Title text='our menu'></Title>
         <Menu items={menus} />
-        <Categories categories={categories}/>
+        <Categories categories={categories} filterItems={filterItems} />
       </section>
     </main>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import JobInfo from './JobInfo';
 
 const url = "https://course-api.com/react-tabs-project";
 
@@ -20,17 +21,19 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <section className='jobs-center'>
-      <div className="loading">
-        
-      </div>
-    </section>
+    return (
+      <section className='jobs-center'>
+        <div className="loading"></div>
+      </section>  
+    )
   }
   
   return (
-    <div className="App">
-      Tabs Start
-    </div>
+    <section className='jobs-center'>
+      {/* button container */}
+      {/* job info*/}
+      <JobInfo jobs={jobs} />
+    </section>
   );
 }
 

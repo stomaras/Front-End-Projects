@@ -38,3 +38,16 @@ npm install uuid
 npm i --save-dev @types/uuid
 
 import { v4 as uuidv4} from 'uuid';
+
+#### CurrentItem
+
+Create a currentItem state variable in App.tsx and set it to 0 initially.
+Pass this state variable down to the JobInfo component as a prop, and use it
+to display the current job.
+
+#### SetCurrentItem
+
+Attach the setCurrentItem function to each button.
+When the user clicks a button, the setCurrentItem function should be called with
+the index of the selected job. This function should update the currentItem state
+variable, causing the JobInfo component to render the selected job.

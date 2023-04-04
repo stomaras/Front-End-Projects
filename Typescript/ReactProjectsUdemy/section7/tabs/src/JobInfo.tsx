@@ -2,7 +2,8 @@ import React from 'react'
 import Duties from './Duties';
 
 export interface JobInfo {
-    jobs:Job[]
+    jobs: Job[]
+    currentItem: number;
 }
 
 export interface Job {
@@ -17,7 +18,7 @@ export interface Job {
 
 
 const JobInfo = (props: JobInfo) => {
-    const {order,  title, dates, duties, company} = props.jobs[0];
+    const {order,  title, dates, duties, company} = props.jobs[props.currentItem];
   return (
       <article className='job-info'>
           <h3>{title}</h3>

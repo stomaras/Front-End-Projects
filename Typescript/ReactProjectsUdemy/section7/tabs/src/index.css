@@ -254,13 +254,13 @@ ul {
 }
 /* ============= PROJECT CSS =============== */
 
-/* .jobs-center {
+.jobs-center {
   width: 80vw;
-  margin: 5rem auto;
+  margin: 5rem;
   max-width: var(--max-width);
 }
 
-.btn-container {
+.btnContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -276,10 +276,12 @@ ul {
   cursor: pointer;
   transition: var(--transition);
 }
+
 .job-btn:hover {
   color: var(--primary-500);
   box-shadow: 0 2px var(--primary-500);
 }
+
 .active-btn {
   color: var(--primary-500);
   box-shadow: 0 2px var(--primary-500);
@@ -291,9 +293,11 @@ ul {
   background: var(--grey-300);
   display: inline-block;
   padding: 0.375rem 0.75rem;
-  border-radius: var(--borderRadius);
+  border-radius: var(--backgroundColor);
   margin: 0.75rem 0;
 }
+
+
 .job-date {
   color: var(--grey-500);
   letter-spacing: var(--letterSpacing);
@@ -317,24 +321,16 @@ ul {
   line-height: 1.5;
 }
 
-@media screen and (min-width: 992px) {
-  .jobs-center {
+@media screen and (min-width:992px){
+  .jobs-center{
     width: 90vw;
     display: grid;
     grid-template-columns: 200px 1fr;
     column-gap: 4rem;
   }
+
   .btn-container {
     flex-direction: column;
     justify-content: flex-start;
   }
-  .job-btn {
-    margin-bottom: 1rem;
-  }
-  .job-btn:hover {
-    box-shadow: -2px 0px var(--primary-500);
-  }
-  .active-btn {
-    box-shadow: -2px 0px var(--primary-500);
-  }
-} */
+}

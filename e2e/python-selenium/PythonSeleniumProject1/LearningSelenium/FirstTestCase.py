@@ -11,13 +11,20 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 s = Service('C:\BrowserDriver\chromedriver.exe')
 driver = webdriver.Chrome(service=s)
 
 driver.get('https://opensource-demo.orangehrmlive.com/')
-
+wait = WebDriverWait(driver, 5)
 driver.maximize_window()
+try:
+    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "username")))
+finally:
+    driver.quit()
+
 
 driver.find_element(by=By.NAME, value="username").send_keys("Admin")
 driver.find_element(by=By.NAME, value="password").send_keys("admin123")

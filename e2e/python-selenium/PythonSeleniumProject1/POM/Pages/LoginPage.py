@@ -1,5 +1,6 @@
 from POM.Pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
+from POM.Config.config import TestData
 
 class LoginPage(BasePage):
 
@@ -12,6 +13,7 @@ class LoginPage(BasePage):
     """constructor of the page class"""
     def __init__(self, driver):
         super().__init__(driver)
+        self.driver.get(TestData.BASE_URL)
 
     """Page Action for Login Page"""
 

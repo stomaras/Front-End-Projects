@@ -34,6 +34,21 @@ and use it to create a new array by extracting the first n paragraphs from the t
 array (where n is the count state value.). Set the text state value to the new array
 Hint: I will use the array.slice()
 
+#### nanoid library
+
+npm install nanoid
+
+import { naonoid } from "nanoid"
+
+const id = nanoid() // Generates a 21-character random id
+
+In this example, we first import the nanoid function from the nanoid library.
+We then call the nanoid() function to generate a new, random ID. Finally we output the ID to the console.
+
+One of the benefits of using nanoid is that is generates IDs, that are highly
+unlikely to collide, even when generating a large number of them. This is achieved by using a combination
+of randomness and a predefined set of characters, which ensures that each ID is unique and unpredictable.
+
 #### Note array.slice
 
 is a method in Javascipt that returns a shallow copy of a portion of an array into a

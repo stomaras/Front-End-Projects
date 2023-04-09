@@ -1,10 +1,12 @@
 import React, { FormEventHandler, useState } from 'react';
 import texts from "./data";
 import './App.css';
+import { nanoid } from 'nanoid';
 
 function App() {
   const [count, setCount] = useState(1);
   const [text, setText] = useState<string[]>([])
+  const id = nanoid();
 
   const changeInput = (e: React.FormEvent<HTMLInputElement>) => {
     const result = (e.target as HTMLInputElement).value
@@ -29,7 +31,7 @@ function App() {
       <article className='lorem-text'>
         {
           texts.map((item,index) => {
-            return <p key={index}>{text[index]}</p>
+            return <p key={nanoid()}>{text[index]}</p>
           })
         }
       </article>

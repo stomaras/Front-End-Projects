@@ -1,7 +1,12 @@
 import { log } from 'console';
 import React, { useState } from 'react'
 
-const Form = () => {
+
+interface FormProps {
+    addItem(name:string): void 
+} 
+
+const Form = ({addItem}: FormProps) => {
     const [newItemName, setNewItemName] = useState('')
 
     const changeItemName = (event: React.FormEvent<HTMLInputElement>) => {

@@ -15,7 +15,8 @@ const Form = ({addItem}: FormProps) => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        console.log(newItemName);
+        if (!newItemName) return;
+        addItem(newItemName)
     }
 
   return (

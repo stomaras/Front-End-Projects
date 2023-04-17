@@ -4,7 +4,7 @@ import SingleItem from './SingleItem'
 
 export interface ItemsProps {
     items: Item[]
-    removeItem(itemId:number):void
+    removeItem(itemId:string):void
 }
 
 const Items = (props: ItemsProps) => {

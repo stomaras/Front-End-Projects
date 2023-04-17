@@ -22,7 +22,10 @@ function App() {
     setItems([...items, newItem]);
   };
 
-  const removeItem = (itemId: number) => { };
+  const removeItem = (itemId: string) => {
+    const newItems = items.filter((item) => item.id !== itemId)
+    setItems(newItems)
+   };
 
   return (
     <section className='section-center'>

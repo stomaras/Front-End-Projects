@@ -39,3 +39,31 @@ called isChecked with a default value of the item's completed property.
 Render a checkbox and add inline styles to add or remove the text-decoration:
 line-through property based on the isChecked value. Set up functionality
 to toggle the isChecked state variable when the checkbox is clicked.
+
+### Local Storage
+
+localStorage is a built in object in web browsers that allows web applications
+to store key-value pairs locally within the user's browser
+
+To store data in localStorage, you can use the localStorage. setItem(key,value) method,
+where key is a unique identifier for the data being stored and value is the data you want
+to store. Note that the value parameter needs to be a string.
+
+Here is an example of how to use the localStorage.setItem()'
+
+localStorage.setItem('username', 'john')
+
+For example:
+
+const user = {
+name:'John'
+age:30,
+email:'john@gmail.com'
+}
+
+localStorage.setItem('user', JSON.stringify(user));
+
+const storedUser = JSON.parse(localStorage.getItem('user'));
+
+console.log(storedUser.name)
+console.log(storedUser.age)

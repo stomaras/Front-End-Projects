@@ -4,14 +4,15 @@ import { Item } from './models/models'
 export interface SingleItemProps {
     key: string
     item: Item
-    removeItem(id:string):void
+    removeItem(id: string): void
+    editItem(id:string): void
 }
 
 const SingleItem = (props: SingleItemProps) => {
-    const [isChecked, setIsChecked] = useState(props.item.completed);
+   // const [isChecked, setIsChecked] = useState(props.item.completed);
 
     const handleIsChecked = () => {
-        setIsChecked(!isChecked)
+        props.editItem(props.item.id)
     }
 
     const handleRemoveItem = () => {
@@ -19,7 +20,7 @@ const SingleItem = (props: SingleItemProps) => {
     }
   return (
       <div className='single-item'>
-          <input type="checkbox" checked={isChecked} onChange={handleIsChecked} />
+          <input type="checkbox" checked={props.item.completed} onChange={handleIsChecked} />
           <p style={{
               textTransform: 'capitalize',
           }}

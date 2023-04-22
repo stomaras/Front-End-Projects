@@ -67,3 +67,7 @@ const storedUser = JSON.parse(localStorage.getItem('user'));
 
 console.log(storedUser.name)
 console.log(storedUser.age)
+
+#### Global Edit
+
+Instead of 'local' value, set completed 'globally' (in the list ) and save result in the local Storage.

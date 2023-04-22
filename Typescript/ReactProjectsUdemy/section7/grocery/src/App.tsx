@@ -8,25 +8,32 @@ import { Item } from "./models/models"
 import { initialItemState } from './models/models';
 import Items from './Items';
 import { log } from 'console';
+import Tokens from './utils/Tokens';
 
+const tokens = Tokens.getInstance();
 const setLocalStorage = (items: Item[]) => {
-  localStorage.setItem('list', JSON.stringify(items))
+  tokens.setList(JSON.stringify(items));
+  // localStorage.setItem('list', JSON.stringify(items))
 };
 
 const getLocalStorage = () => {
-  let list = localStorage.getItem('list')
+  // let list = localStorage.getItem('list') 
+  let list = tokens.getList()
   if (list !== null) {
-    list = JSON.parse(localStorage.getItem('list') as string);
+    // list = JSON.parse(localStorage.getItem('list') as any);
+    list = JSON.parse(tokens.getList() as any)
   } else {
-    const list:string[] = []
+    list = [] as any
   }
   return list;
 }
 
+// const defaultList = JSON.parse(localStorage.getItem('list') || '[]')
+const defaultList = JSON.parse(tokens.getList() || '[]');
 function App() {
 
   getLocalStorage()
-  const [items, setItems] = useState<Item[]>(initialItemState)
+  const [items, setItems] = useState<any>(defaultList)
 
   const addItem = (itemName: string) => {
     const newItem: Item = {
@@ -40,15 +47,27 @@ function App() {
   };
 
   const removeItem = (itemId: string) => {
-    const newItems = items.filter((item) => item.id !== itemId)
+    const newItems = items.filter((item:Item) => item.id !== itemId)
     setItems(newItems);
     setLocalStorage(newItems)
   };
 
+  const editItem = (itemId: string) => {
+    const newItems = items.map((item: any) => {
+      if (item.id === itemId) {
+        const newItem = { ...item, completed: !item.completed };
+        return newItem;
+      }
+      return item;
+    });
+    setItems(newItems);
+    setLocalStorage(newItems);
+  }
+
   return (
     <section className='section-center'>
       <Form addItem={addItem} />
-      <Items items={items} removeItem={removeItem} />
+      <Items items={items} removeItem={removeItem} editItem={editItem} />
     </section>
   );
 }

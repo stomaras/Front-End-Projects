@@ -71,3 +71,8 @@ console.log(storedUser.age)
 #### Global Edit
 
 Instead of 'local' value, set completed 'globally' (in the list ) and save result in the local Storage.
+
+#### React-Toastify
+
+Implement the react-toastify library to handle alerts when a new item is added to the list
+, when the user tries to submit an empty form, and when an item is removed from the list.

@@ -9,6 +9,7 @@ import { initialItemState } from './models/models';
 import Items from './Items';
 import { log } from 'console';
 import Tokens from './utils/Tokens';
+import { ToastContainer, toast } from 'react-toastify';
 
 const tokens = Tokens.getInstance();
 const setLocalStorage = (items: Item[]) => {
@@ -44,12 +45,14 @@ function App() {
     const newItems = [...items, newItem];
     setItems(newItems);
     setLocalStorage(newItems);
+    toast.success('item added to the list');
   };
 
   const removeItem = (itemId: string) => {
     const newItems = items.filter((item:Item) => item.id !== itemId)
     setItems(newItems);
     setLocalStorage(newItems)
+    toast.success("item deleted from the list")
   };
 
   const editItem = (itemId: string) => {
@@ -66,6 +69,7 @@ function App() {
 
   return (
     <section className='section-center'>
+      <ToastContainer position='top-center'/>
       <Form addItem={addItem} />
       <Items items={items} removeItem={removeItem} editItem={editItem} />
     </section>

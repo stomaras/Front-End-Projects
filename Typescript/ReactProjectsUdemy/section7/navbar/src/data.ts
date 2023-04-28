@@ -38,6 +38,11 @@ export const links: LinksInterface[] = [
     url: '/profile',
     text: 'profile',
   },
+  {
+    id: 6,
+    url: '/extra',
+    text: 'extra',
+  },
 ]
 
 export const social: SocialInterface[] = [

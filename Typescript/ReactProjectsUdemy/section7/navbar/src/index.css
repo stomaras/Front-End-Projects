@@ -184,3 +184,10 @@ nav {
   color: var(--clr-primary-5);
   padding-left: 1.5rem;
 }
+
+/* 160px */
+
+.links-container {
+  overflow: hidden;
+  transition: var(--transition);
+}

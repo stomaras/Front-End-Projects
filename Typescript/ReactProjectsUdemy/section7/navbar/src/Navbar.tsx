@@ -1,14 +1,21 @@
 import React from 'react'
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { FaBars } from 'react-icons/fa'
 import { links, social } from "./data";
 import logo from './logo.svg';
 
 const Navbar = () => {
     const [showLinks, setShowLinks] = useState(false);
+    const linksContainerRef = useRef<HTMLDivElement>(null)
+    const linksRef = useRef<HTMLUListElement>(null)
 
     const toggleLinks = () => {
+        console.log(linksRef?.current?.getBoundingClientRect());
         setShowLinks(!showLinks);
+    }
+
+    const linkStyles = {
+        height: showLinks ? `${linksRef?.current?.getBoundingClientRect().height}px`: '0px'
     }
     return (
         <nav>
@@ -19,9 +26,9 @@ const Navbar = () => {
                         <FaBars />   
                     </button>
                 </div>
-                {showLinks &&
-                    <div className="links-container">
-                        <ul className="links">
+               
+                <div className='links-container' ref={linksContainerRef} style={linkStyles}>
+                        <ul className="links" ref={linksRef}>
                             {links.map((link: any) => {
                                 const { id, url, text } = link
                                 return <li key={id}>
@@ -30,7 +37,7 @@ const Navbar = () => {
                             })}
                         </ul>
                     </div>
-                }
+                
             </div>
         </nav>
     )

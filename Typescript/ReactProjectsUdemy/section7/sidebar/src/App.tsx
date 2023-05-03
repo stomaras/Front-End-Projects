@@ -1,15 +1,18 @@
 import React from 'react';
+import logo from './logo.svg';
 import './App.css';
-import Home from './Home';
-import Modal from './Modal';
-import Sidebar from './Sidebar';
+import Home from './components/Home';
+import Modal from './components/Modal';
+import Sidebar from './components/Sidebar';
 
-const App = () => {
-  return <main>
-    <Home />
-    <Modal />
-    <Sidebar/>
-  </main>
+function App() {
+  return (
+    <main>
+      <Home />
+      <Modal />
+      <Sidebar/>
+    </main>
+  );
 }
 
 export default App;

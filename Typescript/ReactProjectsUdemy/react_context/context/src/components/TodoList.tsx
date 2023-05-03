@@ -11,7 +11,9 @@ export const TodoList = () => {
 
     return (
         <ul>
-            { todos.map(todo => <TodoItem todo={todo} />) }
+            {
+                todos.map(todo => <TodoItem todo={todo} />)
+            }
         </ul>
   )
 }

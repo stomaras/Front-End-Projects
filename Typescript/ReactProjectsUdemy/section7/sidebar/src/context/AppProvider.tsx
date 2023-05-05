@@ -18,13 +18,19 @@ export const AppProvider = ({ children }: props) => {
 
     const [appState, dispatch] = useReducer(AppReducer, INITIAL_STATE);
 
-    const openModal = (isModalOpen: boolean) => {
-        dispatch({type: 'openModal', payload: {isModalOpen}})
+    const toggleModal = (isModalOpen: boolean) => {
+        dispatch({type: 'toggleModal', payload: {isModalOpen}})
+    }
+
+    const toggleSidebar = (isSidebarOpen: boolean) => {
+        dispatch({type: 'toggleSidebar', payload: {isSidebarOpen}})
     }
 
     return (
         <AppContext.Provider value={{
-            openModal
+            appState,
+            toggleSidebar,
+            toggleModal
         }}>
             {children}
         </AppContext.Provider>

@@ -1,34 +1,22 @@
 import { AppState } from "../interfaces/interfaces";
 
-type AppAction = | { type: 'openModal', payload: { isModalOpen: boolean } }
-                 | { type: 'closeModal', payload: { isModalOpen: boolean } } 
-                 | { type: 'openSidebar', payload: { isSidebarOpen: boolean }}
-                 | { type: 'closeSidebar', payload: { isSidebarOpen: boolean } }
+type AppAction = | { type: 'toggleModal', payload: { isModalOpen: boolean } }
+                 | { type: 'toggleSidebar', payload: { isSidebarOpen: boolean }}
 
 
 export const AppReducer = (state: AppState, action: AppAction): AppState => {
     
     switch (action.type) {
-        case 'openModal':
+        case 'toggleModal':
             return {
                 ...state,
-                isModalOpen: true
+                isModalOpen: !state.isModalOpen
             }
-        case 'closeModal':
+        case 'toggleSidebar':
             return {
                 ...state,
-                isModalOpen: false
+                isSidebarOpen: !state.isSidebarOpen
             } 
-        case 'openSidebar':
-            return {
-                ...state,
-                isSidebarOpen: true
-            }
-        case 'closeSidebar':
-            return {
-                ...state,
-                isSidebarOpen: false
-            }
         default:
             return state
     }

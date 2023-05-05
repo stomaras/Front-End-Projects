@@ -7,11 +7,11 @@ import Sidebar from './components/Sidebar';
 
 function App() {
   return (
-    <main>
+    <>
       <Home />
       <Modal />
       <Sidebar/>
-    </main>
+    </>
   );
 }
 

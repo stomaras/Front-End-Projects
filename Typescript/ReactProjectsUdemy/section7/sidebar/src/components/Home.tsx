@@ -6,23 +6,23 @@ import { FaBars } from "react-icons/fa";
 
 
 export const Home = () => {
-  const { toggleModal, toggleSidebar } = useGlobalContext()
+  const { openModal, openSidebar ,appState } = useGlobalContext()
 
 
   const handleSidebar = () => {
-    toggleSidebar(false)
+    openSidebar(!appState.isSidebarOpen)
   }
 
   const handleModal = () => {
-    toggleModal(false)
+    openModal(!appState.isModalOpen)
   }
   
   return (
     <main>
-      <button onClick={handleSidebar}>
+      <button onClick={handleSidebar} className='sidebar-toggle'>
         <FaBars/>
       </button>
-      <button onClick={handleModal}>
+      <button onClick={handleModal} className='btn'>
         show modal
       </button>
     </main>

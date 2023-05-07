@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import { AppContext } from "./AppContext";
 import { AppState } from "../interfaces/interfaces";
 import { AppReducer } from "./AppReducer";
@@ -16,21 +16,38 @@ interface props {
 
 export const AppProvider = ({ children }: props) => {
 
-    const [appState, dispatch] = useReducer(AppReducer, INITIAL_STATE);
+    const [isOpenModal, setisOpenModal] = useState(false);
+    const [isOpenSidebar, setisOpenSidebar] = useState(false);
 
-    const toggleModal = (isModalOpen: boolean) => {
-        dispatch({type: 'toggleModal', payload: {isModalOpen}})
+    const appState: AppState = {
+        isModalOpen: isOpenModal,
+        isSidebarOpen: isOpenSidebar
     }
 
-    const toggleSidebar = (isSidebarOpen: boolean) => {
-        dispatch({type: 'toggleSidebar', payload: {isSidebarOpen}})
+    const openSidebar = () => {
+        setisOpenSidebar(true);
     }
+
+    const closeSidebar = () => {
+        setisOpenSidebar(false)
+    }
+
+    const openModal = () => {
+        setisOpenModal(true);
+    }
+
+    const closeModal = () => {
+        setisOpenModal(false);
+    }
+
 
     return (
         <AppContext.Provider value={{
             appState,
-            toggleSidebar,
-            toggleModal
+            openModal,
+            closeModal,
+            openSidebar,
+            closeSidebar
         }}>
             {children}
         </AppContext.Provider>

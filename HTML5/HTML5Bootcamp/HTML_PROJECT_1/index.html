@@ -4,52 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Bird Watching Site</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Fake Bird Watching Site. Learn about birds</title>
 </head>
 <body>
-        <!-- Header of the Site-->
-        <header>
-            <h1>BIRDWATCHING</h1>
-            <img src="" alt="">
-        </header>
-        <!-- Navbar of the site -->
-        <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Get Started</a></li>
-                <li><a href="">PHOTOS</a></li>
-                <li><a href="">GEAR</a></li>
-                <li><a href="">FORUM</a></li>
-            </ul>
-        </nav>
-        <br>
+        <div id="main-nav">
+            <!-- Header of the Site-->
+            <header class="container">
+                <h1 id="title">BIRDWATCHING</h1>
+                <img src="images/bird.jpg" alt="bird" width="50" height="50">
+            </header>
+            <br/>
+            <!-- Navbar of the site -->
+            <nav>
+                <ol class="container_nav">
+                    <li id="home"><a href="">Home</a></li>
+                    <li id="started"><a href="">GET STARTED</a></li>
+                    <li id="photos"><a href="">PHOTOS</a></li>
+                    <li id="gear"><a href="">GEAR</a></li>
+                    <li id="forum"><a href="">FORUM</a></li>
+                </ol>
+            </nav>
+        </div>
+        
+        <hr id="main-hor"/>
         <!-- main of the site-->
-        <main>    
-            <article>
-                <section>
+        <main id="main-bird">    
+            <article class="article-bird">
+                <section id="section-bird">
                     <h2>Welcome</h2>
                     <p>
-                        Welcome to our fake birdwatching site. if there is a real site, it would be the <br/>
-                        ideal place to come to learn more about birdwatching, whether you are a<br/> 
+                        Welcome to our fake birdwatching site. if there is a real site, it would be the ideal place to come to learn more about birdwatching, whether you are a<br/> 
                         beginner looking to learn how to get into birding , or an expert waiting to share <br/>
                         ideas, tips, and photos with other like-minded people.<br/>
-                        <br/>
-                        So don't waste time! Get what you need, then turn off that computer 
-                        and get out into the great outdoors!
+                        So don't waste time! Get what you need, then turn off that computer and get out into the great outdoors!
                     </p>
                 </section>
             </article>
-            <aside>
-                <h2>Favourite photo</h2>
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
+            <div class="vertical"></div>
+            <aside class="aside-bird">
+                <h2> FAVOURITE PHOTOS</h2>
+                <div class="gallery">
+                    <img src="images/bird_1.jpg" alt="bird_1" width="100" height="100"/>
+                    <img src="images/bird_2.jpg" alt="bird_2" width="100" height="100"/>
+                    <img src="images/bird_3.jpg" alt="bird_3" width="100" height="100"/>
+                    <img src="images/bird_4.jpg" alt="bird_4" width="100" height="100"/>
+                </div>
             </aside>
         </main>
-        <br>
         <!--Footer of the site-->
-        <footer>
+        <footer id="footer-bird" style="position: fixed; bottom: 0; background-color: green; width: 100%;">
             <p>
                 This fake website example is CCO - any part of this code may be reused in any way you wish. Original example written by <br/>
                 Chris Mills, 2016.

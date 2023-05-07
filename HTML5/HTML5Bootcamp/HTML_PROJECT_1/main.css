@@ -1,0 +1,41 @@
+#main-bird {
+    display: flex;
+    height: 150px;
+}
+
+#main-hor{
+ border: 10px solid gray;   
+}
+
+.article-bird {
+    height: 300px;
+    width: 65%;
+    background-color: green;
+    margin-right: 1px;
+}
+
+.article-bird #section-bird h2 {
+    margin-left: 300px;
+}
+
+.article-bird #section-bird p {
+    margin-left: 10px;
+}
+
+.aside-bird {
+    margin-left: 1px;
+    height: 400px;
+    width: 33%;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr);
+}
+
+.vertical {
+    border-left: 4px solid gray;
+    
+    height: 300px;
+}
+

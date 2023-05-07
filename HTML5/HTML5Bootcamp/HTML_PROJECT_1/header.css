@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: forestgreen;
+}
+
+.container h1 {
+    margin-left: 600px;
+}
+
+.container h1::first-letter {
+    font-weight: bold;
+}
+
+.container img {
+    margin-top: 15px;
+    margin-right: 40px;
+}
+
+#main_nav {
+    background-color: rgb(0, 204, 0)
+}
+
+.container_nav {
+    display: flex;
+    flex-direction: row;
+    background-color: green;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.container_nav #home {
+    font-size: 30px;
+}
+
+.container_nav #home a {
+    text-decoration: none;
+    color: black;
+}
+
+.container_nav #started {
+    font-size: 30px;
+}
+
+.container_nav #started a {
+    text-decoration: none;
+    color: black;
+}
+
+.container_nav #photos {
+    font-size: 30px;
+}
+
+.container_nav #photos a {
+    text-decoration: none;
+    color: black;
+}
+
+.container_nav #gear {
+    font-size: 30px;
+}
+
+.container_nav #gear a {
+    text-decoration: none;
+    color: black;
+}
+
+.container_nav #forum {
+    font-size: 30px;
+}
+
+.container_nav #forum a {
+    text-decoration: none;
+    color: black;
+}

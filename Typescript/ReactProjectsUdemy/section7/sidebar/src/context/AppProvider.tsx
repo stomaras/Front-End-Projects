@@ -1,7 +1,6 @@
 import React, { useReducer, useState } from "react";
 import { AppContext } from "./AppContext";
 import { AppState } from "../interfaces/interfaces";
-import { AppReducer } from "./AppReducer";
 
 const INITIAL_STATE: AppState = {
     isModalOpen: false,

@@ -13,7 +13,7 @@ export const Sidebar = () => {
 
 
   return (
-    <aside className='sidebar'>
+    <aside className={appState.isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}>
       <div className="sidebar-header">
         <img src={logo} alt="coding addict" className='logo' />
         <button className='close-btn' onClick={closesidebar}>

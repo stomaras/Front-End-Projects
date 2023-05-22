@@ -4,15 +4,17 @@
     --body-background-color: white;
 }
 
-h1,
-h2,
-h3,
-h4,
-p,
-li {
-    font-family: sans-serif;
-    color: #444444;
+* {
+    
 }
+
+
+body {
+    color: red;
+    font-family: sans-serif;
+    border-top: 10px solid #1098ad;
+}
+
 
 h1,
 h2,
@@ -142,3 +144,68 @@ a:active {
 }
 
 /* LVHA */
+
+/* Resolving conflict */
+#copyright {
+    color: red;
+}
+
+.copyright {
+    color: blue;
+}
+
+.text {
+    color: yellow;
+}
+
+footer p {
+    color: green;
+}
+
+nav {
+    font-size: 18px;
+}
+
+
+/*
+CONFLICTING SELECTORS AND DECLARATIONS
+
+
+Highest 
+Priority 
+^
+|
+|
+| 5) Declaration marked !important 
+|
+|
+|
+| 4) Inline Style (style attribute in HTML)
+|
+|
+|
+| 3) ID (#) selector
+|
+|
+|   
+| 2) Class (.) or pseudo-class (:) selector
+|
+|
+|
+| 1) Element Selector (p, div, li, etc)
+|
+|
+|
+| 0) Universal Selector(*)
+|
+|
+|
+|
+|
+|
+|
+|
+|
+Lowest Priority 
+
+*/

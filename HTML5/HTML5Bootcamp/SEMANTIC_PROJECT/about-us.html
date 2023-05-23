@@ -5,6 +5,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us Page</title>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+  
+        /* Add a gray background color with some padding */
+        body {
+          font-family: Arial;
+          padding: 20px;
+          background: #f1f1f1;
+        }
+  
+        /* Header/Blog Title */
+        .header {
+          padding: 30px;
+          font-size: 40px;
+          text-align: center;
+          background: white;
+        }
+  
+        h1 {
+          font-size: 40px;
+        }
+  
+        h2 {
+          font-size: 16px;
+        }
+  
+        h1,
+        h2 {
+          font-weight: 400;
+        }
+  
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .leftcolumn {
+          float: left;
+          width: 75%;
+        }
+  
+        /* Right column */
+        .rightcolumn {
+          float: left;
+          width: 25%;
+          padding-left: 20px;
+        }
+  
+        /* Fake image */
+        .fakeimg {
+          background-color: #aaa;
+          width: 100%;
+          padding: 20px;
+        }
+  
+        /* Add a card effect for articles */
+        .card {
+          background-color: white;
+          padding: 20px;
+          margin-top: 20px;
+        }
+  
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+  
+        /* Footer */
+        .footer {
+          padding: 20px;
+          text-align: center;
+          background: #ddd;
+          margin-top: 20px;
+        }
+  
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+          .leftcolumn,
+          .rightcolumn {
+            width: 100%;
+            padding: 0;
+          }
+        }
+      </style>
 </head>
 <body>
     <header>
@@ -13,10 +98,70 @@
             <ul>
               <li><a href="index.html">Home</a></li>
               <li><a href="products.html">Products</a></li>
-              <li><a href="contact.html">Contacts</a></li>
+              <li><a href="contact.html">Contacts us</a></li>
               <li><a href="#">About</a></li>
+              <li><a href="biography.html">Biography</a></li>
+
             </ul>
         </nav>
     </header>
+    <main class="row">
+        <article class="leftcolumn">
+            <article id="article1">
+                <h2>Who are we?</h2>
+                <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolor eius nesciunt nam nulla similique suscipit tenetur,
+                 a corporis omnis voluptas exercitationem, obcaecati amet atque nobis praesentium excepturi sit, voluptatum expedita cumque 
+                 deleniti nemo accusamus. Aut cupiditate molestiae, debitis doloribus porro minus voluptatem ab repudiandae odit pariatur
+                  possimus est magni sint consectetur voluptatibus voluptate. Mollitia fuga animi iste voluptatibus sint ea consequuntur 
+                  voluptas blanditiis provident consequatur optio autem odit quisquam temporibus doloribus quae fugiat officia, non, tempore 
+                  eos doloremque repudiandae facilis quo. Deserunt, dicta. Omnis voluptatem expedita 
+                odio aperiam temporibus aliquid dolore saepe nihil natus, repudiandae, placeat nostrum officia necessitatibus.
+                </p>
+            </article>
+            <br/>
+            <article id="article2">
+                <h2>When it all started?</h2>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolor eius nesciunt nam nulla similique suscipit tenetur,
+                     a corporis omnis voluptas exercitationem, obcaecati amet atque nobis praesentium excepturi sit, voluptatum expedita cumque 
+                     deleniti nemo accusamus. Aut cupiditate molestiae, debitis doloribus porro minus voluptatem ab repudiandae odit pariatur
+                      possimus est magni sint consectetur voluptatibus voluptate. Mollitia fuga animi iste voluptatibus sint ea consequuntur 
+                      voluptas blanditiis provident consequatur optio autem odit quisquam temporibus doloribus quae fugiat officia, non, tempore 
+                      eos doloremque repudiandae facilis quo. Deserunt, dicta. Omnis voluptatem expedita 
+                    odio aperiam temporibus aliquid dolore saepe nihil natus, repudiandae, placeat nostrum officia necessitatibus.
+                </p>
+            </article>
+            <article id="article3">
+                <h2>What do we do?</h2>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolor eius nesciunt nam nulla similique suscipit tenetur,
+                     a corporis omnis voluptas exercitationem, obcaecati amet atque nobis praesentium excepturi sit, voluptatum expedita cumque 
+                     deleniti nemo accusamus. Aut cupiditate molestiae, debitis doloribus porro minus voluptatem ab repudiandae odit pariatur
+                      possimus est magni sint consectetur voluptatibus voluptate. Mollitia fuga animi iste voluptatibus sint ea consequuntur 
+                      voluptas blanditiis provident consequatur optio autem odit quisquam temporibus doloribus quae fugiat officia, non, tempore 
+                      eos doloremque repudiandae facilis quo. Deserunt, dicta. Omnis voluptatem expedita 
+                    odio aperiam temporibus aliquid dolore saepe nihil natus, repudiandae, placeat nostrum officia necessitatibus.
+                </p>
+            </article>
+            <article>
+
+            </article>
+        </article>
+        <aside class="rightcolumn">
+            <nav>
+                <ul>
+                    <li><a href="#article1">Who are we?</a></li>
+                    <li><a href="#article2">When it all started?</a></li>
+                    <li><a href="#article3">What do we do?</a></li>
+                    <li><a href="#article4">Who works here?</a></li>
+                    <li><a href="#article5">Our Portfolio</a></li>
+                </ul>
+            </nav>
+        </aside>
+    </main>
+    <footer>
+
+    </footer>
 </body>
 </html>

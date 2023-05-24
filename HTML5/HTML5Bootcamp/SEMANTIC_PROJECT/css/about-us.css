@@ -1,25 +1,15 @@
-ul {
-    list-style: none;
-    text-decoration: none;
+* {
+    font-family: Arial;
 }
 
-#aside-1 a {
-    text-decoration: none;
-    list-style-type: none;
+p {
+    font-size: 12px;
 }
 
-#aside-2 a {
-    text-decoration: none;
+h2 {
+    font-size: 18px;
 }
 
-#aside-3 a {
-    text-decoration: none;
-}
-
-#aside-4 a {
-    text-decoration: none;
-}
-
-#aside-5 a {
-    text-decoration: none;
+.link {
+    color: blue;
 }

@@ -1,0 +1,10 @@
+/* price dollar sign left */
+.price > strong::before {
+    content: ' \0024';
+}
+
+
+/* more information right arrow */
+.more-info::after {
+    content: ' \2192';
+}

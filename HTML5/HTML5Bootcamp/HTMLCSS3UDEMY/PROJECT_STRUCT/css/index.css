@@ -1,3 +1,17 @@
 @import "list.css";
 @import "entities.css";
 @import "headings.css";
+@import "images.css";
+/* 
+*{
+    margin: 0;
+    padding: 0;
+} */
+
+.container {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}

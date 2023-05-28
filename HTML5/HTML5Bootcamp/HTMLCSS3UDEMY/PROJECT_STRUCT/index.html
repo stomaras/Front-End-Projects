@@ -8,97 +8,100 @@
     <title>Code Magazine</title>
 </head>
 <body>
-    <header>
-        <h1>📘 The Code Magazine</h1>
-        <nav>
-                <a href="blog.html">Blog</a>
-                <a href="challenges.html">Challenges</a>
-                <a href="FlexBox.html">FlexBox</a>
-                <a href="CSSGrid.html">CSS Grid</a>
-        </nav>
-    </header>
-    <main>
-        <article>    
-            <h2>The Basic Language of the Web: HTML</h2>
-            <figure>
-                <img src="images/laura-jones.jpg" alt="Laura Jones">
-                <figcaption>
-                    Posted by <strong>Laura Jones</strong> on Monday, <time datetime="2027-21-06">June 21st 2027</time> 
-                </figcaption>
-            </figure>
-        </article>
-        <article>
-            <figure>
-                <img src="images/post-img.webp" alt="" width="800px" height="300px">
-                <figcaption></figcaption>
-            </figure>
-        </article>
-        <section>
-            <h2>What is HTML?</h2>
-            <p>
-                HTML stands for HyperText Markup Language.<br/>
-                It's a markup language that web developers use to structure and describe the content of a webpage<br/>
-                (not a programming language).<br/>
-                HTML consists of elements that describe different types of content:<br/>
-                paragraphs, links, headings, images, video, etc. Web browsers understand HTML and render HTML code as websites.<br/>
-            </p>
-        </section>
-        <section>
-            <h2>In HTML, each element is made up of 3 parts:</h2>
-            <ul>
-                <li>The opening tag</li>
-                <li>The closing tag</li>
-                <li>The actual element</li>
-            </ul>
-            <p>You can learn more at the <a href="https://developer.mozilla.org/en-US/" target="_blank">MDN WEB Docs</a></p>
-        </section>
-        <section>
-            <h2>Why you should learn HTML?</h2>
-            <p>
-                There are countless reasons for learning the fundamental language of the web. Here are 4 of them:<br/>
-            </p>
-            <ul>
-                <li>To be able to use the fundamental web dev language</li>
-                <li>To build web applications</li>
-                <li>To impress friends</li>
-                <li>To have fun</li>
-            </ul>
-        </section>
-        <article>
-            <h2>Related Posts</h2>
-            <ul>
-                <li>    
-                    <figure>
-                        <img src="images/related-1.webp" alt="Computer Science" width="300px" height="300px">
-                        <figcaption>
-                            <p class="description"><a href="#">How to Learn Web Development</a></p>
-                            <p class="author">By Jonas Schmedtman</p>
-                        </figcaption>
-                    </figure>   
-                </li>
-                <li>
-                    <figure>
-                        <img src="images/related-2.jpg" alt="CSS Power" width="300px" height="300px">
-                        <figcaption>
-                            <p class="description"><a href="#">The Unkonw Power of css</a></p>
-                            <p class="author">By Jim Dillson</p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure>
-                        <img src="images/related-3.webp" alt="Javascript is awesome" width="300px" height="300px">
-                        <figcaption>
-                            <p class="description">Why Javascript is awesome</p>
-                            <p class="author">By Maltida</p>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
-        </article>
-    </main>
-    <footer>
-        <p> <strong class="copyright">Copyright</strong> 2027 by the Code Magazine</p>
-    </footer>
+    <div class="container">
+        <header class="main-header">
+            <h1>📘 The Code Magazine</h1>
+            <nav>
+                    <a href="blog.html">Blog</a>
+                    <a href="challenges.html">Challenges</a>
+                    <a href="FlexBox.html">FlexBox</a>
+                    <a href="CSSGrid.html">CSS Grid</a>
+            </nav>
+        </header>
+        <main>
+            <article>    
+                <h2>The Basic Language of the Web: HTML</h2>
+                <figure>
+                    <img src="images/laura-jones.jpg" alt="Laura Jones">
+                    <figcaption>
+                        Posted by <strong>Laura Jones</strong> on Monday, <time datetime="2027-21-06">June 21st 2027</time> 
+                    </figcaption>
+                </figure>
+            </article>
+            <article>
+                <figure>
+                    <img class="post-img" src="images/post-img.webp" alt="post image">
+                    <figcaption></figcaption>
+                </figure>
+            </article>
+            <section>
+                <h2>What is HTML?</h2>
+                <p>
+                    HTML stands for HyperText Markup Language.<br/>
+                    It's a markup language that web developers use to structure and describe the content of a webpage<br/>
+                    (not a programming language).<br/>
+                    HTML consists of elements that describe different types of content:<br/>
+                    paragraphs, links, headings, images, video, etc. Web browsers understand HTML and render HTML code as websites.<br/>
+                </p>
+            </section>
+            <section>
+                <h2>In HTML, each element is made up of 3 parts:</h2>
+                <ul>
+                    <li>The opening tag</li>
+                    <li>The closing tag</li>
+                    <li>The actual element</li>
+                </ul>
+                <p>You can learn more at the <a href="https://developer.mozilla.org/en-US/" target="_blank">MDN WEB Docs</a></p>
+            </section>
+            <section>
+                <h2>Why you should learn HTML?</h2>
+                <p>
+                    There are countless reasons for learning the fundamental language of the web. Here are 4 of them:<br/>
+                </p>
+                <ul class="html-reasons">
+                    <li>To be able to use the fundamental web dev language</li>
+                    <li>To build web applications</li>
+                    <li>To impress friends</li>
+                    <li>To have fun</li>
+                </ul>
+            </section>
+            <article class="related-posts">
+                <h2>Related Posts</h2>
+                <ul>
+                    <li>    
+                        <figure>
+                            <img src="images/related-1.webp" alt="Computer Science" width="300px" height="300px">
+                            <figcaption>
+                                <p class="description"><a href="#">How to Learn Web Development</a></p>
+                                <p class="author">By Jonas Schmedtman</p>
+                            </figcaption>
+                        </figure>   
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="images/related-2.jpg" alt="CSS Power" width="300px" height="300px">
+                            <figcaption>
+                                <p class="description"><a href="#">The Unkonw Power of css</a></p>
+                                <p class="author">By Jim Dillson</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="images/related-3.webp" alt="Javascript is awesome" width="300px" height="300px">
+                            <figcaption>
+                                <p class="description">Why Javascript is awesome</p>
+                                <p class="author">By Maltida</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </article>
+        </main>
+        <footer>
+            <p> <strong class="copyright">Copyright</strong> 2027 by the Code Magazine</p>
+        </footer>
+    </div>
+    
 </body>
 </html>

@@ -2,3 +2,21 @@ ul .navigation {
     list-style-type: none;
     
 }
+
+.html-reasons li {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.html-reasons li:last-child {
+    margin-bottom: 0px;
+}
+
+.related-posts {
+    background-color: var(--related-posts);
+    border-top: 5px solid #1098ad;
+    border-bottom: 5px solid #1098ad;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 500px;
+}

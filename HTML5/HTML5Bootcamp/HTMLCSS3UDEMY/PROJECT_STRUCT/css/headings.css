@@ -1,0 +1,9 @@
+@import "color.css";
+
+h1 {
+    color: var(--headings-1);
+}
+
+h2 {
+    color: var(--headings-2);
+}

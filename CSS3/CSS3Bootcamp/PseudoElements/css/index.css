@@ -1,0 +1,21 @@
+.special::first-letter {
+    color: blue;
+    font-size: 24px;
+  }
+  
+  p:nth-child(3)::first-line {
+    color: gold;
+  }
+  
+  .edity::before {
+    content: "\0040";
+  }
+  
+  .sel::selection {
+    background-color: gold;
+  }
+  
+  .place::placeholder {
+    color: dodgerblue;
+  }
+  

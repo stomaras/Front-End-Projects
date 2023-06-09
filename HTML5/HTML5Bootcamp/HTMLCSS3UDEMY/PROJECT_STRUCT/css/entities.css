@@ -1,3 +1,18 @@
 .copyright::after {
-    content: ' \0040';
+  content: " \0040";
 }
+
+h1::first-letter {
+  font-style: normal;
+  margin-right: 5px;
+}
+
+p::first-line {
+  color: red;
+}
+
+h2 + p::first-line {
+  color: red;
+}
+
+

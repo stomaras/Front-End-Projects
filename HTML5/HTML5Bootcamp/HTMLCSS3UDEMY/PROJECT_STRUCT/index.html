@@ -1,107 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/index.css" />
     <title>Code Magazine</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header class="main-header">
-            <h1>📘 The Code Magazine</h1>
-            <nav>
-                    <a href="blog.html">Blog</a>
-                    <a href="challenges.html">Challenges</a>
-                    <a href="FlexBox.html">FlexBox</a>
-                    <a href="CSSGrid.html">CSS Grid</a>
-            </nav>
-        </header>
-        <main>
-            <article>    
-                <h2>The Basic Language of the Web: HTML</h2>
-                <figure>
-                    <img src="images/laura-jones.jpg" alt="Laura Jones">
-                    <figcaption>
-                        Posted by <strong>Laura Jones</strong> on Monday, <time datetime="2027-21-06">June 21st 2027</time> 
-                    </figcaption>
-                </figure>
+      <header class="main-header">
+        <h1>📘 The Code Magazine</h1>
+        <nav>
+          <a href="blog.html">Blog</a>
+          <a href="challenges.html">Challenges</a>
+          <a href="FlexBox.html">FlexBox</a>
+        </nav>
+      </header>
+      <main>
+        <div class="row">
+          <article>
+            <article>
+              <h2>The Basic Language of the Web: HTML</h2>
+              <figure class="author-box">
+                <img
+                  src="images/laura-jones.jpg"
+                  alt="Laura Jones"
+                  class="author-img"
+                  width="50"
+                  height="50"
+                />
+                <figcaption class="author-description">
+                  Posted by <strong>Laura Jones</strong> on Monday,
+                  <time datetime="2027-21-06">June 21st 2027</time>
+                </figcaption>
+              </figure>
             </article>
             <article>
-                <figure>
-                    <img class="post-img" src="images/post-img.webp" alt="post image">
-                    <figcaption></figcaption>
+              <figure>
+                <img
+                  class="post-img"
+                  src="images/post-img.webp"
+                  alt="post image"
+                />
+                <figcaption></figcaption>
+              </figure>
+            </article>
+            <section>
+              <h2>What is HTML?</h2>
+              <p>
+                HTML stands for HyperText Markup Language.<br />
+                It's a markup language that web developers use to structure and
+                describe the content of a webpage<br />
+                (not a programming language).<br />
+                HTML consists of elements that describe different types of
+                content:<br />
+                paragraphs, links, headings, images, video, etc. Web browsers
+                understand HTML and render HTML code as websites.<br />
+              </p>
+            </section>
+            <section>
+              <h2>In HTML, each element is made up of 3 parts:</h2>
+              <ul>
+                <li>The opening tag</li>
+                <li>The closing tag</li>
+                <li>The actual element</li>
+              </ul>
+              <p>
+                You can learn more at the
+                <a href="https://developer.mozilla.org/en-US/" target="_blank"
+                  >MDN WEB Docs</a
+                >
+              </p>
+            </section>
+            <section>
+              <h2>Why you should learn HTML?</h2>
+              <p>
+                There are countless reasons for learning the fundamental
+                language of the web. Here are 4 of them:<br />
+              </p>
+              <ul class="html-reasons">
+                <li>To be able to use the fundamental web dev language</li>
+                <li>To build web applications</li>
+                <li>To impress friends</li>
+                <li>To have fun</li>
+              </ul>
+            </section>
+          </article>
+          <aside class="related-posts">
+            <h2>Related Posts</h2>
+            <ul>
+              <li class="li-post">
+                <figure class="related-post">
+                  <img
+                    src="images/related-1.webp"
+                    alt="Computer Science"
+                    width="70px"
+                    height="70px"
+                  />
+                  <figcaption>
+                    <p class="description">
+                      <a class="related-link" href="#"
+                        >How to Learn Web Development</a
+                      >
+                    </p>
+                    <p class="related-author">By Jonas Schmedtman</p>
+                  </figcaption>
                 </figure>
-            </article>
-            <section>
-                <h2>What is HTML?</h2>
-                <p>
-                    HTML stands for HyperText Markup Language.<br/>
-                    It's a markup language that web developers use to structure and describe the content of a webpage<br/>
-                    (not a programming language).<br/>
-                    HTML consists of elements that describe different types of content:<br/>
-                    paragraphs, links, headings, images, video, etc. Web browsers understand HTML and render HTML code as websites.<br/>
-                </p>
-            </section>
-            <section>
-                <h2>In HTML, each element is made up of 3 parts:</h2>
-                <ul>
-                    <li>The opening tag</li>
-                    <li>The closing tag</li>
-                    <li>The actual element</li>
-                </ul>
-                <p>You can learn more at the <a href="https://developer.mozilla.org/en-US/" target="_blank">MDN WEB Docs</a></p>
-            </section>
-            <section>
-                <h2>Why you should learn HTML?</h2>
-                <p>
-                    There are countless reasons for learning the fundamental language of the web. Here are 4 of them:<br/>
-                </p>
-                <ul class="html-reasons">
-                    <li>To be able to use the fundamental web dev language</li>
-                    <li>To build web applications</li>
-                    <li>To impress friends</li>
-                    <li>To have fun</li>
-                </ul>
-            </section>
-            <article class="related-posts">
-                <h2>Related Posts</h2>
-                <ul>
-                    <li>    
-                        <figure>
-                            <img src="images/related-1.webp" alt="Computer Science" width="300px" height="300px">
-                            <figcaption>
-                                <p class="description"><a href="#">How to Learn Web Development</a></p>
-                                <p class="author">By Jonas Schmedtman</p>
-                            </figcaption>
-                        </figure>   
-                    </li>
-                    <li>
-                        <figure>
-                            <img src="images/related-2.jpg" alt="CSS Power" width="300px" height="300px">
-                            <figcaption>
-                                <p class="description"><a href="#">The Unkonw Power of css</a></p>
-                                <p class="author">By Jim Dillson</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure>
-                            <img src="images/related-3.webp" alt="Javascript is awesome" width="300px" height="300px">
-                            <figcaption>
-                                <p class="description">Why Javascript is awesome</p>
-                                <p class="author">By Maltida</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </article>
-        </main>
-        <footer>
-            <p> <strong class="copyright">Copyright</strong> 2027 by the Code Magazine</p>
-        </footer>
+              </li>
+              <li class="li-post">
+                <figure class="related-post">
+                  <img
+                    src="images/related-2.jpg"
+                    alt="CSS Power"
+                    width="70px"
+                    height="70px"
+                  />
+                  <figcaption>
+                    <p class="description">
+                      <a class="related-link" href="#"
+                        >The Unkonw Power of css</a
+                      >
+                    </p>
+                    <p class="related-author">By Jim Dillson</p>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="li-post">
+                <figure class="related-post">
+                  <img
+                    src="images/related-3.webp"
+                    alt="Javascript is awesome"
+                    width="70px"
+                    height="70px"
+                  />
+                  <figcaption>
+                    <p class="description">
+                      <a class="related-link" href="#">
+                        Why Javascript is awesome</a
+                      >
+                    </p>
+                    <p class="related-author">By Maltida</p>
+                  </figcaption>
+                </figure>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </main>
+      <footer>
+        <p>
+          <strong class="copyright">Copyright</strong> 2027 by the Code Magazine
+        </p>
+      </footer>
     </div>
-    
-</body>
+  </body>
 </html>

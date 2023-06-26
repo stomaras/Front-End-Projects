@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>3.20 Questions: Backgrounds</title>
+    <style>
+      .box {
+        border: 2px solid dodgerblue;
+      }
+      li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>3.20 Questions: Backgrounds</h1>
+      <p>Url for images https://picsum.photos</p>
+      <hr />
+      <nav>
+        <ul>
+          <li><a href="/index.html">Color & image</a></li>
+          <li><a href="/gradient.html">Gradient</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h3>1. Style the background color of the div to teal</h3>
+      <div class="box" style="height: 100px; background-color: teal;"></div>
+
+      <h3>2. Set an image to the background</h3>
+      <div
+        class="box"
+        style="
+          height: 400px;
+          width: 400px;
+          background-image: url(https://picsum.photos/400/400);
+        "
+      ></div>
+
+      <h3>3. Set an image of 200x200 to the background that doesn't repeat</h3>
+      <div class="box" style="height: 400px; width: 800px; background-image: url(https://picsum.photos/200/200); background-repeat: no-repeat;"></div>
+
+      <h3>4. Set an image of 400x200 that covers all the background</h3>
+      <div class="box" style="height: 400px; width: 400px;
+      background-image: url(https://picsum.photos/400/200); background-size: cover;"></div>
+
+      <h3>5. Set an image of 600x1200 that is all shown in the background</h3>
+      <div class="box" style=" height: 400px; width: 400px; background-image: url(https://picsum.photos/600/1200);">
+      </div>
+      <h3>
+        6. Set an image of 100X100 that is in the center of the background
+      </h3>
+      <div class="box" style="height: 400px; width: 400px; background-image: url(https://picsum.photos/100/100); background-repeat: no-repeat; background-position: center;"></div>
+
+      <h3>7. Set multiple images in the background</h3>
+      <div class="box" style="height: 400px; width: 400px; background-image: url(https://picsum.photos/100/100); background-repeat: repeat;"></div>
+
+      <h3>
+        8. Set an images in the background of the body that stays fixed whilst
+        you hover
+      </h3>
+      <div class="box" style="height: 400px; width: 400px; background-image: url(https://picsum.photos/100/100); background-repeat: repeat; background-attachment: fixed;"></div>
+    </main>
+  </body>
+</html>

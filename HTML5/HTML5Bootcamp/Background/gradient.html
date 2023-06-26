@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>3.20 Questions: Backgrounds and borders</title>
+    <style>
+      .box {
+        border: 2px solid dodgerblue;
+      }
+      li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>3.20 Questions: Backgrounds and borders</h1>
+      <hr />
+      <nav>
+        <ul>
+          <li><a href="/index.html">Color & image</a></li>
+          <li><a href="/gradient.html">Gradient</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h3>1. Set the background in gradient of teal and orange</h3>
+      <div
+        class="box"
+        style="
+          height: 100px;
+          background: linear-gradient(to bottom, teal, orange);
+        "
+      ></div>
+
+      <h3>
+        2. Set the background in gradient of teal and orange horizontically
+      </h3>
+      <div
+        class="box"
+        style="
+          height: 100px;
+          background: linear-gradient(to right, teal, orange);
+        "
+      ></div>
+
+      <h3>3. Set the background in a circle radient of teal and orange</h3>
+      <div
+        class="box"
+        style="
+          height: 400px;
+          width: 400px;
+          background: radial-gradient(teal, orange);
+        "
+      ></div>
+    </main>
+  </body>
+</html>

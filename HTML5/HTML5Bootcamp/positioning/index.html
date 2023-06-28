@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>3.21 Teacher: Positioning</title>
+    <style>
+      .text {
+        border: 2px solid dodgerblue;
+        padding: 16px;
+      }
+
+      .relative {
+        background: gold;
+      }
+
+      .absolute {
+        background: goldenrod;
+      }
+
+      .fixed {
+        background: orange;
+      }
+
+      .sticky {
+        background: rebeccapurple;
+      }
+
+      #text-1{
+        position: sticky;
+        top: 30px;
+        left: 30px;
+      }
+      #text-2 {
+        position: relative;
+        bottom: -30px;
+      }
+      #parent-3{
+        position: relative;
+      }
+      #text-3{
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+      }
+      #text-4{
+        position: fixed;
+        bottom: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>3.22 Questions: Positioning</h1>
+    <main>
+      <p class="text sticky" id="text-1">
+        1. Make me to stick on the top when you scroll down the site
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text relative" id="text-2">
+        2. Offset me -20px to the bottom from my original position
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <div style="border: 3px solid dodgerblue; height: 150px;" id="parent-3">
+        <p class="text absolute" id="text-3">
+          3. Set my position at the bottom right of my parent
+        </p>
+      </div>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text fixed" id="text-4">
+        4. Set my position at the bottom of the view port
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis iure
+        est temporibus. Enim sequi alias eos ducimus! Quia, modi blanditiis.
+      </p>
+    </main>
+  </body>
+</html>

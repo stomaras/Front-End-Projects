@@ -1,0 +1,40 @@
+:root {
+    font-size: 16px;
+    padding-right: 15px;
+    padding-top: 10px;
+    --background-color-navigation: rgb(8, 0, 0);
+    --background-color-links: dodgerblue;
+    --color: white;
+    --background-colors-links-hovering: white;
+    --color-hovering: dodgerblue;
+    --padding-right-href: 20px;
+    --padding-left-href:20px
+}
+
+.navigation {
+    width: 100%;
+    background-color: var(--background-color-navigation);
+    padding-top: 2rem;
+}
+
+.navigation a:first-child {
+    background-color: var(--background-color-links);
+    color: var(--color);
+    text-decoration: none;
+    padding-right: var(--padding-right-href);
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--color);
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 1rem;
+    padding-right: var(--padding-right-href);
+    padding-left: var(--padding-left-href);
+}
+
+.navigation a:hover {
+    background-color: var(--background-colors-links-hovering);
+    color: var(--color-hovering);
+}

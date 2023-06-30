@@ -1,0 +1,29 @@
+:root{
+    font-size: 16px;
+    --padding-nav-top-bottom:20px;
+    --padding-nav-left-right:20px;
+    --background-color: white;
+    --color-link:rgb(10, 0, 0);
+}
+
+.nav-bottom-border {
+    display: flex;
+    background-color: rgb(248, 245, 245);
+    width: 100%;
+    padding: var(--padding-nav-top-bottom) var(--padding-nav-left-right);
+}
+
+.nav-bottom-border a:first-child {
+    border-bottom: 2px solid orangered;
+}
+
+.nav-bottom-border a {
+    text-decoration: none;
+    color: var(--color-link);
+    padding-right: 10px;
+    display: block;
+}
+
+.nav-bottom-border a:hover {
+    border-bottom: 2px solid orangered;
+}

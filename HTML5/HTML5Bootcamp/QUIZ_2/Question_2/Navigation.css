@@ -1,0 +1,47 @@
+.navbar {
+    width: 100%;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar .home a {
+    text-decoration: none;
+    background-color: dodgerblue;
+    color: white;
+    padding: 16px 16px;
+}
+
+.navbar .home a:hover {
+    background-color: white;
+    color: dodgerblue;
+}
+
+.navbar .news a {
+    text-decoration: none;
+    background-color: dodgerblue;
+    color: white;
+    padding: 16px 16px;
+}
+
+.navbar .news a:hover {
+    background-color: white;
+    color: dodgerblue;
+}
+
+.navbar .contact a {
+    text-decoration: none;
+    background-color: dodgerblue;
+    color: white;
+    padding: 16px 16px;
+}
+
+.navbar .contact a:hover {
+    background-color: white;
+    color: dodgerblue;
+}

@@ -1,0 +1,36 @@
+.hero-image {
+    background-image: url("https://picsum.photos/500/500"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50%;
+}
+
+.hero-text {
+    text-align: center;
+}
+
+h1{
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+button {
+    display: inline;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px 25px;
+    border: none;
+}
+
+button:hover{
+    background-color: dodgerblue;
+}
+
+button:focus {
+    box-shadow: 5px 10px #08000088;
+}

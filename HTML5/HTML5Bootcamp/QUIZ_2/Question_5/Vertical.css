@@ -1,0 +1,39 @@
+:root {
+    --home-link-background-color:rgb(207, 5, 5);
+    --links-background-color: dodgerblue;
+    --letters-color: white;
+    --links-hovering-background-color:white;
+    --links-hovering-color-text: dodgerblue;
+    --navigation-background-color:rgb(216, 219, 219);
+}
+
+.navigation{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 40%;
+    background-color: var(--navigation-background-color);
+}
+
+.navigation a {
+    text-decoration: none;
+    padding: 20px 20px;
+    background-color: var(--links-background-color);
+}
+
+.navigation a:first-child {
+    background-color: var(--home-link-background-color);   
+}
+
+.navigation a {
+ color: var(--letters-color);   
+}
+
+.navigation a:hover {
+    background-color: var(--links-hovering-background-color);
+    color: var(--links-hovering-color-text);
+}
+
+.navigation a:last-child {
+    padding-bottom: 0px;
+}

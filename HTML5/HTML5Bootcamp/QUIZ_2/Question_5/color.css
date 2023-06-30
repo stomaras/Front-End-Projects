@@ -1,0 +1,8 @@
+:root {
+    --home-link-background-color:rgb(207, 5, 5);
+    --links-background-color: dodgerblue;
+    --letters-color: white;
+    --links-hovering-background-color:white;
+    --links-hovering-color-text: dodgerblue;
+    --navigation-background-color:rgb(173, 175, 175);
+}

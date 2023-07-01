@@ -1,32 +1,30 @@
 :root {
-    font-size: 16px;
-    margin-right: 10px;
-    --background-color-link: dodgerblue;
-    --background-color-link-hovering: white;
-    --color-link-hovering: dodgerblue;
-    --colors: white;
+    --background-color-links: dodgerblue;
+    --color-letters: white;
+    --background-color-hovering: white;
+    --color-letter-hovering: dodgerblue;
+    --navbar-background: rgb(12, 12, 12);
 }
 
-.topnav {
-    display: flex;
-    width: 100%;
-    background-color: rgb(219, 219, 219);
-}
+/* trick to make navbar menu horizontall sroll bar is by using overflow:auto and white-space:nowrap; */
 
-.topnav a {
+.scrollmenu {
+    background-color: var(--navbar-background);
+    overflow: auto;
+    white-space: nowrap;
+    width: 30%;
+  }
+  
+  .scrollmenu a {
+    display: inline-block;
+    color: var(--color-letters);
+    text-align: center;
+    padding: 14px;
     text-decoration: none;
-    color: white;
-    padding: 15px 15px;
-    background-color: var(--background-color-link);
-}
-
-.topnav a:hover {
-    background-color: var(--background-color-link-hovering);
-    color: var(--color-link-hovering);
-    color: black;
-}
-
-.topnav-right {
-    margin-left: 1482px;
-    display: flex;
-}
+    background-color: var(--background-color-links);
+  }
+  
+  .scrollmenu a:hover {
+    background-color: var(--background-color-hovering);
+    color: var(--color-letter-hovering);
+  }

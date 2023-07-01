@@ -1,7 +1,7 @@
 :root {
-    font-size: 16px;
-    padding-right: 15px;
-    padding-top: 10px;
+    --font-size: 16px;
+    --padding-right: 15px;
+    --padding-top: 10px;
     --background-color-navigation: rgb(8, 0, 0);
     --background-color-links: dodgerblue;
     --color: white;

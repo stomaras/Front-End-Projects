@@ -1,0 +1,35 @@
+:root {
+    --background-color-links:dodgerblue;
+    --colors-letters:white;
+    --background-color-links-hover:white;
+    --colors-letters-hover: dodgerblue;
+    --background-color-nav:dodgerblue;
+    font-size: 16px;
+}
+
+.sidebar-nav {
+    height: 100%;
+    width: 10%;
+    position: fixed;
+    background-color: var(--background-color-nav);
+    padding-top: 10px;
+}
+
+.sidebar-nav a {
+    display: block;
+    text-decoration: none;
+    background-color: var(--background-color-links);
+    padding-bottom: 20px;
+    color: var(--colors-letters);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.sidebar-nav a:last-child {
+    padding-bottom: 0px;
+}
+
+.sidebar-nav a:hover {
+    background-color: var(--background-color-links-hover);
+    color: var(--colors-letters-hover);
+}

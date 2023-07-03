@@ -2,6 +2,9 @@
     --carousel-background-color: #087f5b;
     --carousel-color-text: #fff;
     --carousel-author-color: #c3fae8;
+    --button-background-color: white;
+    --background-color-dot: white;
+    --border-color-dot: #087f5b;
 
     --carousel-padding: 32px;
     --carousel-margin-top-bottom: 100px;
@@ -33,6 +36,8 @@ body {
     display: flex;
     align-items: center;
     gap: 70px;
+    position: relative;
+    padding: 32px 48px 32px 86px;
 }
 
 img {
@@ -53,4 +58,60 @@ img {
     display: block;
     font-size: 0.9rem;
     color: var(--carousel-author-color);
+}
+
+.btn {
+    background-color: var(--button-background-color);
+    border: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    position: absolute; /* not a flex item here */
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn--left {
+    left: 0;
+    top: 50%; /* of it's parent */
+
+    /* In relation to ELEMENT itself */
+    transform: translate(-50%,-50%)
+}
+
+.btn--right {
+    right: 0;
+    top: 50%; /* of it's parent */
+    transform: translate(50%,-50%);
+}
+
+.btn-icon {
+    height: 24px;
+    width: 24px;
+    stroke: #087f5b;
+}
+
+.dots {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,32px);
+    bottom: 0;
+    display: flex;
+    gap: 12px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    background-color: var(--background-color-dot);
+    border: 2px solid var(--border-color-dot);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot--fill {
+    background-color: #087f5b;
 }

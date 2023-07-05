@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="index.css">
+    <title>3.27 Questions: Styling Lists</title>
+    <style>
+        .first li::marker {
+            content: "🥕";
+        }
+
+        .second li::marker {
+            color: red;
+            font-size: 20px;
+        }
+
+        .third li {
+            padding: 0;
+            list-style-type: none;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>3.27 Questions: Styling Lists</h1>
+    <hr />
+    <main>
+      <h3>1. Replace the dot with 🥕 next to the every List Item bellow</h3>
+      <ul class="first">
+        <li>oat milk</li>
+        <li>rhubarb</li>
+        <li>cereal</li>
+        <li>pie crust</li>
+      </ul>
+      <hr />
+      <h3>
+        2. Change the market of the unordered list to red and make it 20px
+      </h3>
+      <ul class="second">
+        <li>oat milk</li>
+        <li>rhubarb</li>
+        <li>cereal</li>
+        <li>pie crust</li>
+      </ul>
+      <hr />
+      <h3>
+        3. Remove the enumerattion and the padding next of every List Item
+        bellow
+      </h3>
+      <ol class="third">
+        <li>oat milk</li>
+        <li>rhubarb</li>
+        <li>cereal</li>
+        <li>pie crust</li>
+      </ol>
+
+      <hr />
+    </main>
+  </body>
+</html>

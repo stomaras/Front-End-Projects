@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>3.28 Questions: CSS functions</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        width: calc(100%-2rem);
+        color: var(--color-all-texts);
+      }
+
+      :root {
+        --color-all-texts: #ccc;
+        --color-h2: green;
+      }
+
+      .container-2 p,span{
+        font-size: calc(40px-20px);
+      }
+
+      h2 {
+        color: var(--color-h2);
+      }
+
+      .container:not(.lorem) {
+        color: gold;
+      }
+
+      .container:not(.blue) {
+        color: gold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>3.28 Questions: CSS functions</h1>
+      <hr />
+    </header>
+    <main>
+      <ol>
+        <li>
+          Make the text size in 'p' and 'span' that are inside '.container-2' to
+          20px, by using a function.
+        </li>
+        <li>
+          Meke the color of the text inside '.container' that does not have a
+          class of .lorem or .blue to gold.
+        </li>
+        <li>
+          Set a variable that controls the color of all the text to '#ccc'
+        </li>
+        <li>
+          Set a variable that controls the color of all the h2, to 'green'
+        </li>
+        <li>
+          Set the width of the main contnet to be witdth of the view - 2rem
+        </li>
+      </ol>
+
+      <div class="container">
+        <h2>Heading</h2>
+        <p class="lorem">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, libero.
+        </p>
+        <p class="blue">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, libero.
+        </p>
+        <span>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, libero.
+        </span>
+      </div>
+      <div class="container-2">
+        <h2>Heading</h2>
+        <p class="lorem">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, libero.
+        </p>
+        <p class="blue">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, libero.
+        </p>
+        <span>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, libero.
+        </span>
+      </div>
+    </main>
+  </body>
+</html>

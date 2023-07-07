@@ -1,0 +1,41 @@
+
+  
+  .shadow {
+    text-align: center;
+    line-height: 100px;
+    width: 100px;
+    margin: 8px;
+    font-size: 2em;
+    display: inline-block;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.24);
+    transition: 0.8s;
+  }
+  
+  .shadow:hover,
+  .shadow:focus {
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.24);
+  }
+
+  .square {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    background-color: violet;
+    padding: 8px;
+  }
+  
+  .square.tp-none:hover {
+    width: 400px;
+    height: 400px;
+    transition: width 0.5s, height 0.5s;
+  }
+  .square.scale2:focus {
+    width: 200px;
+    height: 200px;
+  }
+  .square.scale2 {
+    transition-delay: 500ms;
+  }
+  

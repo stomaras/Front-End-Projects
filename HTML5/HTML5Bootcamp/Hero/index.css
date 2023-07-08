@@ -19,17 +19,51 @@ nav {
     font-weight: 700;
     display: flex;
     justify-content: space-between;
-    background-color: var(--nav-background-color);
+
+    /* we need a linear gradient to make a background-image darker */
+    /* background-image: linear-gradient(to right, red,blue); */
+    color: #fff;
+    /* background-color: var(--nav-background-color); */
 }
 
+
+
 header {
-    background-color: orangered;
+    /* background-color: orangered; */
     height: 100vh;
+    position: relative;
+
+    background-image: linear-gradient(hsla(0, 0%, 0%, 0.438), #00000057), url(charly.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    
+}
+
+.header-container {
+    width: 1200px;
+    position: absolute;
+
+    /* In relation to the parent size */
+    left: 50%;
+    top: 50%;
+
+    /* In relation to the element size */
+    transform: translate(-50%, -50%);
+
+    /* background-color: violet; */
+    text-align: left;
+}
+
+.header-container-inner {
+    width: 50%;
+    /* background-color: blue; */
 }
 
 h1 {
     font-size: 3.2rem;
     margin-bottom: 32px;
+    line-height: 1.05;
 }
 
 p {
@@ -64,7 +98,7 @@ section {
 .container {
     margin: 0 auto;
     width: 1200px;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .section-1 {

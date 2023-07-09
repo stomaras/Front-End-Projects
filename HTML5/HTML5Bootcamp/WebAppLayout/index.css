@@ -1,3 +1,18 @@
+:root {
+    --nav-background-color: #343a40;
+    --menu-background-color: #7048e8;
+    --section-background-color: #e9ecef;
+    --main-background-color: #fff;
+    --aside-background-color: #e9ecef;
+    --nav-color: #fff;
+    --menu-color: #fff;
+    --section-color: #343a40;
+
+    --menu-button-color: #5f3dc4;
+    --menu-button-last-color: #d6336c;
+    --email-spec-background-color: #adb5bd;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -15,10 +30,11 @@ body {
     display: grid;
     grid-template-columns: 80px 400px 1fr 250px;
     grid-template-rows: 80px 1fr;
+
+    font-size: 16px;
 }
 
 nav,
-menu,
 section,
 main,
 aside {
@@ -26,23 +42,64 @@ aside {
 }
 
 nav {
-    background-color: #343a40;
-    color: #fff;
+    background-color: var(--nav-background-color);
+    color: var(--nav-color);
     grid-row: 1 / -1;
 }
 
 menu {
-    background-color: #7048e8;
-    color: #fff;
+    background-color: var(--menu-background-color);
+    color: var(--menu-color);
     grid-column: 2 / -1;
+
+    display: flex;
+    align-items: center;
+    
+    gap: 12px;
+    padding: 0 40px;
+}
+
+.menu__button {
+    display: inline-block;
+    font-size: 1rem;
+    background-color: var(--menu-button-color);
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: bold;
+}
+
+.menu__button:last-child {
+    background-color: var(--menu-button-last-color);
+    margin-left: auto;
 }
 
 section {
-    background-color: #e9ecef;
-    color: #fff;
+    background-color: var(--section-background-color);
+    color: var(--section-color);
+    padding: 40px;
+
+    /* How element that do not fit into container appear */
+    overflow: scroll;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
+.email__spec {
+    background-color: var(--email-spec-background-color);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+
+
 aside {
-    background-color: #e9ecef;
-    color: #fff;
+    background-color: var(--aside-background-color);
+    color: var(--section-color);
 }

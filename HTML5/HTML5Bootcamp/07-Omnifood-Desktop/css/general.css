@@ -51,13 +51,4 @@ body {
     color: var(--primary-color);
 }
 
-.test {
-    width: 1000px;
-    background-color: red;
-    /* padding: 100px; */
-    max-width: 50rem;
-    color: #fff;
-    padding: 4rem;
-    font-size: 2rem;
-    /* 1rem = 16px by default */
-}
+

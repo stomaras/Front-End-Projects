@@ -35,6 +35,11 @@ google - tints and shades generator
     --primary-color: #555;
     --primary-darker-color: #333;
     --hero-background-color: #fdf2e9;
+    --button-primary-background-color: #e67e22;
+    --button-primary-darker-background-color: #b8651b;
+    --button-outline-background-color: #fff;
+    --button-outline-darker-background-color: #fdf2e9;
+    --button-primary-color: #fff;
     /* 10px / 16px = 0.625 = 62.5% */
     /* Percentage of user's browser font-size setting */
     font-size: 62.5%;

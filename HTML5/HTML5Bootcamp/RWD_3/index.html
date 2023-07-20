@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Weather</title>
 </head>
 <body>
@@ -10,6 +11,7 @@
         <h1>Weather Header</h1>
     </header>
     <main class="main-container">
+
         <article class="location-and-date">
             <h2 class="location-and-date__location">London, UK</h2>
             <p class="location-and-date__date">Sunday 4th August</p>
@@ -17,13 +19,14 @@
 
         <article class="current-temperature">
             <figure class="current-temperature__icon-container">
-                <img src="" alt="" class="current-temperature__icon">
+                <img src="img/sunny.svg" alt="" class="current-temperature__icon">
             </figure>
             <p class="current-temperature__content-container">
                 <div class="current-temperature__value">21&deg;</div>
                 <div class="current-temperature__summary">Mostly Sunny</div>
             </p>
         </article>
+
         <article class="current-stats">
             <ul>
                 <li class="current-stats__value">23&deg;</li>
@@ -44,6 +47,223 @@
                 <li class="current-stats__label">Sunset</li>
             </ul>
         </article>
+
+        <article class="weather-by-hour">
+            <h2 class="weather-by-hour__heading">
+                Today's weather
+            </h2>
+            <article class="weather-by-hour__container">
+                <figure class="weather-by-hour__item">
+                    <p class="weather-by-hour__hour">3am</p>
+                    <img src="img/sunny.svg" alt="Mostly Sunny">
+                    <figcaption>16&deg;</figcaption>
+                </figure>
+
+                <figure class="weather-by-hour__item">
+                    <p class="weather-by-hour__hour">6am</p>
+                    <img src="img/sunny.svg" alt="Mostly Sunny">
+                    <figcaption>16&deg;</figcaption>
+                </figure>
+
+                <figure class="weather-by-hour__item">
+                    <p class="weather-by-hour__hour">9am</p>
+                    <img src="img/sunny.svg" alt="Mostly Sunny">
+                    <figcaption>17&deg;</figcaption>
+                </figure>
+
+                <figure class="weather-by-hour__item">
+                    <p class="weather-by-hour__hour">12pm</p>
+                    <img src="img/sunny.svg" alt="Mostly Sunny">
+                    <figcaption>19&deg;</figcaption>
+                </figure>
+
+                <figure class="weather-by-hour__item">
+                    <p class="weather-by-hour__hour">3pm</p>
+                    <img src="img/sunny.svg" alt="Mostly Sunny">
+                    <figcaption>21&deg;</figcaption>
+                </figure>
+
+                <figure class="weather-by-hour__item">
+                    <p class="weather-by-hour__hour">6pm</p>
+                    <img src="img/sunny.svg" alt="Mostly Sunny">
+                    <figcaption>20&deg;</figcaption>
+                </figure>
+
+                <figure class="weather-by-hour__item">
+                    <p class="weather-by-hour__hour">9pm</p>
+                    <img src="img/sunny.svg" alt="Mostly Sunny">
+                    <figcaption>18&deg;</figcaption>
+                </figure>
+            </article>
+        </article>
+
+        <article class="next-5-days">
+            <h2 class="next-5-days__heading">Next 5 days</h2>
+            <article class="next-5-days__container">
+        
+              <article class="next-5-days__row">
+        
+                <p class="next-5-days__date">
+                  Tue
+                  <span class="next-5-days__label">30/7</span>
+                </p>
+        
+                <p class="next-5-days__low">
+                  10&deg;
+                  <span class="next-5-days__label">Low</span>
+                </p>
+        
+                <p class="next-5-days__high">
+                  21&deg;
+                  <span class="next-5-days__label">High</span>
+                </p>
+        
+                <p class="next-5-days__icon">
+                  <img src="icons/sunny.svg" alt="Sunny">
+                </p>
+        
+                <p class="next-5-days__rain">
+                  0%
+                  <span class="next-5-days__label">Rain</span>
+                </p>
+        
+                <p class="next-5-days__wind">
+                  12mph
+                  <span class="next-5-days__label">Wind</span>
+                </p>
+            </article>
+              <article class="next-5-days__row">
+        
+                <p class="next-5-days__date">
+                  Wed
+                  <span class="next-5-days__label">31/7</span>
+                </p>
+        
+                <p class="next-5-days__low">
+                  9&deg;
+                  <span class="next-5-days__label">Low</span>
+                </p>
+        
+                <p class="next-5-days__high">
+                  18&deg;
+                  <span class="next-5-days__label">High</span>
+                </p>
+        
+                <p class="next-5-days__icon">
+                  <img src="icons/mostly-sunny.svg" alt="Mostly sunny">
+                </p>
+        
+                <p class="next-5-days__rain">
+                  3%
+                  <span class="next-5-days__label">Rain</span>
+                </p>
+        
+                <p class="next-5-days__wind">
+                  7mph
+                  <span class="next-5-days__label">Wind</span>
+                </p>
+        
+            </article>
+              <!-- <div class="next-5-days__row">
+        
+                <div class="next-5-days__date">
+                  Thur
+                  <div class="next-5-days__label">1/8</div>
+                </div>
+        
+                <div class="next-5-days__low">
+                  7&deg;
+                  <div class="next-5-days__label">Low</div>
+                </div>
+        
+                <div class="next-5-days__high">
+                  15&deg;
+                  <div class="next-5-days__label">High</div>
+                </div>
+        
+                <div class="next-5-days__icon">
+                  <img src="icons/mostly-sunny.svg" alt="Mostly sunny">
+                </div>
+        
+                <div class="next-5-days__rain">
+                  75%
+                  <div class="next-5-days__label">Rain</div>
+                </div>
+        
+                <div class="next-5-days__wind">
+                  11mph
+                  <div class="next-5-days__label">Wind</div>
+                </div>
+        
+              </div>
+              <div class="next-5-days__row">
+        
+                <div class="next-5-days__date">
+                  Tue
+                  <div class="next-5-days__label">2/8</div>
+                </div>
+        
+                <div class="next-5-days__low">
+                  12&deg;
+                  <div class="next-5-days__label">Low</div>
+                </div>
+        
+                <div class="next-5-days__high">
+                  24&deg;
+                  <div class="next-5-days__label">High</div>
+                </div>
+        
+                <div class="next-5-days__icon">
+                  <img src="icons/sunny.svg" alt="Sunny">
+                </div>
+        
+                <div class="next-5-days__rain">
+                  2%
+                  <div class="next-5-days__label">Rain</div>
+                </div>
+        
+                <div class="next-5-days__wind">
+                  8mph
+                  <div class="next-5-days__label">Wind</div>
+                </div>
+        
+              </div>
+              <div class="next-5-days__row">
+        
+                <div class="next-5-days__date">
+                  Tue
+                  <div class="next-5-days__label">30/7</div>
+                </div>
+        
+                <div class="next-5-days__low">
+                  10&deg;
+                  <div class="next-5-days__label">Low</div>
+                </div>
+        
+                <div class="next-5-days__high">
+                  21&deg;
+                  <div class="next-5-days__label">High</div>
+                </div>
+        
+                <div class="next-5-days__icon">
+                  <img src="icons/mostly-sunny.svg" alt="Mostly sunny">
+                </div>
+        
+                <div class="next-5-days__rain">
+                  0%
+                  <div class="next-5-days__label">Rain</div>
+                </div>
+        
+                <div class="next-5-days__wind">
+                  12mph
+                  <div class="next-5-days__label">Wind</div>
+                </div>
+        
+              </div> -->
+        
+            </article>
+        </article>
+
     </main>
     <footer>
         Weather Footer

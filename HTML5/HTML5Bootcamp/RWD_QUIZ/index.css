@@ -1,0 +1,248 @@
+:root {
+    --primary-color: #fff;
+    --secondary-color: #b3b0b0;
+
+    --color-black: #050105;
+    --color-card: #3d3d3d;
+    --footer-background-color: #807e7e;
+    font-size: 62.5%;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--secondary-color);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+}
+
+.blog {
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary-color);
+    margin: 0.2rem 0.2rem;
+    padding: 1.2rem;
+    gap: 1rem;
+}
+
+.blog__header {
+    background-color: var(--primary-color);
+    color: var(--color-black);
+    font-weight: 300;
+}
+
+.blog-main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0.3rem 0.3rem;
+    gap: 1rem;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.card {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-figure {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+}
+
+.card-figure__heading {
+    background-color: var(--primary-color);
+    color: var(--color-card);
+    flex-basis: 10%;
+    padding: 0.4rem;
+}
+
+.card-figure__figcaption {
+    background-color: var(--primary-color);
+    color: var(--color-card);
+    flex-basis: 10%;
+    padding: 0.4rem;
+
+}
+
+.card-figure__div {
+    background-color: var(--primary-color);
+    width: 99%;
+}
+
+.card-figure__div__img {
+    flex-basis: 95%;
+    padding: 0.4rem;
+    background-color: var(--primary-color);
+    max-width: 100%;
+    background-size: cover;
+}
+
+.card-figure__figcaption__time {
+    background-color: var(--primary-color);
+    color: var(--color-card);
+}
+
+.card-figure__paragraph {
+    background-color: var(--primary-color);
+    color: var(--color-card);
+    flex-basis: 95%;
+    padding: 0.6rem;
+}
+
+.aside {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    flex-basis: 100%;
+}
+
+.aside__header {
+    background-color: var(--primary-color);
+    flex-basis: 100%;
+}
+
+.aside__header__figure {
+    background-color: var(--primary-color);
+    padding: 0.4rem;
+    flex-basis: 100%;
+}
+
+.aside__header__heading {
+    background-color: var(--primary-color);
+    flex-basis: 100%;
+}
+
+.aside__header__figcaption {
+    background-color: var(--primary-color);
+}
+
+.aside__popular {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+}
+
+.aside__header__img {
+    padding: 0rem;
+    flex-basis: 100%;
+    width: 100%;
+    
+}
+
+.aside__popular__img {
+    padding: 0rem;
+    flex-basis: 100%;
+}
+
+.aside__popular__heading {
+    background-color: var(--primary-color);
+    padding: 0.4rem;
+}
+
+.aside__popular__figure {
+    background-color: var(--primary-color);
+    padding: 0.4rem;
+}
+
+.aside__footer {
+    background-color: var(--primary-color);
+}
+
+.aside__footer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    padding: 0.4rem;
+}
+
+.aside__footer__text {
+    background-color: var(--primary-color);
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--footer-background-color);
+    margin: 0.5rem;
+    padding: 0.9rem;
+}
+
+.footer__header {
+    background-color: var(--footer-background-color);
+
+}
+
+
+@media screen and (min-width:576px) and (max-width:800px) {
+    .blog-main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-basis: 75%;
+    }
+
+    .card {
+        flex-basis: 48%;
+    }
+
+    .aside {
+        display: flex;
+        flex-direction: column;
+        height: 90%;
+        flex-basis: 25%;
+    }
+}
+
+@media screen and (min-width:801px){
+    .blog-main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-basis: 75%;
+    }
+
+    .card {
+        flex-basis: 31%;
+    }
+
+    .aside {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        flex-basis: 25%;
+    }
+}

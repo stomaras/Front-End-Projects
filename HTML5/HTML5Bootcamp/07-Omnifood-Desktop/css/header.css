@@ -1,0 +1,15 @@
+.logo {
+    height: 2.2rem;
+}
+
+
+/* we want to make navigation sticky in the future */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-background-color);
+
+    height: 9.6rem;
+    padding: 0 4.8rem;
+}

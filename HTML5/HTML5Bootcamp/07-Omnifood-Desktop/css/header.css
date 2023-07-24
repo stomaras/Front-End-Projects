@@ -13,3 +13,43 @@
     height: 9.6rem;
     padding: 0 4.8rem;
 }
+
+
+/* Navigation */
+.main-nav-list {
+    list-style: none;
+    display: flex;
+    gap: 3.2rem;
+    align-items: center;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--main-nav-link-color);
+    font-weight: 500;
+    font-size: 1.8rem;
+    transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+    color: #cf711f;
+}
+
+/* must have both main-nav-link class and nav-cta class */
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+    padding: 1.2rem 2.4rem;
+    /* i am using px not rem because i do not want to scale up and down */
+    border-radius: 9px;
+    color: #fff;
+    background-color: var(--button-primary-lighter-background-color);
+}
+
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+    background-color: var(--button-primary-darker-background-color);
+}

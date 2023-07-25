@@ -43,6 +43,7 @@ google - tints and shades generator
     --button-primary-color: #fff;
     --header-background-color: #fdf2e9;
     --main-nav-link-color: #333;
+    --background-color-hero: orangered;
     /* 10px / 16px = 0.625 = 62.5% */
     /* Percentage of user's browser font-size setting */
     font-size: 62.5%;

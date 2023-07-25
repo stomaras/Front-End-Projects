@@ -1,0 +1,32 @@
+.section-how {
+    padding: 9.6rem 0;
+    background-color: var(--background-color-hero);
+}
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    gap: 9.6rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Modifiers */
+.grid--2-cols {
+    grid-template-columns: repeat(2, 2fr);
+}
+
+.grid--3-cols {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.section-how__test {
+    padding: 100px;
+    font-size: 50px;
+    background-color: #333;
+}
+
+

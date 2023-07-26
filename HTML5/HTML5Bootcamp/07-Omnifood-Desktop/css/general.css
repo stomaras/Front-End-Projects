@@ -11,6 +11,10 @@ Default: 400
 - Line heights:
 Default: 1
 
+- Letter Spacing
+-0.5px
+0.75px
+
 
 Spacing System (px)
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
@@ -44,6 +48,8 @@ google - tints and shades generator
     --header-background-color: #fdf2e9;
     --main-nav-link-color: #333;
     --background-color-hero: orangered;
+    --headings-color: #2e1907;
+    --subheading-color: #e67e22;
     /* 10px / 16px = 0.625 = 62.5% */
     /* Percentage of user's browser font-size setting */
     font-size: 62.5%;
@@ -62,14 +68,25 @@ body {
     color: var(--primary-color);
 }
 
+.heading-primary,
+.heading-secondary {
+    font-weight: 700;
+    color: var(--primary-darker-color);
+    color: var(--headings-color);
+    letter-spacing: -0.5px;
+    margin-bottom: 9.6rem;
+}
+
 .heading-primary {
     font-size: 5.2rem;
-    font-weight: 700;
     line-height: 1.05;
-    color: var(--primary-darker-color);
     /* keep using px in these situations */
-    letter-spacing: -0.5px;
     margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+    font-size: 4.4rem;
+    line-height: 1.2;
 }
 
 .btn:link, 

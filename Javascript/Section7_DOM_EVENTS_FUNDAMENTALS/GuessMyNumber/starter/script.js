@@ -1,6 +1,5 @@
 'use strict';
 
-const INITIAL_SCORE = 20;
 
 const palette = {
     successBackgroundColor: '#25be17',
@@ -9,7 +8,8 @@ const palette = {
 };
 
 let secretNumber = Math.trunc(Math.random()*20) + 1;
-let score = INITIAL_SCORE;
+let score = 20;
+let highScoreGame = 0;
 
 let scoreSpan = document.querySelector('.score');
 let highScore = document.querySelector('.highscore');
@@ -32,11 +32,18 @@ const checkButton = document.querySelector('.check').addEventListener('click', f
         numberQuestion.style.width = '30rem';
         numberQuestion.textContent = secretNumber;
 
+        if(score > highScoreGame){
+            highScoreGame = score;
+            highScore.textContent = highScoreGame;
+        }
+
     // when player lost
     } else if(guess > secretNumber) {
         if(score > 1){
             message.textContent = 'Too High';
+            console.log(score);
             score--;
+            console.log(score);
             scoreSpan.textContent = score;
         }else {
             message.textContent = 'You Lost the game';
@@ -45,7 +52,9 @@ const checkButton = document.querySelector('.check').addEventListener('click', f
     } else if (guess < secretNumber) {
         if(score > 1){
             message.textContent = 'Too Low';
+            console.log(score);
             score--;
+            console.log(score);
             scoreSpan.textContent = score;
         } else {
             message.textContent = 'You Lost the game';
@@ -62,4 +71,5 @@ buttonAgain.addEventListener('click', function() {
     numberQuestion.style.width = '15rem';
     guessInput.value = "";
     scoreSpan.textContent = 20;
+    score = 20;
 }); 

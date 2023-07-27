@@ -27,3 +27,4 @@ And a lot more
 - if i add navigate('order-summary', {replace: true}) ---> we go back on history stack, replace the history add optional second argument 
 - outlet component renders the component corresponsing to the matching child route from the parent list of routes
 - useSearchParams instead of storing state in memory though it is stored in the url
+- relative link is a link that does not start with / and will inherit the closest route in which they are rendered

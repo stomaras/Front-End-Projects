@@ -50,6 +50,9 @@ google - tints and shades generator
     --background-color-hero: orangered;
     --headings-color: #2e1907;
     --subheading-color: #e67e22;
+    --step-number-color: #ddd;
+    --circle-lighter-color: #f7e3d3;
+    --circle-darker-color: #f7d7be;
     /* 10px / 16px = 0.625 = 62.5% */
     /* Percentage of user's browser font-size setting */
     font-size: 62.5%;
@@ -69,7 +72,8 @@ body {
 }
 
 .heading-primary,
-.heading-secondary {
+.heading-secondary,
+.heading-tertiary {
     font-weight: 700;
     color: var(--primary-darker-color);
     color: var(--headings-color);
@@ -87,6 +91,12 @@ body {
 .heading-secondary {
     font-size: 4.4rem;
     line-height: 1.2;
+}
+
+.heading-tertiary {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 3.2rem;
 }
 
 .btn:link, 

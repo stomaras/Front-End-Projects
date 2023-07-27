@@ -13,3 +13,16 @@
     text-decoration: none;
     font-weight: bold;
 }
+
+.sub_nav {
+    padding: 1.6rem 3.2rem;
+    background-color: var(--nav-background-color);
+}
+
+.sub_nav__featured {
+    margin-right: 1.6rem;
+}
+
+.sub_nav__new {    
+    margin-right: 1.6rem;
+}

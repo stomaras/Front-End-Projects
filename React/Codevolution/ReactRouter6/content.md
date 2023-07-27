@@ -28,3 +28,6 @@ And a lot more
 - outlet component renders the component corresponsing to the matching child route from the parent list of routes
 - useSearchParams instead of storing state in memory though it is stored in the url
 - relative link is a link that does not start with / and will inherit the closest route in which they are rendered
+- lazy loading is a technique where components not required on the home page can be split in seperate code bundles and downloaded only when the user navigate to
+  to that page, is like incrementaly downloading the application .
+- for dynamic import we need a default export of the component

@@ -1,0 +1,10 @@
+/* Block */
+.navbar {
+    padding: 1.6rem 3.2rem;
+    background-color: var(--nav-background-color);
+}
+
+/* Element */
+.navbar__link {
+    margin-right: 1.6rem;
+}

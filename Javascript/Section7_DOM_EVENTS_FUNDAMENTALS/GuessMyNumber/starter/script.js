@@ -1,5 +1,5 @@
-'use strict';
 
+'use strict';
 
 const palette = {
     successBackgroundColor: '#25be17',
@@ -19,15 +19,17 @@ let numberQuestion = document.querySelector('.number');
 const guessInput = document.querySelector('.guess');
 const buttonAgain = document.querySelector('.again');
 
+const displayMessage = function(mes) {
+    message.textContent = mes;
+}
+
 const checkButton = document.querySelector('.check').addEventListener('click', function(){
     const guess = Number(document.querySelector('.guess').value);
-
     if(!guess){
         message.textContent = 'No number';
-
     // when player wins
     } else if (guess === secretNumber) {
-        message.textContent = 'Correct Number';
+        displayMessage("Correct Number");
         bodyElement.style.backgroundColor = palette.successBackgroundColor;
         numberQuestion.style.width = '30rem';
         numberQuestion.textContent = secretNumber;
@@ -36,37 +38,23 @@ const checkButton = document.querySelector('.check').addEventListener('click', f
             highScoreGame = score;
             highScore.textContent = highScoreGame;
         }
-
     // when player lost
-    } else if(guess > secretNumber) {
-        if(score > 1){
-            message.textContent = 'Too High';
-            console.log(score);
+    // when guess is wrong
+    } else if( guess !== secretNumber){
+        if(score > 1) {
+            displayMessage(guess > secretNumber ? 'Too High' : 'Too Low')
             score--;
-            console.log(score);
-            scoreSpan.textContent = score;
-        }else {
-            message.textContent = 'You Lost the game';
-            scoreSpan.textContent = 0;
-        }
-    } else if (guess < secretNumber) {
-        if(score > 1){
-            message.textContent = 'Too Low';
-            console.log(score);
-            score--;
-            console.log(score);
             scoreSpan.textContent = score;
         } else {
-            message.textContent = 'You Lost the game';
+            displayMessage("You Lost the game")
             scoreSpan.textContent = 0;
         }
-    }
+    } 
 });
 
-
 buttonAgain.addEventListener('click', function() {
-    bodyElement.style.backgroundColor = palette.initialBackgroundColor;    
-    message.textContent = "Start Guessing...";
+    bodyElement.style.backgroundColor = palette.initialBackgroundColor;   
+    displayMessage('Start Guessing...') 
     numberQuestion.textContent = "?";
     numberQuestion.style.width = '15rem';
     guessInput.value = "";

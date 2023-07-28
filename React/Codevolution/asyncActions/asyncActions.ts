@@ -64,6 +64,7 @@ const reducer = (state = initialState, action) => {
 
 // Action creator returns an action
 // Thunk Middleware brings to the table is the ability for an action creator to return a function instead of an action object
+// and a function can perform side effects such as asynchronous tasks, the function can also dispatch regular actions which will be handled by the reducer
 const fetchUsers = () => {
     return function(dispacth){
         dispacth(fetchUsersRequest())

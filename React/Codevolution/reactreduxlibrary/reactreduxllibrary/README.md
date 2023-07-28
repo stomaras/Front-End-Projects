@@ -13,3 +13,6 @@ Components can access state and dispatch actions
 React Hooks 
 
 Subscribe to store and dispatch actions without connect()
+
+useSelector = mapStateToProps we already see
+useDispatch = mapDispatchToProps we already see returns reference to the dispatch function from the Redux store

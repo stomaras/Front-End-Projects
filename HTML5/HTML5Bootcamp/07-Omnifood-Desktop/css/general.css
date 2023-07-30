@@ -54,6 +54,7 @@ google - tints and shades generator
     --circle-lighter-color: #f7e3d3;
     --circle-darker-color: #f7d7be;
     --heading-featured-in: #888;
+    --meal-title: #333;
     /* 10px / 16px = 0.625 = 62.5% */
     /* Percentage of user's browser font-size setting */
     font-size: 62.5%;

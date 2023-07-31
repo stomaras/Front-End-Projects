@@ -55,6 +55,10 @@ google - tints and shades generator
     --circle-darker-color: #f7d7be;
     --heading-featured-in: #888;
     --meal-title: #333;
+    --color-meal-icons: #e67e22;
+    --vegeterian-tag-color: #51cf66;
+    --vegan-tag-color: #067919;
+    --paleo-tag-color: #bfecc7;
     /* 10px / 16px = 0.625 = 62.5% */
     /* Percentage of user's browser font-size setting */
     font-size: 62.5%;
@@ -144,4 +148,8 @@ body {
 /* Using a helper class */
 .margin-right-sm {
     margin-right: 1.6rem;
+}
+
+strong {
+    font-weight: 500;
 }

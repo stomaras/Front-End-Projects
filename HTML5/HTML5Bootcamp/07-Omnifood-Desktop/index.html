@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <title>Omnifood</title>
 </head>
 <body>
@@ -151,13 +153,13 @@
 
         <div class="container grid grid--3-cols">
             <figure class="meal">
+                <span class="tag">Vegeterian</span>
                 <img src="img/meals//meal-1.jpg" alt="Japanese Gyozas" class="meal-img">
                 <figcaption class="meal-title">Japanese Gyozas</figcaption>
-                <span class="tag">Vegeterian</span>
                 <ul class="meal-attributes">
-                    <li class="meal-attribute">650 calories</li>
-                    <li class="meal-attribute">Nutriscore &reg; 74</li>
-                    <li class="meal-attribute">4.9 rating (537)</li>
+                    <li class="meal-attribute"><ion-icon name="flame-outline"></ion-icon> <span>650 calories</span></li>
+                    <li class="meal-attribute"><ion-icon name="restaurant-outline"></ion-icon> <span>Nutriscore &reg; 74</span></li>
+                    <li class="meal-attribute"><ion-icon name="star-outline"></ion-icon> 4.9 rating (537)</li>
                 </ul>
             </figure>
             <div class="meal">Meals</div>
@@ -167,7 +169,5 @@
 
     </main>
 
-    
-    
 </body>
 </html>

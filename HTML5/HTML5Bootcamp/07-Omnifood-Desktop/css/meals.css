@@ -6,8 +6,20 @@
     font-size: 2rem;
     color: var(--meal-title);
     font-weight: 600;
+    margin-bottom: 3.2rem;
 }
 
 .meal-img {
     width: 100%;
+}
+
+.meal-attributes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.meal-attribute {
+    font-size: 1.8rem;
 }

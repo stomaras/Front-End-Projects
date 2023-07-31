@@ -19,3 +19,14 @@ modalButtons.forEach((modalButton) => {
 })
 closeModalButton.addEventListener('click',closeModal)
 overlay.addEventListener('click',closeModal)
+
+document.addEventListener('keydown', (e) => {
+    // access object inside event handler function object with many properties e
+
+    console.log(e.key);
+    if(e.key === 'Escape'){
+        if(!(modal.classList.contains('hidden'))){
+            closeModal();
+        }
+    }
+})

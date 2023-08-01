@@ -59,6 +59,8 @@ google - tints and shades generator
     --vegeterian-tag-color: #51cf66;
     --vegan-tag-color: #067919;
     --paleo-tag-color: #bfecc7;
+    --see-all-recipes-button-color: #e67e22;
+    --see-all-recipes-button-color-darker: #d3711c;
     /* 10px / 16px = 0.625 = 62.5% */
     /* Percentage of user's browser font-size setting */
     font-size: 62.5%;
@@ -148,6 +150,27 @@ body {
 /* Using a helper class */
 .margin-right-sm {
     margin-right: 1.6rem;
+}
+
+.margin-bottom-md {
+    margin-bottom: 4.8rem;
+}
+
+.link:link,
+.link:visited {
+    display: inline-block;
+    color: var(--see-all-recipes-button-color);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    font-size: 2rem;
+}
+
+.link:hover,
+.link:active {
+    color: var(--see-all-recipes-button-color-darker);
+    border-bottom: 1px solid transparent;
+    font-size: 2rem;
 }
 
 strong {

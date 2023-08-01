@@ -115,7 +115,7 @@ body {
     padding: 1.6rem 3.2rem;
     border-radius: 9px;
     font-weight: 600;
-    transition: background-color 0.4s;
+    transition: all 0.4s;
 }
 
 .btn--full:link, 

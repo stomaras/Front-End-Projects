@@ -18,10 +18,6 @@ const xAxisGroup = graph.append('g').attr('transform', `translate(0, ${graphHeig
 const yAxisGroup = graph.append('g');
 
 d3.json('menu.json').then(data => {
-    
-    // const minOrders = d3.min(data, d => d.orders);
-    // const maxOrders = d3.max(data, d => d.orders);
-    // const extent = d3.extent(data, d => d.orders);
 
     // scale for y direction
     const y = d3.scaleLinear()
@@ -54,8 +50,11 @@ d3.json('menu.json').then(data => {
     
     // create and call the axes
     const xAxis = d3.axisBottom(x);
-    const yAxis = d3.axisLeft(y);
+    const yAxis = d3.axisLeft(y).ticks(10).tickFormat(d => d + ' orders ')
 
     xAxisGroup.call(xAxis);
     yAxisGroup.call(yAxis);
+
+    xAxisGroup.selectAll('text').attr('transform','rotate(-40)').attr('text-anchor','end').attr('fill','orange');
+
 });

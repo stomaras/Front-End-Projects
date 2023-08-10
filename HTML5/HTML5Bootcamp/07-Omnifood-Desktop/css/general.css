@@ -62,6 +62,8 @@ google - tints and shades generator
     --see-all-recipes-button-color: #e67e22;
     --see-all-recipes-button-color-darker: #d3711c;
     --background-section-testimonials: #ecbd97;
+    --plan-name-color: #cf711f;
+    --plan-text-color: #6f6f6f;
     /* 10px / 16px = 0.625 = 62.5% */
     /* Percentage of user's browser font-size setting */
     font-size: 62.5%;

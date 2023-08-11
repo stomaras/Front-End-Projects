@@ -64,6 +64,11 @@ google - tints and shades generator
     --background-section-testimonials: #ecbd97;
     --plan-name-color: #cf711f;
     --plan-text-color: #6f6f6f;
+    --pricing-plan-background-color: #fcf6f2;
+    --pricing-plan-background-color-border: #fae4d2;
+    --pricing-plan-background-color-complete: #f3d0b3;
+    --best-value-background-color: #ffd43b;
+    --best-value-black: #333;
     /* 10px / 16px = 0.625 = 62.5% */
     /* Percentage of user's browser font-size setting */
     font-size: 62.5%;
@@ -186,4 +191,19 @@ strong {
 
 .meal:hover {
     transform: translateY(-1.2rem);
+}
+
+.grid {
+    display: grid;
+    column-gap: 6.4rem;
+    row-gap: 9.6rem;
+    margin-bottom: 9.6rem;
+}
+
+.grid:not(:last-child) {
+    margin-bottom: 9.6rem;
+}
+
+.grid--4-cols {
+    grid-template-columns: repeat(4, 1fr);
 }

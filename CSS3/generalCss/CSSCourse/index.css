@@ -1,0 +1,30 @@
+:root {
+    font-size: 62.5%;
+    --paragraph-color: purple;
+    --paragraph-color-2: grey;
+    --h1-color: blue;
+}
+
+/* Form elements does not inherit the font settings */
+button, input, textarea, select {
+    font: inherit;
+}
+
+h1, h2 {
+    color: var(--h1-color);
+}
+body {
+    font-size: 2rem;
+}
+
+p {
+    color: var(--paragraph-color);
+}
+
+.gray {
+    color: var(--paragraph-color-2);
+}
+
+#second {
+    font-style: italic;
+}

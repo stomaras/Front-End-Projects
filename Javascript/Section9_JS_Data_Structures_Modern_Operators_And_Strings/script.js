@@ -1,35 +1,64 @@
 'use strict'
 
+const weekdaysf = ['mon','tue','wed','thu','fri','sat','sun'];
+
+const openingHours = {
+    thu: {
+        open: 12,
+        close: 22,
+    },
+    fri: {
+        open: 11,
+        close: 23,
+    },
+    sat: {
+        open: 0,
+        close: 24
+    },
+};
+
 const restaurant = {
     name:'Classico Italiano',
     location:'Via Angelo Tavanti 23, Firenze, Italy',
     categories:['Italian','Pizzeria','Vegeterian','Organic'],
     starterMenu: ['Focaccia','Bruschetta','Garlic Bread', 'Caprese Salad'],
     mainMenu:['Pizza','Pasta','Risotto'],
-    openingHours: {
-        thu: {
-            open: 12,
-            close: 22,
-        },
-        fri: {
-            open: 11,
-            close: 23,
-        },
-        sat: {
-            open: 0,
-            close: 24
-        },
-    },
-    order: function(starterIndex, mainIndex) {
+
+    // ES6 Enhanced object literals
+    openingHours,
+    order(starterIndex, mainIndex) {
         return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
     },
-    orderDelivery: function({starterIndex = 1, mainIndex = 0, time = '20:00', address}){
+    orderDelivery({starterIndex = 1, mainIndex = 0, time = '20:00', address}){
         console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
     },
-    orderPasta: function(ing1,ing2, ing3){
+    orderPasta(ing1,ing2, ing3){
         console.log(`Here is your delicious pasta with ${ing1} ${ing2} ${ing3}`);
     }
 }
+console.log(restaurant);
+
+// With optional chaining
+// only if mon property exists only then open property will be read from there if not immediately undefined will be log
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours.fri.open);
+
+// example 
+const days = ['mon','tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for(const day of days) {
+    console.log(day);
+    const open = restaurant.openingHours[day]?.open ?? 'closed'
+    console.log(open);
+}
+
+// nullish values are null and undefined
+
+// Methods
+console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
+console.log(restaurant.orderRisoto?.(0,1) ?? 'Method does not exist');
+
+const users = [{name:'Jonas', email:'hello@jonas.io'}]
+console.log(users[0]?.name ?? 'User array empty');
 
 // // skip element in the middle
 // let [main , , secondary] = restaurant.categories;

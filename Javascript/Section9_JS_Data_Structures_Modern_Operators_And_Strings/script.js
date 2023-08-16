@@ -197,3 +197,21 @@ if(restaurant.orderPasta){
 }
 
 restaurant.orderPasta && restaurant.orderPasta('fd','d','d') // execute second part of code is the first one is true
+
+
+restaurant.numGuests = 0;
+
+// Nullish: null and undefined (NOT 0 or '')
+const guessCorrect = restaurant.numGuests ?? 10;
+console.log(guessCorrect);
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const item of menu) console.log(item);
+
+
+for (const [i, el] of menu.entries()) {
+    console.log(`${i + 1}: ${el}`);
+}
+
+// element plus the index of the element
+console.log([...menu.entries()]);

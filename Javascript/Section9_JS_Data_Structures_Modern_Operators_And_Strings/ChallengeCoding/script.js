@@ -16,6 +16,18 @@ plus 'Thiago', 'Coutihno' and 'Perisic'
 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, without using an if else statement or the ternary operator.
 
 TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then call the function again with players from game.scored
+
+Coding Challenge part 2
+
+1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
+
+BONUS: Create an object called 'scorers' which contains the names of players who scored as properties, and the number of goals as the value.
+In this game , it will look like this:
+{
+    Gnarby: 1,
+    Hummels: 1,
+    Lewandowski: 2
+}
 */
 
 
@@ -90,3 +102,37 @@ printGoals(...game.scored)
 // 7.
 team1 < team2 && console.log('Team 1 is more likely to win');
 team1 > team2 && console.log('Team 2 is more likely to win');
+
+// Part 2
+
+// 1.
+for(const [i, player] of game.scored.entries()){
+    console.log(`Goal ${i+1}: ${player} `);
+}
+
+// 2.
+
+
+// 3.
+const result = "";
+const teams = [game.team1, game.team2];
+for(let i=0; i<= teams.length; i++) {
+    if(i === 0){
+        console.log(`Odd of victory ${teams[i]}: ${game.odds.team1}`);
+    }else if(i===1){
+        console.log(`Odd of victory ${teams[i]}: ${game.odds.team2}`);
+    }else {
+        console.log(`Odd of draw: ${game.odds.x}`);
+    }
+}
+
+
+const scorers = {}
+
+for(let x of game.scored) {
+    scorers[x] = scorers[x] ? scorers[x] + 1 : 1;
+    console.log(scorers[x]);
+
+}
+
+console.log(scorers);

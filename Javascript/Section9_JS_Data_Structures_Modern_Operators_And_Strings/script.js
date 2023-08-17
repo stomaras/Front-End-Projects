@@ -267,3 +267,42 @@ console.log(entries);
 for (const [day, {open, close}] of entries) {
     console.log(`On ${day} we open at ${open} and close at ${close}`);
 }
+
+// sets and maps ES6 JS
+// set a collection of unique values
+// set is an iterable
+// in sets there are actually no indexes.
+// spread operator works on all iterables that include sets
+const ordersSet = new Set(['Pasta','Pizza','Pizza','Risotto','Pasta','Pizza']);
+console.log(ordersSet);
+
+console.log(new Set('Jonas'));
+
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('apple'));
+ordersSet.add('Garlic Bread');
+console.log(ordersSet);
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
+
+for(const order of ordersSet) console.log(order);
+
+// Example 
+const staff = ['Waiter','Chef','Waiter','Manager','Chef','Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(new Set('Tomaras').size);
+
+
+
+
+
+
+
+
+
+
+
+

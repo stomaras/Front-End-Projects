@@ -296,13 +296,40 @@ console.log(staffUnique);
 console.log(new Set('Tomaras').size);
 
 
+// Maps
+// Data Structure in order to Map Values to Keys
+// just like an Object data is stored in a key value pair in maps.
+// in maps keys can have any type , in objects the keys are always basically strings.
 
+const rest = new Map();
+rest.set('name','Classico Italiano');
+rest.set(1,'Firenze Italy');
+rest.set(2, 'Lisbon, Portugal');
+console.log(rest);
 
+// set method
+rest
+    .set('categories', ['Italian', 'Pizzeria', 'Vegeterian', 'Organic'])
+    .set('open', 11)
+    .set('close', 23)
+    .set(true, 'We are open :D')
+    .set(false, 'We are closed :(');
 
+    console.log(rest.get('name'));
+    console.log(rest.get(true));
 
+// get method
+const time = 21;
+rest.get(time > rest.get('open') && time < rest.get('close'))
 
+console.log(rest.has('categories'));
+rest.delete(2)
+console.log(rest);
+console.log(rest.size);
 
-
-
+rest.set([1,2], 'Test')
+console.log(rest.get([1,2]));
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
 
 

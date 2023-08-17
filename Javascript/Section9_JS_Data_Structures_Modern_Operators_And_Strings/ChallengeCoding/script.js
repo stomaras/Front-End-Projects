@@ -160,5 +160,29 @@ const gameEvents = new Map([
     [72, 'Substitution'],
     [76, 'GOAL'],
     [80, 'GOAL'],
-    [92, 'Yellow card'],
+    [92, 'Yellow Card'],
 ]);
+
+//1.
+const eventsArray = [];
+const minutes = [];
+for(const [key,value] of gameEvents.entries()){
+    eventsArray.push(value);
+    minutes.push(key)
+}
+const events = new Set(eventsArray);
+
+
+//2.
+console.log(gameEvents);
+gameEvents.delete(64)
+console.log(gameEvents);
+
+//3.
+console.log(`An event happened, on average, every ${90/gameEvents.size} minutes (keep in mind that a game has 90 minutes)`);
+
+//4.
+for(const [key,value] of gameEvents.entries()){
+    const half = key <=45 ? "FIRST": "SECOND";
+    console.log(`[${half} HALF] ${key}: ${value}`);
+}

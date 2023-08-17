@@ -369,3 +369,66 @@ console.log([...question]);
 console.log([...question.entries()]);
 console.log([...question.keys()]);
 console.log([...question.values()]);
+
+
+
+/* Data Structures Overview */
+
+/* Sources of Data */
+
+// 1) From the program itself: Data written directly in source code (e.g status messages)
+// 2) From the UI: Data input from the user or data written in DOM (e.g tasks in todo app)
+// 3) From external sources: Data fetched for example from web api (e.g recipe objects)
+// Collection of data 
+// data structure
+// Simple List ---> Arrays or Sets
+// KEY/VALUE Pairs ---> Objects or Maps
+
+// JSON Format an object inside it arrays with objects 
+
+// There are other Built in 
+// WeakMap
+// WeakSet
+
+// NON-BUILT IN
+// Stacks
+// Queues
+// Linked lists
+// Trees
+// Hash Tables
+
+// 1) Arrays 
+// tasks = ['Code','Eat','Code'];
+// ["Code","Eat","Code"]
+
+// Use when you need ordered list of values(might contain duplicates)
+// Use when you need to manipulate data
+// ------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------
+// 2) SETS
+// tasks = new Set(['Code','Eat','Code'])
+// {"Code","Eat"}
+
+// Use when you need to work with unique values
+// Use when high-performance is really important
+// Use to remove duplicates from arrays
+// ------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------
+// 3) OBJECTS
+// task = { task:'Code', date: 'today', repeat: true};
+// more traditional key/value store ("abused" objects)
+// easier to write and access values with . and []
+
+// Use when you need to include functions (methods)
+// Use when working with JSON (can convert to map)
+// ------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------
+// 4) MAPS
+// task = new Map([['task','Code'],['date','today'],[false, 'Start Coding']]);
+// better performance
+// keys can have any data type
+// easy to iterate
+// easy to compute size
+
+// Use when you simply need to map key to values
+// Use when you need keys that are not strings

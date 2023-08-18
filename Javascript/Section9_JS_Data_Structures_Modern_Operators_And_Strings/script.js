@@ -533,3 +533,50 @@ const checkBaggage = function(items) {
 checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun for protection');
+
+// Strings Part 3
+
+console.log("a+very+nice+string".split('+'));
+console.log('Jonas Schmedtman'.split(' '));
+
+const [firstName, lastName] = 'Jonas Schmedtman'.split(' ');
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ')
+console.log(newName);
+
+const capitalizeName = function(name) {
+    const names = name.split(" ");
+    const namesUpper = [];
+
+    for(const n of names){
+        namesUpper.push(n[0].toUpperCase() + n.slice(1))
+    }
+    console.log(namesUpper.join(' '));
+}
+
+const passengerr = 'jessica ann smith davis'
+capitalizeName(passengerr)
+
+
+// Padding
+const message = 'Go to gate 23!'
+console.log(message.padStart(25, '+'));
+console.log('Jonas'.padStart(25, '+'));
+
+
+// when you see an entire credit card on the internet you never see the entire number 
+// usually we see the last 5 digits
+
+const maskCreditCard = function(number) {
+    const str = number + '';
+    const last = str.slice(-4);
+    return last.padStart(str.length, '*');
+}
+
+const card = maskCreditCard(43435623232344);
+console.log(card);
+maskCreditCard('32244144798')
+
+// Repeat
+const message2 = 'Bad weather... All Departues Delayed...\n';
+console.log(message2.repeat(5));

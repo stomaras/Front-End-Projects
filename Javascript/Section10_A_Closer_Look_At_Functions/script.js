@@ -59,3 +59,21 @@ const newPassport = function(person) {
 
 newPassport(jonas);
 checkIn(flight, jonas);
+
+/* High Order Functions */
+/*
+- A function that receives another function as an argument, that returns a new function, or both
+const greet = () => console.log('Hey Jonas');
+btnClose.addEventListener('click', greet);
+addEventListener is a High-Order-Function, greet is a callback function
+
+count is a Higher-order function
+function count() {
+    let counter = 0;
+    return function() {
+        counter++;
+    };
+}
+
+
+*/

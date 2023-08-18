@@ -22,3 +22,40 @@ createBooking('LH123', 2);
 createBooking('LH1223', 5);
 
 createBooking('LG123', undefined, 1000);
+
+
+
+
+const flight = 'LH234';
+const jonas = {
+    name: 'Jonas Schmedtman',
+    passport: 247382742342
+}
+
+
+const checkIn = function(flightNum, passenger) {
+    flightNum = 'LH999';
+    passenger.name = 'Mr. ' + passenger.name;
+
+    if(passenger.passport === 247382742342) {
+        alert('Check In')
+    } else {
+        alert("Wrong passport");
+    }
+}
+
+checkIn(flight, jonas);
+
+// primitive type
+console.log(flight);
+
+// reference type 
+console.log(jonas);
+
+
+const newPassport = function(person) {
+    person.passport = Math.trunc(Math.random() * 100000000000)
+}
+
+newPassport(jonas);
+checkIn(flight, jonas);

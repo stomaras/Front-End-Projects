@@ -94,3 +94,10 @@ We love receiving feedback! We're always looking to improve our challenges and o
 This challenge is completely free. Please share it with anyone who will find it useful for practice.
 
 **Have fun building!** 🚀
+
+### Steps
+
+- Custom CSS Variables and resets
+- utility classes
+- html structure elements
+- general styling

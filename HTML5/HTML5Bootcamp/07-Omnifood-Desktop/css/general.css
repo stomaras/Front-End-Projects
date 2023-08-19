@@ -69,6 +69,9 @@ google - tints and shades generator
     --pricing-plan-background-color-complete: #f3d0b3;
     --best-value-background-color: #ffd43b;
     --best-value-black: #333;
+    --feature-title: #333;
+    --feature-icon-color: #e67e22;
+    --feature-icon-background-color: #fdf2e9;
     /* 10px / 16px = 0.625 = 62.5% */
     /* Percentage of user's browser font-size setting */
     font-size: 62.5%;

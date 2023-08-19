@@ -1,0 +1,29 @@
+.plan-details {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+
+.feature-icon {
+    color: var(--feature-icon-color);
+    height: 3.2rem;
+    width: 3.2rem;
+    background-color: var(--feature-icon-background-color);
+    margin-bottom: 3.2rem;
+    padding: 1.6rem;
+    border-radius: 50%;
+}
+
+.feature-title {
+    font-size: 2rem;
+    color: var(--feature-title);
+    font-weight: 700;
+    margin-bottom: 1.6rem;
+}
+
+.feature-text {
+    font-size: 1.8rem;
+    line-height: 1.8;
+}

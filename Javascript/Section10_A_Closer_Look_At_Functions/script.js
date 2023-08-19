@@ -132,7 +132,7 @@ greetArr('Hi')('Jonas');
 const luftasha = {
     airline:'Luftasha',
     iataCode: 'LH',
-    booking: [],
+    bookings: [],
     book(flightNum, name) {
         console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode} ${flightNum}`);
         this.bookings.push({flight: `${this.iataCode} ${flightNum}`, name})
@@ -176,3 +176,44 @@ book.apply(swiss, flightData)
 console.log(swiss);
 
 book.call(swiss, ...flightData)
+
+
+// Bind Method
+
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(luftasha);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steven Williams')
+
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Agathi Tomara');
+
+// with Event Listeners
+luftasha.planes = 300;
+luftasha.buyPlane = function() {
+    console.log(this);
+    this.planes++;
+    console.log(this.planes);
+}
+
+document.querySelector('.buy').addEventListener('click', luftasha.buyPlane.bind(luftasha))
+
+// Partial application
+
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+console.log(addVAT(100));
+console.log(addVAT(130));
+
+// const addTaxRate = function(rate) {
+//     return function(value) {
+//         return value + value * rate;
+//     }
+// }
+
+
+

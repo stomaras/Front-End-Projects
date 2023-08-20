@@ -46,8 +46,17 @@ const poll = {
         for(const lang of language){
             str += ` ${lang}\n`;
         }
-        prompt(`${this.question} \n ${str}`)
+        const answer = Number(prompt(`${this.question} \n ${str}`))
+        console.log(answer);
+
+        // Register answer 
+        typeof answer === 'number' && answer < this.answers.length && this.answers[answer]++;
+
+        console.log(this.answers);
     }
 }
 
-console.log(poll.registerNewAnswer());
+poll.registerNewAnswer();
+
+const pollButton = document.querySelector('.poll')
+pollButton.addEventListener('click', poll.registerNewAnswer.bind(poll));

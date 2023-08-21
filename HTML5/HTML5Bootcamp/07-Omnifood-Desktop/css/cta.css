@@ -8,6 +8,7 @@
     background-color: var(--cta-background-color);
     box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
     border-radius: 11px;
+    overflow: hidden;
 
     background-image: linear-gradient(to right bottom,var(--lighter-cta-background-color), var(--cta-background-color));
 
@@ -20,4 +21,6 @@
 
 .cta-img-box {
     background-image: url('../img/eating.jpg');
+    background-size: cover;
+    background-position: center;
 }

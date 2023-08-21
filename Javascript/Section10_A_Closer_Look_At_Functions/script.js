@@ -215,5 +215,17 @@ console.log(addVAT(130));
 //     }
 // }
 
+/* 
+Immediately Invoked Function Expressions (IIFE)
+(function(){
+    console.log("This will never run again")
+})();
+
+(() => console.log("This will never run again"))();
+
+if you want to execute a function only once then IIFE is the best practice.
+
+*/
+
 
 

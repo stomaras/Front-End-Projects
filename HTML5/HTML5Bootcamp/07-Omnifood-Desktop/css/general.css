@@ -74,6 +74,7 @@ google - tints and shades generator
     --feature-icon-background-color: #fdf2e9;
     --cta-background-color: #e67e22;
     --lighter-cta-background-color: #eb984e;
+    --cta-text-box-color: #2e1907;
     /* 10px / 16px = 0.625 = 62.5% */
     /* Percentage of user's browser font-size setting */
     font-size: 62.5%;

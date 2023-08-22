@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header__buttons {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    row-gap: 3rem;
+}
+
+.header__buttons__user{
+    border-radius: 32%;
+    height: 3rem;
+    width: 12rem;
+    margin-right: 1rem;
+    border: 1px solid var(--border-color-header-buttons);
+    background-color: var(--background-color-header-buttons);
+    color: var(--color-header-buttons);
+}
+
+.header__buttons__pin {
+    border-radius:32%;
+    height: 3rem;
+    width: 12rem;
+    margin-right: 3rem;
+    border: 1px solid var(--border-color-header-buttons);
+    background-color: var(--background-color-header-buttons);
+    color: var(--color-header-buttons);
+
+}
+
+.header__buttons__img{
+    margin-right: 2rem;
+}

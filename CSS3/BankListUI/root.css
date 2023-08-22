@@ -1,0 +1,16 @@
+:root{
+    font-size: 62.5%;
+    --background-color-body: rgb(236, 236, 236);
+    --background-color-header-buttons: #ebebeb;
+    --border-color-header-buttons: #c7c7c7;
+    --color-header-buttons: #bbbaba;
+    --background-color-main-balances-container: #fff;
+    --background-color-deposit-light-green: rgb(98, 247, 98);
+    --background-color-deposit-deep-green: rgb(7, 139, 7);
+    --background-color-deposit-light-red: rgb(246, 118, 118);
+    --background-color-deposit-deep-red: rgb(216, 20, 20);
+}
+
+body {
+    background-color: var(--background-color-body);
+}

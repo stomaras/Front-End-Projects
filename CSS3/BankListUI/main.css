@@ -87,7 +87,13 @@
 
 .main__forms__transfer {
     display: flex;
+    flex-direction: column;
+}
+
+.form_transfer {
+    display: flex;
     flex-direction: row;
+    gap: 0.5rem;
 }
 
 .main__forms__transfer--yellow {

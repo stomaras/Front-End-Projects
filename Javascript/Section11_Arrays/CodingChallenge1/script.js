@@ -20,3 +20,28 @@ Kate's data [4,1,15,8,3]
 TEST DATA 2: Julia's data [9,16,6,8,3],
 Kate's data [10,5,6,1,4]
 */
+
+const dogsJulia1 = [3, 5, 2, 12, 7];
+const dogsKate1 = [4, 1, 15, 8, 3];
+
+const dogsJulia2 = [9, 16, 6, 8, 3];
+const dogsKate2 = [10, 5, 6, 1, 4];
+
+
+const checkDogs = (dogsJulia, dogsKate) => {
+    let dogsJuliaCopy = dogsJulia.splice(-2,2);
+    dogsJuliaCopy = dogsJulia.splice(0,1);
+
+    let kateAndJuliaDogs = dogsJulia.concat(dogsKate);
+
+    kateAndJuliaDogs.forEach((dogAge, i) => {
+        let status = dogAge <=3 ? 'puppy' : 'adult';
+        const message = `dog number ${i} is an ${status} and is ${dogAge} years old`
+        console.log(message); 
+    });
+}
+
+console.log("-------------------Test Data 1------------------------------");
+checkDogs(dogsJulia1, dogsKate1);
+console.log("-------------------Test Data 2-----------------------------");
+checkDogs(dogsJulia2, dogsKate2);

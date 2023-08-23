@@ -169,3 +169,44 @@ const withdrawals = movements.filter((mov) => {
     return mov < 0;
 });
 console.log(withdrawals);
+
+/* REDUCE METHOD */
+/* boil down elements of an array into one single value 
+   first parameter is the accumulator that keeps accumulating the value that we ultimately want to return
+   accumulator -> snowball
+   cureent value
+   index
+   arr
+   initial value of the accumulator in the first loop iteration
+*/
+// console.log(movements);
+// const balannce = movements.reduce((acc, cur, i, arr) => {
+//     console.log(`Iteration number ${i}: ${acc}`);
+//     return acc + cur;
+// }, 200);
+
+const balannce = movements.reduce((acc, cur) => { acc + cur}, 0);
+
+
+console.log(balannce);
+
+let balance2 = 0;
+for(const mov of movements) {
+    balance2 += mov;
+}
+console.log(balance2);
+
+// Maximum value of movements
+// reduce is for boiling down the array into one single value, it could be a multiplication , or even something completely different like a string or an object
+// when we use reduce the big question we have to ask is what should be the purpose of this accumulator value
+// acc now will keep track of the current maximum value.
+// in reduce method we must some how return the accumulator in the next iteration.
+const max = movements.reduce((acc, mov) => {
+    if(acc > mov){
+        return acc;
+    } else {
+        return mov;
+    }
+}, movements[0]);
+
+console.log(max);

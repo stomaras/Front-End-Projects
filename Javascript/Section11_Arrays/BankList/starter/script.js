@@ -76,6 +76,15 @@ const displayMovements = (movements) => {
 }
 displayMovements(account1.movements);
 
+
+const calcPrintBalance = (movements) => {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+
+calcPrintBalance(account1.movements);
+
+
 const user = 'Steven Thomas Williams';
 let usernames = [];
 const createUsernames = (accounts) => {
@@ -90,6 +99,9 @@ const createUsernames = (accounts) => {
 
 console.log(createUsernames(accounts));
 console.log(accounts);
+
+
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES

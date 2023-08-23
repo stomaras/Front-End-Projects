@@ -74,9 +74,22 @@ const displayMovements = (movements) => {
       containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 }
-
 displayMovements(account1.movements);
 
+const user = 'Steven Thomas Williams';
+let usernames = [];
+const createUsernames = (accounts) => {
+  accounts.forEach((account) => {
+    account.username = account.owner
+    .toLowerCase()
+    .split(' ')
+    .map(name => name[0])
+    .join('');
+  });
+}
+
+console.log(createUsernames(accounts));
+console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES

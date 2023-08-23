@@ -107,3 +107,65 @@ movements.forEach(function(mov, i, arr) {
         console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
     }
 });
+
+/* 
+    MAP, FILTER, REDUCE (THEORY)
+
+   1. Map method is another method which used in order to loop over arrays, map is similar with the forEach method 
+   but with the difference that map create a new array based on the original array
+   map returns a new array containing the results of applying an operation on all original array elements
+
+   2. Filter method is used to filter for elements in the original array which satisfy a certain condition
+   filter returns a new array containing the array elements that passed a specified test condition.
+
+   3. Reduce method boil ("reduces") all array elements down to one single value
+   (e.g adding all elements together)
+*/
+
+/* MAP method in practice */
+/* we want to convert movements from euros to dollars */
+const movementss = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const euroToUsd = 1.1;
+
+const movementsUSD = movements.map(mov =>  mov * euroToUsd);
+
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsUSDfor = []
+for(const mov of movements) {
+    movementsUSDfor.push(mov * euroToUsd);
+};
+console.log(movementsUSDfor);
+
+const movementsDescriptions = movements.map((mov, i, arr) => {
+    if(mov > 0){
+        return `Movement ${i+1}: You deposited ${mov}`;
+    }else {
+        return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
+    }
+});
+
+console.log(movementsDescriptions);
+
+/* FILTER method in practice */
+
+const deposits = movements.filter((mov) => {
+    return mov > 0;
+});
+console.log(movements);
+console.log(deposits);
+
+const depositsFor = [];
+for(const mov of movements){
+    if(mov > 0){
+        depositsFor.push(mov)
+    };
+}
+console.log(depositsFor);
+
+const withdrawals = movements.filter((mov) => {
+    return mov < 0;
+});
+console.log(withdrawals);

@@ -48,3 +48,16 @@ const calcAverageHumanAge = (dogsAge) => {
 
 calcAverageHumanAge(dogAges1);
 calcAverageHumanAge(dogAges2);
+
+const calcAverageChaining = (dogsAge) => {
+    dogsAge
+    .map(age => (age <= 2 ? 2 * age : 16 + age * 4)) 
+    .filter((age) => age > 18)
+    .reduce((acc, age, i, arr) => (acc + age) / arr.length, 0);
+
+}
+
+const avg1 = calcAverageChaining([5, 2, 4, 1, 15, 8, 3]);
+const avg2 = calcAverageChaining([7, 8, 5, 3, 1]);
+
+console.log(avg1,avg2);

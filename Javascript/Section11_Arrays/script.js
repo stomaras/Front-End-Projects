@@ -210,3 +210,20 @@ const max = movements.reduce((acc, mov) => {
 }, movements[0]);
 
 console.log(max);
+
+
+/* The Magic Of Chaining Methods */
+/* Let's say that we wanted to take all the movement deposits convert them from euros to dollars and finally convert them all up ,
+*/
+
+const eurToUsd = 1.1;
+
+// PIPELINE
+const totalDepositsUSD = movements
+    .filter(mov => mov > 0)
+    .map((mov) => mov * eurToUsd)
+    .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDepositsUSD);
+
+

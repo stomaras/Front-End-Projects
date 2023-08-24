@@ -68,7 +68,7 @@ const displayMovements = (movements) => {
 
       const html = `<div class="movements__row">
                       <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
-                      <div class="movements__value">${movement}</div>
+                      <div class="movements__value">${movement} euro</div>
                     </div>`;
       
       containerMovements.insertAdjacentHTML('afterbegin', html);
@@ -83,6 +83,26 @@ const calcPrintBalance = (movements) => {
 };
 
 calcPrintBalance(account1.movements);
+
+const calcDisplaySummary = (movements) => {
+  const incomes = movements.filter((mov) => mov > 0).reduce((acc, mov) => acc + mov);
+  labelSumIn.textContent = `${incomes} euro`;
+
+  const outComes = movements.filter((mov) => mov < 0).reduce((acc, mov) => acc + mov);
+  labelSumOut.textContent = `${Math.abs(outComes)} euro`;
+
+  const interest = movements
+    .filter((mov => mov > 0))
+    .map(deposit => deposit * 1.2/100)
+    .filter((int, i, arr) => {
+      console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+
+    labelSumInterest.textContent = `${interest} euro`;
+}
+calcDisplaySummary(account1.movements);
 
 
 const user = 'Steven Thomas Williams';

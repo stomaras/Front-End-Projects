@@ -227,3 +227,21 @@ const totalDepositsUSD = movements
 console.log(totalDepositsUSD);
 
 
+/* FIND Method
+   we use this method to retrieve one element of an array based on a condition
+   returns the first element of an array that satisfies this condition
+   filter return all the elements that match the condition, while the find method only returns the first one
+   filter method returns a new array , while the find returns only the element which match the condition.
+*/
+
+const firstWithdrawal = movements.find((mov) => {
+    return mov < 0;
+});
+
+console.log(movements);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account);

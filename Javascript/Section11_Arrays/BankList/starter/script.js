@@ -74,7 +74,6 @@ const displayMovements = (movements) => {
       containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 }
-displayMovements(account1.movements);
 
 
 const calcPrintBalance = (movements) => {
@@ -82,18 +81,17 @@ const calcPrintBalance = (movements) => {
   labelBalance.textContent = `${balance} EUR`;
 };
 
-calcPrintBalance(account1.movements);
 
-const calcDisplaySummary = (movements) => {
-  const incomes = movements.filter((mov) => mov > 0).reduce((acc, mov) => acc + mov);
+const calcDisplaySummary = (account) => {
+  const incomes = account.movements.filter((mov) => mov > 0).reduce((acc, mov) => acc + mov);
   labelSumIn.textContent = `${incomes} euro`;
 
-  const outComes = movements.filter((mov) => mov < 0).reduce((acc, mov) => acc + mov);
+  const outComes = account.movements.filter((mov) => mov < 0).reduce((acc, mov) => acc + mov,0);
   labelSumOut.textContent = `${Math.abs(outComes)} euro`;
 
-  const interest = movements
+  const interest = account.movements
     .filter((mov => mov > 0))
-    .map(deposit => deposit * 1.2/100)
+    .map(deposit => deposit * account.interestRate / 100)
     .filter((int, i, arr) => {
       console.log(arr);
       return int >= 1;
@@ -102,8 +100,6 @@ const calcDisplaySummary = (movements) => {
 
     labelSumInterest.textContent = `${interest} euro`;
 }
-calcDisplaySummary(account1.movements);
-
 
 const user = 'Steven Thomas Williams';
 let usernames = [];
@@ -117,10 +113,42 @@ const createUsernames = (accounts) => {
   });
 }
 
-console.log(createUsernames(accounts));
-console.log(accounts);
+// Event Handler
+let currentAccount;
+
+/* In HTML the default behaviour is for the page to reload 
+   values from input are string so we convert them into numbers 
+*/
+createUsernames(accounts);
+
+btnLogin.addEventListener('click', function (e) {
+  // Prevent form from submitting
+  e.preventDefault();
 
 
+  currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
+  if(currentAccount?.pin === Number(inputLoginPin.value)) {
+    console.log('LOGIN');
+    // Display UI and message
+    // labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
+    containerApp.style.opacity = 100;
+
+    // Clear Input Fields
+    inputLoginUsername.value = '';
+    inputLoginPin.value = '';
+
+    inputLoginPin.blur();
+
+    // Display movements
+    displayMovements(currentAccount.movements);
+    
+    // Display balance
+    calcPrintBalance(currentAccount.movements);
+    
+    // Display summary
+    calcDisplaySummary(currentAccount);
+  }
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////

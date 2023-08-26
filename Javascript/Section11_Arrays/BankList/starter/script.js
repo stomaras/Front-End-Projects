@@ -62,6 +62,24 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 
+/* Helper Methods */
+
+const transferMoneyCheck = (amount, receiverAccount, currentAccount) => {
+  return (amount > 0 && receiverAccount && currentAccount.balance >= amount && receiverAccount?.username !== currentAccount.username);
+}
+
+const checkForLoanAmount = (amount, currentAccount) => {
+  return (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)); 
+}
+
+
+const checkCloseAmountFieldsValidity = (currentAccount, inputCloseUsername) => {
+  return (currentAccount.username === inputCloseUsername.value) && (currentAccount.pin === Number(inputClosePin.value))
+}
+
+/* Helper Methods End */
+
+
 const displayMovements = (movements) => {
   movements.forEach((movement,i) => {
     const type = movement > 0 ? 'deposit' : 'withdrawal';
@@ -156,9 +174,7 @@ btnLogin.addEventListener('click', function (e) {
   }
 });
 
-const transferMoneyCheck = (amount, receiverAccount, currentAccount) => {
-  return (amount > 0 && receiverAccount && currentAccount.balance >= amount && receiverAccount?.username !== currentAccount.username);
-}
+
 
 btnTransfer.addEventListener('click', (e) => {
   // preventing reloading on form 
@@ -188,12 +204,31 @@ btnTransfer.addEventListener('click', (e) => {
     // Update UI
     updateUI(currentAccount);
   }
-
 });
 
-const checkCloseAmountFieldsValidity = (currentAccount, inputCloseUsername) => {
-  return (currentAccount.username === inputCloseUsername.value) && (currentAccount.pin === Number(inputClosePin.value))
-}
+/* the some method will become helpful for this loan feature because our bank has a rule 
+   which says that it only grants a loan if there is at least one deposit with at least 10% of the requested loan amount
+*/
+
+
+btnLoan.addEventListener('click', (e) => {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+
+  if(checkForLoanAmount(amount, currentAccount)){
+    // add positive movement to the current data 
+    currentAccount.movements.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
+  } else {
+    console.log("Invalid amount");
+  }
+
+  // clear input field;
+  inputLoanAmount.value = '';
+})
+
 
 btnClose.addEventListener('click', (e) => {
   e.preventDefault();

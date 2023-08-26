@@ -254,3 +254,29 @@ console.log(account);
    similar with the indexOf method
    Both find and findIndex methods get access to also the currentindex and current entire array
 */
+
+
+/* some and every methods */
+
+console.log(movements);
+/* Includes check only for EQUALITY  */
+/* 1. INCLUDES: EQUALITY */
+console.log(movements.includes(-130));
+
+/* we want to know if there is any positive movement in this array any number above zero */
+/* some check CONDITION */
+/* 2. SOME: CONDITION */
+console.log(movements.some(mov => mov === -130));
+const anyDeposits = movements.some(mov => mov > 1500);
+console.log(anyDeposits);
+
+/* 3. EVERY:CONDITION */
+/* EVERY Method returns true only if all elements satisfy the condition we passed in */
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
+
+// Separate callback
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));

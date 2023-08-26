@@ -245,3 +245,12 @@ console.log(accounts);
 
 const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 console.log(account);
+
+/* FindIndex Method */
+/* FindIndex returns the index of the found element and not the element itself */
+/* On out project Close an account actually means closing an account from the accounts array */
+/* To delete an element from an array we use the splice method we need the index we want to delete, we can found index from FindIndex method 
+   FindIndex returns the index on the first element which match the condition
+   similar with the indexOf method
+   Both find and findIndex methods get access to also the currentindex and current entire array
+*/

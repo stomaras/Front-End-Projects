@@ -149,7 +149,6 @@ btnLogin.addEventListener('click', function (e) {
     // Clear Input Fields
     inputLoginUsername.value = '';
     inputLoginPin.value = '';
-
     inputLoginPin.blur();
 
     // update UI
@@ -191,6 +190,42 @@ btnTransfer.addEventListener('click', (e) => {
   }
 
 });
+
+const checkCloseAmountFieldsValidity = (currentAccount, inputCloseUsername) => {
+  return (currentAccount.username === inputCloseUsername.value) && (currentAccount.pin === Number(inputClosePin.value))
+}
+
+btnClose.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  /* check if credentials are correct username and pin */
+  if(checkCloseAmountFieldsValidity(currentAccount, inputCloseUsername)){
+
+    // Delete user with the specified index
+    const index = accounts.findIndex(acc => acc.username === currentAccount.username);
+    accounts.splice(index,1);
+    console.log(`Account ${index}: deleted!`);
+
+    // Hide UI
+    containerApp.style.opacity = 0;    
+  }
+
+  // clear fields
+  inputCloseUsername.value = inputClosePin.value = '';
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////

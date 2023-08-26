@@ -1,5 +1,9 @@
 .section-cta {
-    padding: 9.6rem 0;
+    /* top / right / bottom / left */
+    padding: 9.6rem 0 12.8rem 0;
+
+    /* top / horizontal / left */
+    padding: 9.6rem 0 12.8rem;
 }
 
 .cta {
@@ -66,14 +70,6 @@
 
 .cta-form input::placeholder {
     color: #aaa;
-}
-
-.cta-form select {
-
-}
-
-.cta-form button {
-
 }
 
 .btn--form {

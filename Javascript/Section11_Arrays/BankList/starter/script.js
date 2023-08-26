@@ -76,9 +76,11 @@ const displayMovements = (movements) => {
 }
 
 
-const calcPrintBalance = (movements) => {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance} EUR`;
+const calcPrintBalance = (acc) => {
+  // add balance property into account object
+  // all these references hit on object on the memory heap
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${acc.balance} EUR`;
 };
 
 
@@ -121,6 +123,17 @@ let currentAccount;
 */
 createUsernames(accounts);
 
+const updateUI = (acc) => {
+  // Display movements
+  displayMovements(acc.movements);
+    
+  // Display balance
+  calcPrintBalance(acc);
+        
+  // Display summary
+  calcDisplaySummary(acc);
+}
+
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
   e.preventDefault();
@@ -130,7 +143,7 @@ btnLogin.addEventListener('click', function (e) {
   if(currentAccount?.pin === Number(inputLoginPin.value)) {
     console.log('LOGIN');
     // Display UI and message
-    // labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
+    labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
     containerApp.style.opacity = 100;
 
     // Clear Input Fields
@@ -139,15 +152,44 @@ btnLogin.addEventListener('click', function (e) {
 
     inputLoginPin.blur();
 
-    // Display movements
-    displayMovements(currentAccount.movements);
-    
-    // Display balance
-    calcPrintBalance(currentAccount.movements);
-    
-    // Display summary
-    calcDisplaySummary(currentAccount);
+    // update UI
+    updateUI(currentAccount);
   }
+});
+
+const transferMoneyCheck = (amount, receiverAccount, currentAccount) => {
+  return (amount > 0 && receiverAccount && currentAccount.balance >= amount && receiverAccount?.username !== currentAccount.username);
+}
+
+btnTransfer.addEventListener('click', (e) => {
+  // preventing reloading on form 
+  e.preventDefault();
+
+  // Convert from string to Number from input field
+  const amount = Number(inputTransferAmount.value);
+
+  // find the account which we want to transfer money the account which has do login now 
+  const receiverAccount = accounts.find(acc => acc.username === inputTransferTo.value); 
+
+  // clear input fields of TransferTo Form
+  inputTransferAmount.value = '';
+  inputTransferTo.value = '';
+
+  // add negative movement to the current user 
+
+  // add positive movement to the receiver
+  
+  // check if the amount is + number , check if jonas has enough money, check that you do not send money on your own account , check if receiver account exists
+
+  if(transferMoneyCheck(amount, receiverAccount, currentAccount)){
+    // Doing the transfer
+    currentAccount.movements.push(-amount);
+    receiverAccount.movements.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+
 });
 
 /////////////////////////////////////////////////

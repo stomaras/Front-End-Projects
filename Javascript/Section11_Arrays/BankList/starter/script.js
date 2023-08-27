@@ -80,8 +80,14 @@ const checkCloseAmountFieldsValidity = (currentAccount, inputCloseUsername) => {
 /* Helper Methods End */
 
 
-const displayMovements = (movements) => {
-  movements.forEach((movement,i) => {
+const displayMovements = (movements, sort=false) => {
+
+  containerMovements.innerHTML = '';
+
+  // with slice we create a copy of the array 
+  const movs = sort ? movements.slice().sort((a,b) => a - b) : movements;
+
+  movs.forEach((movement,i) => {
     const type = movement > 0 ? 'deposit' : 'withdrawal';
 
       const html = `<div class="movements__row">
@@ -250,7 +256,12 @@ btnClose.addEventListener('click', (e) => {
 });
 
 
-
+let sorted = false;
+btnSort.addEventListener('click', (e) => {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+})
 
 
 

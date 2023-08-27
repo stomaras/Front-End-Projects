@@ -310,3 +310,48 @@ console.log(overBal);
 // used when you have nested arrays and you want to work with them
 const overBal2 = accounts.flatMap(acc => acc.movements).reduce((acc, mov) => acc + mov, 0);
 console.log(overBal2);
+
+/* Sorting Arrays */
+
+// Strings
+// sort everything as strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+console.log(owners);
+
+
+// Numbers
+console.log(movements);
+// console.log(movements.sort());
+
+
+// passing a compare callback function in order to sort integers 
+// a = current value, b = next value
+
+// return < 0, A, B (keep order)
+// return > 0, B, A (switch order)
+// ascending order
+console.log('ascending order');
+movements.sort((a, b) => {
+    if(a > b) {
+        return 1;
+    }
+    if(a < b){
+        return -1;
+    }
+});
+
+console.log(movements);
+
+// descending order
+console.log("descending order");
+movements.sort((a, b) => {
+    if(a > b) {
+        return -1;
+    }
+    if(a < b){
+        return 1;
+    }
+});
+console.log(movements);
+

@@ -280,3 +280,33 @@ const deposit = mov => mov > 0;
 console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
+
+
+/* flat and flatMap method */
+/* flat method remove the nested arrays but goes one level deep on first level of nesting*/
+/* note using the map first and then flat the result is pretty common operation to solve this there is another method which is called flatMap
+   flatMap combines a map and a flat method into just one method which is better fro performance.
+*/
+const array = [[1,2,3], [4,5,6], 7, 8];
+console.log(array.flat());
+
+const arrDeep = [[[1,2],3], [4,[5,6]], 7, 8];
+console.log(arrDeep.flat(2)); // goes on second level of nesting
+
+const accountMovements = accounts.map(account => account.movements);
+console.log(accountMovements);
+const allMovements = accountMovements.flat();
+console.log(allMovements);
+const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);    
+console.log(overallBalance);
+
+
+const overBal = accounts.map(acc => acc.movements).flat().reduce((acc, mov) => acc + mov, 0);
+console.log(overBal);
+
+
+
+// flatMap is a map method but in the end flatting the result, flatMap go one level deep
+// used when you have nested arrays and you want to work with them
+const overBal2 = accounts.flatMap(acc => acc.movements).reduce((acc, mov) => acc + mov, 0);
+console.log(overBal2);

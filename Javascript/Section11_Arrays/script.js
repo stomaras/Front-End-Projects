@@ -355,3 +355,52 @@ movements.sort((a, b) => {
 });
 console.log(movements);
 
+
+
+////////////////////////////////////////////////////////////////////////////
+// Array Methods Practice
+// How many deposit on all accounts across the bank
+
+// 1.
+accounts.forEach((account) => {
+    console.log(account);
+})
+
+const bankDepositsSumFlat = accounts.map((acc => acc.movements)).flat();
+console.log(`Bank Deposits Sum Flat ${bankDepositsSumFlat}`);
+const bankDepositsSum = bankDepositsSumFlat.filter((mov) => mov > 0);
+
+console.log(`Bank Deposits Sum ${bankDepositsSum}`);
+let sum = 0;
+const overallDeposit = bankDepositsSum.reduce((sum, mov) => {
+    return sum + mov;
+},0)
+
+console.log(overallDeposit);
+
+// 2. I want to count how many deposits there have been in the bank with at least $1.000
+const depositsWithOneThousand = accounts.map((acc => acc.movements)).flat().filter((acc) => acc >= 1000);
+console.log(`Number of deposits with at least 1.000$ are : ${depositsWithOneThousand.length}`);
+
+const depositsWith1000 = accounts.map((account) => account.movements).flat().reduce((num, mov) => {
+    if(mov >= 1000) {
+        return num + 1;
+    }else {
+        return num;
+    }
+},0);
+console.log(depositsWith1000);
+
+// 3. value of reduce method can be an object 
+// create an object which contains the sum of the deposits and of withdrawals
+
+const sums = accounts.map((acc => acc.movements)).flat().reduce((object, mov) => {
+    if(mov > 0){
+        object.deposits += mov;
+    }else {
+        object.withdrawals -= mov;
+    }
+    return object
+},{deposits:0, withdrawals:0});
+console.log(sums);
+console.log(`deposits are ${sums.deposits}, withdrwals are ${sums.withdrawals * (-1)}`);

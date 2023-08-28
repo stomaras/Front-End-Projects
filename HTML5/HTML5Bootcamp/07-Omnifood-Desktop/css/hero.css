@@ -63,15 +63,3 @@
     font-weight: 700;
 }
 
-@media(max-width: 1200px) {
-    .article-hero {
-        background-color: orangered;
-    }   
-}
-
-@media(max-width: 600px) {
-    .article-hero {
-        border: 20px dashed blue;
-        background-color: blue;
-    }
-}

@@ -456,3 +456,18 @@ const sums = accounts.map((acc => acc.movements)).flat().reduce((object, mov) =>
 },{deposits:0, withdrawals:0});
 console.log(sums);
 console.log(`deposits are ${sums.deposits}, withdrwals are ${sums.withdrawals * (-1)}`);
+
+// 4. Convert a string to title case, basically means that all the words in a sentence are capitalized , except some of them.
+// this is a nice title -> This Is a Nice Title
+
+const convertTitleCase = (title) => {
+
+    const capitalize = str => str[0].toUpperCase() + str.slice(1);
+
+    const titleCase = title.toLowerCase();
+    const exceptions = titleCase.split(' ').map(word => capitalize(word)).join(' ');
+    return exceptions;
+}
+console.log(convertTitleCase('this is a nice title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase);

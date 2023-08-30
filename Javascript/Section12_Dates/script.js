@@ -23,7 +23,7 @@ const account1 = {
     '2020-05-08T14:11:59.604Z',
     '2020-05-27T17:01:17.194Z',
     '2020-07-11T23:36:17.929Z',
-    '2020-07-12T10:51:36.790Z',
+    '2023-08-30T10:51:36.790Z',
   ],
   currency: 'EUR',
   locale: 'pt-PT', // de-DE
@@ -81,7 +81,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // Functions
 
-const formatMovementDate = (date) => {
+const formatMovementDate = (date, locale) => {
 
   const calcDaysPassed = (date1, date2) => 
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
@@ -92,11 +92,11 @@ const formatMovementDate = (date) => {
   if(daysPassed === 1) return 'Yesterday';
   if(daysPassed < 7) return `${daysPassed} days ago`;
   else {
-    const day = `${date.getDate()}`.padStart(2, 0);
-    const month = `${date.getMonth() + 1}`.padStart(2, 0);
-    const year = date.getFullYear();
-  
-    return `${day}/${month}/${year}`;
+    return new Intl.DateTimeFormat(locale).format(date);
+    // const day = `${date.getDate()}`.padStart(2, 0);
+    // const month = `${date.getMonth() + 1}`.padStart(2, 0);
+    // const year = date.getFullYear();
+    // return `${day}/${month}/${year}`;
   }
 }
 
@@ -109,7 +109,7 @@ const displayMovements = function (acc, sort = true) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const date = new Date(acc.movementsDates[i]);
-    const displayDate = formatMovementDate(date);
+    const displayDate = formatMovementDate(date, acc.locale);
     console.log(`${displayDate}`);
 
     const html = `
@@ -193,6 +193,19 @@ labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minutes}`;
 
 // day/month/year
 
+const no = new Date();
+const options = {
+  hour: 'numeric',
+  minute: 'numeric',
+  day:'numeric',
+  month:'long',
+  year:'numeric',
+  weekday: 'long'
+}
+const locale = navigator.language
+console.log(locale);
+
+labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(no);
 
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
@@ -211,15 +224,17 @@ btnLogin.addEventListener('click', function (e) {
     containerApp.style.opacity = 100;
 
     // Create current Date and time
-    const noewDate = new Date();
-    const day = `${noewDate.getDate()}`.padStart(2, 0);
-    const month = `${noewDate.getMonth() + 1}`.padStart(2, 0);
-    const year = noewDate.getFullYear();
-    const hour = `${noewDate.getHours()}`.padStart(2, 0);
-    const minutes = `${noewDate.getMinutes()}`.padStart(2, 0);
-
-    labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minutes}`;
-
+    const no = new Date();
+    const options = {
+      hour: 'numeric',
+      minute: 'numeric',
+      day:'numeric',
+      month:'numeric',
+      year:'numeric',
+      // weekday: 'long'
+    }
+    const locale = navigator.language
+    labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale, options).format(no);
 
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';

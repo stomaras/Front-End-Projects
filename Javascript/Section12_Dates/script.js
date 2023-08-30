@@ -81,6 +81,26 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // Functions
 
+const formatMovementDate = (date) => {
+
+  const calcDaysPassed = (date1, date2) => 
+    Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+  
+  const daysPassed = calcDaysPassed(new Date(), date)
+
+  if(daysPassed === 0) return 'Today';
+  if(daysPassed === 1) return 'Yesterday';
+  if(daysPassed < 7) return `${daysPassed} days ago`;
+  else {
+    const date = new Date(acc.movementsDates[i]);
+    const day = `${date.getDate()}`.padStart(2, 0);
+    const month = `${date.getMonth() + 1}`.padStart(2, 0);
+    const year = date.getFullYear();
+  
+    return `${day}/${month}/${year}`;
+  }
+}
+
 const displayMovements = function (acc, sort = true) {
   containerMovements.innerHTML = '';
 
@@ -90,10 +110,8 @@ const displayMovements = function (acc, sort = true) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const date = new Date(acc.movementsDates[i]);
-    const day = `${date.getDate()}`.padStart(2, 0);
-    const month = `${date.getMonth() + 1}`.padStart(2, 0);
-    const year = date.getFullYear();
-    const displayDate = `${day}/${month}/${year}`; 
+
+    const displayDate = formatMovementDate(date);
 
     const html = `
       <div class="movements__row">
@@ -436,3 +454,10 @@ console.log(new Date(231232423424));
 
 future.setFullYear(2040);
 console.log(future);
+console.log(+future);
+
+
+const calcDaysPassed = (date1, date2) => Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+
+const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4));
+console.log(`days : ${days1}`);

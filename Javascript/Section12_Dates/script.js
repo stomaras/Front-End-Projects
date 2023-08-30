@@ -16,9 +16,9 @@ const account1 = {
   pin: 1111,
 
   movementsDates: [
-    '2019-11-18T21:31:17.178Z',
-    '2019-12-23T07:42:02.383Z',
-    '2020-01-28T09:15:04.904Z',
+    '2023-08-30T21:31:17.178Z',
+    '2023-08-29T07:42:02.383Z',
+    '2023-08-26T09:15:04.904Z',
     '2020-04-01T10:17:24.185Z',
     '2020-05-08T14:11:59.604Z',
     '2020-05-27T17:01:17.194Z',
@@ -87,12 +87,11 @@ const formatMovementDate = (date) => {
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
   
   const daysPassed = calcDaysPassed(new Date(), date)
-
+  console.log(`days passed : ${daysPassed}`);
   if(daysPassed === 0) return 'Today';
   if(daysPassed === 1) return 'Yesterday';
   if(daysPassed < 7) return `${daysPassed} days ago`;
   else {
-    const date = new Date(acc.movementsDates[i]);
     const day = `${date.getDate()}`.padStart(2, 0);
     const month = `${date.getMonth() + 1}`.padStart(2, 0);
     const year = date.getFullYear();
@@ -110,8 +109,8 @@ const displayMovements = function (acc, sort = true) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const date = new Date(acc.movementsDates[i]);
-
     const displayDate = formatMovementDate(date);
+    console.log(`${displayDate}`);
 
     const html = `
       <div class="movements__row">
@@ -310,154 +309,154 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // LECTURES
 
-console.log(23 === 23.0);
-// Base 10 - 0 to 9. 1/10 = 0.1. 3/10 = 3.333333
-// Binary base 2 - 0 1
-console.log(0.1 + 0.2);
-console.log(0.1 + 0.2 === 0.3);
+// console.log(23 === 23.0);
+// // Base 10 - 0 to 9. 1/10 = 0.1. 3/10 = 3.333333
+// // Binary base 2 - 0 1
+// console.log(0.1 + 0.2);
+// console.log(0.1 + 0.2 === 0.3);
 
-// Convert strings to numbers with Number function or + 
-console.log(Number('23'));
-console.log(+'23');
-
-
-// Parsing
-console.log(Number.parseInt('30px'));
-console.log(Number.parseInt('e23'));
-
-console.log(Number.parseInt(' 2.5rem '));
-
-// Note 
-// parseFloat used when you want to get the number out of this string many cases for css properties and values.
-console.log(Number.parseFloat(' 2.5rem '));
-
-// isNaN function = is not a number
-
-console.log(Number.isNaN(20));
-console.log(Number.isNaN(+'20X'));
-console.log(Number.isNaN('ded'));
-console.log(Number.isNaN(23 / 0));
-
-// Checking if value is number
-console.log(Number.isFinite(20));
-console.log(Number.isFinite('20'));
-
-console.log(Number.isFinite(23 / 0));
+// // Convert strings to numbers with Number function or + 
+// console.log(Number('23'));
+// console.log(+'23');
 
 
-// Math and Rounding 
-console.log(Math.sqrt(25));
-console.log(25 ** (1 / 2));
+// // Parsing
+// console.log(Number.parseInt('30px'));
+// console.log(Number.parseInt('e23'));
 
-console.log(Math.max(5, 2, 34, 34,32, 43));
+// console.log(Number.parseInt(' 2.5rem '));
 
-console.log(Math.trunc(Math.random() * 6) + 1);
+// // Note 
+// // parseFloat used when you want to get the number out of this string many cases for css properties and values.
+// console.log(Number.parseFloat(' 2.5rem '));
 
-// function which give a value between min and max
-const randomInt = (min, max) => Math.floor(Math.random() * (max-min) + 1) + min;
+// // isNaN function = is not a number
 
-console.log(randomInt(10,20));
+// console.log(Number.isNaN(20));
+// console.log(Number.isNaN(+'20X'));
+// console.log(Number.isNaN('ded'));
+// console.log(Number.isNaN(23 / 0));
 
-// Rounding Integers 
-console.log(Math.trunc(23.2));
+// // Checking if value is number
+// console.log(Number.isFinite(20));
+// console.log(Number.isFinite('20'));
 
-console.log(Math.round(23.3));
-console.log(Math.round(23.9));
-
-// round up into 24
-console.log(Math.ceil(23.3));
-console.log(Math.ceil(23.9));
-
-// round down to 23
-console.log(Math.floor(23.3));
-console.log(Math.floor(23.9));
-
-// Rounding decimals
-// toFixed return string not number
-// with plus in front we convert a string to a number
-console.log((2.8).toFixed(1));
-console.log(+(2.345).toFixed(2));
-
-// The Remainder Operator
-
-console.log(5 % 2);
-console.log(5 / 2); // 5 = 2 * 2 + 1
-console.log(8 % 3);
-console.log(8 / 3);
-
-const isEven = n => n % 2 === 0;
-console.log(`is even number: ${isEven(8)}`);
-console.log(`is even number: ${isEven(23)}`);
-
-// if you need to do something every nth time is good idea to use remainder operator for that
-
-labelBalance.addEventListener('click', () => {
-
-  [...document.querySelectorAll('.movements__row')].forEach((cur, i) => {
-    if(i % 2 === 0){
-      cur.style.backgroundColor = 'orangered';
-    } else {
-      cur.style.backgroundColor = 'blue';
-    }
-  });
-});
-
-/* BigInt */
-console.log(2 ** 52 - 1);
-console.log(Number.MAX_SAFE_INTEGER);
-
-console.log(4886673589723827892942348239n);
-console.log(BigInt(4886673589723827892942348239));
-
-// Operations
-console.log(10000n + 10000n);
-console.log(3546756756766474575674676575n * 100000000n);
-
-const huge = 20034233233453452343453454334344554n;
-const num = 23;
-console.log(huge * BigInt(num));
-
-console.log(20n > 15);
-console.log(20n === 20);
-console.log(typeof 20n);
-console.log(20n == '20');
-
-console.log(huge + ' is really big');
-
-// Divisions
-console.log(10n / 3n);
-console.log(10 / 3);
-
-// Dates and Times 
-const now = new Date();
-console.log(now);
-
-console.log(new Date('Wed Aug 30 2023 11:39:49'));
-console.log(new Date('December 24, 2015'));
-console.log(new Date(account1.movementsDates[0]));
-console.log(new Date(2037, 10, 19, 15, 23, 5));
-console.log(new Date(2037, 10, 31));
-
-// Working with dates 
-const future = new Date(2037, 10, 19, 15, 23);
-console.log(future);
-console.log(future.getFullYear());
-console.log(future.getMonth());
-console.log(future.getDay());
-console.log(future.getHours());
-console.log(future.getMinutes());
-console.log(future.getSeconds());
-console.log(future.toISOString());
-console.log(future.getTime());
-
-console.log(new Date(231232423424));
-
-future.setFullYear(2040);
-console.log(future);
-console.log(+future);
+// console.log(Number.isFinite(23 / 0));
 
 
-const calcDaysPassed = (date1, date2) => Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+// // Math and Rounding 
+// console.log(Math.sqrt(25));
+// console.log(25 ** (1 / 2));
 
-const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4));
-console.log(`days : ${days1}`);
+// console.log(Math.max(5, 2, 34, 34,32, 43));
+
+// console.log(Math.trunc(Math.random() * 6) + 1);
+
+// // function which give a value between min and max
+// const randomInt = (min, max) => Math.floor(Math.random() * (max-min) + 1) + min;
+
+// console.log(randomInt(10,20));
+
+// // Rounding Integers 
+// console.log(Math.trunc(23.2));
+
+// console.log(Math.round(23.3));
+// console.log(Math.round(23.9));
+
+// // round up into 24
+// console.log(Math.ceil(23.3));
+// console.log(Math.ceil(23.9));
+
+// // round down to 23
+// console.log(Math.floor(23.3));
+// console.log(Math.floor(23.9));
+
+// // Rounding decimals
+// // toFixed return string not number
+// // with plus in front we convert a string to a number
+// console.log((2.8).toFixed(1));
+// console.log(+(2.345).toFixed(2));
+
+// // The Remainder Operator
+
+// console.log(5 % 2);
+// console.log(5 / 2); // 5 = 2 * 2 + 1
+// console.log(8 % 3);
+// console.log(8 / 3);
+
+// const isEven = n => n % 2 === 0;
+// console.log(`is even number: ${isEven(8)}`);
+// console.log(`is even number: ${isEven(23)}`);
+
+// // if you need to do something every nth time is good idea to use remainder operator for that
+
+// labelBalance.addEventListener('click', () => {
+
+//   [...document.querySelectorAll('.movements__row')].forEach((cur, i) => {
+//     if(i % 2 === 0){
+//       cur.style.backgroundColor = 'orangered';
+//     } else {
+//       cur.style.backgroundColor = 'blue';
+//     }
+//   });
+// });
+
+// /* BigInt */
+// console.log(2 ** 52 - 1);
+// console.log(Number.MAX_SAFE_INTEGER);
+
+// console.log(4886673589723827892942348239n);
+// console.log(BigInt(4886673589723827892942348239));
+
+// // Operations
+// console.log(10000n + 10000n);
+// console.log(3546756756766474575674676575n * 100000000n);
+
+// const huge = 20034233233453452343453454334344554n;
+// const num = 23;
+// console.log(huge * BigInt(num));
+
+// console.log(20n > 15);
+// console.log(20n === 20);
+// console.log(typeof 20n);
+// console.log(20n == '20');
+
+// console.log(huge + ' is really big');
+
+// // Divisions
+// console.log(10n / 3n);
+// console.log(10 / 3);
+
+// // Dates and Times 
+// const now = new Date();
+// console.log(now);
+
+// console.log(new Date('Wed Aug 30 2023 11:39:49'));
+// console.log(new Date('December 24, 2015'));
+// console.log(new Date(account1.movementsDates[0]));
+// console.log(new Date(2037, 10, 19, 15, 23, 5));
+// console.log(new Date(2037, 10, 31));
+
+// // Working with dates 
+// const future = new Date(2037, 10, 19, 15, 23);
+// console.log(future);
+// console.log(future.getFullYear());
+// console.log(future.getMonth());
+// console.log(future.getDay());
+// console.log(future.getHours());
+// console.log(future.getMinutes());
+// console.log(future.getSeconds());
+// console.log(future.toISOString());
+// console.log(future.getTime());
+
+// console.log(new Date(231232423424));
+
+// future.setFullYear(2040);
+// console.log(future);
+// console.log(+future);
+
+
+// const calcDaysPassed = (date1, date2) => Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+
+// const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4));
+// console.log(`days : ${days1}`);

@@ -343,3 +343,29 @@ labelBalance.addEventListener('click', () => {
     }
   });
 });
+
+/* BigInt */
+console.log(2 ** 52 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+
+console.log(4886673589723827892942348239n);
+console.log(BigInt(4886673589723827892942348239));
+
+// Operations
+console.log(10000n + 10000n);
+console.log(3546756756766474575674676575n * 100000000n);
+
+const huge = 20034233233453452343453454334344554n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+console.log(20n == '20');
+
+console.log(huge + ' is really big');
+
+// Divisions
+console.log(10n / 3n);
+console.log(10 / 3);

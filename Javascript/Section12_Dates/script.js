@@ -287,14 +287,15 @@ btnLoan.addEventListener('click', function (e) {
   const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    // Add movement
+    setTimeout(() => 
+    {// Add movement
     currentAccount.movements.push(amount);
 
     //Add loan Date
     currentAccount.movementsDates.push(new Date().toISOString());
 
     // Update UI
-    updateUI(currentAccount);
+    updateUI(currentAccount)}, 10000);
   }
   inputLoanAmount.value = '';
 });
@@ -502,9 +503,36 @@ console.log('Germany:    ',new Intl.NumberFormat('de-DE', optionss).format(num))
 console.log('Syria:    ',new Intl.NumberFormat('ar-SY', optionss).format(num));
 console.log(navigator.language, new Intl.NumberFormat(navigator.language, optionss).format(num));
 
+/* Timers in Js
+we have 2 different timers in js the set timeout timer runs just once , after a define time 
+while the setInterval timer keeps running basically forever, until we stop it 
+Basically we can use set timeout to execute some code at some point in the future
+when we ordering a pizza it does not arrive right away 
 
+setTimeout: first receives a callback function, second argument miliseconds
+after three seconds we get a log to the console
+first we get waiting... and after three seconds log appears
+all arguments after the delay will be arguments to the function
 
+Note !!! We can cancel the timer before the delay has passed with clearTimeout(timerName) function
 
+In our example after we click loan button , bank will take some time to approve the loan let's simulate this
+*/
+
+// setTimeout simply schedules a function to run after a certain amount of time but the callback function is only executed once.
+// now what if i wanted to run a function over and over again, like every five seconds or every 10 minutes, for that we have setInterval function 
+const ingredients = ['olives','spinach'];
+
+const pizzaTimer = setTimeout((ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2}`), 3000, ...ingredients);
+console.log('Waiting...');
+
+if(ingredients.includes('spinach')) clearTimeout(pizzaTimer)
+
+// setInterval, arg1: callback function , arg2: seconds
+setInterval(() => {
+  const now = new Date();
+  console.log(now);
+}, 1000);
 
 
 

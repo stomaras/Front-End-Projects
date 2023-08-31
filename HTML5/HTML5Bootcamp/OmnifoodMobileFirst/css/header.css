@@ -1,0 +1,31 @@
+.main-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.logo-omnifood {
+    width: 12rem;
+}
+
+.nav-ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 0.3rem;
+}
+
+.nav-ul__href {
+    text-decoration: none;
+    background-color: var(--background-color-header);
+    color: black;
+}
+
+.nav-ul__li--deep_purple {
+    background-color: var(--background-color-try-free-button);
+    color: var(--color-try-for-free-button);
+}

@@ -1,0 +1,19 @@
+:root {
+    font-size: 62.5%;
+    /*----------------------- Variables Header--------------------------------- */
+    --background-color-header: #f2d1ae;
+    --background-color-try-free-button: rgb(243, 153, 36);
+    --color-try-for-free-button: #eee;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color-header);
+}
+
+
+img {
+    height: auto;
+    max-width: 100%;
+}

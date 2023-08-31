@@ -3,7 +3,19 @@
     /*----------------------- Variables Header--------------------------------- */
     --background-color-header: #f2d1ae;
     --background-color-try-free-button: rgb(243, 153, 36);
+    --background-color-try-free-button-hover: #eee;
     --color-try-for-free-button: #eee;
+    --color-try-for-free-button-hover:rgb(243, 153, 36);
+    --li-border-line-color: rgb(243, 153, 36);
+    --primary-button-background-color: rgb(243, 153, 36);
+    --primary-button-background-color-hover: #eee;
+    --primary-button-color-hover: rgb(243, 153, 36);
+    --primary-button-color: #eee;
+    --secondary-button-background-color: #eee;
+    --secondary-button-color: black;
+    --secondary-button-background-color-hover: rgb(243, 153, 36);
+    --secondary-button-color-hover: #eee;
+    --meals-number-color: rgb(191, 111, 7);
 }
 
 * {
@@ -16,4 +28,42 @@
 img {
     height: auto;
     max-width: 100%;
+}
+
+.heading-primary {
+    font-size: 1.7rem;
+    text-align: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 1rem;
+}
+
+.primary-button {
+    padding: 0.5rem;
+    background-color: var(--primary-button-background-color);
+    color: var(--primary-button-color);
+    border-radius: 15%;
+    font-size: 1.5rem;
+    transition: 0.5s;
+}
+
+
+.primary-button:hover {
+    cursor: pointer;
+    background-color: var(--primary-button-background-color-hover);
+    color: var(--primary-button-color-hover);
+}
+
+.secondary-button {
+    padding: 0.5rem;
+    background-color: var(--secondary-button-background-color);
+    color: var(--secondary-button-color);
+    border-radius: 15%;
+    font-size: 1.5rem;
+    transition: 0.5s;
+}
+
+.secondary-button:hover {
+    background-color: var(--secondary-button-background-color-hover);
+    color: var(--secondary-button-color-hover);
 }

@@ -18,6 +18,10 @@
     --meals-number-color: rgb(191, 111, 7);
 }
 
+html {
+    box-sizing: border-box;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -64,6 +68,7 @@ img {
 }
 
 .secondary-button:hover {
+    cursor: pointer;
     background-color: var(--secondary-button-background-color-hover);
     color: var(--secondary-button-color-hover);
 }

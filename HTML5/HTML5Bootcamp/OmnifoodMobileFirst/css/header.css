@@ -82,3 +82,39 @@
 .heading-tertiary span {
     color: var(--meals-number-color);
 }
+
+.hero {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.hero__img {
+    height: 30rem;
+    text-align: center;
+}
+
+/* responsive web design (600px - 700px) */
+@media screen and (min-width:600px) and (max-width: 700px) {
+ :root{
+    font-size: 70%;
+ }   
+}
+
+/* responsive web design (801px - 1000)px */
+@media screen and (min-width:700px) and (max-width:1000px) {
+    :root {
+        font-size: 90%;
+    }
+}
+
+/* responsive web design (1000px - 1200px) */
+@media screen and (min-width: 1001px) and (max-width: 1200px) {
+    :root {
+        font-size: 99%;
+    }
+
+    .nav-ul {
+        gap: 1rem;
+    }
+}

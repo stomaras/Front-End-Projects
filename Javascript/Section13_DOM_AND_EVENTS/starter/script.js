@@ -145,7 +145,7 @@ message.style.height = Number.parseFloat(getComputedStyle(message).height,10) + 
 
 // work with css custom properties , variables
 // chnage style varibales custom properties
-document.documentElement.style.setProperty('--color-primary', 'orangered');
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
 
 // Attributes
 // src, class, id
@@ -177,3 +177,25 @@ logo.classList.add('c', 'j');
 logo.classList.remove('c', 'j')
 logo.classList.toggle('c');
 logo.classList.contains('c'); // not includes
+
+// Implementing Scroll Smooth
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector("#section--1");
+
+btnScrollTo.addEventListener('click', (e) => {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect());
+
+  console.log('Current Scroll (X/Y)', window.pageXOffset, pageYOffset);
+
+  console.log('height/width viewport', document.documentElement.clientHeight, document.documentElement.clientWidth);
+
+  // Scrolling
+  // window.scrollTo({left: s1coords.left, top: s1coords.top, behavior: 'smooth'});
+
+  // work on modern browsers
+  section1.scrollIntoView({behavior:'smooth'})
+})

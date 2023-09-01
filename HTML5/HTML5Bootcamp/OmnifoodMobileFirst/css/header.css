@@ -9,20 +9,21 @@
 }
 
 .logo-omnifood {
-    width: 12rem;
+    width: 8rem;
 }
 
 .nav-ul {
     display: flex;
     flex-direction: row;
     list-style: none;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .nav-ul__href {
     text-decoration: none;
     background-color: var(--background-color-header);
     color: black;
+    font-size: 1rem;
 }
 
 .nav-ul__href:hover {
@@ -32,9 +33,11 @@
 .nav-ul__li--deep_purple {
     background-color: var(--background-color-try-free-button);
     color: var(--color-try-for-free-button);
-    padding: 0.8rem;
+    padding: 0.2rem;
     border-radius: 20%;
     transition: 0.5s;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
 }
 
 .nav-ul__li--deep_purple:hover {
@@ -94,27 +97,100 @@
     text-align: center;
 }
 
+
+
 /* responsive web design (600px - 700px) */
 @media screen and (min-width:600px) and (max-width: 700px) {
- :root{
-    font-size: 70%;
- }   
+
+    .logo-omnifood {
+        width: 12rem;
+    }
+    
+    .nav-ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        gap: 2rem;
+        font-size: 2rem;
+    }
+
+
+    .heading-primary {
+        font-size: 2rem;
+        text-align: center;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 1rem;
+    }
+
+    .nav-ul__href {
+        font-size: 1.3rem;
+    }
 }
 
 /* responsive web design (801px - 1000)px */
-@media screen and (min-width:700px) and (max-width:1000px) {
-    :root {
-        font-size: 90%;
+@media screen and (min-width:701px) and (max-width:1000px) {
+
+
+    .logo-omnifood {
+        width: 12rem;
+    }
+
+    .heading-primary {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 1rem;
+    }
+    
+    .nav-ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        gap: 2rem;
+        font-size: 2rem;
+    }
+
+    .nav-ul__href {
+        font-size: 1.5rem;
     }
 }
 
 /* responsive web design (1000px - 1200px) */
 @media screen and (min-width: 1001px) and (max-width: 1200px) {
+    .logo-omnifood {
+        width: 12rem;
+    }
+
+    .heading-primary {
+        font-size: 3rem;
+        text-align: center;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 1rem;
+    }
+    
+    .nav-ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        gap: 2rem;
+        font-size: 2rem;
+    }
+
+    .nav-ul__href {
+        font-size: 2rem;
+    }
+}
+
+/* responsive web design (1200px - 1400px) */
+@media screen and (min-width: 1201px) and (max-width: 1400px) {
     :root {
-        font-size: 99%;
+        font-size: 110%;
     }
 
     .nav-ul {
-        gap: 1rem;
+        gap: 2rem;
     }
 }

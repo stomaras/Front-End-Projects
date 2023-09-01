@@ -47,7 +47,7 @@ img {
     background-color: var(--primary-button-background-color);
     color: var(--primary-button-color);
     border-radius: 15%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     transition: 0.5s;
 }
 

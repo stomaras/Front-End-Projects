@@ -1,3 +1,8 @@
+
+.header {
+    background-color: var(--background-color-header);
+}
+
 .main-navigation {
     display: flex;
     flex-direction: row;
@@ -126,6 +131,19 @@
     .nav-ul__href {
         font-size: 1.3rem;
     }
+
+    .header-para {
+        font-size: 1.5rem;
+    }
+
+    .primary-button {
+        font-size: 1.8rem;
+    }
+
+    .secondary-button {
+        font-size: 1.8rem;
+    }
+
 }
 
 /* responsive web design (801px - 1000)px */
@@ -155,6 +173,18 @@
     .nav-ul__href {
         font-size: 1.5rem;
     }
+
+    .header-para {
+        font-size: 1.7rem;
+    }
+
+    .primary-button {
+        font-size: 2rem;
+    }
+
+    .secondary-button {
+        font-size: 2rem;
+    }
 }
 
 /* responsive web design (1000px - 1200px) */
@@ -180,17 +210,58 @@
     }
 
     .nav-ul__href {
+        font-size: 2.3rem;
+    }
+
+    .header-para {
         font-size: 2rem;
+    }
+
+    .primary-button {
+        font-size: 2.1rem;
+    }
+
+    .secondary-button {
+        font-size: 2.1rem;
     }
 }
 
 /* responsive web design (1200px - 1400px) */
 @media screen and (min-width: 1201px) and (max-width: 1400px) {
-    :root {
-        font-size: 110%;
+
+    .logo-omnifood {
+        width: 12rem;
     }
 
+    .heading-primary {
+        font-size: 3rem;
+        text-align: center;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 1rem;
+    }
     .nav-ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
         gap: 2rem;
+        font-size: 2rem;
+    }
+
+    .nav-ul__href {
+        font-size: 2.3rem;
+    }
+
+
+    .header-para {
+        font-size: 2.5rem;
+    }
+
+    .primary-button {
+        font-size: 2.5rem;
+    }
+
+    .secondary-button {
+        font-size: 2.5rem;
     }
 }

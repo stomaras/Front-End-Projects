@@ -1,0 +1,19 @@
+.how-it-works {
+    background-color: var(--background-color-how);
+    margin: 1rem;
+}
+
+.how-it-works__span {
+    background-color: var(--background-color-span-how);
+    color: var(--color-span-how);
+}
+
+.heading-primary-how {
+    font-size: 1rem;
+    background-color: var(--background-color-heading-primary);
+    color: var(--color-heading-primary);
+}
+
+.app-screen-box__img {
+    height: 30rem;
+}

@@ -1,5 +1,9 @@
 :root {
     font-size: 62.5%;
+
+    /*----------------------------Body--------------------------------------*/
+    --background-color-body: #eee;
+
     /*----------------------- Variables Header--------------------------------- */
     --background-color-header: #f2d1ae;
     --background-color-try-free-button: rgb(243, 153, 36);
@@ -16,16 +20,23 @@
     --secondary-button-background-color-hover: rgb(243, 153, 36);
     --secondary-button-color-hover: #eee;
     --meals-number-color: rgb(191, 111, 7);
+    /*-----------------------Variables HOW IT WORKS--------------------------------------- */
+    --background-color-how: #eee;
+    --background-color-span-how: #eee;
+    --color-span-how: rgb(243, 153, 36);
+    --background-color-heading-primary: #eee;
+    --color-heading-primary: rgb(10, 6, 0);
 }
 
 html {
     box-sizing: border-box;
+    background-color: var(--background-color-body);
+
 }
 
 * {
     margin: 0;
     padding: 0;
-    background-color: var(--background-color-header);
 }
 
 

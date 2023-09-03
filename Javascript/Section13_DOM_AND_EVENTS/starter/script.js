@@ -319,42 +319,73 @@ const randomColor = () => `rgb(${randomInt(0,255)},${randomInt(0,255)},${randomI
 // Traversing DOM 
 // select an element based on another element
 
-const header1 = document.querySelector('h1');
+// const header1 = document.querySelector('h1');
 
-// Going downwards: child element
-console.log(header1.querySelectorAll('.highlight'));
-console.log(header1.childNodes);
-console.log(header1.children);
-header1.firstElementChild.style.color = 'white';
-header.lastElementChild.style.color = 'orangered';
+// // Going downwards: child element
+// console.log(header1.querySelectorAll('.highlight'));
+// console.log(header1.childNodes);
+// console.log(header1.children);
+// header1.firstElementChild.style.color = 'white';
+// header.lastElementChild.style.color = 'orangered';
 
-// Going upwards: parents
-console.log(header1.parentNode);
-console.log(header1.parentElement);
+// // Going upwards: parents
+// console.log(header1.parentNode);
+// console.log(header1.parentElement);
 
-// sometimes we need to find a parent element no matter how far is from the dom tree and for that we have the closest method.
-// we select the closest parent element which has .header class
-// closest is the opposite of querySelector , because querySelector find children no matter how deep on the dom tree, while closest method find parent no matter how far up in the DOM tree
-header1.closest('.header').style.background = 'var(--gradient-secondary)';
+// // sometimes we need to find a parent element no matter how far is from the dom tree and for that we have the closest method.
+// // we select the closest parent element which has .header class
+// // closest is the opposite of querySelector , because querySelector find children no matter how deep on the dom tree, while closest method find parent no matter how far up in the DOM tree
+// header1.closest('.header').style.background = 'var(--gradient-secondary)';
 
-header1.closest('h1').style.background = 'var(--gradient-primary)';
+// header1.closest('h1').style.background = 'var(--gradient-primary)';
 
-// Going sideways: siblings
-console.log(h1.previousElementSibling);
-console.log(h1.nextElementSibling);
+// // Going sideways: siblings
+// console.log(h1.previousElementSibling);
+// console.log(h1.nextElementSibling);
 
-console.log(h1.previousSibling);
-console.log(h1.nextSibling);
+// console.log(h1.previousSibling);
+// console.log(h1.nextSibling);
 
-// allSiblingsH1 is still an iterable that we can spread into an array
-const allSiblingsH1 = h1.parentElement.children;
-console.log(allSiblingsH1);
+// // allSiblingsH1 is still an iterable that we can spread into an array
+// const allSiblingsH1 = h1.parentElement.children;
+// console.log(allSiblingsH1);
 
-const allSiblingsArray = [...allSiblingsH1];
-console.log(allSiblingsArray);
-allSiblingsArray.forEach((el) => {
-  if(el !== h1){
-    el.style.transform = 'scale(0.5)';
-  }
-})
+// const allSiblingsArray = [...allSiblingsH1];
+// console.log(allSiblingsArray);
+// allSiblingsArray.forEach((el) => {
+//   if(el !== h1){
+//     el.style.transform = 'scale(0.5)';
+//   }
+// })
+
+// Tabbed component
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+
+// this is a bad practice because if he have 2000 tabs , then we will have 2000 copies of this 
+// call back function here and that would simply slow down the page.
+// tabs.forEach((t) => t.addEventListener('click', () => {
+//   console.log('TAB');
+// }));
+tabsContainer.addEventListener('click', (e) => {
+  const clicked = e.target.closest('.operations__tab');
+
+  // Guard clause
+  if(!clicked) return;
+
+  // Active tab
+  // Remove active classes
+  tabs.forEach(t => t.classList.remove('operations__tab--active')); 
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+
+  // Activate tab
+  clicked.classList.add('operations__tab--active');
+  
+  // Activate content area
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active');
+});
+
+
 

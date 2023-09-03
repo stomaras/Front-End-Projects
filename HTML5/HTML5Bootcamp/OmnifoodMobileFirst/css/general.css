@@ -26,6 +26,7 @@
     --color-span-how: rgb(243, 153, 36);
     --background-color-heading-primary: #eee;
     --color-heading-primary: rgb(10, 6, 0);
+    --color-step-number: #c2bdbd;
 }
 
 html {
@@ -39,7 +40,6 @@ html {
     padding: 0;
 }
 
-
 img {
     height: auto;
     max-width: 100%;
@@ -52,6 +52,7 @@ img {
     margin-right: 2rem;
     padding: 1rem;
 }
+
 
 .primary-button {
     padding: 0.5rem;

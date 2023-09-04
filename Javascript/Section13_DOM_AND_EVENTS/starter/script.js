@@ -51,6 +51,8 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 
+const nav = document.querySelector('.nav');
+
 const openModal = function () {
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
@@ -214,7 +216,6 @@ btnScrollTo.addEventListener('click', (e) => {
 
 // we add event listener o a common parent element of all the elements that we interested in
 // in order to see where the event happened we use e.target
-
 // 1. Add event listener to common parent element
 // 2. Determine what element originated the event
 
@@ -389,3 +390,29 @@ tabsContainer.addEventListener('click', (e) => {
 
 
 
+// pass arguments into event handler functions
+// Menu fade animation
+// mouseover do bubble so can reach the navigation element 
+// mouseleave opposite of mousenter
+
+const handleHover = (e, opacityNumber) => {
+  if(e.target.classList.contains('nav__link')){
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+
+    siblings.forEach((sibling) => {
+      if(sibling !== link) sibling.style.opacity = opacityNumber;
+    });
+    logo.style.opacity = opacityNumber;
+  }
+}
+
+nav.addEventListener('mouseover', (e) => {
+  handleHover(e, 0.5);
+});
+
+
+nav.addEventListener('mouseover', (e) => {
+  handleHover(e, 1);
+});

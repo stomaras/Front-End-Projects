@@ -416,3 +416,18 @@ nav.addEventListener('mouseover', (e) => {
 nav.addEventListener('mouseover', (e) => {
   handleHover(e, 1);
 });
+
+// Sticky Navigation
+const initialCoords = section1.getBoundingClientRect()
+console.log(initialCoords);
+window.addEventListener('scroll', function(e) {
+  // px from top of viewport this.window.scrollY
+  console.log(this.window.scrollY);
+
+  if (window.scrollY > initialCoords.top) {
+    nav.classList.add('sticky');
+  } else {
+    nav.classList.remove('sticky');
+  } 
+
+})

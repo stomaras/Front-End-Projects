@@ -89,6 +89,7 @@
 
 .heading-tertiary span {
     color: var(--meals-number-color);
+    font-size: 1rem;
 }
 
 .hero {
@@ -144,6 +145,14 @@
         font-size: 1.8rem;
     }
 
+    .logos__img {
+        height: 4rem;
+    }
+
+    .hero__img {
+        height: 35rem;
+    }
+
 }
 
 /* responsive web design (801px - 1000)px */
@@ -185,6 +194,15 @@
     .secondary-button {
         font-size: 2rem;
     }
+
+    .logos__img {
+        height: 5rem;
+    }
+
+
+    .hero__img {
+        height: 39rem;
+    }
 }
 
 /* responsive web design (1000px - 1200px) */
@@ -223,6 +241,15 @@
 
     .secondary-button {
         font-size: 2.1rem;
+    }
+
+    .logos__img {
+        height: 5.5rem;
+    }
+
+
+    .hero__img {
+        height: 45rem;
     }
 }
 
@@ -263,5 +290,15 @@
 
     .secondary-button {
         font-size: 2.5rem;
+    }
+
+
+    .logos__img {
+        height: 6rem;
+    }
+
+
+    .hero__img {
+        height: 50rem;
     }
 }

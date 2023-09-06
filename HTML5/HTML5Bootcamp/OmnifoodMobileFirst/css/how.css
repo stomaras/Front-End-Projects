@@ -6,6 +6,7 @@
 .how-it-works__span {
     background-color: var(--background-color-span-how);
     color: var(--color-span-how);
+    font-size: 1rem;
 }
 
 .heading-primary-how {

@@ -82,12 +82,31 @@ console.log(h1);
 // objects have prototypes
 
 
+// Inheritance between classes
+// Student is a subtype of a Person
+// Inheritance between classes : Constructor Functions
+
+const Student = function(firstName, birthYear, course) {
+    Person.call(this, firstName,birthYear);
+    this.course = course;
+}
+
+// Student.prototype inherits from Person.prototype
+// Linking Prototypes
+Student.prototype = Object.create(Person.prototype);
 
 
+Student.prototype.introduce = function() {
+    console.log(`My name is ${this.firstName} and study ${this.course}`);
+}
 
+const mike = new Student('Mike', 2020, 'Computer Science')
+console.log(mike);
+mike.introduce();
+mike.calcAge();
 
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
 
-
-
-
-
+Student.prototype.constructor = Student;
+console.log(Student.prototype.constructor);

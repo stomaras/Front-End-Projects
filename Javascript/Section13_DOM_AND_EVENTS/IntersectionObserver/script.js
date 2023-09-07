@@ -61,3 +61,39 @@ const headerObserverOptions = {
 
 const headerObserver = new IntersectionObserver(stickyNav, headerObserverOptions);
 headerObserver.observe(header);
+
+// Revealing elements on scroll 
+// reveal some sections as we approach them
+// all section elements have a modifier called section--hidden
+/*
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem)
+}
+ we want to remove section-hidden class as we approach these sections
+*/
+
+// Reveal Sections
+const allSections = document.querySelectorAll('.section');
+
+const revealSection = function(entries, observer) {
+  const [entry] = entries
+  console.log(entry);
+  if(entry.isIntersecting){
+    entry.target.classList.remove('section--hidden');
+    observer.unobserve(entry.target);
+  } else {
+    return;
+  }
+}
+
+const revealSectionOptions = {
+  root:null,
+  threshold: 0.15,
+}
+
+const sectionObserver = new IntersectionObserver(revealSection, );
+allSections.forEach((section) => {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+})

@@ -51,6 +51,26 @@
     .how-it-works__span {
         font-size: 1.3rem;
     }
+
+    .heading-primary-how {
+        font-size: 1.2rem;
+    }
+
+    .step-number {
+        font-size: 2.2rem;
+    }
+
+    .heading-tertiary-how {
+        font-size: 1.2rem;
+    }
+
+    .app-screen-box__img {
+        height: 32rem;
+    }
+
+    .step-description {
+        font-size: 1rem;   
+    }    
 }
 
 /* responsive web design (801px - 1000)px */
@@ -106,6 +126,28 @@
     .how-it-works__span {
         font-size: 1.8rem;
     }
+
+    .heading-primary-how {
+        font-size: 1.5rem;
+    }
+
+    .step-number {
+        font-size: 2.5rem;
+    }
+
+
+    .heading-tertiary-how {
+        font-size: 1.5rem;
+    }
+
+    .app-screen-box__img {
+        height: 36rem;
+    }
+
+
+    .step-description {
+        font-size: 1.2rem;   
+    }
 }
 
 /* responsive web design (1000px - 1200px) */
@@ -158,6 +200,27 @@
     /*-----------------------------------------------------------------------------How It Works Section-------------------------------------------------------------------------*/
     .how-it-works__span {
         font-size: 2rem;
+    }
+
+    .heading-primary-how {
+        font-size: 1.8rem;
+    }
+
+    .step-number {
+        font-size: 2.8rem;
+    }
+
+    .heading-tertiary-how {
+        font-size: 1.8rem;
+    }
+
+    .app-screen-box__img {
+        height: 40rem;
+    }
+
+
+    .step-description {
+        font-size: 1.4rem;   
     }
 }
 
@@ -213,5 +276,25 @@
     /*-----------------------------------------------------------------------------How It Works Section-------------------------------------------------------------------------*/
     .how-it-works__span {
         font-size: 2.5rem;
+    }
+
+    .heading-primary-how {
+        font-size: 2.1rem;
+    }
+
+    .step-number {
+        font-size: 3rem;
+    }
+
+    .heading-tertiary-how {
+        font-size: 2rem;
+    }
+
+    .app-screen-box__img {
+        height: 44rem;
+    }
+
+    .step-description {
+        font-size: 1.4rem;   
     }
 }

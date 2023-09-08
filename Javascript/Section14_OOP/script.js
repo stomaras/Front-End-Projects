@@ -110,3 +110,59 @@ console.log(mike.__proto__.__proto__);
 
 Student.prototype.constructor = Student;
 console.log(Student.prototype.constructor);
+
+// Inheritance Between "Classes": ES6 Classes
+class PersonCl {
+    constructor(fullName, birthYear) {
+        this.fullName = fullName;
+        this.birthYear = birthYear;
+    }
+
+    // Instance Methods
+    calcAge() {
+        console.log(2023 - this.birthYear);
+    }
+
+    greet() {
+        console.log(`Hey ${this.fullName}`);
+    }
+
+    get age() {
+        return 2023 - this.birthYear;
+    }
+
+    set fullName(name) {
+        if(name.includes(' ')) this._fullName = name;
+        else alert(`${name} is not a full name!`);
+    }
+
+    get fullName() {
+        return this._fullName;
+    }
+
+    // Static Method
+    static hey() {
+        console.log('Hey there');
+    }
+}
+
+class StudentCl extends PersonCl{
+    constructor(fullName, birthYear, course){
+        // Always need to happen first!
+        super(fullName, birthYear)
+        this.course = course;
+    }
+
+    calcAge() {
+        console.log(`I am ${new Date().getFullYear() - this.birthYear} years old, but as a student i feel more like ${new Date().getFullYear() - this.birthYear + 10} years old`);
+    }
+
+    introduce() {
+        console.log(`My name is ${this.fullName} and i study ${this.course}`);
+    }
+}
+
+const tom = new StudentCl('Spyros Tom', 1997, 'Front End Development');
+console.log(tom);
+tom.introduce();
+tom.calcAge();

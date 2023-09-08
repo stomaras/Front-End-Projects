@@ -1,0 +1,35 @@
+.section-featured {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+    margin: 3rem;
+}
+
+.container-featured {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.heading-featured-in {
+    text-align: center;
+    align-self: center;
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.logos-featured {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.feature-logos__img {
+    height: 1rem;
+    margin-right: 1rem;
+    filter: grayscale(100%);
+}

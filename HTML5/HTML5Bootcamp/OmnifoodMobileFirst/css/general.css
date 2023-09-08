@@ -27,6 +27,8 @@
     --background-color-heading-primary: #eee;
     --color-heading-primary: rgb(10, 6, 0);
     --color-step-number: #c2bdbd;
+    /*------------------------Featured In------------------------------------------------------*/
+    --featured-logos-color: #b5b4b4;
 }
 
 html {

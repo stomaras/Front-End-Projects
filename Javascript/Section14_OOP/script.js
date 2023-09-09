@@ -166,3 +166,106 @@ const tom = new StudentCl('Spyros Tom', 1997, 'Front End Development');
 console.log(tom);
 tom.introduce();
 tom.calcAge();
+
+
+///////////////////////////////////////////////////////////////////
+// Inheritance Between "Classes": Object.create
+
+const PersonPrototype = {
+    calcAge() {
+        console.log(new Date().getFullYear() - this.birthYear);
+    },
+
+    init(firstName, birthYear) {
+        this.firstName = firstName;
+        this.birthYear = birthYear;
+    }
+}
+
+const steven = Object.create(PersonPrototype);
+
+const StudentProto = Object.create(PersonPrototype);
+StudentProto.init = function(firstName, birthYear, course) {
+    PersonPrototype.init.call(this, firstName, birthYear);
+    this.course = course;
+}
+
+const jay = Object.create(StudentProto);
+jay.init('Jay', 2010, 'Computer Science');
+
+
+// 1) Public fileds
+// 2) Private fields
+// Public Methods
+// Private Methods
+
+class Account {
+
+    // 1) Public fields (instances), are gonna be present on all the instances that we are creating through the class, not on the prototype
+    locale = navigator.language
+
+    // 2) Private fields
+    #movements = [];
+    #pin;
+
+
+    constructor(owner, currency, pin){
+        this.owner = owner;
+        this.currency = currency;
+        // protected property
+        this.#pin = pin;
+        // this._movements = [];
+        // this.locale = navigator.language;
+
+        console.log(`Thanks for opening an acount, ${owner}`);
+    }
+
+    // 3) Public methods
+
+    // Public Interface of our object
+    getMovements(){
+        return this.#movements;
+    }
+
+    deposit(val) {
+        this.#movements.push(val);
+    }
+
+    withdraw(val) {
+        this.#movements.push(val * (-1));
+    }
+
+    requestLoan(val) {
+        if(this._approveLoan(val)){
+            this.deposit(val)
+            console.log(`Loan approved`);
+        }
+    }
+
+    // static methods available only on the class
+    static helper() {
+        console.log();
+    }
+
+    // 4) Private Methods
+    _approveLoan(val) {
+        return true;
+    }
+
+}
+
+const account1 = new Account('Spyros',"EUR", 1111, []);
+console.log(account1);
+
+// account1._movements.push(2345);
+// account1._movements.push(-230);
+// console.log(account1);
+// we must not access approveLoan method we need data encapsulation and data privacy
+account1.deposit(103);
+account1.withdraw(10);
+account1.requestLoan(1000);
+console.log(account1.getMovements());
+// Encapsulation means to keep some properties and methods private inside tha class so that they are not accessible from outside of the class
+console.log(account1);
+
+Account.helper();

@@ -16,7 +16,7 @@
 //     A function that takes 2 arguments. The first is an array of numbers. The second should be a string, that is either asceding or descending. It should sort the array based on the second argument and the return the result.
 // Import the functions from both libraries in index.js and create examples that show that thy work
 
-import {stringFunc1} from "./utils/strings"
+import {stringFunc1} from "./utils/strings.js"
 
-const result = stringFunc1("Test a new test", "test");
+const result = stringFunc1("Test","test a new test");
 console.log(result);

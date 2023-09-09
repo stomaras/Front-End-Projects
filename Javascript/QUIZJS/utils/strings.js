@@ -11,6 +11,8 @@ baseStr: test
 testStr: A text contains text many times. Text is very important
 */
 export const stringFunc1 = (baseStr, testStr) =>  {
-    let result = testStr.split(baseStr).length - 1;
+    const finalStr = testStr.toLowerCase();
+    const finalBaseStr = baseStr.toLowerCase();
+    let result = finalStr.split(finalBaseStr).length - 1;
     return result;
 }

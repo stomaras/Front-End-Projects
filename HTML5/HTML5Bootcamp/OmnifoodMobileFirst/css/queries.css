@@ -71,6 +71,19 @@
     .step-description {
         font-size: 1rem;   
     }    
+
+    /*----------------------------------------------------------------------------------------Featured In Section------------------------------------------------------------------------------------- */
+
+    .heading-featured-in {
+        font-size: 1.5rem;
+        margin-left: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .feature-logos__img {
+        height: 1.5rem;
+        filter: grayscale(100%);
+    }
 }
 
 /* responsive web design (801px - 1000)px */
@@ -148,6 +161,18 @@
     .step-description {
         font-size: 1.2rem;   
     }
+
+
+    /*----------------------------------------------------------------------------------------Featured In Section------------------------------------------------------------------------------------- */
+
+    .heading-featured-in {
+        font-size: 2rem;
+    }
+
+    .feature-logos__img {
+        height: 2rem;
+        margin-right: 2rem;
+    }
 }
 
 /* responsive web design (1000px - 1200px) */
@@ -221,6 +246,18 @@
 
     .step-description {
         font-size: 1.4rem;   
+    }
+
+
+    /*----------------------------------------------------------------------------------------Featured In Section------------------------------------------------------------------------------------- */
+
+    .heading-featured-in {
+        font-size: 2rem;
+    }
+
+    .feature-logos__img {
+        height: 2rem;
+        margin-right: 4rem;
     }
 }
 
@@ -296,5 +333,22 @@
 
     .step-description {
         font-size: 1.4rem;   
+    }
+
+
+    /*----------------------------------------------------------------------------------------Featured In Section------------------------------------------------------------------------------------- */
+
+    .heading-featured-in {
+        font-size: 2rem;
+    }
+
+    .feature-logos__img {
+        height: 2rem;
+        margin-right: 7rem;
+    }
+
+    .feature-logos__img:last-child {
+        height: 2rem;
+        margin-right: -1rem;
     }
 }

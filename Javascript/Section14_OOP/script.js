@@ -229,16 +229,19 @@ class Account {
 
     deposit(val) {
         this.#movements.push(val);
+        return this;
     }
 
     withdraw(val) {
         this.#movements.push(val * (-1));
+        return this;
     }
 
     requestLoan(val) {
         if(this._approveLoan(val)){
             this.deposit(val)
             console.log(`Loan approved`);
+            return this;
         }
     }
 
@@ -269,3 +272,45 @@ console.log(account1.getMovements());
 console.log(account1);
 
 Account.helper();
+
+/*
+So by chaining these methods, we could first filter an array and finally reduce the results of the map all in one line of code.
+*/
+// Chaining
+account1.deposit(300).deposit(500).withdraw(100).requestLoan(2500).withdraw(4000);
+console.log(account1.getMovements());
+
+
+/* 
+Summary Classes OOP:
+
+Public field (similar to property, available on created object): university = "University of Lisbon";
+
+Private Fields (not accessible outside of class): #studyHours = 0;
+                                                  #course;
+
+Static public field (available only in class): static numSubjects = 10;
+
+Call to parent class (super) class (necessary with extend). Needs to happen before accessing this: super(fullName, birthYear)
+
+Instance Property (available on created object): this.startYear = startYear;, these properties are more personalized and unique for each object while the fields are usually for something
+                                                 that is common to all the objects.
+
+Redefining private field: this.#course = course;
+
+Private method: #makeCoffe()
+
+Getter Method: get testScore()
+
+Setter Method" set testScore(score)
+
+Static method (available only on class. Can not access instance properties nor methods, only static ones)
+static printCurriculum() {
+    console.log(`There are `)
+}
+
+Classes are just "syntactical sugar" over constructor functions
+Classes are not hoisted
+Class body is always executed in strict mode.
+
+*/

@@ -11,8 +11,26 @@ baseStr: test
 testStr: A text contains text many times. Text is very important
 */
 export const stringFunc1 = (baseStr, testStr) =>  {
-    const finalStr = testStr.toLowerCase();
     const finalBaseStr = baseStr.toLowerCase();
-    let result = finalStr.split(finalBaseStr).length - 1;
-    return result;
+    const finalTestStr = testStr.toLowerCase();
+    let result = finalBaseStr.split(finalTestStr).length - 1;
+    if(result){
+        return result;
+    } else {
+        result = `the ${testStr} is not included`;
+        return result;
+    }
+}
+
+export const stringFunc2 = (baseStr, searchStr, replaceStr) => {
+    baseStr = baseStr.toLowerCase().split(' ');
+    searchStr = searchStr.toLowerCase();
+    replaceStr = replaceStr.toLowerCase();
+    baseStr.forEach((element, index) => {
+        if(element === searchStr){
+            baseStr.splice(index, 1, replaceStr)
+        }
+    });
+    baseStr = baseStr.join(" ");
+    return baseStr;
 }

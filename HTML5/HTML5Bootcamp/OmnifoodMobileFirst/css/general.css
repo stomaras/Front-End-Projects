@@ -29,6 +29,9 @@
     --color-step-number: #c2bdbd;
     /*------------------------Featured In------------------------------------------------------*/
     --featured-logos-color: #b5b4b4;
+    /*--------------------------- Meals ------------------------------------------------------------*/
+    --color-meals-heading: rgb(243, 153, 36);
+    --color-meal-title: #333;
 }
 
 html {
@@ -85,4 +88,14 @@ img {
     cursor: pointer;
     background-color: var(--secondary-button-background-color-hover);
     color: var(--secondary-button-color-hover);
+}
+
+.grid {
+    display: grid;
+}
+
+.grid--3-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.2rem;
 }

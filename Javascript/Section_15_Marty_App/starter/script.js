@@ -55,6 +55,7 @@ const inputElevation = document.querySelector('.form__input--elevation');
 // error Callback, when we get an error when we get the coordinates.
 
 // what i will do with latitude and longitude is to load the map and center that map on this position
+// CDN = Content Delivery Network
 
 if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
@@ -62,8 +63,19 @@ if(navigator.geolocation){
         const {longitude} = position.coords;
         console.log(latitude, longitude);
         console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
+
+        const coords = [latitude, longitude]
+
+        const map = L.map('map').setView(coords, 13);
+
+         L.tileLayer('https://tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+         }).addTo(map);
+
+         L.marker([51.5, -0.09]).addTo(map).bindPopup('A pretty CSS popup.<br> Easily customizable.').openPopup();
      }, 
      function(){
          alert('Could not get your position')
      });
+
 }

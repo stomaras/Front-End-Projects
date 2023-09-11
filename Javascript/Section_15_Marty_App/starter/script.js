@@ -1,17 +1,3 @@
-'use strict';
-
-// prettier-ignore
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-const form = document.querySelector('.form');
-const containerWorkouts = document.querySelector('.workouts');
-const inputType = document.querySelector('.form__input--type');
-const inputDistance = document.querySelector('.form__input--distance');
-const inputDuration = document.querySelector('.form__input--duration');
-const inputCadence = document.querySelector('.form__input--cadence');
-const inputElevation = document.querySelector('.form__input--elevation');
-
-
 /* Project Planning 
 
 User Stories: Description of the application's functionality from the user's perspective.
@@ -49,6 +35,35 @@ Features
 7. Store workout data in the browser
 8. On page load, read the saved data and display
 
-
-
+- Geolocation API is like internationalization
 */
+'use strict';
+
+// prettier-ignore
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+const form = document.querySelector('.form');
+const containerWorkouts = document.querySelector('.workouts');
+const inputType = document.querySelector('.form__input--type');
+const inputDistance = document.querySelector('.form__input--distance');
+const inputDuration = document.querySelector('.form__input--duration');
+const inputCadence = document.querySelector('.form__input--cadence');
+const inputElevation = document.querySelector('.form__input--elevation');
+
+// this get as an input two callback functions
+// first one is the callback function which is called on success. So whenever the browser successfully got the coordinates of the current position of the user 
+// error Callback, when we get an error when we get the coordinates.
+
+// what i will do with latitude and longitude is to load the map and center that map on this position
+
+if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(position){
+        const {latitude} = position.coords;
+        const {longitude} = position.coords;
+        console.log(latitude, longitude);
+        console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
+     }, 
+     function(){
+         alert('Could not get your position')
+     });
+}

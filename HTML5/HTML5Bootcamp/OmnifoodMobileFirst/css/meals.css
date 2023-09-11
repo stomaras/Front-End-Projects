@@ -5,6 +5,16 @@
     padding: 9.6rem 4rem;
 }
 
+.meal {
+    box-shadow: 0 1.4rem 2.8rem var(--card-color);
+    border-radius: 1.1rem;
+    overflow: hidden;
+}
+
+.meal-content {
+    padding: 1.6rem 2.4rem 2.4rem 2.4rem;
+}
+
 .subheading-meals {
     font-size: 1.5rem;
     color: var(--color-meals-heading);
@@ -30,9 +40,48 @@
 }
 
 .meal-attribute {
-    font-size: 1rem;
+    font-size: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
 }
 
 .meal-img {
     width: 100%;
+}
+
+.meal-icon {
+    font-size: 1.4rem;
+    color: var(--color-meal-icon);
+}
+
+.meal-tags {
+    margin-bottom: 1rem;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.3rem 0.3rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--color-tag-vegeterian);
+    border-radius: 10rem;
+    font-weight: 600;
+}
+
+/* Modifier */
+.tag--vegeterian {
+    background-color: var(--background-color-tag-vegeterian);
+}
+
+.tag--vegan {
+    background-color: var(--background-color-tag-vegeterian);
+    padding: 0.1rem 0.1rem;
+    font-size: 0.5rem;
+}
+
+.tag--paleo {
+    background-color: var(--background-color-tag-paleo);
+    padding: 0.1rem 0.1rem;
+    font-size: 0.5rem;
 }

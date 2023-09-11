@@ -32,6 +32,11 @@
     /*--------------------------- Meals ------------------------------------------------------------*/
     --color-meals-heading: rgb(243, 153, 36);
     --color-meal-title: #333;
+    --color-meal-icon: rgb(243, 153, 36);
+    --background-color-tag-vegeterian: #51cf66;
+    --background-color-tag-paleo: #fcc419;
+    --color-tag-vegeterian: #333;
+    --card-color: rgba(0,0,0,0.075);
 }
 
 html {
@@ -99,3 +104,11 @@ img {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1.2rem;
 }
+
+/* set the default of strong property */
+strong {
+    font-weight: 500;
+}
+
+
+/* https://yeun.github.io/open-color/ : find colors */

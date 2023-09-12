@@ -37,6 +37,7 @@
     --background-color-tag-paleo: #fcc419;
     --color-tag-vegeterian: #333;
     --card-color: rgba(0,0,0,0.075);
+    --list-icon-color: #fcc419;
 }
 
 html {
@@ -110,5 +111,11 @@ strong {
     font-weight: 500;
 }
 
+.heading-tertiary {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
 
 /* https://yeun.github.io/open-color/ : find colors */

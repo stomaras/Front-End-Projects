@@ -106,3 +106,23 @@
     height: 1.5rem;
     color: var(--list-icon-color);
 }
+
+.all-recipes {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.link:link,
+.link:visited {
+    display: inline-block;
+    color: var(--all-recipes-button);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1rem;
+}
+
+.link:hover,
+.link:active {
+    color: var(--all-recipes-button-hover);
+    border-bottom: none;
+}

@@ -38,6 +38,8 @@
     --color-tag-vegeterian: #333;
     --card-color: rgba(0,0,0,0.075);
     --list-icon-color: #fcc419;
+    --all-recipes-button: #fcc419;
+    --all-recipes-button-hover: #cf711f;
 }
 
 html {
@@ -109,6 +111,10 @@ img {
 /* set the default of strong property */
 strong {
     font-weight: 500;
+}
+
+.margin-bottom-md {
+    margin-bottom: 2.8rem;
 }
 
 .heading-tertiary {

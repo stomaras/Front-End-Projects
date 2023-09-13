@@ -32,4 +32,4 @@ console.log(num3.includes(2));
 // 10. Log the values of num3, if they are even;
 num3.forEach((num) => {
     const nm = (num % 2 === 0) ? console.log(num) : 'Not Even';
-})
+});

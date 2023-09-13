@@ -36,6 +36,62 @@ Features
 8. On page load, read the saved data and display
 
 - Geolocation API is like internationalization
+
+=========================================================================================== Project Architecture ==============================================================================================
+User Stories
+1) Log my running workouts with location,distance,time,pace and steps/minute(cadence)
+2) Log my cycling workouts with location,distance,time,speed and elevation gain
+-------------------------------------
+Where and how to store the data?
+-------------------------------------
+data comes directly from the user stories
+create classes based on these king of data
+Workout data (class properties)
+necessary to implement user stories
+
+----------------------------------
+Class Workout
+----------------------------------
+id
+distance
+duration
+coords
+date
+---------------------------------
+constructor()
+...
+--------------------------------
+|
+|
+|Inheritance
+|
+|
+|
+--------------------    ---------------------------
+Child Class Running     Child Class Cycling
+--------------------    --------------------------
+name                    name
+cadence                 elevationGain
+pace                    speed
+----------------        ---------------------------
+constructor             constructor
+----------------        --------------------------
+
+
+-------------------------------------------------
+Class App
+-------------------------------------------------
+workouts <======================== Array holding all Running or Cycling Objects
+map
+
+constructor() <============== load page
+_getPosition()
+_loadMap(position) <==================== Receive Position
+_showForm() <=========================== Click on map
+_toggleElevationField() <=============== Change Input
+_newWorkout <=========================== Submit Form
+
+=========================================================================================== Project Architecture Ends ==============================================================================================
 */
 'use strict';
 

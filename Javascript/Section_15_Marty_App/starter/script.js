@@ -125,6 +125,8 @@ class Workout {
 }
 
 class Running extends Workout {
+   type='running';
+
    constructor(coords, distance, duration, cadence) {
       super(coords, distance, duration);
       this.cadence = cadence;
@@ -140,6 +142,8 @@ class Running extends Workout {
 
 }
 class Cycling extends Workout {
+   type='cycling';
+   
    constructor(coords, distance, duration, elevationGain) {
       super(coords, distance, duration);
       this.elevationGain = elevationGain;
@@ -159,10 +163,11 @@ class Cycling extends Workout {
 class App {
    #map;
    #mapEvent;
-
+   #workouts = [];
    // executed immediately when a new object app is created from this class
    // in an event handler fucntion this keyword will be of the dom element on which has been attached
    constructor() {
+
       this._getPosition();
       form.addEventListener('submit', this._newWorkout.bind(this));
       inputType.addEventListener('change',this._toggleElevationField);
@@ -206,24 +211,73 @@ class App {
       inputCadence.closest('.form__row').classList.toggle('form__row--hidden');
    }
 
+   /////////////////////////// Helper Functions /////////////////////////////////////////
+
+   _checkInputsFieldsRunning(...inputs) {
+      // loop over the array and will check whether the number is finite or not every will return true if Number.isFinite is true for all of them
+      // if only one from the inputs is not finite will return false
+      return inputs.every(input => Number.isFinite(input));
+   }
+
    _newWorkout(e){
+
+         const allPositives = (...inputs) => inputs.every(inp => inp > 0);
+
          e.preventDefault();
+
+         // Get Data From The Form
+         const type = inputType.value;
+         const distance = +inputDistance.value;
+         const duration = +inputDuration.value;
+         const {lat, lng} = this.#mapEvent.latlng;
+         let workout;
+
+         // If workout is running, create running object
+         console.log(type,duration,distance);
+         if(type === 'running'){
+            const cadence = +inputCadence.value;
+            console.log('running check');
+            // Check If Data is valid
+            if(!this._checkInputsFieldsRunning(distance, duration, cadence) || !allPositives(distance, duration, cadence)) return alert('Inputs have to be positive numbers')
+
+            workout = new Running([lat, lng], distance, duration, cadence);
+         }
+
+         // If workout is cycling, create cycling object
+         if(type === 'cycling'){
+            // Check If Data is valid
+            const elevation = +inputElevation.value;
+            if(!this._checkInputsFieldsRunning(distance, duration, elevation) || !allPositives(distance, duration)) return alert('Inputs have to be positive numbers')
+            workout = new Cycling([lat, lng], distance, duration, elevation);
+         }
+
+         // Add new object to the workout array
+         this.#workouts.push(workout)
+         console.log(workout);
+
+
+         // Render workout on map as marker
+         this.renderWorkoutMarker(workout)
+
+         // Render workout on list
       
-         // clear input fields
+         // Hide form + clear input fields
          inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value = '';
       
          // Display the marker
-      
-         const {lat, lng} = this.#mapEvent.latlng;
-               L.marker([lat, lng]).addTo(this.#map).bindPopup(L.popup({
-                  maxWidth: 250,
-                  minWidth: 200,
-                  autoCLose: false,
-                  closeOnCLick:false,
-                  className: 'running-popup'
-               }))
-               .setPopupContent('Workout')
-               .openPopup();
+              
+   }
+
+   renderWorkoutMarker(workout){
+      L.marker(workout.coords).addTo(this.#map).bindPopup(L.popup({
+         maxWidth: 250,
+         minWidth: 200,
+         autoCLose: false,
+         closeOnCLick:false,
+         className: `${workout.type}-popup`
+      }))
+      .setPopupContent('workout')
+      .openPopup();
    }
 }
 

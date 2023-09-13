@@ -91,6 +91,11 @@ _showForm() <=========================== Click on map
 _toggleElevationField() <=============== Change Input
 _newWorkout <=========================== Submit Form
 
+when user submits the form with new workout then we 
+1) Render workout on map
+2) Render workout in list
+3) Stores workouts in local storage
+
 =========================================================================================== Project Architecture Ends ==============================================================================================
 */
 'use strict';

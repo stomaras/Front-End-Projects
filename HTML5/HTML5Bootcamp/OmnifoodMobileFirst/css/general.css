@@ -117,6 +117,10 @@ strong {
     margin-bottom: 2.8rem;
 }
 
+.center-text {
+    text-align: center;
+}
+
 .heading-tertiary {
     font-size: 0.8rem;
     text-align: center;

@@ -9,6 +9,13 @@
     box-shadow: 0 1.4rem 2.8rem var(--card-color);
     border-radius: 1.1rem;
     overflow: hidden;
+    transition: all 0.3s;
+}
+
+.meal:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 1.8rem 3.2rem var(--card-color);
+
 }
 
 .meal-content {
@@ -119,10 +126,11 @@
     text-decoration: none;
     border-bottom: 1px solid currentColor;
     padding-bottom: 1rem;
+    transition: all 0.3s;
 }
 
 .link:hover,
 .link:active {
     color: var(--all-recipes-button-hover);
-    border-bottom: none;
+    border-bottom: 1px solid transparent;
 }

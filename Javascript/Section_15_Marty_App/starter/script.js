@@ -178,6 +178,7 @@ class App {
       this._getPosition();
       form.addEventListener('submit', this._newWorkout.bind(this));
       inputType.addEventListener('change',this._toggleElevationField);
+      containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
    }
 
    _getPosition() {
@@ -284,6 +285,9 @@ class App {
          this._hideForm();
       
          // Display the marker
+
+         // Set Local Storage to all workouts
+         this._setLocalStorage();
    }
 
    renderWorkoutMarker(workout){
@@ -349,7 +353,28 @@ class App {
          }
 
          form.insertAdjacentHTML('afterend', html);
+   }
 
+   _moveToPopup(e) {
+      const workoutEl = e.target.closest('.workout');
+      console.log(workoutEl);
+
+      if(!workoutEl) return;
+
+      const workout = this.#workouts.find(work => work.id === workoutEl.dataset.id);
+      console.log(workout);
+
+      this.#map.setView(workout.coords, {
+         animate: true,
+         pan: {
+            duration: 1,
+         }
+      }) 
+   }
+
+   // localStorage only for small amounts of data
+   _setLocalStorage(){
+      localStorage.setItem('workouts', JSON.stringify(this.#workouts));
    }
 }
 

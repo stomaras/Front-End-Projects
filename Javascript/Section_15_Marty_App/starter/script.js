@@ -410,5 +410,19 @@ const app = new App();
 // what i will do with latitude and longitude is to load the map and center that map on this position
 // CDN = Content Delivery Network
 
+/*
+Final Considerations:
+# TODO
+- Ability to edit a workout
+- Ability to delete a workout
+- Ability to delete all workouts
+- Abimilty to sort workouts by certain fields (e.g distance)
+- More realistice error and confirmation messages
+- Ability to position the map to show all workouts [very hard];
+- Ability to draw lines and shapes instead of just points [very hard];
+- Geocode location from coordinates ('Run in Faro, Portugal')[only after asynchronous js section];
+- Display weather data for workout time and place [only after asynchronous js section]
 
+
+*/
 

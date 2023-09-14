@@ -174,8 +174,13 @@ class App {
    // executed immediately when a new object app is created from this class
    // in an event handler fucntion this keyword will be of the dom element on which has been attached
    constructor() {
-
+      // Get user's position
       this._getPosition();
+
+      // Get data from local storage
+      this._getLocaleStorage();
+
+      // add Evenet handlers
       form.addEventListener('submit', this._newWorkout.bind(this));
       inputType.addEventListener('change',this._toggleElevationField);
       containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
@@ -202,6 +207,7 @@ class App {
 
          // Handling clicks on map
          this.#map.on('click', this._showForm.bind(this));
+
    }
 
    __failLoadMap() {
@@ -375,6 +381,24 @@ class App {
    // localStorage only for small amounts of data
    _setLocalStorage(){
       localStorage.setItem('workouts', JSON.stringify(this.#workouts));
+   }
+
+   _getLocaleStorage() {
+      const data = JSON.parse(localStorage.getItem('workouts'));
+      console.log(data);
+
+      if(!data) return;
+
+      this.#workouts = data;
+
+      this.#workouts.forEach((workout) => {
+         this._renderWorkout(workout);
+      });
+   }
+
+   reset(){
+      localStorage.removeItem('workouts');
+      location.reload();
    }
 }
 

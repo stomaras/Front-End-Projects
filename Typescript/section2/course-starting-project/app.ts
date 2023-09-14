@@ -1,12 +1,14 @@
 function add(n1:number, n2:number, printResult: boolean, phrase:string){
+    const result = n1 + n2;
     if(printResult){
         console.log(phrase + n1 + n2);
     } else {
-        return n1+n2;
+        return result;
     }
 }
 
-const num1 = 5;
+let num1: number;
+num1 = 5;
 const num2 = 2.8;
 const printResult = true;
 const resultPhrase = 'Result is';
@@ -15,3 +17,49 @@ const result = add(num1,num2, printResult, resultPhrase)
 console.log(result);
 
 /* the core primitive types in Typescript are all lowercase */
+
+
+/*
+
+Question 1: Why are "Types" useful and offer an advantage compare to vanilla JavaScript?
+Answer: Types allow you to detect errors early and avoid some runtime errors.
+
+Question 2: Does this code rely on type inference ?
+const age: number = 29;
+Not really - a type is assigned explicitly as well.
+
+Question 3: What's the difference between js types (eg typeof 'Max' => 'string') and Typescript types (e.g const name: string = '...')
+TS types are checked during compilation, JS types during runtime.
+*/
+
+enum Hero {
+    SPIDERMAN='Sp',
+    BATMAN='Bt',
+    SUPERMAN='Sp'
+}
+
+// Objects && Arrays && Tuple && Enum
+const person: {
+    name:string,
+    age:number,
+    hobbies: string[],
+    role: [number, string];
+    hero:string;
+} = {
+    name:'Spyros',
+    age:26,
+    hobbies:['sports','cookies'],
+    role: [2, 'author'],
+    hero: Hero.BATMAN
+};
+console.log(person);
+
+let favoriteActivities = person.hobbies;
+console.log("Favorite Activities: ", favoriteActivities);
+
+for(const hobby of person.hobbies){
+    console.log(hobby.toUpperCase());
+}
+
+person.role = [0, 'admin'];
+console.log(person);

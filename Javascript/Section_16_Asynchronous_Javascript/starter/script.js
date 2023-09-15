@@ -3,9 +3,41 @@
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
+const renderCountry = function(data) {
+    const html=`
+    <article class="country">
+        <img class="country__img" src="${data[0].flag}" />
+        <div class="country__data">
+            <h3 class="country__name">${data[0].name}</h3>
+            <h4 class="country__region">${data[0].region}</h4>
+            <p class="country__row"><span>👫</span>${(+data[0].population / 1000000).toFixed(1)} people</p>
+            <p class="country__row"><span>🗣️</span>${data[0].nativeName}</p>
+            <p class="country__row"><span>💰</span>${data[0].currencies[0].name}</p>
+        </div>
+    </article>`;
+    countriesContainer.insertAdjacentHTML('beforeend',html);
+    countriesContainer.style.opacity = 1;
+}
 
-const getCountryData = function(country) {
+const renderN = function(data, className = '') {
+    const html=`
+    <article class="country ${className}">
+        <img class="country__img" src="${data.flag}" />
+        <div class="country__data">
+            <h3 class="country__name">${data.name}</h3>
+            <h4 class="country__region">${data.region}</h4>
+            <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)} people</p>
+            <p class="country__row"><span>🗣️</span>${data.nativeName}</p>
+            <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
+        </div>
+    </article>`;
+    countriesContainer.insertAdjacentHTML('beforeend',html);
+    countriesContainer.style.opacity = 1;
+}
 
+const getCountryAndNeighbour = function(country) {
+
+    // AJAX call country 1
     const request = new XMLHttpRequest();
     request.open('GET', `https://restcountries.com/v2/name/${country}`);
     request.send();
@@ -17,36 +49,38 @@ const getCountryData = function(country) {
         const data = JSON.parse(this.responseText);
         console.log(data);
         console.log(data[0].name);
-    
-        const html = `
-        <article class="country">
-            <img class="country__img" src="${data[0].flag}" />
-            <div class="country__data">
-                <h3 class="country__name">${data[0].name}</h3>
-                <h4 class="country__region">${data[0].region}</h4>
-                <p class="country__row"><span>👫</span>${(+data[0].population / 1000000).toFixed(1)} people</p>
-                <p class="country__row"><span>🗣️</span>${data[0].nativeName}</p>
-                <p class="country__row"><span>💰</span>${data[0].currencies[0].name}</p>
-            </div>
-        </article>
-        `;
-    
-        countriesContainer.insertAdjacentHTML('beforeend',html);
-        countriesContainer.style.opacity = 1;
+
+        // Render Country (1)
+        renderCountry(data);
+
+        // Get neighbour country (2)
+        const [neighbour] = data[0].borders;
+
+        if(!neighbour) return;
+
+
+        // AJAX call country 1
+        const request2 = new XMLHttpRequest();
+        request2.open('GET', `https://restcountries.com/v2/alpha/${neighbour}`);
+        request2.send();
+        console.log(request.responseText);
+
+        request2.addEventListener('load', function() {
+            const data2 = JSON.parse(this.responseText);
+            console.log(data2);
+            renderN(data2, 'neighbour');
+
+        });
+
+
     });
     
 }
 
 
-
-
-
 // whenever come first render first during AJAX call
-
-getCountryData('portugal')
-
-getCountryData('usa')
-getCountryData('germany');
+// data about nei.. country depends on first call
+getCountryAndNeighbour('portugal')
 
 
 
@@ -119,7 +153,7 @@ DNS: Domain Name Server , first things that happens when we access any web serve
 
      TCP/IP ---> Transimission Control Protocol and IP is the internet Protocol, define how the data travels across the web.
      HTTP ---> is a protocol that allow clients and web servers to communicate 
-     HTTP Response ---> 
+     HTTP Response ---> 200 ok 
 
      GET /rest/v2/alpha/PT HTTP/1.1 ---> Start line: HTTP method + request target + HTTP version
 

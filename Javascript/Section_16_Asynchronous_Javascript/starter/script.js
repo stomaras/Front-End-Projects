@@ -19,14 +19,14 @@ const getCountryData = function(country) {
         console.log(data[0].name);
     
         const html = `
-            <article class="country">
+        <article class="country">
             <img class="country__img" src="${data[0].flag}" />
             <div class="country__data">
-            <h3 class="country__name">${data[0].name}</h3>
-            <h4 class="country__region">${data[0].region}</h4>
-            <p class="country__row"><span>👫</span>${(+data[0].population / 1000000).toFixed(1)} people</p>
-            <p class="country__row"><span>🗣️</span>${data[0].nativeName}</p>
-            <p class="country__row"><span>💰</span>${data[0].currencies[0].name}</p>
+                <h3 class="country__name">${data[0].name}</h3>
+                <h4 class="country__region">${data[0].region}</h4>
+                <p class="country__row"><span>👫</span>${(+data[0].population / 1000000).toFixed(1)} people</p>
+                <p class="country__row"><span>🗣️</span>${data[0].nativeName}</p>
+                <p class="country__row"><span>💰</span>${data[0].currencies[0].name}</p>
             </div>
         </article>
         `;
@@ -99,4 +99,33 @@ There are be many types of APIs in web development
 DOM API, Geolocation API, Own Class API, "Online" API
 
 "Online API": Application running on a server, that receives requests for data, and sends data back as response.
+
+
+                                    Request
+Client -----------------------------------------------------------------------------------------> Web Server
+       <-----------------------------------------------------------------------------------------
+                                    Response
+
+
+Client (e.g Browser)
+1) Protocol(HTTP or HTTPS)
+2) Domain Name
+3) Resource
+
+DNS: Domain Name Server , first things that happens when we access any web server is that browser make a request to a dns,
+     and this web server will match the web address of the url to the server's real IP address.
+
+     Protocol (HTTP or HTTPS) | IP Adress | Port Number
+
+     TCP/IP ---> Transimission Control Protocol and IP is the internet Protocol, define how the data travels across the web.
+     HTTP ---> is a protocol that allow clients and web servers to communicate 
+     HTTP Response ---> 
+
+     GET /rest/v2/alpha/PT HTTP/1.1 ---> Start line: HTTP method + request target + HTTP version
+
+     Host: www.google.com
+     User-Agent: Mozilla/5.0------------> HTTP request headers(many different possibilities)
+     Accept-Language: en-US
+
+     <BODY> ----------------------------> Request Body (only when sending data to server: e.g Post)
 */

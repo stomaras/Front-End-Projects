@@ -85,90 +85,132 @@
         height: 2rem;
         margin-right: 2rem;
     }
-}
 
-/* responsive web design (1000px - 1200px) */
-@media screen and (min-width: 1001px) and (max-width: 1200px) {
-    .logo-omnifood {
-        width: 12rem;
-    }
+    /*----------------------------------------------------------------------------------------Meals Section ----------------------------------------------------------------------------------------*/
 
-    .heading-primary {
-        font-size: 3rem;
-        text-align: center;
-        margin-left: 2rem;
-        margin-right: 2rem;
-        padding: 1rem;
+    .grid--3-cols {
+        gap: 1.5rem;
     }
     
-    .nav-ul {
-        display: flex;
-        flex-direction: row;
-        list-style: none;
-        gap: 2rem;
+    /* set the default of strong property */
+    strong {
+        font-weight: 500;
+    }
+    
+    .margin-bottom-md {
+        margin-bottom: 2.8rem;
+    }
+    
+    .center-text {
+        text-align: center;
+    }
+    
+    .heading-tertiary {
+        font-size: 1.6rem;
+        margin-left: 1.2rem;
+        margin-right: 1.2rem;
+    }
+    
+    .section-meals {
+        gap: 5rem;
+        padding: 9.6rem 4.5rem;
+    }
+    
+    .meal {
+        box-shadow: 0 1.2rem 2.2rem var(--card-color);
+        border-radius: 1.1rem;
+    }
+    
+    .meal:hover {
+        box-shadow: 0 2.5rem 4rem var(--card-color);
+    }
+    
+    .meal-content {
+        padding: 2rem 2.6rem 2.6rem 2.6rem;
+    }
+    
+    .subheading-meals {
         font-size: 2rem;
     }
-
-    .nav-ul__href {
-        font-size: 2.3rem;
-    }
-
-    .header-para {
-        font-size: 2rem;
-    }
-
-    .primary-button {
-        font-size: 2.1rem;
-    }
-
-    .secondary-button {
-        font-size: 2.1rem;
-    }
-
-    .logos__img {
-        height: 5.5rem;
-    }
-
-
-    .hero__img {
-        height: 45rem;
-    }
-
-    /*-----------------------------------------------------------------------------How It Works Section-------------------------------------------------------------------------*/
-    .how-it-works__span {
-        font-size: 2rem;
-    }
-
-    .heading-primary-how {
+    
+    .heading-secondary-meals {
         font-size: 1.8rem;
+        margin-top: 1rem;
     }
-
-    .step-number {
-        font-size: 2.8rem;
-    }
-
-    .heading-tertiary-how {
+    
+    .meal-title{
         font-size: 1.8rem;
+        margin-bottom: 1.3rem;
     }
-
-    .app-screen-box__img {
-        height: 40rem;
+    
+    .meal-attributes {
+        gap: 1.6rem;
     }
-
-
-    .step-description {
-        font-size: 1.4rem;   
+    
+    .meal-attribute {
+        font-size: 1.3rem;
+        gap: 0.3rem;
     }
-
-
-    /*----------------------------------------------------------------------------------------Featured In Section------------------------------------------------------------------------------------- */
-
-    .heading-featured-in {
+    
+    .meal-img {
+        width: 100%;
+    }
+    
+    .meal-icon {
         font-size: 2rem;
     }
-
-    .feature-logos__img {
+    
+    .meal-tags {
+        margin-bottom: 1.4rem;
+    }
+    
+    .tag {
+        display: inline-block;
+        padding: 0.5rem 0.5rem;
+        font-size: 1.4rem;
+        border-radius: 10rem;
+    }
+    
+    /* Modifier */
+    .tag--vegan {
+        padding: 0.1rem 0.1rem;
+        font-size: 1rem;
+    }
+    
+    .tag--paleo {
+        padding: 0.1rem 0.1rem;
+        font-size: 1rem;
+    }
+    
+    .list {
+        gap: 1.4rem;
+    }
+    
+    .list-item{
+        font-size: 1.7rem;
+        gap: 1.2rem;
+    }
+    
+    .list-icon {
+        width: 30px;
         height: 2rem;
-        margin-right: 4rem;
+    }
+    
+    .all-recipes {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+    
+    .link:link,
+    .link:visited {
+        border-bottom: 1.5px solid currentColor;
+        padding-bottom: 1.4rem;
+        transition: all 0.3s;
+    }
+    
+    .link:hover,
+    .link:active {
+        border-bottom: 1.5px solid transparent;
     }
 }
+

@@ -37,7 +37,6 @@ const renderN = function(data, className = '') {
 
 const getCountryAndNeighbour = function(country) {
 
-    // AJAX call country 1
     const request = new XMLHttpRequest();
     request.open('GET', `https://restcountries.com/v2/name/${country}`);
     request.send();
@@ -69,7 +68,6 @@ const getCountryAndNeighbour = function(country) {
             const data2 = JSON.parse(this.responseText);
             console.log(data2);
             renderN(data2, 'neighbour');
-
         });
 
 
@@ -80,32 +78,67 @@ const getCountryAndNeighbour = function(country) {
 
 // whenever come first render first during AJAX call
 // data about nei.. country depends on first call
-getCountryAndNeighbour('portugal')
+// escape callback hell with promises
+// getCountryAndNeighbour('usa');
+
+// setTimeout(() => {
+//     console.log('1 second passed');
+//     setTimeout(() => {
+//         console.log('2 seconds passed');
+//         setTimeout(() => {
+//             console.log('3 seconds passed');
+//             setTimeout(() => {
+//                 console.log('4 seconds passed');
+//             },1000)
+//         },1000);
+//     },1000)
+// },1000);
 
 
 
 
 
+/*
+Promise: An object that is used as a placeholder for the future result of an asynchronous operation.
+Promise: A container for an asynchronous delivered value.
+Promise: A container for a future value.(Example: Response from AJAX call)
+Promise: that i will receive money if i guess correct outcome
+
+The Promise LIFECYCLE
+
+Before the future                                                           Asynchronous task has finished
+value is available                          ASYNC TASK 
+PENDING -------------------------------------------------------------------> SETTLED ------------- Rejected (An error happened)
+                                                                                |
+                                                                                |
+                                                                                |
+                                                                                |
+                                                                                FULFILLED
+                                                                                Success! The value
+                                                                                is now available
+
+We are able to handle these different states in our code
+
+BUILD PROMISE: Fetch API returns promie
+CONSUME PROMISE: When we already have a promise. E.g promise returned from Fetch API
+                                                                    
+*/
+
+const request = fetch('https://restcountries.com/v2/name/portugal')
+console.log(request);
+
+const getCountryData = function(country) { 
+    fetch(`https://restcountries.com/v2/name/${country}`)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
+    })
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+getCountryAndNeighbour('portugal');
 
 
 ///////////////////////////////////////

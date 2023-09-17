@@ -120,25 +120,44 @@ PENDING -------------------------------------------------------------------> SET
 We are able to handle these different states in our code
 
 BUILD PROMISE: Fetch API returns promie
-CONSUME PROMISE: When we already have a promise. E.g promise returned from Fetch API
-                                                                    
+CONSUME PROMISE: When we already have a promise. E.g promise returned from Fetch API                                                                    
 */
+
+const renderError = function(message) {
+    countriesContainer.insertAdjacentText('beforeend', message);
+}
+
 
 const request = fetch('https://restcountries.com/v2/name/portugal')
 console.log(request);
 
 const getCountryData = function(country) { 
     fetch(`https://restcountries.com/v2/name/${country}`)
-    .then(function(response) {
-        return response.json();
+    .then(
+        response => {
+        console.log(response);
+
+        if(!response.ok){
+            throw new Error(`Country not found ${response.status}`);
+        }
+        return response.json()
     })
     .then(function(data) {
         console.log(data);
     })
-}
+    .catch(err => {
+        console.error(`${err}`);
+        renderError(`Something went wrong ${err.message}`)
+    })
+    .finally(() => {
+        countriesContainer.style.opacity = 1
+    })
+    
+};
 
-
-getCountryAndNeighbour('portugal');
+btn.addEventListener('click', function() {
+    getCountryData('portuugal');
+})
 
 
 ///////////////////////////////////////
@@ -195,4 +214,12 @@ DNS: Domain Name Server , first things that happens when we access any web serve
      Accept-Language: en-US
 
      <BODY> ----------------------------> Request Body (only when sending data to server: e.g Post)
+*/
+
+
+/*
+Handling rejected promises
+
+finally works before catch itself only return a promises
+
 */

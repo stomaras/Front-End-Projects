@@ -1,0 +1,3 @@
+- sudo npm install -g typescript
+- tsc app.ts
+- npm start

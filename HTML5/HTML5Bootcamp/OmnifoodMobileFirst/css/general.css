@@ -108,6 +108,12 @@ img {
     gap: 1.2rem;
 }
 
+.grid--2-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
 /* set the default of strong property */
 strong {
     font-weight: 500;

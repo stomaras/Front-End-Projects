@@ -14,10 +14,45 @@ https://geocode.xyz/api
 fetch API and promises to get the data
 4. Once you have the data, take a look at it in the cosnole to see all attributes that you received about the provided location.
 Then, using this data, log a message like this to the console. 'You are in Berling, Germany'
+5. Chain .catch method to the end of the promise chain and log errors to the console
+
+Part 2:
+6. Now it's time to use the received data to render a country. So take the relevant attribute from the geocoding API result, and plug into 
+the countries API that we have been using.
 */
+
+/***************** Query DOM ************************/
+const countryContainer = document.querySelector('.country');
+const buttonFetchCountry = document.querySelector('.buttonCountry');
+console.log(buttonFetchCountry, countryContainer);
+
+/******************Add Event Listener on thid dom element */
+
+buttonFetchCountry.addEventListener('click', async () => {
+    
+    const data = await whereAmI('52.508','13.381');
+    console.log(data);
+})
+
+
+/*************Helper Functions***************/
 
 const logCountryAndCity = (city, countryName) => {
     console.log(`You are in ${city}, ${countryName}`);
+}
+
+const logError = (err) => {
+    console.error(`Something went wrong ${err.message}`);
+} 
+
+const renderCountry = function (data) {
+    const html = `
+    <section>
+        <h3>Continent: ${data.continent}</h3>
+        <p>My Country is ${data.city} ${data.countryName}</p>
+    </section>
+    `;
+    countryContainer.insertAdjacentHTML('beforeend', html);
 }
 
 const whereAmI = (lat, lng) => {
@@ -28,8 +63,12 @@ const whereAmI = (lat, lng) => {
     .then(data => {
         console.log(data);
         logCountryAndCity(data.city, data.countryName);
+        renderCountry(data)
+        return data;
+    })
+    .catch(err => {
+        logError(err);
     })
 }
 
-whereAmI('52.508','13.381');
 

@@ -111,6 +111,7 @@ const lotteryPromise = new Promise(function(resolve, reject) {
 });
 
 
+
 // Promisifying means to convert callback based asynchronous behaviour to promise based
 lotteryPromise.then((res) => {console.log(res)}).catch(err => console.error(err))
 

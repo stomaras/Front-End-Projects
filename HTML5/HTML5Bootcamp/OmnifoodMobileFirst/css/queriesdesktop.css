@@ -88,4 +88,132 @@
         height: 2rem;
         margin-right: -1rem;
     }
+
+    /*----------------------------------------------------------------------------------------Meals Section ----------------------------------------------------------------------------------------*/
+
+    .grid--3-cols {
+        gap: 1.7rem;
+    }
+    
+    /* set the default of strong property */
+    strong {
+        font-weight: 500;
+    }
+    
+    .margin-bottom-md {
+        margin-bottom: 2.8rem;
+    }
+    
+    .center-text {
+        text-align: center;
+    }
+    
+    .heading-tertiary {
+        font-size: 2.3rem;
+        margin-left: 1.2rem;
+        margin-right: 1.2rem;
+    }
+    
+    .section-meals {
+        gap: 5rem;
+        padding: 9.6rem 4.5rem;
+    }
+    
+    .meal {
+        box-shadow: 0 1.2rem 2.2rem var(--card-color);
+        border-radius: 1.1rem;
+    }
+    
+    .meal:hover {
+        box-shadow: 0 2.5rem 4rem var(--card-color);
+    }
+    
+    .meal-content {
+        padding: 2rem 2.6rem 2.6rem 2.6rem;
+    }
+    
+    .subheading-meals {
+        font-size: 2.8rem;
+    }
+    
+    .heading-secondary-meals {
+        font-size: 2.3rem;
+        margin-top: 1rem;
+    }
+    
+    .meal-title{
+        font-size: 2.3rem;
+        margin-bottom: 1.3rem;
+    }
+    
+    .meal-attributes {
+        gap: 1.6rem;
+    }
+    
+    .meal-attribute {
+        font-size: 1.8rem;
+        gap: 0.3rem;
+    }
+    
+    .meal-img {
+        width: 100%;
+    }
+    
+    .meal-icon {
+        font-size: 2.6rem;
+    }
+    
+    .meal-tags {
+        margin-bottom: 1.4rem;
+    }
+    
+    .tag {
+        display: inline-block;
+        padding: 0.5rem 0.5rem;
+        font-size: 2rem;
+        border-radius: 10rem;
+    }
+    
+    /* Modifier */
+    .tag--vegan {
+        padding: 0.1rem 0.1rem;
+        font-size: 1.6rem;
+    }
+    
+    .tag--paleo {
+        padding: 0.1rem 0.1rem;
+        font-size: 1.6rem;
+    }
+    
+    .list {
+        gap: 1.4rem;
+    }
+    
+    .list-item{
+        font-size: 2.2rem;
+        gap: 1.2rem;
+    }
+    
+    .list-icon {
+        width: 30px;
+        height: 2.8rem;
+    }
+    
+    .all-recipes {
+        text-align: center;
+        font-size: 2.3rem;
+    }
+    
+    .link:link,
+    .link:visited {
+        border-bottom: 1.5px solid currentColor;
+        padding-bottom: 1.4rem;
+        transition: all 0.3s;
+    }
+    
+    .link:hover,
+    .link:active {
+        border-bottom: 1.5px solid transparent;
+    }
+
 }

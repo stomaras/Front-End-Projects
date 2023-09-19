@@ -40,6 +40,8 @@
     --list-icon-color: #fcc419;
     --all-recipes-button: #fcc419;
     --all-recipes-button-hover: #cf711f;
+    /***********************************Testimonials************************************/
+    --color-testimonial-name: #777;
 }
 
 html {

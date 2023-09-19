@@ -3,3 +3,24 @@
 .section-testimonials {
     padding: 9.6rem 0;
 }
+
+.testimonials {
+    margin-top: 2rem;
+}
+
+.testimonial-img {
+    width: 3rem;
+    border-radius: 50%;
+    margin-bottom: 1.2rem;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.testimonial-name {
+    font-size: 0.9rem;
+    color: var(--color-testimonial-name);
+}

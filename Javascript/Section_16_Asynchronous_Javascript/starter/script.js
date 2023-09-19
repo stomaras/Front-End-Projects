@@ -1,79 +1,80 @@
 'use strict';
 
-const btn = document.querySelector('.btn-country');
-const countriesContainer = document.querySelector('.countries');
 
-const renderCountry = function(data) {
-    const html=`
-    <article class="country">
-        <img class="country__img" src="${data[0].flag}" />
-        <div class="country__data">
-            <h3 class="country__name">${data[0].name}</h3>
-            <h4 class="country__region">${data[0].region}</h4>
-            <p class="country__row"><span>👫</span>${(+data[0].population / 1000000).toFixed(1)} people</p>
-            <p class="country__row"><span>🗣️</span>${data[0].nativeName}</p>
-            <p class="country__row"><span>💰</span>${data[0].currencies[0].name}</p>
-        </div>
-    </article>`;
-    countriesContainer.insertAdjacentHTML('beforeend',html);
-    countriesContainer.style.opacity = 1;
-}
+// const btn = document.querySelector('.btn-country');
+// const countriesContainer = document.querySelector('.countries');
 
-const renderN = function(data, className = '') {
-    const html=`
-    <article class="country ${className}">
-        <img class="country__img" src="${data.flag}" />
-        <div class="country__data">
-            <h3 class="country__name">${data.name}</h3>
-            <h4 class="country__region">${data.region}</h4>
-            <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)} people</p>
-            <p class="country__row"><span>🗣️</span>${data.nativeName}</p>
-            <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
-        </div>
-    </article>`;
-    countriesContainer.insertAdjacentHTML('beforeend',html);
-    countriesContainer.style.opacity = 1;
-}
+// const renderCountry = function(data) {
+//     const html=`
+//     <article class="country">
+//         <img class="country__img" src="${data[0].flag}" />
+//         <div class="country__data">
+//             <h3 class="country__name">${data[0].name}</h3>
+//             <h4 class="country__region">${data[0].region}</h4>
+//             <p class="country__row"><span>👫</span>${(+data[0].population / 1000000).toFixed(1)} people</p>
+//             <p class="country__row"><span>🗣️</span>${data[0].nativeName}</p>
+//             <p class="country__row"><span>💰</span>${data[0].currencies[0].name}</p>
+//         </div>
+//     </article>`;
+//     countriesContainer.insertAdjacentHTML('beforeend',html);
+//     countriesContainer.style.opacity = 1;
+// }
 
-const getCountryAndNeighbour = function(country) {
+// const renderN = function(data, className = '') {
+//     const html=`
+//     <article class="country ${className}">
+//         <img class="country__img" src="${data.flag}" />
+//         <div class="country__data">
+//             <h3 class="country__name">${data.name}</h3>
+//             <h4 class="country__region">${data.region}</h4>
+//             <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)} people</p>
+//             <p class="country__row"><span>🗣️</span>${data.nativeName}</p>
+//             <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
+//         </div>
+//     </article>`;
+//     countriesContainer.insertAdjacentHTML('beforeend',html);
+//     countriesContainer.style.opacity = 1;
+// }
 
-    const request = new XMLHttpRequest();
-    request.open('GET', `https://restcountries.com/v2/name/${country}`);
-    request.send();
-    console.log(request.responseText);
+// const getCountryAndNeighbour = function(country) {
+
+//     const request = new XMLHttpRequest();
+//     request.open('GET', `https://restcountries.com/v2/name/${country}`);
+//     request.send();
+//     console.log(request.responseText);
     
-    request.addEventListener('load', function() {
-        console.log(this.responseText);
+//     request.addEventListener('load', function() {
+//         console.log(this.responseText);
     
-        const data = JSON.parse(this.responseText);
-        console.log(data);
-        console.log(data[0].name);
+//         const data = JSON.parse(this.responseText);
+//         console.log(data);
+//         console.log(data[0].name);
 
-        // Render Country (1)
-        renderCountry(data);
+//         // Render Country (1)
+//         renderCountry(data);
 
-        // Get neighbour country (2)
-        const [neighbour] = data[0].borders;
+//         // Get neighbour country (2)
+//         const [neighbour] = data[0].borders;
 
-        if(!neighbour) return;
-
-
-        // AJAX call country 1
-        const request2 = new XMLHttpRequest();
-        request2.open('GET', `https://restcountries.com/v2/alpha/${neighbour}`);
-        request2.send();
-        console.log(request.responseText);
-
-        request2.addEventListener('load', function() {
-            const data2 = JSON.parse(this.responseText);
-            console.log(data2);
-            renderN(data2, 'neighbour');
-        });
+//         if(!neighbour) return;
 
 
-    });
+//         // AJAX call country 1
+//         const request2 = new XMLHttpRequest();
+//         request2.open('GET', `https://restcountries.com/v2/alpha/${neighbour}`);
+//         request2.send();
+//         console.log(request.responseText);
+
+//         request2.addEventListener('load', function() {
+//             const data2 = JSON.parse(this.responseText);
+//             console.log(data2);
+//             renderN(data2, 'neighbour');
+//         });
+
+
+//     });
     
-}
+// }
 
 
 // whenever come first render first during AJAX call
@@ -123,41 +124,41 @@ BUILD PROMISE: Fetch API returns promie
 CONSUME PROMISE: When we already have a promise. E.g promise returned from Fetch API                                                                    
 */
 
-const renderError = function(message) {
-    countriesContainer.insertAdjacentText('beforeend', message);
-}
+// const renderError = function(message) {
+//     countriesContainer.insertAdjacentText('beforeend', message);
+// }
 
 
-const request = fetch('https://restcountries.com/v2/name/portugal')
-console.log(request);
+// const request = fetch('https://restcountries.com/v2/name/portugal')
+// console.log(request);
 
-const getCountryData = function(country) { 
-    fetch(`https://restcountries.com/v2/name/${country}`)
-    .then(
-        response => {
-        console.log(response);
+// const getCountryData = function(country) { 
+//     fetch(`https://restcountries.com/v2/name/${country}`)
+//     .then(
+//         response => {
+//         console.log(response);
 
-        if(!response.ok){
-            throw new Error(`Country not found ${response.status}`);
-        }
-        return response.json()
-    })
-    .then(function(data) {
-        console.log(data);
-    })
-    .catch(err => {
-        console.error(`${err}`);
-        renderError(`Something went wrong ${err.message}`)
-    })
-    .finally(() => {
-        countriesContainer.style.opacity = 1
-    })
+//         if(!response.ok){
+//             throw new Error(`Country not found ${response.status}`);
+//         }
+//         return response.json()
+//     })
+//     .then(function(data) {
+//         console.log(data);
+//     })
+//     .catch(err => {
+//         console.error(`${err}`);
+//         renderError(`Something went wrong ${err.message}`)
+//     })
+//     .finally(() => {
+//         countriesContainer.style.opacity = 1
+//     })
     
-};
+// };
 
-btn.addEventListener('click', function() {
-    getCountryData('portuugal');
-})
+// btn.addEventListener('click', function() {
+//     getCountryData('portuugal');
+// })
 
 
 ///////////////////////////////////////
@@ -223,3 +224,70 @@ Handling rejected promises
 finally works before catch itself only return a promises
 
 */
+
+/* geolocation api */
+
+// navigator.geolocation.getCurrentPosition(
+// position => console.log(position),
+// err => console.error(err));
+
+// const getPosition = function() {
+//     return new Promise(function(resolve, reject) {
+//         navigator.geolocation.getCurrentPosition(
+//             position => resolve(position),
+//             err => reject(err)
+//         );
+//     });
+// };
+
+// getPosition().then(pos => console.log(pos));
+const usersContainer = document.querySelector('.users');
+const btnGetUser = document.querySelector('.btn-user');
+
+const renderUser = (user) => {
+    const html = `
+    <section>
+        <h2>User with name: ${user.name}</h2>
+        <p>Username: ${user.username}</p>
+    </section> 
+    `
+
+    usersContainer.insertAdjacentHTML('beforeend', html);
+}
+
+const renderUsers = (users) => {
+    users.forEach(user => {
+        const html = `
+            <section>
+                <h2>User with name: ${user.name}</h2>
+                <p>Username: ${user.username}</p>
+                <br/>
+            </section> 
+        `
+    usersContainer.insertAdjacentHTML('beforeend', html);
+    });
+}
+
+const renderError = (err) => {
+    console.log(`Something went wrong ${err.message}`);
+}
+// so basically await will stop the code execution at this point of the function , until the promise is fullfilled antil data get
+// not blocking the call stack of execution , looks our code makes regular async await is syntactical sugar of then
+const getUsers = async function() {
+    try {
+        const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
+        if(!res.ok) throw new Error('Something went wrong with fetch')
+        // convert to json
+        const data = await res.json();
+        console.log(res);
+        console.log(data);
+        renderUsers(data);
+    }catch(err) {
+        renderError(err)
+    }
+
+}
+
+btnGetUser.addEventListener('click', () => {
+    getUsers();
+})

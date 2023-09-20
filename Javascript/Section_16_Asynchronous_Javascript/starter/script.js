@@ -311,3 +311,26 @@ console.log(users);
     }
     console.log('3: Finished getting location');
 })();
+
+const getJSON = function (url, errorMsg = 'Something went wrong'){
+    return fetch(url).then(response => {
+        if(!response.ok) throw new Error(`${errorMsg} ${response.status}`)
+        return response.json();
+    });
+};
+
+const get3Users = async function(u1, u2, u3) {
+    try {
+        const data1 = await getJSON('https://jsonplaceholder.typicode.com/posts/1');
+        const data2 = await getJSON('https://jsonplaceholder.typicode.com/posts/2');
+        const data3 = await getJSON('https://jsonplaceholder.typicode.com/posts/3');
+        console.log(data1,data2,data3);
+        // Take an array of promises and will return a new promise, which will run all promises at the same time
+        const data = await Promise.all([getJSON('https://jsonplaceholder.typicode.com/posts/1')],[getJSON('https://jsonplaceholder.typicode.com/posts/2')],[getJSON('https://jsonplaceholder.typicode.com/posts/3')])
+        console.log(data);
+    } catch(err) {
+        console.error(err);
+    }
+}
+
+get3Users();

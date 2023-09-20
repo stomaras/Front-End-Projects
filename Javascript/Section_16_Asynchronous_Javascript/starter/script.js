@@ -279,15 +279,35 @@ const getUsers = async function() {
         if(!res.ok) throw new Error('Something went wrong with fetch')
         // convert to json
         const data = await res.json();
-        console.log(res);
-        console.log(data);
         renderUsers(data);
+
+        return `Users are ${data}`
     }catch(err) {
         renderError(err)
+        
+        // Reject promise returned from async function 
+        throw err;
     }
+};
 
-}
+console.log('1');
+// run on background will print after logs
+// NOTE !!! an async function always return a promise
+const users = getUsers();
+console.log(users);
+// in then handler the users will be the result value of the promise
+// getUsers()
+//     .then(users => console.log(users))
+//     .catch(err => console.error(`2: ${err.message}`))
+//     .finally(() => console.log('3 finished getting users'));
 
-btnGetUser.addEventListener('click', () => {
-    getUsers();
-})
+// IIFE get data from async function
+(async function() {
+    try {
+        const users = await getUsers();
+        console.log(`Users: ${users}`);
+    }catch(err){
+        console.error(`2: ${err.message}`)
+    }
+    console.log('3: Finished getting location');
+})();

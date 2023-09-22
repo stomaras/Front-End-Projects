@@ -39,6 +39,11 @@ module ---> import(dependency) and exports(public API)
 
 // create a new scope and return data just once
 // varibales and functions exists only in birthPlace which is the function
+// parcel installed locally
+// npx or npm scripts
+// npx parcel index.html
+// besides bundling do same with development server
+// parcel create dist folder which stands for distribution index.html wth bunch of js files
 const ShoppingCart2 = (function() {
     const cart = [];
     const shippingCost = 10;

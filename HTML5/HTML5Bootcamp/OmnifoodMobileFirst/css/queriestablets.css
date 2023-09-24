@@ -212,5 +212,56 @@
     .link:active {
         border-bottom: 1.5px solid transparent;
     }
+    /****************************************** Testimonials Section ***************************************************************/
+
+    .section-testimonials {
+        background-color: var(--testimonials-background-color);
+    }
+
+    .testimonials-container {
+        padding: 0.1rem 0;
+    }
+
+    .testimonials {
+        margin-top: 2rem;
+    }
+
+    .testimonial-img {
+        width: 3rem;
+        border-radius: 50%;
+        margin-bottom: 1.2rem;
+    }
+
+    .testimonial-text {
+        font-size: 1.4rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .testimonial-name {
+        font-size: 1.4rem;
+        color: var(--color-testimonial-name);
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 0.2rem;
+        row-gap: 0rem;
+    }
+
+    .gallery-item {
+        overflow: hidden;
+    }
+
+    .gallery-item img {
+        display: block;
+        width: 100%;
+        transition: all 0.4s;
+    }
+
+    .gallery-item img:hover {
+        transform: scale(1.1);
+    }
 }
 

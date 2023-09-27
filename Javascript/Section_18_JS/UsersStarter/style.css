@@ -40,7 +40,11 @@ body {
 }
 
 .user {
-    flex-basis: 30%;
+    flex-basis: 45%;
+}
+
+.user__address {
+    list-style: none;
 }
 
 .users-footer {

@@ -1,10 +1,10 @@
 console.log("TEST");
 
-const userContainer = document.querySelector('.user');
-
-const showUser = async function() {
+const userContainer = document.querySelector('.users');
+const fetchUsersUrl = "https://jsonplaceholder.typicode.com/users/"
+const showUsers = async function() {
     try {
-        const res = await fetch('https://jsonplaceholder.typicode.com/users/');
+        const res = await fetch(fetchUsersUrl);
         const dataUser = await res.json();
 
         if(!res.ok) throw new Error(`${dataUser.message} ${res.status}`)
@@ -12,33 +12,54 @@ const showUser = async function() {
         let users = dataUser;
         console.log(users);
 
-        const usersData = users.slice(0,6);
-        console.log(usersData);
+        const usersData = users.slice(0,4);
+        usersData.forEach((user) => {
+            const markup = `
+                <article class="user">
+                <h2 class="user__title">${user.name}</h2>
+                <p class="user__description">${user.username}</p>
+                <ul class="user__address">
+                    <li class="user__city">City:${user.address.city}</li>
+                    <li class="user__street">Street:${user.address.street}</li>
+                </ul> 
+                </article>
+            `;
+            userContainer.insertAdjacentHTML('beforeend', markup);    
+        });
 
-        // userFinal = {
-        //     id: user.id,
-        //     name: user.name,
-        //     username: user.username,
-        //     email: user.email
-        // }
-        // console.log(userFinal);
-
-        // console.log(res, dataUser);
-
-        // // renderUser
-        // const markUp = `
-        //         <h2>${userFinal.name}</h2>
-        //         <p>
-        //             <span>Name:</span>${userFinal.name}<br/>
-        //             <span>Username:</span>${userFinal.username}<br/>
-        //             <span>Email:</span>${userFinal.email}<br/>
-        //         </p>
-        // `
-        // userContainer.innerHTML = '';
-        // userContainer.insertAdjacentHTML('afterbegin', markUp)
     }catch(err) {
         console.log(err);
     }
 }
 
-showUser();
+const showUser = async function() {
+    try {
+        const id = window.location.hash.slice(1);
+
+        if(!id) return;
+
+        const res = await fetch(`${fetchUsersUrl}${id}`);
+
+        const user = await res.json();
+        console.log(user);
+
+        const markup = `
+            <article class="user">
+                <h2 class="user__title">${user.name}</h2>
+                <p class="user__description">${user.username}</p>
+                <ul class="user__address">
+                    <li class="user__city">City:${user.address.city}</li>
+                    <li class="user__street">Street:${user.address.street}</li>
+                </ul> 
+            </article>
+        `
+        userContainer.innerHTML = '';
+        userContainer.insertAdjacentHTML('afterBegin',markup);
+    } catch(err){
+        alert(err)
+    }
+}
+
+window.addEventListener('hashchange', showUser);
+showUsers();
+

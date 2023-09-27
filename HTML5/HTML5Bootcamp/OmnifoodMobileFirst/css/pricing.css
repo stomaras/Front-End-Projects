@@ -2,3 +2,54 @@
     padding: 5rem 0;
     margin: 1rem;
 }
+
+
+.pricing-plan {
+    border-radius: 11px;
+    width: 75%;
+}
+
+.pricing-plan--starter {
+    justify-self: end;
+    border: 2px solid var(--pricing-plan-background-color);
+    padding: 1.2rem;
+}
+
+.pricing-plan--complete {
+    background-color: var(--pricing-plan-background-color);
+    padding: 2.4rem;
+}
+
+.plan-header {
+    text-align: center;
+    margin-bottom: 2.8rem;
+}
+
+.plan-name {
+    color: var(--color-plan-name);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-align: uppercase;
+    letter-spacing: 0.75;
+}
+
+.plan-price {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-plan-price);
+}
+
+.plan-price span {
+    font-size: 0.9rem;
+}
+
+.plan-text {
+    font-size: 0.8rem;
+    line-height: 1.8rem;
+    color: var(--color-plan-text);
+}
+
+.plan-sign-up {
+    margin-top: 1rem;
+    text-align: center;
+}

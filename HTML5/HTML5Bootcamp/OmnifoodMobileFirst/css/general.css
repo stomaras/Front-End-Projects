@@ -43,6 +43,11 @@
     /***********************************Testimonials************************************/
     --color-testimonial-name: #777;
     --testimonials-background-color: #fdf2e9;
+    /********************************Pricing Section **********************/
+    --color-plan-name: #cf711f;
+    --color-plan-text: #6f6f6f;
+    --color-plan-price: #333;
+    --pricing-plan-background-color: #fdf2e9;
 }
 
 html {

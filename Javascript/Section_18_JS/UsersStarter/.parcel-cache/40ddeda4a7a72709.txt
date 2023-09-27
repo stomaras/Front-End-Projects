@@ -1,11 +1,12 @@
-5865
-103/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/index.html1695835753607722549 0
-102/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/style.css1695835418765304995 0
-108/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist/index.html1695836353513104612 0
-119/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist/index.850bd9e5.js.map1695836535036395935 0
+5866
+103/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/index.html1695845781087033300 0
+96/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/img1695845354321357208 1
+102/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/style.css1695845914570953178 0
+108/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist/index.html1695845832299021052 0
+119/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist/index.850bd9e5.js.map1695845832319021042 0
 126/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist/UsersStarter.3464ddca.js.map1695835398225372694 0
-115/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist/index.850bd9e5.js1695836535024395981 0
-97/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist1695836535036395935 1
+115/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist/index.850bd9e5.js1695845832315021044 0
+97/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist1695845899002970240 1
 136/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/svgo/plugins/removeUnusedNS.js1695826784753914569 0
 148/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/svgo/plugins/removeAttributesBySelector.js1695826784593914745 0
 142/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/svgo/plugins/cleanupNumericValues.js1695826784085915306 0
@@ -2048,7 +2049,7 @@
 121/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/braces/index.js1695826783485915978 0
 151/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/@swc/helpers/_/_class_apply_descriptor_update1695826785345913923 1
 137/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/caniuse-lite/data/regions/PG.js1695826786113913093 0
-116/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist/index.3a01df49.css1695836353513104612 0
+116/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist/index.3a01df49.css1695845898998970245 0
 132/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/@parcel/workers/lib/bus.js1695826783657915785 0
 125/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/@swc/helpers/_/_get1695826785633913610 1
 116/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/domhandler1695826783833915588 1
@@ -2429,7 +2430,7 @@
 142/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/caniuse-lite/data/features/dnssec.js1695826785533913719 0
 140/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/type-fest/source/set-optional.d.ts1695826784393914966 0
 137/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/caniuse-lite/data/regions/DJ.js1695826785525913728 0
-109/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/js/controller.js1695836534912396411 0
+109/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/js/controller.js1695845832079021157 0
 132/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/msgpackr/dist/index.min.js1695826784289915081 0
 151/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/@swc/helpers/_/_unsupported_iterable_to_array1695826785897913324 1
 128/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/react-refresh/babel.js1695826783453916015 0
@@ -2646,7 +2647,7 @@
 151/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/caniuse-lite/data/features/input-inputmode.js1695826785849913377 0
 133/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/@swc/helpers/cjs/_using.cjs1695826784825914489 0
 142/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/caniuse-lite/data/features/bigint.js1695826784841914472 0
-92/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter1695826803501897411 1
+92/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter1695845354321357208 1
 169/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/@parcel/optimizer-svgo/node_modules/css-tree/lib/lexer/match.js1695826785085914205 0
 137/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/caniuse-lite/data/regions/JM.js1695826785885913338 0
 185/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/@parcel/optimizer-htmlnano/node_modules/css-tree/lib/definition-syntax/parse.js1695826785169914114 0
@@ -5759,7 +5760,7 @@
 140/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/@parcel/optimizer-css/package.json1695826783661915781 0
 175/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/@parcel/optimizer-svgo/node_modules/svgo/plugins/removeHiddenElems.js1695826784789914529 0
 169/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/@parcel/optimizer-svgo/node_modules/svgo/plugins/removeXMLNS.js1695826784849914462 0
-120/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist/index.3a01df49.css.map1695836353521104581 0
+120/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/dist/index.3a01df49.css.map1695845899002970240 0
 123/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/parcel/src/cli.js1695826783821915601 0
 143/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/@parcel/runtime-react-refresh/LICENSE1695826783421916050 0
 172/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_18_JS/UsersStarter/node_modules/@parcel/optimizer-svgo/node_modules/svgo/plugins/collapseGroups.js1695826784221915156 0

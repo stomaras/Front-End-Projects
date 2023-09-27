@@ -575,8 +575,10 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"1GgH0":[function(require,module,exports) {
 console.log("TEST");
+const body = document.querySelector("body");
 const userContainer = document.querySelector(".users");
 const fetchUsersUrl = "https://jsonplaceholder.typicode.com/users/";
+const spinner = document.querySelector(".spinner");
 const showUsers = async function() {
     try {
         const res = await fetch(fetchUsersUrl);
@@ -602,11 +604,25 @@ const showUsers = async function() {
         console.log(err);
     }
 };
+const renderSpinner = (parentEl)=>{
+    const markup = `
+        <div class="spinner">
+            <div></div>
+            <div></div>
+        </div>
+    `;
+    parentEl.innerHTML = "";
+    parentEl.insertAdjacentHTML("afterbegin", markup);
+};
 const showUser = async function() {
     try {
         const id = window.location.hash.slice(1);
+        spinner.removeAttribute("hidden");
         if (!id) return;
+        // render spinner 
         const res = await fetch(`${fetchUsersUrl}${id}`);
+        if (!res.ok) return;
+        spinner.setAttribute("hidden", "");
         const user = await res.json();
         console.log(user);
         const markup = `
@@ -625,8 +641,7 @@ const showUser = async function() {
         alert(err);
     }
 };
-window.addEventListener("hashchange", showUser);
-showUsers();
+window.addEventListener("hashchange", showUser); // showUsers();
 
 },{}]},["1Mgbh","1GgH0"], "1GgH0", "parcelRequire3669")
 

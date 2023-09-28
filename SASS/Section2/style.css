@@ -1,0 +1,27 @@
+/*
+COLORS:
+
+Light green: #7ed567
+Medium green: #55c57a
+Dark green: #28b485
+
+- The best way to perform basic reset using the universal selector
+- How to set project-wide font definitions
+- Hot to clip parts of elements using clip-path
+
+box-sizing:border box : margin and padding does not added on total width and height 
+                        of an element so we are getting rid of that behaviour
+                        margin, padding, border does not included on total width and height
+                        of an element
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Lato", sans-serif;
+}

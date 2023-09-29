@@ -1,8 +1,13 @@
 import React from 'react'
 
-const Title = () => {
+interface TitleProps {
+  title: string;
+}
+
+const Title = (props: TitleProps) => {
+  const {title} = props;
   return (
-    <h2>Books for kids </h2>
+    <h2>{title}</h2>
   )
 }
 

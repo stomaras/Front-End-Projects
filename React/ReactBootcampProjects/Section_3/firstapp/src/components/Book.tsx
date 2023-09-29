@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import Title from './Title'
 import Image from './Image'
 import Author from './Author'
 
-const Book = () => {
+
+interface BookPorps {
+  author:string;
+  title:string;
+}
+
+const Book = (props: BookPorps) => {
+  const {author, title} = props;
   return (
     <article className='book'>
-        <Title/>
+        <Title title={title}/>
         <Image/>
-        <Author/>
+        <Author author={author}/>
     </article>
   )
 }

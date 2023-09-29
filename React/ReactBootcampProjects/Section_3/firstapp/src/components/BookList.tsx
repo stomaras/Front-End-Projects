@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import Book from './Book'
 import '../index.css';
 import EventExamples from './EventExamples';
+import { title } from 'process';
 
 export interface BookListProps {
   author:string;
@@ -22,13 +23,15 @@ const books: Book[] = [
 ]
 
 const BookList = ()=> {
-  
+  const displayValue = () => {
+    console.log("tom");
+  }  
   return (
     <section className='booklist'>
       <EventExamples/>
       {books.map((book, index) => {
           const {author, title} = book;
-          return <Book {...book} key={book.id}/>
+          return <Book {...book} key={book.id} displayValue={displayValue}/>
       })}
     </section>
   )

@@ -33,13 +33,17 @@ const BookList = ()=> {
 
 
   return (
+    <>
+    <h1>Amazon Best sellers</h1>
     <section className='booklist'>
       <EventExamples/>
       {books.map((book, index) => {
           const {author, title} = book;
-          return <Book {...book} key={book.id} getBook = {getBook}/>
+          return <Book {...book} key={book.id} getBook = {getBook} number={index}/>
       })}
-    </section>
+    </section>    
+    </>
+
   )
 }
 

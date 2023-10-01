@@ -28,6 +28,24 @@ body {
   border-radius: 1rem;
   padding: 2rem;
   text-align: center;
+  position: relative;
+}
+
+.number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  border-top-left-radius: 1rem;
+  background: red;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 4rem;
+  text-transform: capitalize;
 }
 
 .book h2 {
@@ -39,3 +57,4 @@ body {
   width: 100%;
   object-fit: cover;
 }
+

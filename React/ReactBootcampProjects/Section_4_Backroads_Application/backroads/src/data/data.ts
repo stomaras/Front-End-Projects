@@ -1,3 +1,4 @@
+/**********************************Interfaces******************************** */
 export interface PageLink {
     id:number;
     href:string;

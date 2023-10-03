@@ -16,6 +16,21 @@ box-sizing:border box : margin and padding does not added on total width and hei
 The easiest way to center anything with the transform, top and left properties
 
 How to create CSS animations using the @keyframes and the animation property
+
+A css rule
+
+.my-class {
+    color:blue;
+    text-align:center;
+    font-size: 20px;
+}
+
+The cascade the c in css: process of combining different stylesheets and resolving conflicts between deifferent css rules and declarations, when more
+                          than one rule applies to a certain element.
+
+IMPORTANCE ------------> Specificity ---------------------> Source Order
+Default
+browser declarations
 */
 
 * {

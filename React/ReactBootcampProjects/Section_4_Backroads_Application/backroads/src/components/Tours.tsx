@@ -1,14 +1,13 @@
 import React from 'react'
+import Title from './Title'
 
 const Tours = () => {
   return (
     <>
 
-<section className="section" id="tours">
-  <div className="section-title">
-    <h2>featured <span>tours</span></h2>
-  </div>
 
+<section className="section" id="tours">
+    <Title title={'featured'} subTitle={'tours'}></Title>
   <div className="section-center featured-center">
     <article className="tour-card">
       <div className="tour-img-container">

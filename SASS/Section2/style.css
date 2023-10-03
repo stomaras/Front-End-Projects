@@ -29,8 +29,57 @@ The cascade the c in css: process of combining different stylesheets and resolvi
                           than one rule applies to a certain element.
 
 IMPORTANCE ------------> Specificity ---------------------> Source Order
-Default
-browser declarations
+Default                 1)Inline styles                     
+browser declarations    2)IDs
+                        3)Classes, pseudo-classes
+                        4)Element, pseudo-elements
+
+How CSS is parsed
+
+all units will converted to pixels 
+class wins element always
+percentage of parent sometimes if we have percentage
+
+each and every css property will have a value specidied value if we do not specify one initial value 0px
+for padding initial value is 0px or specified value
+
+for font-size user-agent default size is 16px (Browser default) cascade value 
+font-size section: 1.5rem ---> converted to pixels ---> 24px font-size always relative to root unti font-size so 16px * 1.5rem = 24px
+paragraph font-size, which is children of section will be --> 24px due to inheritance
+
+em use the parent or the current element font-size as a reference 
+rems use the root font-size as the reference
+
+html {
+    font-size:16px;
+
+}
+
+
+header {
+    font-size:24;
+    padding: 2em == 2 * current font-size == 48px
+    margin-bottom: 10rem === 10 * root font-size = 10 * 16 = 160
+}
+
+.header-child {
+    font-size: 3em; ---> 3 * parent font-size == 72px
+    padding:10%
+}
+
+CSS VALUE PROCESSING: WHAT YOU NEED TO KNOW
+
+- Each property has an initial value, used if nothing is declared
+- Browsers specify a root font-size for each page (usually 16px)
+- Percentages and relative values are always converted to px
+- Percentages are measured relative to their parent's font-size, if used to specify font-size;
+- Percentages are measured relative to their parents width, if used to specify lengths;
+- em are measured relative to their parent font-size , if used to specify font-size
+- em are measured relative to the current font-size, if used to specify lengths
+- rem are always relative to the document'r root font-size;
+- vh, vw are always percentage measyrements of the viewport's height and width
+
+
 */
 
 * {

@@ -18,7 +18,7 @@ export interface Services {
     text:string;
 }
 
-export interface Tours {
+export interface ITours {
     id:number;
     image:string;
     date:string;
@@ -50,7 +50,7 @@ export const services:Services[] = [
     {id:3, icon:'fas fa-socks fa-fw', title:'amazing comfort', text:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores officia'},
 ]
 
-export const tours:Tours[] = [
+export const tours:ITours[] = [
     {
         id:1, 
         image:'', 

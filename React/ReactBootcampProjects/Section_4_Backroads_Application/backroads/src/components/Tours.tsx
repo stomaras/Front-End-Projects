@@ -1,8 +1,21 @@
-import React from 'react'
+
+import React, { MouseEventHandler, useState } from 'react'
 import Title from './Title'
 import { tours } from '../data/data'
+import { ITours } from '../data/data'
 
 const Tours = () => {
+
+  const [myTours, setMyTours] = useState<ITours[]>(tours)
+
+
+
+  const removeTour = (id:number) => {
+    const newTours = myTours.filter((tour) =>  {return tour.id !== id});
+    console.log(newTours)
+    setMyTours(newTours);
+    
+  }
   return (
     <>
 
@@ -10,7 +23,7 @@ const Tours = () => {
 <section className="section" id="tours">
     <Title title={'featured'} subTitle={'tours'}></Title>
   <div className="section-center featured-center">
-    {tours.map((tour) => {
+    {myTours.map((tour) => {
       const {id, image, date, title, info, location, duration, dollars} = tour;
 
       return (
@@ -32,6 +45,7 @@ const Tours = () => {
             </p>
             <p>{duration} days</p>
             <p>from ${dollars}</p>
+            <button className='tour-remove-item' type='button' onClick={() => removeTour(id)}>remove</button>
           </div>
         </div>
       </article>

@@ -9,17 +9,14 @@ const Tours = () => {
   const [myTours, setMyTours] = useState<ITours[]>(tours)
 
 
-
   const removeTour = (id:number) => {
     const newTours = myTours.filter((tour) =>  {return tour.id !== id});
     console.log(newTours)
     setMyTours(newTours);
-    
   }
+  
   return (
     <>
-
-
 <section className="section" id="tours">
     <Title title={'featured'} subTitle={'tours'}></Title>
   <div className="section-center featured-center">

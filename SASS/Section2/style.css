@@ -144,6 +144,31 @@ element with the higher z-index appears on top,
 element with lower z-index appears on bottom
 
 only z-index property creating new stacking context
+
+------------------------------------------------
+CSS Architecture Components and BEM
+------------------------------------------------
+
+Block Element Modifier
+BLOCK: standalone component that is meaningful on its own
+ELEMENT: part of a block that has no standalone meaning
+MODIFIER: a different version of a block or an element 
+
+-----------------------------------------------
+THE 7-1 PATTERN
+----------------------------------------------
+7 different folders for partial Sass files, and 
+1 main Sass file to import all other files into a compiled CSS stylesheet.
+
+The 7 folders
+- base/
+- components/
+- layout/
+- pages/
+- themes/
+- abstracts/
+- vendors/
+
 */
 
 *,
@@ -185,17 +210,17 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
     top: 4rem;
     left: 4rem;
 }
 
-.logo {
+.header__logo {
     height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -211,7 +236,7 @@ body {
     backface-visibility: hidden;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
@@ -223,7 +248,7 @@ body {
     animation-timing-function: ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 400;
@@ -313,7 +338,7 @@ body {
     opacity: 0;
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 

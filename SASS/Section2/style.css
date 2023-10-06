@@ -86,7 +86,64 @@ Inheritance only works if no one declares a value for that property.
 The inherit keyword forces inheritance of a certain property.
 The initial keyword resets a property to its initial value.
 
+Box Model:
 
+Content: text, images, etc
+Padding: transparent area around the content, inside of the box
+Border: goes around the padding and the content
+Margin: Space between boxes;
+Fill area: are that gets filled with background color or background image 
+
+total width = right border + right padding + specified width + left pdding + left border
+total height = top border + top padding + specified height + bottom padding + bottom border
+
+if we set box-sizing: border box , the height and the width will be defined for the entire box including the padding and the border and not just for content area
+after we set box-sizing:border-box
+total width = specified width 
+total height = specified height
+
+Box Types : INLINE, BLOCK-LEVEL AND INLINE-BLOCK
+
+Block-Level boxes:
+- Elements formatted visually as blocks
+- 100% of parent's width
+- Vertically, one after another
+- Box-model applies as showed
+display:block
+
+Inline-boxes:
+- Content is distributed in lines
+- Occupies only content's space
+- No-line breaks
+- No heights and widths
+- Paddings and margins only horizontal (left and right)
+display:inline
+
+Default: 
+position:relative;
+
+Absolute positioning
+
+- Element is removed from the normal flow
+- No impact on surrounding content or elements
+- We use top, bottom, left, and right to offset the element from its relatively positioned container
+position: absolute
+position: fixed
+
+Stacking Contexts 
+z-index: 3
+postion:relative
+
+z-index:2
+position: absolute
+
+z-inedx: 1
+position: relative
+
+element with the higher z-index appears on top, 
+element with lower z-index appears on bottom
+
+only z-index property creating new stacking context
 */
 
 *,

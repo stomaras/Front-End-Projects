@@ -91,7 +91,20 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin-top: 5rem;
+}
 
+.actions {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2rem;
+}
+
+.search {
+    height: 2rem;
+}
+
+.sort {
+    height: 2rem;
 }
 
 .user {

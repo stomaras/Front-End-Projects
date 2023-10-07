@@ -1,0 +1,33 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+  padding: 10px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 6px;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: 2px solid blue;
+  cursor: pointer;
+  transition: color 300ms ease, background-color 300ms ease;
+}
+
+.user:hover {
+  background-color: blue;
+  color: white;
+}

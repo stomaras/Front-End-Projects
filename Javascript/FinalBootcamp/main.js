@@ -15,7 +15,6 @@ export const fetchUsers = async () => {
 }
 
 export const displayUsers = (users) => {
-
     users.map((user) => {
         const markUp = `
             <article class="user">

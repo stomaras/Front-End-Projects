@@ -1,8 +1,8 @@
 5852
 103/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/index.html1695393816772041919 0
 108/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/shoppingCart.js1695395620591236709 0
-115/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/dist/index.8cfc62b9.js1695401707983217159 0
-119/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/dist/index.8cfc62b9.js.map1695401707995217103 0
+115/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/dist/index.8cfc62b9.js1695478400257249567 0
+119/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/dist/index.8cfc62b9.js.map1695478400261249542 0
 136/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/svgo/plugins/removeUnusedNS.js1695400978154741933 0
 143/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/svgo/plugins/removeEmptyContainers.js1695400977906743174 0
 142/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/svgo/plugins/cleanupNumericValues.js1695400976818748626 0
@@ -621,7 +621,7 @@
 142/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/lmdb/dependencies/lz4/lib/lz4frame.c1695400978142741992 0
 139/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/lmdb/dependencies/lz4/lib/lz4hc.h1695400983454715391 0
 137/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/lmdb/dependencies/lz4/lib/lz4.c1695400978058742413 0
-97/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/dist1695401707999217084 1
+97/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/dist1695478400261249542 1
 152/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/caniuse-lite/data/features/addeventlistener.js1695400976570749868 0
 144/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/css-tree/lib/syntax/node/StyleSheet.js1695400985458705361 0
 161/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/lmdb/dependencies/lz4/lib/dll/example/fullbench-dll.sln1695400984814708584 0
@@ -752,7 +752,7 @@
 153/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/@swc/helpers/cjs/_object_without_properties.cjs1695400978086742273 0
 133/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/domutils/lib/index.d.ts.map1695400976550749968 0
 130/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/picocolors/picocolors.js1695400975690754279 0
-108/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/dist/index.html1695401707927217424 0
+108/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/dist/index.html1695478257450178291 0
 179/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/@parcel/optimizer-svgo/node_modules/svgo/plugins/moveGroupAttrsToElems.js1695400977774743836 0
 116/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/picocolors1695400975854753456 1
 148/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/@parcel/utils/test/input/config/empty.toml1695400985754703879 0
@@ -2048,7 +2048,7 @@
 137/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/caniuse-lite/data/regions/SL.js1695400986726699016 0
 160/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/react-refresh/cjs/react-refresh-runtime.development.js1695400976790748767 0
 142/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/caniuse-lite/dist/unpacker/region.js1695400986638699456 0
-102/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/script.js1695401707787218085 0
+102/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/script.js1695478591328075196 0
 133/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/source-map/lib/array-set.js1695400975966752895 0
 137/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/caniuse-lite/data/regions/DE.js1695400985034707483 0
 138/home/user/Desktop/FrontEndBootcamp/Front-End-Projects/Javascript/Section_17_Modules_Tooling/node_modules/nth-check/lib/esm/index.d.ts.map1695400976518750129 0

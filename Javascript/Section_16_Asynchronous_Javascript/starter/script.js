@@ -334,3 +334,17 @@ const get3Users = async function(u1, u2, u3) {
 }
 
 get3Users();
+
+
+// Promise.race()
+// receives an array of promises and return a promise 
+// is settled as soon as one of the input promises settles.
+// settled means a value is availbale no matter if rejected or fullfiled]()
+// in race we get one result of the fastest promise
+
+console.log("-------------------------------------------race()------------------------------------------------");
+(async function() {
+    const res = await Promise.race([getJSON('https://jsonplaceholder.typicode.com/posts/1'),getJSON('https://jsonplaceholder.typicode.com/posts/2'),getJSON('https://jsonplaceholder.typicode.com/posts/3')])
+    console.log(res);
+})()
+

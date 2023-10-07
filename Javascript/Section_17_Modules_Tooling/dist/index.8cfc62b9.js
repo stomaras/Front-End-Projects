@@ -640,6 +640,11 @@ const ShoppingCart2 = function() {
     };
 }();
 ShoppingCart2.addToCart("apple", 4);
+/*
+what hot module reloading means is that whenever we change on of the modules, it will then of course trigger a rebuild 
+but that new modified bundle will then automatically, like magic , get injected into the browser without triggering a whole page reload
+
+*/ if (module.hot) module.hot.accept();
 
 },{}]},["gAoaA","6rimH"], "6rimH", "parcelRequire94c2")
 

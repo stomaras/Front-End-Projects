@@ -574,32 +574,30 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"1GgH0":[function(require,module,exports) {
-console.log("TEST");
+var _modelJs = require("./model.js");
 const body = document.querySelector("body");
 const userContainer = document.querySelector(".users");
-const fetchUsersUrl = "https://jsonplaceholder.typicode.com/users/";
 const spinner = document.querySelector(".spinner");
 const showUsers = async function() {
     try {
-        const res = await fetch(fetchUsersUrl);
-        const dataUser = await res.json();
-        if (!res.ok) throw new Error(`${dataUser.message} ${res.status}`);
-        let users = dataUser;
+        // Loading users
+        await _modelJs.loadUsers();
+        const { users } = _modelJs.state;
         console.log(users);
-        const usersData = users.slice(0, 4);
-        usersData.forEach((user)=>{
-            const markup = `
-                <article class="user">
-                <h2 class="user__title">${user.name}</h2>
-                <p class="user__description">${user.username}</p>
-                <ul class="user__address">
-                    <li class="user__city">City:${user.address.city}</li>
-                    <li class="user__street">Street:${user.address.street}</li>
-                </ul> 
-                </article>
-            `;
-            userContainer.insertAdjacentHTML("beforeend", markup);
-        });
+    // const usersData = users.slice(0,4);
+    // usersData.forEach((user) => {
+    //     const markup = `
+    //         <article class="user">
+    //         <h2 class="user__title">${user.name}</h2>
+    //         <p class="user__description">${user.username}</p>
+    //         <ul class="user__address">
+    //             <li class="user__city">City:${user.address.city}</li>
+    //             <li class="user__street">Street:${user.address.street}</li>
+    //         </ul> 
+    //         </article>
+    //     `;
+    //     userContainer.insertAdjacentHTML('beforeend', markup);    
+    // });
     } catch (err) {
         console.log(err);
     }
@@ -641,7 +639,60 @@ const showUser = async function() {
         alert(err);
     }
 };
-window.addEventListener("hashchange", showUser); // showUsers();
+window.addEventListener("hashchange", showUser);
+showUsers();
+
+},{"./model.js":"Py0LO"}],"Py0LO":[function(require,module,exports) {
+// for all models 
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "state", ()=>state);
+parcelHelpers.export(exports, "loadUsers", ()=>loadUsers);
+const state = {
+    users: []
+};
+const fetchUsersUrl = "https://jsonplaceholder.typicode.com/users/";
+const loadUsers = async function() {
+    try {
+        const res = await fetch(fetchUsersUrl);
+        const users = await res.json();
+        if (!res.ok) throw new Error(`${dataUser.message} ${res.status}`);
+        const { allUsers } = users;
+        state.users = allUsers;
+    } catch (err) {
+        alert(err);
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}]},["1Mgbh","1GgH0"], "1GgH0", "parcelRequire3669")
 

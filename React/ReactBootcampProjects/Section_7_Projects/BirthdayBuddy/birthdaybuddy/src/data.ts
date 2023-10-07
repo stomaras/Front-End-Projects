@@ -1,4 +1,8 @@
-export default [
+import { IPerson } from "./models/models";
+
+
+
+const persons: IPerson[] = [
   {
     id: 1,
     name: 'Bertie Yates',
@@ -30,3 +34,6 @@ export default [
     image: 'https://www.course-api.com/images/people/person-5.jpeg',
   },
 ];
+
+
+export default persons;

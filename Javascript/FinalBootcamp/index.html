@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Final Bootcamp</title>
+</head> 
+<body>  
+    <header class="crud-header">main header</header>
+    <main class="crud-main">
+        <aside class="crud-aside">
+            <h3 class="heading-tertiary">CRUD APPLICATION</h3>
+            <form id="usersForm" name="usersForm">
+                <div class="name-field">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                    <p class="error-text" id="name-error"></p>
+                </div>
+                <div class="username-field">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username">
+                    <p class="error-text" id="username-error"></p>
+                </div>
+                <div class="email-field">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <p class="error-text" id="email-error"></p>
+                </div>
+                <div class="city-field">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city">
+                    <p class="error-text" id="city-error"></p>
+                </div>
+                <div class="zip-code-field">
+                    <label for="zip-code">Zip Code:</label>
+                    <input type="text" id="zip-code" name="zip">
+                    <p class="error-text" id="zip-code-error"></p>
+                </div>
+                <div class="phone-field">
+                    <label for="phone">Phone:</label>
+                    <input type="phone" id="phone" name="phone">
+                    <p class="error-text" id="phone-error">error phone</p>
+                </div>
+                <button type="submit">save</button>
+            </form>
+        </aside>
+        <article class="crud-article">
+            <!-- <article class="user">
+                <p>Name: <span>spyros</span></p>
+                <p>Username: <span>Tom</span></p>
+                <p>Email: <span>sptom@gmail.com</span></p>
+                <p>City: <span>Agrion</span></p>
+                <p>Zip Code: <span>11474</span></p>
+                <p>Phone: <span>Phone</span></p>
+            </article> -->
+        </article>
+    </main>
+    <footer class="crud-footer">footer</footer>
+
+
+    <script src="./main.js" type="module"></script>
+</body>
+</html>

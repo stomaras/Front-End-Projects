@@ -1,6 +1,42 @@
 
 const parentEL = document.querySelector('.crud-article');
-const searchInput = document.querySelector('.search')
+const searchInput = document.querySelector('.search');
+const searchButton = document.querySelector('.sort');
+const submitBtn = document.querySelector('#submit');
+const usersForm = document.forms;
+const form = document.getElementById('usersForm');
+
+const {
+    name,
+    username,
+    email,
+    city,
+    zip,
+    phone
+} = usersForm;
+
+const generateValues = (formData) => {
+    return {
+        name: formData.get('name'),
+        username: formData.get("username"),
+        email: formData.get("email"),
+        city: formData.get("city"),
+        zip: formData.get('zip'),
+        phone: formData.get("phone")
+    };
+}
+
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    console.log(formData);
+    const values = generateValues(formData);
+    console.log(values);
+})
+
+
+
 
 
 export const fetchUsers = async () => {
@@ -27,10 +63,9 @@ export const displayUsers = (users) => {
                 <p>Zip Code: <span>${user.address.zipcode}</span></p>
                 <p>Phone: <span>${user.phone}</span></p>
             </article>
-        `
-
+        `;
         parentEL.insertAdjacentHTML('afterbegin',markUp)
-    })
+    });
 }
 
 export const filterUsers = () => {
@@ -48,9 +83,12 @@ export const filterUsers = () => {
     })         
 }
 
+const submitForm = (e) => {
+    e.preventDefault();
+}
+
 const main = async () => {
     const users = await fetchUsers()
-    console.log(users);
     displayUsers(users)
     filterUsers()
 }

@@ -1,5 +1,7 @@
 
 const parentEL = document.querySelector('.crud-article');
+const searchInput = document.querySelector('.search')
+
 
 export const fetchUsers = async () => {
 
@@ -18,7 +20,7 @@ export const displayUsers = (users) => {
     users.map((user) => {
         const markUp = `
             <article class="user">
-                <p>Name: <span>${user.name}</span></p>
+                <p>Name: <span class="name">${user.name}</span></p>
                 <p>Username: <span>${user.username}</span></p>
                 <p>Email: <span>${user.email}</span></p>
                 <p>City: <span>${user.address.city}</span></p>
@@ -31,10 +33,26 @@ export const displayUsers = (users) => {
     })
 }
 
+export const filterUsers = () => {
+    searchInput.addEventListener("input", e => {
+        const value = e.target.value
+        const searchTerm = value.toLowerCase();
+        let nodesToFilter = document.querySelectorAll('.name');
+        nodesToFilter.forEach((node) => {
+            if(node.textContent.toLowerCase().startsWith(searchTerm)){
+                node.parentNode.parentNode.style.display = 'block';
+            }else {
+                node.parentNode.parentNode.style.display = 'none';
+            }
+        })
+    })         
+}
+
 const main = async () => {
     const users = await fetchUsers()
     console.log(users);
     displayUsers(users)
+    filterUsers()
 }
 
 main();

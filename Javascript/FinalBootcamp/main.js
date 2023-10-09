@@ -32,10 +32,28 @@ form.addEventListener('submit', async (e) => {
     const formData = new FormData(form);
     console.log(formData);
     const values = generateValues(formData);
+    console.log(values);
     // validate values or add values on users array an rerender again;
     const users = await fetchUsers();
-    users.push(values);
+    const newUser = {
+        name: values.name,
+        username: values.username,
+        email: values.email,
+        phone: values.phone,
+        address:{
+            zipcode: values.zipcode,
+            city: values.city,
+        }
+    }
+    users.push(newUser);
     console.log(users);
+    const usersArticle = document.querySelectorAll('.user');
+    usersArticle.forEach((el) => {
+        el.style.display = 'none';
+    })
+    displayUsers(users)
+    // console.log(usersArticle);
+    // displayUsers(users);
 
 })
 

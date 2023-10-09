@@ -27,15 +27,17 @@ const generateValues = (formData) => {
 }
 
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
     console.log(formData);
     const values = generateValues(formData);
-    console.log(values);
+    // validate values or add values on users array an rerender again;
+    const users = await fetchUsers();
+    users.push(values);
+    console.log(users);
+
 })
-
-
 
 
 
@@ -89,6 +91,8 @@ const submitForm = (e) => {
 
 const main = async () => {
     const users = await fetchUsers()
+    console.log(users);
+
     displayUsers(users)
     filterUsers()
 }

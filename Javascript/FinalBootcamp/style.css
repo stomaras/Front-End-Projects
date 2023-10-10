@@ -114,6 +114,10 @@ body {
     height: 2rem;
 }
 
+.sortDesc {
+    height: 2rem;
+}
+
 .user {
     width: 400px;
     height: 120px;

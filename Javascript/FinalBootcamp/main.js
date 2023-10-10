@@ -1,7 +1,9 @@
 
 const parentEL = document.querySelector('.crud-article');
 const searchInput = document.querySelector('.search');
-const searchButton = document.querySelector('.sort');
+const sortButton = document.querySelector('.sort');
+const sortDesc = document.querySelector('.sortDesc');
+
 const submitBtn = document.querySelector('#submit');
 const usersForm = document.forms;
 const form = document.getElementById('usersForm');
@@ -140,8 +142,8 @@ form.addEventListener('submit', async (e) => {
         }
         users.unshift(newUser);
         const usersArticle = document.querySelectorAll('.user');
-        usersArticle.forEach((el) => {
-            el.style.display = 'none';
+        usersArticle.forEach((user) => {
+            user.remove();
         })
         displayUsers(users)
         resetInputFields();
@@ -183,6 +185,32 @@ export const displayUsers = (users) => {
     });
 }
 
+
+sortButton.addEventListener('click', async() => {
+   const users = await fetchUsers();
+   
+   const ascUsers = users.sort((user1,user2) => user2.name.localeCompare(user1.name));
+   let nodesToRemove = document.querySelectorAll('.user');
+   nodesToRemove.forEach((node) => {
+    node.remove();
+    });
+    displayUsers(ascUsers);
+
+
+   console.log(ascUsers);
+});
+
+sortDesc.addEventListener('click', async() => {
+    const users = await fetchUsers();
+
+    const descUsers = users.sort((user1, user2) => user1.name.localeCompare(user2.name));
+    let nodesToRemove = document.querySelectorAll('.user');
+    nodesToRemove.forEach((node) => {
+        node.remove();
+    });
+    displayUsers(descUsers);
+})
+
 export const filterUsers = () => {
     searchInput.addEventListener("input", e => {
         const value = e.target.value
@@ -196,10 +224,6 @@ export const filterUsers = () => {
             }
         })
     })         
-}
-
-const submitForm = (e) => {
-    e.preventDefault();
 }
 
 const main = async () => {

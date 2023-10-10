@@ -6,14 +6,21 @@ const submitBtn = document.querySelector('#submit');
 const usersForm = document.forms;
 const form = document.getElementById('usersForm');
 
-const {
-    name,
-    username,
-    email,
-    city,
-    zip,
-    phone
-} = usersForm;
+// Form inputs
+const nameInput = document.getElementById('name');
+const usernameInput = document.getElementById('username');
+const emailInput = document.getElementById('email');
+const cityInput = document.getElementById('city');
+const zipCodeInput = document.getElementById('zip-code');
+const phoneInput = document.getElementById('phone');
+
+// Paragraphs which containers errors
+const errorParagraphName = document.querySelector('#name-error');
+const errorParagraphUsername = document.querySelector('#username-error');
+const errorParaEmail = document.querySelector('#email-error');
+const cityParaError = document.querySelector('#city-error');
+const zipParaError = document.querySelector('#zip-code-error');
+const phoneParaError = document.querySelector('#phone-error');
 
 const generateValues = (formData) => {
     return {
@@ -26,34 +33,122 @@ const generateValues = (formData) => {
     };
 }
 
+const resetInputFields = () => {
+    nameInput.value = "";
+    usernameInput.value = "";
+    emailInput.value = "";
+    phoneInput.value = "";
+    cityInput.value = "";
+    zipCodeInput.value = "";
+    phoneInput.value = "";
+}
+
+const validateValues = (values) => {
+    const {name, username, email, city, zip, phone} = values;
+    let isNameError = false;
+    let isUsernameError = false;
+    let isEmailError = false;
+    let isCityError = false;
+    let isZipError = false;
+    let isPhoneError = false;
+
+    const isZipValid = Number(zip);
+    console.log(isZipValid);
+    if(name.length <=5){
+        nameInput.classList.add("invalid");
+        errorParagraphName.innerHTML = "Name should be more than 5 characters long";
+    }
+    if(name.length > 5){
+        isNameError = true;
+        nameInput.classList.remove('invalid');
+        errorParagraphName.innerHTML = "";
+    }
+    if(username.length <= 5){
+        usernameInput.classList.add("invalid");
+        errorParagraphUsername.innerHTML = " Username should be more than 5 characters long";
+    }
+    if(username.length > 5){
+        isUsernameError = true;
+        usernameInput.classList.remove("invalid");
+        errorParagraphUsername.innerHTML = "";
+    }
+    if(!email.includes("@")){
+        emailInput.classList.add('invalid');
+        errorParaEmail.innerHTML = "Email should include a @";
+    }
+    if(email.includes("@")){
+        isEmailError = true;
+        emailInput.classList.remove('invalid');
+        errorParaEmail.innerHTML = "";
+    }
+    if(city.length < 2){
+        cityInput.classList.add('invalid');
+        cityParaError.innerHTML = "You must add a city";
+    }
+    if(city.length >=2){
+        isCityError = true;
+        cityInput.classList.remove('invalid');
+        cityParaError.innerHTML = "";
+    }
+    if(isNaN(Number(zip)) || zip.length < 4){
+        console.log("nannn");
+        zipCodeInput.classList.add('invalid');
+        zipParaError.innerHTML = "Zip code must be a number"
+    }else {
+        isZipError = true;
+        zipCodeInput.classList.remove('invalid');
+        zipParaError.innerHTML = "";
+    }
+
+    if(isNaN(Number(phone)) || phone.length !== 10){
+        phoneInput.classList.add('invalid');
+        phoneParaError.innerHTML = 'Phone must be valid'
+    }else {
+        isPhoneError = true;
+        phoneInput.classList.remove('invalid');
+        phoneParaError.innerHTML = '';
+    }
+
+
+    
+    if(isNameError && isUsernameError && isEmailError && isCityError && isZipError && isPhoneError){
+        return true;
+    }else {
+        return false;
+    }
+
+    
+}
+
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
-    console.log(formData);
     const values = generateValues(formData);
-    console.log(values);
-    // validate values or add values on users array an rerender again;
-    const users = await fetchUsers();
-    const newUser = {
-        name: values.name,
-        username: values.username,
-        email: values.email,
-        phone: values.phone,
-        address:{
-            zipcode: values.zipcode,
-            city: values.city,
+    if(validateValues(values)){
+        // validate values or add values on users array an rerender again;
+        const users = await fetchUsers();
+        const newUser = {
+            name: values.name,
+            username: values.username,
+            email: values.email,
+            phone: values.phone,
+            address:{
+                zipcode: values.zipcode,
+                city: values.city,
+            }
         }
+        users.unshift(newUser);
+        const usersArticle = document.querySelectorAll('.user');
+        usersArticle.forEach((el) => {
+            el.style.display = 'none';
+        })
+        displayUsers(users)
+        resetInputFields();
+    }else {
+        resetInputFields();
     }
-    users.push(newUser);
-    console.log(users);
-    const usersArticle = document.querySelectorAll('.user');
-    usersArticle.forEach((el) => {
-        el.style.display = 'none';
-    })
-    displayUsers(users)
-    // console.log(usersArticle);
-    // displayUsers(users);
+
 
 })
 

@@ -7,7 +7,13 @@
     <title>Final Bootcamp</title>
 </head> 
 <body>  
-    <header class="crud-header">main header</header>
+    <header class="crud-header">
+
+        <div class="actions">
+            <input type="search" class="search">
+            <button class="sort">sort</button>
+        </div>
+    </header>
     <main class="crud-main">
         <aside class="crud-aside">
             <h3 class="heading-tertiary">CRUD APPLICATION</h3>
@@ -40,7 +46,7 @@
                 <div class="phone-field">
                     <label for="phone">Phone:</label>
                     <input type="phone" id="phone" name="phone">
-                    <p class="error-text" id="phone-error">error phone</p>
+                    <p class="error-text" id="phone-error"></p>
                 </div>
                 <button type="submit" id="submit">save</button>
             </form>
@@ -48,10 +54,6 @@
 
         <article class="crud-article">
 
-        <div class="actions">
-            <input type="search" class="search">
-            <button class="sort">sort</button>
-        </div>
 
             <!-- <article class="user">
                 <p>Name: <span class="">spyros</span></p>

@@ -29,7 +29,14 @@ body {
 .crud-header {
     width: 186rem;
     height: 20rem;
-    background-color: black;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.actions {
+    margin-top: 15rem;
+    margin-right: 45rem;
 }
 
 .crud-main {

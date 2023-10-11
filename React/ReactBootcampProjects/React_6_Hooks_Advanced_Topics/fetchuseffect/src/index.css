@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.users-section {
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+  height: 100%;
+  width: 20%;
+  margin-left: 50rem;
+  margin-right: 3rem;
+}
+
+.users {
+  list-style: none;
+}

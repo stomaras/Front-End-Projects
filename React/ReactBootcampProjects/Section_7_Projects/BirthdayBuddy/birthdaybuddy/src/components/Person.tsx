@@ -10,9 +10,9 @@ const Person = (props:PersonProps) => {
 const {img, name, age} = props;
 
   return (
-    <article>
-        <img src={img} alt="" />
-        <p>{name}<span>{age} years</span></p>
+    <article className='person-details'>
+        <img src={img} alt="" className='person-details__img'/>
+        <p className='person-details__name'>{name}<span className='person-details__age'>{age} years</span></p>
     </article>   
   )
 }

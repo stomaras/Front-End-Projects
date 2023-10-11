@@ -12,11 +12,11 @@ const PersonList = (props: PersonListProps) => {
     return <>
         {persons.map((person) => {
                 return (
-                <li key={person.id}>
+                <li key={person.id} className='person-li'>
                     <Person img={person.image} name={person.name} age={person.age}/>
                 </li>
             )
-    })}      
+        })}      
     </>
 
 }

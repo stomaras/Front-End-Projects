@@ -304,3 +304,75 @@ main {
 .person p {
   color: var(--grey-500);
 }
+
+/*****************Project CSS ***********************/
+
+body {
+  background-color: var(--primary-100);
+}
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+  margin-left: 45rem;
+}
+
+.message {
+  margin-bottom: 3rem;
+  margin-left: 11rem;
+  color: #701a75;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: -12rem;
+}
+
+.person-li {
+  margin-top: 1rem;
+}
+
+.person-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.person-details__img {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50%;
+  box-shadow: var(--shadow-3);
+}
+
+.person-details__name {
+  margin-top: 3rem;
+  margin-left: 1rem;
+}
+
+.person-details__age {
+  margin-left: 1rem;
+}
+
+.person-li {
+  
+  margin-left: 11rem;
+}
+
+.clear-button {
+  margin-top: 2rem;
+  margin-left: 10rem;
+  background-color: #701a75;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 10%;
+  transition: 0.3s;
+}
+
+.clear-button:hover {
+  background-color: white;
+  color: #701a75;
+}

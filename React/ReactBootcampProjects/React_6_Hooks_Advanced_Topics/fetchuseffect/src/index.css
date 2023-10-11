@@ -17,3 +17,9 @@ body {
 .users {
   list-style: none;
 }
+
+.user-li-img {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+}

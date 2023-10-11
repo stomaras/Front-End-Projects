@@ -27,7 +27,7 @@ const FetchData = () => {
                 const {id, login, avatar_url, html_url} = user
                 return (
                 <li key={id} className='user-li'>
-                    <img src="" alt="" className='user-li-img'/>
+                    <img src={avatar_url} alt={html_url} className='user-li-img'/>
                     <div className='user-info'>
                         <h5 className='user-info__p'>{login}</h5>
                         <a href={html_url} className='user-info__href'></a>

@@ -21,7 +21,12 @@ const MultipleReturs = () => {
             try{
                 setIsLoading(true);
                 const resp = await fetch(url);
+                if(!resp.ok){
+                    setIsError(true);
+                    setIsLoading(false);
+                }
                 const user = await resp.json();
+                console.log(resp);
                 setUser(user);
             }catch(error){
                 setIsError(true);

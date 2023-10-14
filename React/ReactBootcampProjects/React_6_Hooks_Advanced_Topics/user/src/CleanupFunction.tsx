@@ -1,3 +1,4 @@
+import { log } from 'console';
 import React, { useState, useEffect } from 'react'
 
 const CleanupFunction = () => {
@@ -13,7 +14,11 @@ const CleanupFunction = () => {
 
 const RandomComponent = () => {
     useEffect(() => {
-        console.log("hmm, this is interesting");
+        const someFunc = () => {
+            // some logic
+        }
+        window.addEventListener('scroll', someFunc);
+        return () => window.removeEventListener('scroll', someFunc);
     },[]);
     return <h1>hello there</h1>
 }

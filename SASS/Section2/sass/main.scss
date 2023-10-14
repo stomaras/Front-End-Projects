@@ -1,0 +1,370 @@
+/*
+COLORS:
+
+Light green: #7ed567
+Medium green: #55c57a
+Dark green: #28b485
+
+- The best way to perform basic reset using the universal selector
+- How to set project-wide font definitions
+- Hot to clip parts of elements using clip-path
+
+box-sizing:border box : margin and padding does not added on total width and height 
+                        of an element so we are getting rid of that behaviour
+                        margin, padding, border does not included on total width and height
+                        of an element
+The easiest way to center anything with the transform, top and left properties
+
+How to create CSS animations using the @keyframes and the animation property
+
+A css rule
+
+.my-class {
+    color:blue;
+    text-align:center;
+    font-size: 20px;
+}
+
+The cascade the c in css: process of combining different stylesheets and resolving conflicts between deifferent css rules and declarations, when more
+                          than one rule applies to a certain element.
+
+IMPORTANCE ------------> Specificity ---------------------> Source Order
+Default                 1)Inline styles                     
+browser declarations    2)IDs
+                        3)Classes, pseudo-classes
+                        4)Element, pseudo-elements
+
+How CSS is parsed
+
+all units will converted to pixels 
+class wins element always
+percentage of parent sometimes if we have percentage
+
+each and every css property will have a value specidied value if we do not specify one initial value 0px
+for padding initial value is 0px or specified value
+
+for font-size user-agent default size is 16px (Browser default) cascade value 
+font-size section: 1.5rem ---> converted to pixels ---> 24px font-size always relative to root unti font-size so 16px * 1.5rem = 24px
+paragraph font-size, which is children of section will be --> 24px due to inheritance
+
+em use the parent or the current element font-size as a reference 
+rems use the root font-size as the reference
+
+html {
+    font-size:16px;
+
+}
+
+
+header {
+    font-size:24;
+    padding: 2em == 2 * current font-size == 48px
+    margin-bottom: 10rem === 10 * root font-size = 10 * 16 = 160
+}
+
+.header-child {
+    font-size: 3em; ---> 3 * parent font-size == 72px
+    padding:10%
+}
+
+CSS VALUE PROCESSING: WHAT YOU NEED TO KNOW
+
+- Each property has an initial value, used if nothing is declared
+- Browsers specify a root font-size for each page (usually 16px)
+- Percentages and relative values are always converted to px
+- Percentages are measured relative to their parent's font-size, if used to specify font-size;
+- Percentages are measured relative to their parents width, if used to specify lengths;
+- em are measured relative to their parent font-size , if used to specify font-size
+- em are measured relative to the current font-size, if used to specify lengths
+- rem are always relative to the document'r root font-size;
+- vh, vw are always percentage measyrements of the viewport's height and width
+
+some properties inherited other no line-height inherited
+Inheritance passes values from some specific properties from parents to childrens
+Properties related to text are inherited: font-family, font-size, color etc
+Inheritance only works if no one declares a value for that property.
+The inherit keyword forces inheritance of a certain property.
+The initial keyword resets a property to its initial value.
+
+Box Model:
+
+Content: text, images, etc
+Padding: transparent area around the content, inside of the box
+Border: goes around the padding and the content
+Margin: Space between boxes;
+Fill area: are that gets filled with background color or background image 
+
+total width = right border + right padding + specified width + left pdding + left border
+total height = top border + top padding + specified height + bottom padding + bottom border
+
+if we set box-sizing: border box , the height and the width will be defined for the entire box including the padding and the border and not just for content area
+after we set box-sizing:border-box
+total width = specified width 
+total height = specified height
+
+Box Types : INLINE, BLOCK-LEVEL AND INLINE-BLOCK
+
+Block-Level boxes:
+- Elements formatted visually as blocks
+- 100% of parent's width
+- Vertically, one after another
+- Box-model applies as showed
+display:block
+
+Inline-boxes:
+- Content is distributed in lines
+- Occupies only content's space
+- No-line breaks
+- No heights and widths
+- Paddings and margins only horizontal (left and right)
+display:inline
+
+Default: 
+position:relative;
+
+Absolute positioning
+
+- Element is removed from the normal flow
+- No impact on surrounding content or elements
+- We use top, bottom, left, and right to offset the element from its relatively positioned container
+position: absolute
+position: fixed
+
+Stacking Contexts 
+z-index: 3
+postion:relative
+
+z-index:2
+position: absolute
+
+z-inedx: 1
+position: relative
+
+element with the higher z-index appears on top, 
+element with lower z-index appears on bottom
+
+only z-index property creating new stacking context
+
+------------------------------------------------
+CSS Architecture Components and BEM
+------------------------------------------------
+
+Block Element Modifier
+BLOCK: standalone component that is meaningful on its own
+ELEMENT: part of a block that has no standalone meaning
+MODIFIER: a different version of a block or an element 
+
+-----------------------------------------------
+THE 7-1 PATTERN
+----------------------------------------------
+7 different folders for partial Sass files, and 
+1 main Sass file to import all other files into a compiled CSS stylesheet.
+
+The 7 folders
+- base/
+- components/
+- layout/
+- pages/
+- themes/
+- abstracts/
+- vendors/
+
+What is SASS?
+Is a CSS preprocessor, an extension of CSS that adds power and elegance to the basic language
+
+SASS SOURCE CODE ---sass compiler---> COMPILED CSS CODE
+
+MAIN SASS FEATURES:
+Variables: for reusable values such as colors, font-sizes, spacing, etc.
+Nesting: to nest selectors inside of one another, allowing us to write less code
+Operators: for mathematical operations right inside of CSS
+Partials and imports: to write CSS in different files and importing them all into one single file.
+Mixins: To write reusable pieces of css code.
+Functions: similar to mixins, with the difference that they produce a value that can be used 
+Extends: to make different selectors inherit declarations that are common to all of them
+
+*/
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
+$color-white: white;
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 3rem;
+
+    box-sizing: border-box;
+
+}
+
+/* 95% of viewport height */
+.header {
+    height: 95vh;
+    background-image: 
+        linear-gradient(to right bottom,
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)),
+        url(./img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+
+.header__logo {
+    height: 3.5rem;
+}
+
+.header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+/* transform: translate(-50%,-50%) depends on it itself */
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;
+}
+
+.heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-timing-function: ease-out;
+}
+
+.heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1.5rem;
+
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.btn {
+    margin-top: 4rem;
+    padding: 1.4rem 4rem;
+    border-radius: 10rem;
+
+}
+
+.btn:link
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 40rem;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+}
+
+
+
+.btn:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: $color-grey-dark;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+    opacity: 0;
+}
+
+.btn--white::after {
+    background-color: $color-white;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.5) scaleY(1.6);
+}

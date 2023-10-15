@@ -1,0 +1,50 @@
+:root{
+    font-size: 62.5%;
+}
+
+main {
+    margin-left: 20rem;
+    margin-top: 15rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tour {
+    height: 32.1rem;
+    width: 29rem;
+    background-color: rgb(204, 203, 203);
+    flex-basis: 30%;
+    margin-top: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.tour__image {
+    text-align: center;
+    width: 51rem;
+    height: 20rem;
+    font-size: 3rem;
+}
+
+.tour__title {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.tour__info {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.tour__button {
+    text-align: center;
+    font-size: 1.3rem;
+    width: 12rem;
+    height: 3rem;
+    align-self: center;
+    margin-bottom: 1rem;
+
+}

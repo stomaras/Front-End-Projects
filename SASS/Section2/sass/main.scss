@@ -191,6 +191,7 @@ $color-primary-dark: #28b485;
 
 $color-grey-dark: #777;
 $color-white: white;
+$color-black: #000;
 
 *,
 *::after,
@@ -229,25 +230,28 @@ body {
     position: relative;
 
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;    
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+    
+    &__text-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 }
 
-.header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
 
-.header__logo {
-    height: 3.5rem;
-}
 
-.header__text-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
 /* transform: translate(-50%,-50%) depends on it itself */
 
 .heading-primary {
@@ -255,29 +259,34 @@ body {
     text-transform: uppercase;
 
     backface-visibility: hidden;
-}
+    margin-bottom: 6rem;
 
-.heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
 
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-delay: 3s;
-    animation-timing-function: ease-out;
-}
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
 
-.heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 400;
-    letter-spacing: 1.5rem;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-delay: 3s;
+        animation-timing-function: ease-out;
+    }
 
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
+
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 400;
+        letter-spacing: 1.5rem;
+
+        animation-name: moveInRight;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+
+
 }
 
 @keyframes moveInLeft {
@@ -318,53 +327,58 @@ body {
     padding: 1.4rem 4rem;
     border-radius: 10rem;
 
-}
 
-.btn:link
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 40rem;
-    display: inline-block;
-    transition: all .2s;
-    position: relative;
-}
-
+    &:link
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 40rem;
+        display: inline-block;
+        transition: all .2s;
+        position: relative;
+    }
 
 
-.btn:hover {
-    transform: translateY(-0.4rem);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
-}
 
-.btn:active {
-    transform: translateY(-0.1rem);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
-}
+    &:hover {
+        transform: translateY(-0.4rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
 
-.btn-white {
-    background-color: #fff;
-    color: $color-grey-dark;
-}
+        &::after {
+            transform: scaleX(1.5) scaleY(1.6);
+        }
+    
+    }
 
-.btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s;
-    opacity: 0;
-}
+    &:active {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+    }
 
-.btn--white::after {
-    background-color: $color-white;
-}
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
 
-.btn:hover::after {
-    transform: scaleX(1.5) scaleY(1.6);
+        &::after {
+            background-color: $color-white;
+        }
+    
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+        opacity: 0;
+    }
+
+
+
 }

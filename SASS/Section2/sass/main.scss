@@ -182,16 +182,27 @@ Partials and imports: to write CSS in different files and importing them all int
 Mixins: To write reusable pieces of css code.
 Functions: similar to mixins, with the difference that they produce a value that can be used 
 Extends: to make different selectors inherit declarations that are common to all of them
-
 */
 
-$color-primary: #55c57a;
-$color-primary-light: #7ed56f;
-$color-primary-dark: #28b485;
+@import "./base/base";
+@import "./base/animations";
+@import "./base/typography";
+@import "./base/utilities";
+@import "./base//typography";
 
-$color-grey-dark: #777;
-$color-white: white;
-$color-black: #000;
+
+@import "./abstract/functions";
+@import "./abstract/variables";
+@import "./abstract/mixins";
+
+@import "./components/button";
+
+@import "./layout//header";
+
+@import "./pages/home";
+
+
+
 
 *,
 *::after,
@@ -214,171 +225,4 @@ body {
     padding: 3rem;
 
     box-sizing: border-box;
-
-}
-
-/* 95% of viewport height */
-.header {
-    height: 95vh;
-    background-image: 
-        linear-gradient(to right bottom,
-        rgba($color-primary-light, 0.8), 
-        rgba($color-primary-dark, 0.8)),
-        url(./img/hero.jpg);
-    background-size: cover;
-    background-position: top;
-    position: relative;
-
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-
-    &__logo-box {
-        position: absolute;
-        top: 4rem;
-        left: 4rem;    
-    }
-
-    &__logo {
-        height: 3.5rem;
-    }
-    
-    &__text-box {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-}
-
-
-
-/* transform: translate(-50%,-50%) depends on it itself */
-
-.heading-primary {
-    color: $color-white;
-    text-transform: uppercase;
-
-    backface-visibility: hidden;
-    margin-bottom: 6rem;
-
-
-    &--main {
-        display: block;
-        font-size: 6rem;
-        font-weight: 400;
-        letter-spacing: 3.5rem;
-
-        animation-name: moveInLeft;
-        animation-duration: 1s;
-        animation-delay: 3s;
-        animation-timing-function: ease-out;
-    }
-
-
-    &--sub {
-        display: block;
-        font-size: 2rem;
-        font-weight: 400;
-        letter-spacing: 1.5rem;
-
-        animation-name: moveInRight;
-        animation-duration: 1s;
-        animation-timing-function: ease-out;
-    }
-
-
-}
-
-@keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-
-    80% {
-        transform: translateX(1rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(10rem);
-    }
-
-    80% {
-        transform: translateX(1rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-
-.btn {
-    margin-top: 4rem;
-    padding: 1.4rem 4rem;
-    border-radius: 10rem;
-
-
-    &:link
-    &:visited {
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 1.5rem 40rem;
-        display: inline-block;
-        transition: all .2s;
-        position: relative;
-    }
-
-
-
-    &:hover {
-        transform: translateY(-0.4rem);
-        box-shadow: 0 1rem 2rem rgba($color-black, .2);
-
-        &::after {
-            transform: scaleX(1.5) scaleY(1.6);
-        }
-    
-    }
-
-    &:active {
-        transform: translateY(-0.1rem);
-        box-shadow: 0 1rem 2rem rgba($color-black, .2);
-    }
-
-    &--white {
-        background-color: $color-white;
-        color: $color-grey-dark;
-
-        &::after {
-            background-color: $color-white;
-        }
-    
-    }
-
-    &::after {
-        content: "";
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        border-radius: 10rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: all .4s;
-        opacity: 0;
-    }
-
-
-
 }

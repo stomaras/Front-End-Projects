@@ -182,6 +182,21 @@ Partials and imports: to write CSS in different files and importing them all int
 Mixins: To write reusable pieces of css code.
 Functions: similar to mixins, with the difference that they produce a value that can be used 
 Extends: to make different selectors inherit declarations that are common to all of them
+
+Basic Responsive Design Principles
+
+1) Fluid Layouts
+use max-width instead of width
+use % instead of px for elements
+
+2) Responsive Units
+use rem instead of px for more lengths
+
+3) Flexible Images
+always use % for image dimensions, together with the max-width property
+
+4) Media Queries
+To change css styles on certain viewport widths (called breakpoints)
 */
 
 @import "./base/base";
@@ -195,9 +210,11 @@ Extends: to make different selectors inherit declarations that are common to all
 @import "./abstract/variables";
 @import "./abstract/mixins";
 
+
 @import "./components/button";
 
-@import "./layout//header";
+@import "./layout/header";
+@import "./layout/grid";
 
 @import "./pages/home";
 

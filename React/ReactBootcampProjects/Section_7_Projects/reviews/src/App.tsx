@@ -51,7 +51,7 @@ function App() {
       <main>
         <article className='review'>
           <div className="img-container">
-            <img src={image} alt={name} className='person-img' />
+            <img src={image} alt={name} className='person-img' style={{width:'100px'}}/>
             <span className='quote-icon'>
               <FaQuoteRight/>
             </span>

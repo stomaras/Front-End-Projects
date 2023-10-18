@@ -12,6 +12,84 @@ code {
     monospace;
 }
 
-.beer {
-  font-size: 2.5rem;
+main {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
 }
+
+.review {
+  width: 90vw;
+  max-width: 50rem;
+  background: #d0d0d0;
+  padding: 1.5rem 1.2rem;
+  box-shadow: #d0d0d0;
+  transition: 1s;
+  text-align: center;
+}
+
+.review:hover {
+  box-shadow: #c9c5c5;
+}
+
+.img-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+.img-container::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: blue;
+  position: absolute;
+  border-radius: 50%;
+  top: -0.5rem;
+  right: -0.2rem;
+}
+
+.author {
+  margin-bottom: 0.5rem;
+}
+
+.job {
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: blue;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.info {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  color: gray;
+}
+
+.person-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+
+.quote-icon {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: blue;
+  color: white;
+}
+

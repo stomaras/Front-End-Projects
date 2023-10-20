@@ -275,11 +275,27 @@ To change css styles on certain viewport widths (called breakpoints)
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
 
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
+
 .u-center-text {
   text-align: center; }
 
-.u-margin-bottom-8 {
+.u-margin-bottom-big {
   margin-bottom: 8rem; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem; }
 
 @keyframes moveInLeft {
   0% {
@@ -337,6 +353,16 @@ To change css styles on certain viewport widths (called breakpoints)
   .heading-secondary:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
 
 .btn {
   margin-top: 4rem;
@@ -404,7 +430,7 @@ To change css styles on certain viewport widths (called breakpoints)
     margin-bottom: 8rem; }
   .row .col-1-of-2 {
     width: calc((100% - 6rem) / 2);
-    background-color: orangered;
+    background-color: white;
     float: left; }
     .row .col-1-of-2:not(:last-child) {
       margin-right: 6rem; }

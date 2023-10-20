@@ -15,10 +15,9 @@ const SingleQuestion = (props: SingleQuestionProp) => {
     <article className='question'>
         <header>
             <h5>{question.title}</h5>
+            <button className='question-btn' onClick={() => setShowInfo(!showInfo)}>{showInfo ? <AiOutlineMinus/> : <AiOutlinePlus/>}</button>
         </header>
-        <p>
-            {question.info}
-        </p>
+        {showInfo && <p>{question.info}</p>}
     </article>
   )
 }

@@ -2,19 +2,19 @@
     max-width: $grid-width;
     background-color: #eee;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
 
     &:not(:last-child){
         margin-bottom: $gutter-vertical;
     }   
 
     .col-1-of-2 {
-        width: calc((100% - #{$gutter-horizontal}) / 2);
-        background-color: white;
-        float: left;
+        
+    }
 
-        &:not(:last-child){
-            margin-right: $gutter-horizontal;
-        }
+    .col-2-of-2 {
+        
     }
 
 }

@@ -401,6 +401,29 @@ To change css styles on certain viewport widths (called breakpoints)
     transition: all .4s;
     opacity: 0; }
 
+.btn-text:link, .btn-text:visited {
+  font-size: 1.6rem;
+  color: #55c57a;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #55c57a;
+  padding: 3px;
+  transition: all .2s; }
+
+.btn-text:hover {
+  background-color: #55c57a;
+  color: white;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px); }
+
+.btn-text:active {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(0); }
+
+.composition {
+  position: relative;
+  margin-top: 3rem; }
+
 .header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(./img/hero.jpg);
@@ -425,15 +448,11 @@ To change css styles on certain viewport widths (called breakpoints)
 .row {
   max-width: 114rem;
   background-color: #eee;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
-  .row .col-1-of-2 {
-    width: calc((100% - 6rem) / 2);
-    background-color: white;
-    float: left; }
-    .row .col-1-of-2:not(:last-child) {
-      margin-right: 6rem; }
 
 .section-about {
   background-color: #f7f7f7;
@@ -458,3 +477,24 @@ body {
   color: #777;
   padding: 3rem;
   box-sizing: border-box; }
+
+.composition {
+  position: relative;
+  margin-top: 3rem; }
+  .composition__photo {
+    width: 50%;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    transition: all .3s;
+    outline-offset: 2rem; }
+    .composition__photo--p1 {
+      left: 0;
+      top: -5rem;
+      left: -4rem; }
+    .composition__photo:hover {
+      outline: 1.5rem solid #55c57a;
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
+      z-index: 20; }

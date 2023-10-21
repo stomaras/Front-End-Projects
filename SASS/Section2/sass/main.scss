@@ -212,6 +212,7 @@ To change css styles on certain viewport widths (called breakpoints)
 
 
 @import "./components/button";
+@import "./components/composition";
 
 @import "./layout/header";
 @import "./layout/grid";
@@ -240,4 +241,40 @@ body {
     padding: 3rem;
 
     box-sizing: border-box;
+}
+
+.composition {
+    position: relative;
+    margin-top: 3rem;
+
+    &__photo {
+        width: 50%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+        border-radius: 2px;
+        position: absolute;
+        z-index: 10;
+        transition: all .3s;
+        outline-offset: 2rem;
+
+
+        &--p1 {
+            left: 0;
+            top: -5rem;
+            left: -4rem;
+        }
+
+        &:hover {
+            outline: 1.5rem solid $color-primary;
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 1.5rem 4rem rgba($color-black, .5);
+            z-index: 20;
+        }
+
+
+        // &--p2 {
+        //     left: 0;
+        //     top: -5rem;
+        //     left: -4rem;
+        // }
+    }
 }

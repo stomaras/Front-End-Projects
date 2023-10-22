@@ -10,9 +10,6 @@ const tempCategories = menu.map((item) => { return item.category});
 const uniqueCategories = new Set(tempCategories);
 const uniqueCategoriesArray = Array.from(uniqueCategories);
 const allCategories = ['all', ...uniqueCategoriesArray];
-console.log(allCategories);
-
-
 
 function App() {
   const [menuItems, setMenuItems] = useState(menu);

@@ -8,7 +8,7 @@ interface MenuItemProps {
 const MenuItem = (props: MenuItemProps) => {
     const {menu} = props;
   return (
-    <article className='menu-item'>
+    <article key={menu.id} className='menu-item'>
         <img src={menu.img} alt={menu.title} className='img' />
         <div className="item-info">
             <header>

@@ -4,6 +4,7 @@ import MenuItem from './MenuItem';
 
 interface MenuProps {
     menuItems: IMenu[];
+    filterItems: (category:string) => void;
 }
 
 const Menu = (props: MenuProps) => {
@@ -11,7 +12,7 @@ const Menu = (props: MenuProps) => {
   return (
     <div className="section-center">
         {menuItems.map((menuItem) => {
-            return <MenuItem menu={menuItem} />
+            return <MenuItem key={menuItem.id} menu={menuItem} />
         })}
     </div>
   )

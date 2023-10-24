@@ -253,6 +253,64 @@ ul {
   margin-top: 1rem;
 }
 /* ============= PROJECT CSS =============== */
+
+.jobs-center {
+  width: 80vw;
+  margin: 5rem auto;
+  max-width: var(--max-width);
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 5rem;
+}
+
+.job-btn {
+  background: transparent;
+  border-color: transparent;
+  letter-spacing: var(--letterSpacing);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.job-btn:hover {
+  color: var(--primary-500);
+  box-shadow: 0 2px var(--primary-500);
+}
+
+.active-btn {
+  color: var(--primary-500);
+  box-shadow: 0 2px var(--primary-500);
+}
+
+.job-company {
+  text-transform: uppercase;
+  color: var(--grey-700);
+  background: var(--grey-300);
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--borderRadius);
+  margin: 0.75rem 0;
+}
+
+.job-date {
+  color: var(--grey-500);
+  letter-spacing: var(--letterSpacing);
+  margin-bottom: 2rem;
+}
+
+/* whatever is the size of the icon and one fraction */
+.job-desc {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 2rem;
+  align-items: center;
+}
+
 /* 
 .jobs-center {
   width: 80vw;

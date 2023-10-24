@@ -13,7 +13,7 @@ const Duties = (props: DutiesProps) => {
   return (
     <div>
         {duties.map((duty, index) => {
-            return <div key={uuidv4()} className='job-description'>
+            return <div key={uuidv4()} className='job-desc'>
                 <FaAngleDoubleRight className='job-icon'/>
                 <p>{duty}</p>
             </div>

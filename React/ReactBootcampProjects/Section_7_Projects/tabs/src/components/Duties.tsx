@@ -10,11 +10,10 @@ interface DutiesProps{
 const Duties = (props: DutiesProps) => {
     const{duties} = props;
     const id = uuidv4();
-    console.log(id);
   return (
     <div>
         {duties.map((duty, index) => {
-            return <div key={id} className='job-description'>
+            return <div key={uuidv4()} className='job-description'>
                 <FaAngleDoubleRight className='job-icon'/>
                 <p>{duty}</p>
             </div>

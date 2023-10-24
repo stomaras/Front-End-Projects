@@ -4,6 +4,7 @@ import './App.css';
 import { IJob } from './models/models';
 import { log } from 'console';
 import JobInfo from './components/JobInfo';
+import BtnContainer from './components/BtnContainer';
 
 const url = "https://course-api.com/react-tabs-project";
 
@@ -12,6 +13,7 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(true);
   const [jobs, setJobs] = useState<IJob[]>([]);
+  const [currentItem, setCurrentItem] = useState(0);
 
   const fetchJobs = async() => {
     const response = await fetch(url);
@@ -31,7 +33,8 @@ function App() {
 
   return (
     <section className='jobs-center'>
-      <JobInfo jobs={jobs} />
+      <BtnContainer jobs={jobs} currentItem={currentItem} setCurrentItem={setCurrentItem}/>
+      <JobInfo jobs={jobs} currentItem={currentItem}/>
     </section>
   );
 }

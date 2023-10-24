@@ -14,7 +14,7 @@ const BtnContainer = (props: BtnContainerProps) => {
   return (
     <div className='btn-container'>
         {jobs.map((item,index) => {
-            return <button key={uuidv4()} onClick={() => setCurrentItem(currentItem)} className={index === currentItem ? 'job-btn': 'active-btn'}>{item.company}</button>
+            return <button key={uuidv4()} onClick={() => setCurrentItem(index)} className={index === currentItem ? 'job-btn': 'active-btn'}>{item.company}</button>
         })}
     </div>
   )

@@ -3,7 +3,10 @@
 
   --wrapper-background-color:#f2f0f0;
   --buttonSubmitColor: #1a067d;
+  --buttonInputSubmit: rgb(89, 17, 176);
   --buttonColor:white;
+
+  --formBackgroundColor: rgb(251, 250, 250);
 }
 
 body {
@@ -13,6 +16,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #cecbcb;
 }
 
 code {
@@ -25,7 +29,7 @@ code {
   justify-content: center;
   margin-top: 10rem;
 }
-
+/* 
 .wrapper {
   display: flex;
   justify-content: center;
@@ -56,4 +60,24 @@ code {
   border-radius: 0.2rem;
   border: 1px solid var(--buttonSubmitColor);
   cursor: pointer;
+} */
+
+
+
+.wrapper {
+  display: flex;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 5rem 5rem;
+  background-color: var(--formBackgroundColor);
+}
+
+.btn-block {
+  background-color: var(--buttonInputSubmit);
+  border-radius: 1rem;
+  color: white;
 }

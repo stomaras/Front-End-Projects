@@ -17,7 +17,7 @@ const UserChallenge = () => {
         const updatedUsers = [...users];
         updatedUsers.unshift(newUser);
         setUsers(updatedUsers);
-        console.log('form submitted');
+        setName('');
     }   
 
     const removeUser = (id:number) => {

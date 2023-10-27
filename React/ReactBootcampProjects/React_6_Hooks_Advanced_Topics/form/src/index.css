@@ -3,6 +3,7 @@
 
   --wrapper-background-color:#f2f0f0;
   --buttonSubmitColor: #1a067d;
+  --buttonColor:white;
 }
 
 body {
@@ -51,7 +52,7 @@ code {
 
 .btn-block {
   background-color: var(--buttonSubmitColor);
-  color: white;
+  color: var(--buttonColor);
   border-radius: 0.2rem;
   border: 1px solid var(--buttonSubmitColor);
   cursor: pointer;

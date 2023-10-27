@@ -17,8 +17,12 @@ const UserChallenge = () => {
         const updatedUsers = [...users];
         updatedUsers.unshift(newUser);
         setUsers(updatedUsers);
-        setName('');
+        clearFields();
     }   
+
+    const clearFields = () => {
+        setName('');
+    }
 
     const removeUser = (id:number) => {
         const updatedUsers = users.filter((user) => user.id !== id);

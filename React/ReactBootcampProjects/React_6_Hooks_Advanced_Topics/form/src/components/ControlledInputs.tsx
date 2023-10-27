@@ -4,6 +4,7 @@ const ControlledInputs = () => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
@@ -12,7 +13,13 @@ const ControlledInputs = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        console.log(name, email);
+        const formData = new FormData(e.currentTarget);
+
+        const newUser = Object.fromEntries(formData);
+
+        console.log(e.currentTarget);
+
+        e.currentTarget.reset();
     }
 
   return (
@@ -22,16 +29,22 @@ const ControlledInputs = () => {
             <label htmlFor="name" className="form-label">
                 name
             </label>
-            <input type="text" className='form-input' id='name' value={name} onChange={handleChange}/>
+            <input type="text" className='form-input' id='name' name='name' onChange={handleChange}/>
         </div>
         <div className="form-row">
             <label htmlFor="email" className="form-label">
                 Email
             </label>
-            <input type="email" className='form-input' id='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <input type="email" className='form-input' id='email' name='email' onChange={(e) => setEmail(e.target.value)}/>
+        </div>
+        <div className="form-row">
+            <label htmlFor="password" className="form-label">
+                Password
+            </label>
+            <input type="password" className='form-input' id='password' name='password' value={email} onChange={(e) => setEmail(e.target.value)}/>
         </div>
         <button type='submit' className='btn btn-block'>
-            submit
+            Submit
         </button>
     </form>
   )

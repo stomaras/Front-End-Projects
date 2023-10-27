@@ -8,9 +8,9 @@ import OtherInputs from './components/OtherInputs';
 function App() {
   return (
     <div className="App">
-      {/* <ControlledInputs/> */}
+      <ControlledInputs/>
       {/* <UserChallenge/> */}
-      <OtherInputs/>
+      {/* <OtherInputs/> */}
     </div>
   );
 }

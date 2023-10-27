@@ -20,14 +20,19 @@ const UserChallenge = () => {
         console.log('form submitted');
     }   
 
+    const removeUser = (id:number) => {
+        const updatedUsers = users.filter((user) => user.id !== id);
+        setUsers(updatedUsers);
+    }
+
 
     return (
-    <div>
+    <div className='wrapper'>
         <form className="form" onSubmit={handleSubmit}>
             <h4>Add User</h4>
             <div className="form-row">
                 <label htmlFor="name" className="form-label">
-                    name
+                    Name
                 </label>
                 <input type="text" className='form-input' id='name' value={name} onChange={(e) => setName(e.target.value)}/>
             </div>
@@ -37,7 +42,10 @@ const UserChallenge = () => {
         {/*render users below*/}
         <h4>users</h4>
         {users.map((user) => {
-            return <div key={user.id}>{user.name}</div>
+            return <div key={user.id}>
+                <h4>{user.name}</h4>
+                <button onClick={() => {removeUser(user.id)}} className='btn btn-block'>remove</button>
+            </div>
         })}
     </div>
   )

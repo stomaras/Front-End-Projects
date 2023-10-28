@@ -27,7 +27,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="container">
       <Form addColor={addColor}/>
       <ColorList colors={colors}/>
       <ToastContainer position='top-center'/>

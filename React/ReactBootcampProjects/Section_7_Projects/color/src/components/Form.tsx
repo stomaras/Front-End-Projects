@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 
+export interface FormProps {
+    addColor: (color:any) => void;
+}
 
-
-const Form = () => {
+const Form = (props:FormProps) => {
     const [color, setColor] = useState('');
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        props.addColor(color);
+        
     }
 
     const handleChangeColor = (e:React.ChangeEvent<HTMLInputElement>) => {

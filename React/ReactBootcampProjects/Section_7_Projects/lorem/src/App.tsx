@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import data from "../src/data/data";
+import { nanoid } from 'nanoid';
+
+
 
 function App() {
 
@@ -15,9 +17,7 @@ function App() {
   const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let amount = count;
-    setText(data.slice(0,amount))
-
-
+    setText(data.slice(0,amount));
   }
 
   return (
@@ -30,10 +30,8 @@ function App() {
       </form>
       <article className='lorem-text'>
         {text.map((item, index) => {
-          return <p key={index}>{item}</p>
-        })
-
-        }
+          return <p key={nanoid()}>{item}</p>
+        })}
       </article>
     </section>
     );

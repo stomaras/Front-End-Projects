@@ -22,7 +22,8 @@ function App() {
   };
 
   const removeItem = (itemId:any) => {
-
+    const newItems = items.filter((item)=> item.id !== itemId);
+    setItems(newItems)
   }
 
   return (

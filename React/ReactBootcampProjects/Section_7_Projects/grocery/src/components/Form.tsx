@@ -20,12 +20,12 @@ const Form = (props: FormProps) => {
     };
 
   return (
-    <form onSubmit={handleSubmit}>
-        <h4>Grocery Bud</h4>
+    <form onSubmit={handleSubmit} className='form'>
+        <h4 className='form__header'>Grocery Bud</h4>
         <div className="form-control">
             <input type="text" className='form-input' value={newItemName} onChange={handleChangeItem}/>
-            <button type='submit' className='btn'>
-                add item
+            <button type='submit' className='btn-add'>
+                Add item
             </button>
         </div>
     </form>

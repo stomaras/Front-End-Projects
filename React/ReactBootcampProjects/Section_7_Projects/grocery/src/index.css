@@ -1,6 +1,6 @@
 :root{
   font-size: 62.5%;
-  --templateColor: rgb(226, 225, 225);
+  --templateColor: rgb(239, 239, 239);
 
 }
 
@@ -16,6 +16,28 @@
   padding: 10rem 10rem;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  padding: 1rem;
+  outline: none;
+  width: 2rem;
+}
+
+
+.btn-add {
+  padding: 0rem 2rem;
+  background-color: rgb(11, 125, 159);
+  display: inline-block;
+  cursor: pointer;
+}
+
 .items {
   display: flex;
   flex-direction: column;
@@ -26,4 +48,9 @@
   flex-direction: row;
   gap: 1rem;
   margin-top: 1rem;
+}
+
+.remove-btn {
+  margin-left: 14rem;
+  cursor: pointer;
 }

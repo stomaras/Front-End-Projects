@@ -7,7 +7,6 @@ import { nanoid } from 'nanoid';
 import Items from './components/Items';
 
 
-
 const setLocaleStorage = (items: Item[]) => {
   localStorage.setItem('list', JSON.stringify(items));
   console.log(localStorage);
@@ -15,14 +14,19 @@ const setLocaleStorage = (items: Item[]) => {
 
 const getLocaleStorage = () => {
   let list = localStorage.getItem('list');
-  console.log(list);
+  if(list){
+    list = JSON.parse(localStorage.getItem('list') || '[]');
+  }else {
+    list = '[{}]';
+  }
+  return list;
 }
 
-function App() {
-  const [items, setItems] = useState<Item[]>(
-    [{name:'dummy', completed:false, id:'s'}]
-  );
 
+const defaultList = JSON.parse(localStorage.getItem('list') || '[]')
+
+function App() {
+  const [items, setItems] = useState<any>(defaultList);
   getLocaleStorage();
 
   const addItem = (itemName:string) => {
@@ -35,12 +39,15 @@ function App() {
     const newItems = [...items, newItem];
     setItems(newItems);
     setLocaleStorage(newItems);
+    getLocaleStorage();
+
   };
 
   const removeItem = (itemId:any) => {
-    const newItems = items.filter((item)=> item.id !== itemId);
+    const newItems = items.filter((item:any)=> item.id !== itemId);
     setItems(newItems);
     setLocaleStorage(newItems);
+    getLocaleStorage();
   }
 
   return (

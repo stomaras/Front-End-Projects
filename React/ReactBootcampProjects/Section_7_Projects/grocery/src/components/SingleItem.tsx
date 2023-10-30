@@ -17,11 +17,13 @@ const SingleItem = (props: SingleItemProps) => {
 
   return (
     <div className='single-item'>
-        <input type="checkbox" checked={isChecked} onChange={handleChecked}/>
+        <input type="checkbox" checked={isChecked} onChange={handleChecked} className='single-item__checkbox'/>
         <p style={{ 
                 textDecoration: `${isChecked}` && 'line-through',
                 textTransform: 'capitalize'
-        }}>
+        }}
+        className='single-item__p'
+        >
             {item.name}
         </p>
         <button className='btn remove-btn' type='button'>

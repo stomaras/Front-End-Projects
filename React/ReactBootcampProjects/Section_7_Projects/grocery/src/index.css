@@ -1,0 +1,22 @@
+:root{
+  font-size: 62.5%;
+
+}
+
+
+.section-center {
+  display: flex;
+  flex-direction: column;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+}
+
+.single-item {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-top: 1rem;
+}

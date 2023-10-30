@@ -14,7 +14,7 @@ const Items = (props: ItemsProps) => {
   return (
     <div className='items'>
         {items.map((item) => {
-            return <SingleItem item={item} removeItem={removeItem}/>
+            return <SingleItem key={item.id} item={item} removeItem={removeItem}/>
         })}
 
     </div>

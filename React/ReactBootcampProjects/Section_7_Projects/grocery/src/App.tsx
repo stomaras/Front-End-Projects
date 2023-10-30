@@ -6,10 +6,24 @@ import { Item } from './models/models';
 import { nanoid } from 'nanoid';
 import Items from './components/Items';
 
+
+
+const setLocaleStorage = (items: Item[]) => {
+  localStorage.setItem('list', JSON.stringify(items));
+  console.log(localStorage);
+}
+
+const getLocaleStorage = () => {
+  let list = localStorage.getItem('list');
+  console.log(list);
+}
+
 function App() {
   const [items, setItems] = useState<Item[]>(
     [{name:'dummy', completed:false, id:'s'}]
   );
+
+  getLocaleStorage();
 
   const addItem = (itemName:string) => {
 
@@ -18,12 +32,15 @@ function App() {
       completed: false,
       id: nanoid(),
     };
-    setItems([...items, newItem]);
+    const newItems = [...items, newItem];
+    setItems(newItems);
+    setLocaleStorage(newItems);
   };
 
   const removeItem = (itemId:any) => {
     const newItems = items.filter((item)=> item.id !== itemId);
-    setItems(newItems)
+    setItems(newItems);
+    setLocaleStorage(newItems);
   }
 
   return (

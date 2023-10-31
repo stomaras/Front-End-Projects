@@ -23,8 +23,7 @@ function App() {
             <FaBars/>
           </button>
         </div>
-        {showLinks && (
-          <div className="links-container">
+          <div className={showLinks ? 'links-container show-container' : 'links-container'}>
           <ul className="links">
             {links.map((link:ILink) => {
               return (
@@ -35,7 +34,7 @@ function App() {
             })}
           </ul>
         </div>
-        )}
+        
         
       </div>
     </nav>

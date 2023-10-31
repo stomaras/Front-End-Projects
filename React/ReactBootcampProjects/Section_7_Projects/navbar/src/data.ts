@@ -28,6 +28,11 @@ export const links:ILink[] = [
     url: '/profile',
     text: 'profile',
   },
+  {
+    id:6,
+    url:'/extra',
+    text:'extra'
+  }
 ];
 
 

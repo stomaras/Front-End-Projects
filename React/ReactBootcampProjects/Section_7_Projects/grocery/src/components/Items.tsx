@@ -5,16 +5,17 @@ import SingleItem from './SingleItem';
 export interface ItemsProps {
     items: Item[];
     removeItem: (itemId:any) => void;
+    editItem: (itemId:any) => any;
 }
 
 const Items = (props: ItemsProps) => {
 
-    const {items, removeItem} = props;
+    const {items, removeItem, editItem} = props;
 
   return (
     <div className='items'>
         {items.map((item) => {
-            return <SingleItem key={item.id} item={item} removeItem={removeItem}/>
+            return <SingleItem key={item.id} item={item} removeItem={removeItem} editItem={editItem}/>
         })}
 
     </div>

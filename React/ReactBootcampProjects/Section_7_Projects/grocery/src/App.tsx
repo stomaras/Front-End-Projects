@@ -5,6 +5,7 @@ import Form from './components/Form';
 import { Item } from './models/models';
 import { nanoid } from 'nanoid';
 import Items from './components/Items';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const setLocaleStorage = (items: Item[]) => {
@@ -40,6 +41,7 @@ function App() {
     setItems(newItems);
     setLocaleStorage(newItems);
     getLocaleStorage();
+    toast.success('item added to the list')
 
   };
 
@@ -48,12 +50,26 @@ function App() {
     setItems(newItems);
     setLocaleStorage(newItems);
     getLocaleStorage();
+    toast.success('item deleted')
+  }
+
+  const editItem = (itemId:string) => {
+    const newItems = items.map((item:any) => {
+      if(itemId === item.id){
+        const newItem = {...item, completed:!item.completed}
+        return newItem;
+      }
+      return item;
+    });
+    setItems(newItems);
+    setLocaleStorage(newItems);
   }
 
   return (
     <section className="section-center">
+      <ToastContainer position='top-center'/>
       <Form addItem={addItem}/>
-      <Items items={items} removeItem={removeItem}/>
+      <Items items={items} removeItem={removeItem} editItem={editItem}/>
     </section>
   );
 }

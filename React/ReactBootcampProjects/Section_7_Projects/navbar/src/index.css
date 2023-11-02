@@ -303,3 +303,9 @@ nav {
   overflow: hidden;
   transition: var(--transition);
 }
+
+
+.links {
+  overflow: hidden;
+  transition: var(--transition);
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { IUser } from './models/models';
 import UseFetchPerson from './customHooks/UseFetchPerson';
+import UseFetch from './customHooks/UseFetchData';
 
 
 const url = "https://api.github.com/users/QuincyLarson";
@@ -9,7 +10,7 @@ const url = "https://api.github.com/users/QuincyLarson";
 const MultipleRetursFetchData = () => {
 
 
-    const {isError, isLoading, user} = UseFetchPerson(url);
+    const {isError, isLoading, data} = UseFetch(url);
 
 
     if(isLoading) {
@@ -21,10 +22,10 @@ const MultipleRetursFetchData = () => {
     }
 
   return <div>
-    <img style={{width:'150px', borderRadius:'24px'}} src={user?.avatar_url} alt={user?.name} />
-    <h2>{user?.name}</h2>
-    <h4>works at {user?.company}</h4>
-    <p>{user?.bio}</p>
+    <img style={{width:'150px', borderRadius:'24px'}} src={data?.avatar_url} alt={data?.name} />
+    <h2>{data?.name}</h2>
+    <h4>works at {data?.company}</h4>
+    <p>{data?.bio}</p>
   </div>
 };
 

@@ -3,13 +3,13 @@ import { IUser } from '../models/models';
 
 /* when we create custom hook we do not have props but variables instead  */
 
-const UseFetchPerson = (url:string) => {
+const UseFetch = (url:string) => {
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
-    const [user, setUser] = useState<IUser | null>(null);
+    const [data, setData] = useState<IUser | null>(null);
     
     useEffect(() => {
-        const fetchUser = async () => {
+        const fetchData = async () => {
             try {
                 const resp = await fetch(url);
                 if(!resp.ok) {
@@ -17,21 +17,21 @@ const UseFetchPerson = (url:string) => {
                     setIsLoading(false);
                     return;
                 }
-                const user = await resp.json();
+                const response = await resp.json();
                 
-                console.log(user);
-                setUser(user);
+                console.log(response);
+                setData(response);
             }catch(error) {
                 setIsError(true);
                 console.log(error);
             }       
             setIsLoading(false);
         }
-        fetchUser();    
+        fetchData();    
     },[])
 
 
-  return {isLoading, isError, user};
+  return {isLoading, isError, data};
 }
 
-export default UseFetchPerson
+export default UseFetch

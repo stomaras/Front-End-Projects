@@ -10,11 +10,11 @@ const Persons = () => {
     }
 
     const clearAllItems = () => {
-        dispatch({type:'CLEAR_LIST', payload:0});
+        dispatch({type:'CLEAR_LIST'});
     }
 
     const resetList = () => {
-        dispatch({type:'RESET_LIST', payload:0});
+        dispatch({type:'RESET_LIST'});
     }
 
     console.log(state);

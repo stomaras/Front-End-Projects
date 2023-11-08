@@ -13,7 +13,7 @@ export const defaultState:PersonState = {
 }
 
 
-type ActionState = {type: "CLEAR_LIST", payload:any} | {type:'RESET_LIST', payload:any} | {type:'REMOVE_ITEM', payload:any}
+type ActionState = {type: "CLEAR_LIST"} | {type:'RESET_LIST'} | {type:'REMOVE_ITEM', payload:{id:number}}
 
 const personReducer = (state: PersonState, action: ActionState) : PersonState => {
     switch(action.type){

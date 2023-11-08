@@ -1,17 +1,16 @@
 import React, { useReducer } from 'react'
-import { data } from '../data/data'
 import { useState } from 'react'
+import { data } from '../data/data';
+import {CLEAR_LIST, RESET_LIST, REMOVE_ITEM} from "../state/actions";
+import reducer from '../state/actions';
+
 
 const defaultState = {
     people:data,
     isLoading:false,
 }
 
-const reducer = (state, action) => {
-    if(action.type === 'CLEAR_LIST'){
-        return {...state,people:[]};
-    }
-};
+
 
 // with useReducer we do not immediately update the state 
 // you dispatch pass the action and go through the reducer in order to update the state
@@ -20,16 +19,16 @@ const Persons = () => {
     const [state, dispatch] = useReducer(reducer,defaultState);
 
     const removeItem = (id) => {
-        // const newPeople = people.filter((person) => person.id !== id);
-        // setPeople(newPeople);
+        dispatch({type:REMOVE_ITEM, payload: {id}});
+        setPeople(newPeople);
     }
 
     const clearAllItems = () => {
-        dispatch({type:'CLEAR_LIST'})
+        dispatch({type: CLEAR_LIST});
     }
 
     const resetList = () => {
-        // setPeople(data);
+        dispatch({type:RESET_LIST});
     }
 
     console.log(state);

@@ -4,7 +4,7 @@ import { useGlobalContext } from '../context/context';
 
 const CartItem = ({id, img, title, price, amount}) => {
 
-    const {remove} = useGlobalContext();
+    const {remove, increase} = useGlobalContext();
 
   return (
     <article className='cart-item'>
@@ -16,7 +16,7 @@ const CartItem = ({id, img, title, price, amount}) => {
         </div>
         <div className='cart-item-button'>
             {/* increase amount */}
-            <button className="amount-btn">
+            <button className="amount-btn" onClick={() => increase(id)}>
                 <FaChevronUp className='amount-icon'/>
             </button>
             {/*amount*/}

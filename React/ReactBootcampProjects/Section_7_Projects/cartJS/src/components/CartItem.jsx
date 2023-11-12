@@ -4,8 +4,7 @@ import { useGlobalContext } from '../context/context';
 
 const CartItem = ({id, img, title, price, amount}) => {
 
-    const {greeting} = useGlobalContext();
-    console.log(greeting);
+    const {remove} = useGlobalContext();
 
   return (
     <article className='cart-item'>
@@ -13,7 +12,7 @@ const CartItem = ({id, img, title, price, amount}) => {
         <div className='cart-item-info'>
             <h4>{title}</h4>
             <span className="item-price">${price}</span>
-            <button className="remove-btn">remove</button>
+            <button className="remove-btn" onClick={() => remove(id)}>remove</button>
         </div>
         <div className='cart-item-button'>
             {/* increase amount */}

@@ -5,6 +5,7 @@ import { useGlobalContext } from '../context/context';
 const CartItem = ({id, img, title, price, amount}) => {
 
     const {remove, increase} = useGlobalContext();
+    console.log(amount);
 
   return (
     <article className='cart-item'>

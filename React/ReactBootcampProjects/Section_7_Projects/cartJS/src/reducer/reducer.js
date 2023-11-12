@@ -13,11 +13,16 @@ const reducer = (state, action) => {
     if(action.type === INCREASE) {
         const newCart = new Map(state.cart);
         const itemId = action.payload.id;
+        console.log(itemId);
+        console.log(newCart);
         const item = newCart.get(itemId);
         console.log(item);
+        console.log("new item", +item);
         const newItem = {...item, amount: item.amount + 1};
-        console.log(newItem);
+        console.log("new item " + newItem);
         newCart.set(itemId, newItem);
+        console.log("new cart" + newCart);
+        console.log(newCart);
         return {...state, cart: newCart};
     }
     return;

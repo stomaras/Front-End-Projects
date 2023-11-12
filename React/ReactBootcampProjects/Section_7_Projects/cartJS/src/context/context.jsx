@@ -10,8 +10,6 @@ const initialState = {
     cart: new Map(cartItems.map((item) => [item.id, item])),
 }
 
-
-
 export const AppProvider = ({children}) => {
 
     const [state, dispatch] = useReducer(reducer,initialState);

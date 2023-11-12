@@ -26,8 +26,9 @@ const CartContainer = () => {
             <h2>Your Bag</h2>
         </header>
         <div>
-            {cartItems.map((cartItem) => {
-                return <CartItem key={cartItem.id} {...cartItem}/>;
+            {cartArray.map((cartItem) => {
+                const [id, item] = cartItem;
+                return <CartItem key={id} {...item}/>
             })}
         </div>
         {/*cart footer*/}

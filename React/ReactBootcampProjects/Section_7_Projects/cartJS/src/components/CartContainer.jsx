@@ -5,7 +5,7 @@ import { useGlobalContext } from '../context/context';
 
 const CartContainer = () => {
 
-    const {cart, clearCart } = useGlobalContext();
+    const {cart, clearCart, totalCost } = useGlobalContext();
 
 
     const cartArray = Array.from(cart.entries());
@@ -42,7 +42,7 @@ const CartContainer = () => {
             <button className='btn btn-hipster' onClick={clearCart}>
                 Clear Cart
             </button>
-            <span className='cart-total-price'>$10</span>
+            <span className='cart-total-price'>${totalCost.toFixed(2)}</span>
         </footer>
     </section>
   )

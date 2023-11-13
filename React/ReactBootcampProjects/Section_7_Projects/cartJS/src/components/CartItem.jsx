@@ -4,7 +4,7 @@ import { useGlobalContext } from '../context/context';
 
 const CartItem = ({id, img, title, price, amount}) => {
 
-    const {remove, increase} = useGlobalContext();
+    const {remove, increase, decrease} = useGlobalContext();
     console.log(amount);
 
   return (
@@ -23,7 +23,7 @@ const CartItem = ({id, img, title, price, amount}) => {
             {/*amount*/}
             <span className="amount">${amount}</span>
             {/* decrease amount */}
-            <button className="amount-btn">
+            <button className="amount-btn" onClick={() => decrease(id)}>
                 <FaChevronDown className='amount-icon'/>
             </button>
         </div>

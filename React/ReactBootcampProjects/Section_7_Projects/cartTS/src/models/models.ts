@@ -5,3 +5,8 @@ export interface Item {
     img:string;
     amount:number;
 }
+
+export interface ItemState {
+    loading:boolean;
+    cart:Item[];
+}

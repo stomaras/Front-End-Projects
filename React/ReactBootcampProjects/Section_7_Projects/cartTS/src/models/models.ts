@@ -8,5 +8,5 @@ export interface Item {
 
 export interface ItemState {
     loading:boolean;
-    cart:Item[];
+    cart:Map<string,Item>;
 }

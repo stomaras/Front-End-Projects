@@ -10,7 +10,7 @@ interface CartItemProps {
 
 const CartItem = (props: CartItemProps) => {
 
-    const {item} = props
+    const {item} = props;
 
   return (
     <article className='cart-item'>

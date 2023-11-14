@@ -1,11 +1,18 @@
 import React from 'react'
 import CartItem from './CartItem'
 import cartItems from '../data/data'
-
-
+import { useGlobalContext } from '../context/context'
 
 const CartContainer = () => {
-    const cartArray = [...cartItems];
+
+    const {cart, clearCart} = useGlobalContext();
+    console.log(cart);
+    const cartArray = Array.from(cart.entries());
+
+    const handleClear = () => {
+        console.log("clear");
+        clearCart();
+    }
 
     if(cartArray.length === 0) {
         return (
@@ -27,7 +34,8 @@ const CartContainer = () => {
         {/* cart items */}
         <div>
             {cartArray.map((cartItem) => {
-                return <CartItem item={cartItem} key={cartItem.id} />;
+                const [id, item] = cartItem
+                return <CartItem item={item} key={id} />;
             })}
         </div>
         {/* cart footer */}
@@ -36,7 +44,7 @@ const CartContainer = () => {
             <h5 className="cart-total-desc">
                 Total 
             </h5>        
-            <button className='btn btn-hipster'>
+            <button className='btn btn-hipster' onClick={handleClear}>
                 Clear Cart
             </button>
             <span className='cart-total-price'>${10}</span>

@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Footer = () => {
+type FooterProps = {
+    viewCart:boolean;
+}
+
+const Footer = (props:FooterProps) => {
   return (
     <div>Footer</div>
   )

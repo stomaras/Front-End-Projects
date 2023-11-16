@@ -22,7 +22,7 @@ export type ReducerActionType = typeof REDUCER_ACTION_TYPE;
 
 export type ReducerAction = {
     type:string,
-    payload: CartItemType,
+    payload: CartItemType | undefined,
 }
 
 const reducer = (state:CartStateType, action:ReducerAction): CartStateType => {

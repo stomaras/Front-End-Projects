@@ -1,52 +1,80 @@
-import { useContext, useReducer, useEffect, createContext, FC } from "react";
-import { Item, ItemState } from "../models/models";
-import reducer from "../reducer/reducer";
-import { CLEAR_CART, INCREASE, DECREASE, LOADING, DISPLAY_ITEMS, REMOVE } from "../actions/actions";
+import { ReactElement, createContext, useMemo, useReducer } from "react";
+import { CLEAR_CART } from "../actions/actions";
 import cartItems from "../data/data";
 
-interface IContext {
-    greeting:string;
-    cart:Map<string,Item>;
-    clearCart:() => void;
+export interface CartItemType {
+    id:string;
+    title:string;
+    price:string;
+    img:string;
+    amount:number;
 }
 
-const contextDefaultValues: IContext = {
-    greeting: 'greeting',
-    cart: new Map(cartItems.map((item) => [item.id, item])),
-    clearCart: () => {}
+type CartStateType = {cart: CartItemType[]};
+
+const initCartState: CartStateType = {cart:cartItems};
+
+const REDUCER_ACTION_TYPE = {
+    CLEAR: 'CLEAR',
+    REMOVE: 'REMOVE',
+    INCREASE: 'INCREASE',
+    DECREASE: 'DECREASE',
 }
 
-const initialState: ItemState = {
-    loading: false,
-    cart: new Map(cartItems.map((item) => [item.id, item]))
+export type ReducerActionType = typeof REDUCER_ACTION_TYPE;
+
+
+export type ReducerAction = {
+    type:string,
+    payload: CartItemType[]
 }
 
-const AppContext = createContext<IContext>(
-    contextDefaultValues
-);
+const reducer = (state:CartStateType, acton: ReducerAction): CartStateType => {
+    switch(acton.type){
+        case REDUCER_ACTION_TYPE.CLEAR: {
+            console.log("clear reducer");
+            return {...state, cart:[]}
+        }
+        default:
+            throw new Error("error")
+    }
+}
 
+const useCartContext = (initCartState: CartStateType) => {
+    const [state, dispatch] = useReducer(reducer, initCartState);
+    console.log(state.cart);
 
-const AppProvider = ({children} : {children: React.ReactNode;}) => {
-
-    const greeting = contextDefaultValues.greeting;
-
+    const REDUCER_ACTIONS = useMemo(() => {
+        return REDUCER_ACTION_TYPE;
+    },[]);
 
     const clearCart = () => {
-        dispatch({type: CLEAR_CART})
+        console.log("clear dispatch");
+        dispatch({
+            type: REDUCER_ACTION_TYPE.CLEAR,
+            payload: []
+        });
     }
 
-    const cart = contextDefaultValues.cart;
+    const carts = state.cart;
 
-
-    const [state, dispatch] = useReducer(reducer, initialState);
-
-    return <AppContext.Provider value={{greeting, cart, clearCart}}>
-        {children}
-    </AppContext.Provider>
+    return {dispatch, REDUCER_ACTIONS ,clearCart, carts}
 }
 
-export default AppProvider;
+export type UseCartContextType = ReturnType<typeof useCartContext>;
 
-export const useGlobalContext = () => {
-    return useContext(AppContext);
+const initCartContextState: UseCartContextType = {dispatch: () => {}, REDUCER_ACTIONS: REDUCER_ACTION_TYPE, clearCart: () => {}, carts:[]};
+
+export const CartContext = createContext<UseCartContextType>(initCartContextState);
+
+type ChildrenType = { children?: ReactElement | ReactElement[] };
+
+export const CartProvider = ({children}: ChildrenType):ReactElement => {
+    return (
+        <CartContext.Provider value={useCartContext(initCartState)}>
+            {children}
+        </CartContext.Provider>
+    )
 }
+
+export default CartContext;

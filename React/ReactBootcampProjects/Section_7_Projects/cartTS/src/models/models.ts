@@ -9,4 +9,5 @@ export interface Item {
 export interface ItemState {
     loading:boolean;
     cart:Map<string,Item>;
+    clearCart:()=>void;
 }

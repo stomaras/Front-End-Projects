@@ -1,7 +1,6 @@
 import React from 'react'
 import {FaChevronDown, FaChevronUp} from "react-icons/fa"
 import { Item } from '../models/models'
-import { useGlobalContext } from '../context/context';
 
 interface CartItemProps {
     key:string;

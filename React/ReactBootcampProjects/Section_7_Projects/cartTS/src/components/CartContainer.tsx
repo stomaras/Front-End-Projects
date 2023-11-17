@@ -1,29 +1,19 @@
 import React from 'react'
 import CartItem from './CartItem'
 import cartItems from '../data/data'
-import { useGlobalContext } from '../context/context'
+import { CartProvider } from '../context/context'
+import useCart from "../hooks/useCart";
 
 const CartContainer = () => {
 
-    const {cart, clearCart} = useGlobalContext();
-    console.log(cart);
-    const cartArray = Array.from(cart.entries());
+    const {dispatch, REDUCER_ACTIONS, clearCart, carts} = useCart();
+
 
     const handleClear = () => {
         console.log("clear");
         clearCart();
     }
 
-    if(cartArray.length === 0) {
-        return (
-            <section className='cart'>
-                <header>
-                    <h2>Your Bag</h2>
-                    <h4 className="empty-cart">is currently empty</h4>
-                </header>
-            </section>
-        )
-    }
 
   return (
     <section className="cart">
@@ -33,9 +23,8 @@ const CartContainer = () => {
         </header>
         {/* cart items */}
         <div>
-            {cartArray.map((cartItem) => {
-                const [id, item] = cartItem
-                return <CartItem item={item} key={id} />;
+            {carts.map((cartItem) => {
+                return <CartItem item={cartItem} key={cartItem.id} />;
             })}
         </div>
         {/* cart footer */}

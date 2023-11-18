@@ -37,6 +37,9 @@ const reducer = (state:CartStateType, action: ReducerAction): CartStateType => {
         case REDUCER_ACTION_TYPE.REMOVE: {
             return {...state, cart:state.cart};
         }
+        case REDUCER_ACTION_TYPE.INCREASE: {
+            return {...state, cart:state.cart}
+        }
         default:
             throw new Error("error")
     }
@@ -57,7 +60,7 @@ const useCartContext = (initCartState: CartStateType) => {
     }
 
     const removeItem = (id:string) => {
-        const itemsAfterDelete = state.cart.filter((item) => item.id !== id)
+        const itemsAfterDelete = state.cart.filter((item) => item.id !== id);
         state.cart = itemsAfterDelete;
         dispatch({
             type:REDUCER_ACTIONS.REMOVE,
@@ -65,14 +68,30 @@ const useCartContext = (initCartState: CartStateType) => {
         });
     }
 
+    const increaseItemAmount = (id:string) => {
+        const totalItemsAfterIncrease = state.cart;
+        totalItemsAfterIncrease.map((item) => {
+            if(item.id === id) {
+                item.amount = item.amount + 1;
+            }else {
+                item.amount = item.amount;
+            }
+        })
+        state.cart = totalItemsAfterIncrease;
+        dispatch({
+            type:REDUCER_ACTIONS.INCREASE,
+            payload: state.cart
+        });
+    }
+
     const carts = state.cart;
 
-    return {dispatch, REDUCER_ACTIONS ,clearCart, removeItem ,carts}
+    return {dispatch, REDUCER_ACTIONS ,clearCart, removeItem , increaseItemAmount ,carts}
 }
 
 export type UseCartContextType = ReturnType<typeof useCartContext>;
 
-const initCartContextState: UseCartContextType = {dispatch: () => {}, REDUCER_ACTIONS: REDUCER_ACTION_TYPE, clearCart: () => {}, removeItem: () => {} ,carts:[]};
+const initCartContextState: UseCartContextType = {dispatch: () => {}, REDUCER_ACTIONS: REDUCER_ACTION_TYPE, clearCart: () => {}, removeItem: () => {}, increaseItemAmount: () => {} ,carts:[]};
 
 export const CartContext = createContext<UseCartContextType>(initCartContextState);
 

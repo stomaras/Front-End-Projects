@@ -1,5 +1,5 @@
-import { ReactElement, createContext, useMemo, useReducer } from "react";
-import { CLEAR_CART } from "../actions/actions";
+import { ReactElement, createContext, useEffect, useMemo, useReducer } from "react";
+import { CLEAR_CART, DISPLAY_ITEMS, LOADING } from "../actions/actions";
 import cartItems from "../data/data";
 import { getTotals } from "../utils";
 
@@ -11,15 +11,23 @@ export interface CartItemType {
     amount:number;
 }
 
-type CartStateType = {cart: CartItemType[]};
+type CartStateType = {
+    cart: CartItemType[],
+    loading:boolean;
+};
 
-const initCartState: CartStateType = {cart:cartItems};
+const initCartState: CartStateType = {
+    cart:cartItems,
+    loading:false
+};
 
 const REDUCER_ACTION_TYPE = {
     CLEAR: 'CLEAR',
     REMOVE: 'REMOVE',
     INCREASE: 'INCREASE',
     DECREASE: 'DECREASE',
+    LOADING: 'LOADING',
+    DISPLAY_ITEMS: 'DISPLAY_ITEMS'
 }
 
 export type ReducerActionType = typeof REDUCER_ACTION_TYPE;
@@ -44,6 +52,13 @@ const reducer = (state:CartStateType, action: ReducerAction): CartStateType => {
         case REDUCER_ACTION_TYPE.DECREASE: {
             return {...state, cart:state.cart};
         }
+        case REDUCER_ACTION_TYPE.LOADING:{
+            return {...state, loading: state.loading }
+        }
+        case REDUCER_ACTION_TYPE.DISPLAY_ITEMS:{
+            return {...state, cart: state.cart, loading:false}
+        }
+
         default:
             throw new Error("error")
     }
@@ -53,6 +68,7 @@ const useCartContext = (initCartState: CartStateType) => {
     const [state, dispatch] = useReducer(reducer, initCartState);
 
     const {totalAmount, totalCost} = getTotals(state.cart);
+    const loading = state.loading;
 
     const REDUCER_ACTIONS = useMemo(() => {
         return REDUCER_ACTION_TYPE;
@@ -110,9 +126,22 @@ const useCartContext = (initCartState: CartStateType) => {
         });
     }
 
+    const fetchData = async () => {
+        dispatch({type:LOADING,payload:state.cart})
+        const url = 'https://www.course-api.com/react-useReducer-cart-project'
+        const response = await(fetch(url));
+        const cart = await response.json();
+        dispatch({type:DISPLAY_ITEMS, payload:state.cart});
+        console.log(cart);
+    }
+
+    useEffect(() => {
+        fetchData();
+    },[]);
+
     const carts = state.cart;
 
-    return {dispatch, REDUCER_ACTIONS ,clearCart, removeItem , increaseItemAmount, decreaseItemAmount ,carts, totalAmount, totalCost}
+    return {dispatch, REDUCER_ACTIONS ,clearCart, removeItem , increaseItemAmount, decreaseItemAmount ,carts, totalAmount, totalCost, loading}
 }
 
 export type UseCartContextType = ReturnType<typeof useCartContext>;
@@ -120,7 +149,8 @@ export type UseCartContextType = ReturnType<typeof useCartContext>;
 const initCartContextState: UseCartContextType = {
     dispatch: () => { }, REDUCER_ACTIONS: REDUCER_ACTION_TYPE, clearCart: () => { }, removeItem: () => { }, increaseItemAmount: () => { }, decreaseItemAmount: () => { }, carts: [],
     totalAmount: 0,
-    totalCost: 0
+    totalCost: 0,
+    loading:false,
 };
 
 export const CartContext = createContext<UseCartContextType>(initCartContextState);

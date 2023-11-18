@@ -12,7 +12,7 @@ const CartItem = (props: CartItemProps) => {
 
     const {item} = props;
 
-    const {removeItem, increaseItemAmount} = useCart();
+    const {removeItem, increaseItemAmount, decreaseItemAmount} = useCart();
 
     const handleRemove = (id:string) => (e:React.MouseEvent<HTMLButtonElement>) => {
         removeItem(id)
@@ -22,6 +22,9 @@ const CartItem = (props: CartItemProps) => {
         increaseItemAmount(id);
     }
 
+    const handleDecreaseAmount = (id:string) => (e:React.MouseEvent<HTMLButtonElement>) => {
+        decreaseItemAmount(id);
+    }
  
 
   return (
@@ -40,7 +43,7 @@ const CartItem = (props: CartItemProps) => {
             {/*amount*/}
             <span className="amount">${item.amount}</span>
             {/* decrease amount */}
-            <button className="amount-btn">
+            <button className="amount-btn" onClick={handleDecreaseAmount(item.id)}>
                 <FaChevronDown className='amount-icon'/>
             </button>
         </div>

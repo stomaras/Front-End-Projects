@@ -38,7 +38,10 @@ const reducer = (state:CartStateType, action: ReducerAction): CartStateType => {
             return {...state, cart:state.cart};
         }
         case REDUCER_ACTION_TYPE.INCREASE: {
-            return {...state, cart:state.cart}
+            return {...state, cart:state.cart};
+        }
+        case REDUCER_ACTION_TYPE.DECREASE: {
+            return {...state, cart:state.cart};
         }
         default:
             throw new Error("error")
@@ -76,7 +79,7 @@ const useCartContext = (initCartState: CartStateType) => {
             }else {
                 item.amount = item.amount;
             }
-        })
+        });
         state.cart = totalItemsAfterIncrease;
         dispatch({
             type:REDUCER_ACTIONS.INCREASE,
@@ -84,14 +87,34 @@ const useCartContext = (initCartState: CartStateType) => {
         });
     }
 
+    const decreaseItemAmount = (id:string) => {
+        const totalItemsAfterDelete = state.cart;
+        totalItemsAfterDelete.map((item) => {
+            if(item.id === id) {
+                if(item.amount <= 0){
+                    item.amount = 0;
+                }else {
+                    item.amount = item.amount - 1;
+                }
+            }else {
+                item.amount = item.amount
+            }
+        });
+        state.cart = totalItemsAfterDelete;
+        dispatch({
+            type:REDUCER_ACTIONS.DECREASE,
+            payload:state.cart
+        });
+    }
+
     const carts = state.cart;
 
-    return {dispatch, REDUCER_ACTIONS ,clearCart, removeItem , increaseItemAmount ,carts}
+    return {dispatch, REDUCER_ACTIONS ,clearCart, removeItem , increaseItemAmount, decreaseItemAmount ,carts}
 }
 
 export type UseCartContextType = ReturnType<typeof useCartContext>;
 
-const initCartContextState: UseCartContextType = {dispatch: () => {}, REDUCER_ACTIONS: REDUCER_ACTION_TYPE, clearCart: () => {}, removeItem: () => {}, increaseItemAmount: () => {} ,carts:[]};
+const initCartContextState: UseCartContextType = {dispatch: () => {}, REDUCER_ACTIONS: REDUCER_ACTION_TYPE, clearCart: () => {}, removeItem: () => {}, increaseItemAmount: () => {}, decreaseItemAmount: () => {} ,carts:[]};
 
 export const CartContext = createContext<UseCartContextType>(initCartContextState);
 

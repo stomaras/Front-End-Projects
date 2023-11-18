@@ -29,11 +29,13 @@ export type ReducerAction = {
     payload: CartItemType[]
 }
 
-const reducer = (state:CartStateType, acton: ReducerAction): CartStateType => {
-    switch(acton.type){
+const reducer = (state:CartStateType, action: ReducerAction): CartStateType => {
+    switch(action.type){
         case REDUCER_ACTION_TYPE.CLEAR: {
-            console.log("clear reducer");
-            return {...state, cart:[]}
+            return {...state, cart:[]};
+        }
+        case REDUCER_ACTION_TYPE.REMOVE: {
+            return {...state, cart:state.cart};
         }
         default:
             throw new Error("error")
@@ -42,28 +44,35 @@ const reducer = (state:CartStateType, acton: ReducerAction): CartStateType => {
 
 const useCartContext = (initCartState: CartStateType) => {
     const [state, dispatch] = useReducer(reducer, initCartState);
-    console.log(state.cart);
 
     const REDUCER_ACTIONS = useMemo(() => {
         return REDUCER_ACTION_TYPE;
     },[]);
 
     const clearCart = () => {
-        console.log("clear dispatch");
         dispatch({
             type: REDUCER_ACTION_TYPE.CLEAR,
             payload: []
         });
     }
 
+    const removeItem = (id:string) => {
+        const itemsAfterDelete = state.cart.filter((item) => item.id !== id)
+        state.cart = itemsAfterDelete;
+        dispatch({
+            type:REDUCER_ACTIONS.REMOVE,
+            payload: state.cart
+        });
+    }
+
     const carts = state.cart;
 
-    return {dispatch, REDUCER_ACTIONS ,clearCart, carts}
+    return {dispatch, REDUCER_ACTIONS ,clearCart, removeItem ,carts}
 }
 
 export type UseCartContextType = ReturnType<typeof useCartContext>;
 
-const initCartContextState: UseCartContextType = {dispatch: () => {}, REDUCER_ACTIONS: REDUCER_ACTION_TYPE, clearCart: () => {}, carts:[]};
+const initCartContextState: UseCartContextType = {dispatch: () => {}, REDUCER_ACTIONS: REDUCER_ACTION_TYPE, clearCart: () => {}, removeItem: () => {} ,carts:[]};
 
 export const CartContext = createContext<UseCartContextType>(initCartContextState);
 

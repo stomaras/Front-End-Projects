@@ -1,6 +1,7 @@
 import React from 'react'
 import {FaChevronDown, FaChevronUp} from "react-icons/fa"
 import { Item } from '../models/models'
+import useCart from '../hooks/useCart';
 
 interface CartItemProps {
     key:string;
@@ -11,13 +12,20 @@ const CartItem = (props: CartItemProps) => {
 
     const {item} = props;
 
+    const {removeItem} = useCart();
+
+    const handleRemove = (id:string) => (e:React.MouseEvent<HTMLButtonElement>) => {
+        removeItem(id)
+    }
+ 
+
   return (
     <article className='cart-item'>
         <img src={item.img} alt="Dummy Image" className='cart-item-img' />
         <div className='cart-item-info'>
             <h4>${item.title}</h4>
             <span className="item-price">${item.price}</span>
-            <button className="remove-btn">remove</button>
+            <button className="remove-btn" onClick={handleRemove(item.id)}>remove</button>
         </div>
         <div className='cart-item-button'>
             {/* increase amount */}

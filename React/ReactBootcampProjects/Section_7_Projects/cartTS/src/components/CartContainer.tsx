@@ -10,7 +10,6 @@ const CartContainer = () => {
 
 
     const handleClear = () => {
-        console.log("clear");
         clearCart();
     }
 

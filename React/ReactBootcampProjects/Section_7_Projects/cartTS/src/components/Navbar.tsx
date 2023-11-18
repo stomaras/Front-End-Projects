@@ -1,7 +1,11 @@
 import React from 'react'
 import {FaCartPlus} from "react-icons/fa";
+import useCart from '../hooks/useCart';
 
 const Navbar = () => {
+
+    const {totalAmount} = useCart();
+
   return (
     <nav>
         <div className="nav-center">
@@ -9,7 +13,7 @@ const Navbar = () => {
             <div className="nav-container">
                 <FaCartPlus className='cart-icon'/>
                 <div className="amount-container">
-                    <p className="total-amount">2</p>
+                    <p className="total-amount">{totalAmount}</p>
                 </div>
             </div>
         </div>

@@ -26,7 +26,6 @@ const CartItem = (props: CartItemProps) => {
         decreaseItemAmount(id);
     }
  
-
   return (
     <article className='cart-item'>
         <img src={item.img} alt="Dummy Image" className='cart-item-img' />
@@ -48,7 +47,6 @@ const CartItem = (props: CartItemProps) => {
             </button>
         </div>
     </article>
-
   )
 }
 

@@ -1,6 +1,7 @@
 import { ReactElement, createContext, useMemo, useReducer } from "react";
 import { CLEAR_CART } from "../actions/actions";
 import cartItems from "../data/data";
+import { getTotals } from "../utils";
 
 export interface CartItemType {
     id:string;
@@ -50,6 +51,8 @@ const reducer = (state:CartStateType, action: ReducerAction): CartStateType => {
 
 const useCartContext = (initCartState: CartStateType) => {
     const [state, dispatch] = useReducer(reducer, initCartState);
+
+    const {totalAmount, totalCost} = getTotals(state.cart);
 
     const REDUCER_ACTIONS = useMemo(() => {
         return REDUCER_ACTION_TYPE;
@@ -109,12 +112,16 @@ const useCartContext = (initCartState: CartStateType) => {
 
     const carts = state.cart;
 
-    return {dispatch, REDUCER_ACTIONS ,clearCart, removeItem , increaseItemAmount, decreaseItemAmount ,carts}
+    return {dispatch, REDUCER_ACTIONS ,clearCart, removeItem , increaseItemAmount, decreaseItemAmount ,carts, totalAmount, totalCost}
 }
 
 export type UseCartContextType = ReturnType<typeof useCartContext>;
 
-const initCartContextState: UseCartContextType = {dispatch: () => {}, REDUCER_ACTIONS: REDUCER_ACTION_TYPE, clearCart: () => {}, removeItem: () => {}, increaseItemAmount: () => {}, decreaseItemAmount: () => {} ,carts:[]};
+const initCartContextState: UseCartContextType = {
+    dispatch: () => { }, REDUCER_ACTIONS: REDUCER_ACTION_TYPE, clearCart: () => { }, removeItem: () => { }, increaseItemAmount: () => { }, decreaseItemAmount: () => { }, carts: [],
+    totalAmount: 0,
+    totalCost: 0
+};
 
 export const CartContext = createContext<UseCartContextType>(initCartContextState);
 

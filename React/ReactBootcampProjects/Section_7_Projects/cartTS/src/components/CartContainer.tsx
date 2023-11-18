@@ -6,7 +6,7 @@ import useCart from "../hooks/useCart";
 
 const CartContainer = () => {
 
-    const {dispatch, REDUCER_ACTIONS, clearCart, carts} = useCart();
+    const {dispatch, REDUCER_ACTIONS, clearCart, carts, totalCost} = useCart();
 
 
     const handleClear = () => {
@@ -41,7 +41,7 @@ const CartContainer = () => {
         <footer className='footer'>
             
             <h5 className="cart-total-desc">
-                Total 
+                Total {totalCost.toFixed(2)}
             </h5>        
             <button className='btn btn-hipster' onClick={handleClear}>
                 Clear Cart

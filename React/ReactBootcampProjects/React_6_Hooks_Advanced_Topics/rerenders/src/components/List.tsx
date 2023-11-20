@@ -1,6 +1,7 @@
 import React from 'react'
 import { People } from '../models/models'
 import Person from './Person'
+import { memo } from 'react'
 
 export interface ListProps  {
     people:People[]
@@ -19,4 +20,4 @@ const List = (props:ListProps) => {
   )
 }
 
-export default List
+export default memo(List)

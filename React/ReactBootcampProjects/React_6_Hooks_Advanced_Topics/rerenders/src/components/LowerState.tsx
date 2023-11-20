@@ -7,6 +7,7 @@ import Form from './Form';
 const LowerState = () => {
 
     const [people, setPeople] = useState(data);
+    const [count, setCount] = useState(0)
 
     
 
@@ -20,7 +21,13 @@ const LowerState = () => {
   return (
     <section>
         {/* <Counter/> */}
-        <Form addPerson={addPerson}/>
+        {/* <Form addPerson={addPerson}/> */}
+        <button
+          className='btn'
+          onClick={() => setCount(count + 1)}
+        >
+          count {count}
+        </button>
         <List people={people}/>
     </section>
   )

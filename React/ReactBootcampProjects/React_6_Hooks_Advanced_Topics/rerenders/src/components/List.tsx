@@ -5,6 +5,7 @@ import { memo } from 'react'
 
 export interface ListProps  {
     people:People[]
+    removePerson:(id:number) => void;
 }
 
 const List = (props:ListProps) => {
@@ -13,7 +14,7 @@ const List = (props:ListProps) => {
     <section>
         {people.map((person) => {
             return (
-                <Person key={person.id} name={person.name}/>
+                <Person id={person.id} key={person.id} name={person.name} removePerson={props.removePerson}/>
             )
         })}
     </section>

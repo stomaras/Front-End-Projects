@@ -4,13 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import FirstRequest from './components/first-request'
 import Headers from './components/Headers'
+import PostRequest from './components/PostRequest'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Headers/>
+      <PostRequest/>
     </>
   )
 }

@@ -1,21 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useTransition } from 'react'
 
 const LatestReact = () => {
     const [text, setText] = useState('');
     const [items, setItems] = useState<any>([]);
+    const [isPending, startTransition] = useTransition();
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setText(e.target.value);
 
         // slow down cpu
-        const newItems = Array.from({length: 5000}, (_, index) => {
-            return (
-                <div key={index}>
-                    <img src="../../public/vite.svg" alt="" />
-                </div>
-            );
-        });
-        setItems(newItems);
+        startTransition(() => {
+            const newItems = Array.from({length: 5000}, (_, index) => {
+                return (
+                    <div key={index}>
+                        <img src="../../public/vite.svg" alt="" />
+                    </div>
+                );
+            });
+            setItems(newItems);
+        })
+
     }
 
   return (
@@ -29,15 +33,20 @@ const LatestReact = () => {
                 />
         </form>
         <h4>Items below</h4>
-        <div
+        {isPending ? (
+            <h4>Loading...</h4>
+         ) : (
+
+            <div
             style={{
                 display:'grid',
                 gridTemplateColumns:'1fr 1fr 1fr',
                 marginTop:'2rem'
             }}
-        >
-            {items}
-        </div>
+            >
+                {items}
+            </div>
+        )}
     </section>
   )
 }

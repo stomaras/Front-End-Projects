@@ -1,6 +1,8 @@
 import React from 'react'
 import { ITask } from '../models/models'
 import SingleItem from './SingleItem';
+import { useQuery } from '@tanstack/react-query';
+import customFetch from '../utils/utils';
 
 type ItemProps = {
     items:ITask[];
@@ -8,12 +10,26 @@ type ItemProps = {
 
 const Items = (props:ItemProps) => {
 
+    const {isLoading, data} = useQuery({
+      queryKey:['tasks'],
+      queryFn: async () => {
+         const {data} = await customFetch.get('/');
+         return data;
+      },
+    });
+
+    if(isLoading){
+      return <p style={{marginTop:'1rem'}}>Loading ...</p>
+    }
+
+
+
     const {items} = props
 
   return (
     <div className='items'>
-        {items.map((item) => {
-            return <SingleItem item={item}/>
+        {data.taskList.map((item:any) => {
+            return <SingleItem key={item.id} item={item}/>
         })}
     </div>
   )

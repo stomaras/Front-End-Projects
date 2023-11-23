@@ -1,30 +1,26 @@
-# React + TypeScript + Vite
+### HTTP Methods 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+define the types of actions that can be performed on a web server to retrieve, modify or delete information. The most commonly used
+HTTP methods are GET, POST, PATCH and DELETE.
+GET: Used to retrieve data from the server
+POST: Used to sends data to be processed
+PATCH: update or release existing data
+DELETE: Removes data
 
-Currently, two official plugins are available:
+### React Query 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React Query is a state management library that simplifies the process of fetching, caching, and updating data in React applications.
+Its major benefits include automatic background refetching, caching and stale data management, error handling, and easy pagination and infinite scrolling.
+Compared to setting up requests with useEffect, React Query Provides a more declarative and centralized approach to managing data in React,
+which results in cleaner and more efficient code. It also reduces boilerplate code and improves performance by minimizing unnecessary re-renders and network requests
 
-## Expanding the ESLint configuration
+npm i @tanstack/react-query
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+- Query Key 
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+The unique key you provide is used internally for refetching, caching, and sharing your queries throughout your application.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Query Function 
+
+A query function can be literally any function that returns a promise. The promise that returned should either resolve the data or throw an error.

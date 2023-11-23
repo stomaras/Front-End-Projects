@@ -10,10 +10,10 @@ type ItemProps = {
 
 const Items = (props:ItemProps) => {
 
-    const {isLoading, data} = useQuery({
+    const {isLoading, data, isError, error} = useQuery({
       queryKey:['tasks'],
       queryFn: async () => {
-         const {data} = await customFetch.get('/');
+         const {data} = await customFetch.get('/something');
          return data;
       },
     });
@@ -22,6 +22,13 @@ const Items = (props:ItemProps) => {
       return <p style={{marginTop:'1rem'}}>Loading ...</p>
     }
 
+    // if(isError){
+    //   return <p style={{marginTop:'1rem'}}>there was an error...</p>
+    // }
+
+    if(error){
+      return <p style={{marginTop:'1rem'}}>{error.message}</p>
+    }
 
 
     const {items} = props

@@ -24,3 +24,8 @@ The unique key you provide is used internally for refetching, caching, and shari
 - Query Function 
 
 A query function can be literally any function that returns a promise. The promise that returned should either resolve the data or throw an error.
+
+
+### Thunder Client Extension
+
+Test API endpoints directly in VS CODE very good for front end developers testing with it(Thunder Client Extension)

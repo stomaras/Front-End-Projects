@@ -31,7 +31,12 @@ A query function can be literally any function that returns a promise. The promi
 Test API endpoints directly in VS CODE very good for front end developers testing with it(Thunder Client Extension)
 
 
-###
+### useQuery, useMutation
 
-When we want to create update and delete we use useMutation hook
-When we want to fetch we use useQuery hook
+When we want to create update and delete we use useMutation hook --> Create, Update, Delete
+When we want to fetch we use useQuery hook --> Get
+
+### useMutation Helper Options
+
+useMutations comes with some helper options that allow quick and easy side-effects 
+at any stage during the mutation lifecycle. These come in handy for both validating and refetching queries after mutations

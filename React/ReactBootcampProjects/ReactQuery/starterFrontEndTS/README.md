@@ -29,3 +29,9 @@ A query function can be literally any function that returns a promise. The promi
 ### Thunder Client Extension
 
 Test API endpoints directly in VS CODE very good for front end developers testing with it(Thunder Client Extension)
+
+
+###
+
+When we want to create update and delete we use useMutation hook
+When we want to fetch we use useQuery hook

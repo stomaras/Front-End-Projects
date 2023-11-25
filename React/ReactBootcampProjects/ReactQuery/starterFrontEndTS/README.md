@@ -40,3 +40,5 @@ When we want to fetch we use useQuery hook --> Get
 
 useMutations comes with some helper options that allow quick and easy side-effects 
 at any stage during the mutation lifecycle. These come in handy for both validating and refetching queries after mutations
+
+invalidateQueries() method you can match multiple queries by their prefix

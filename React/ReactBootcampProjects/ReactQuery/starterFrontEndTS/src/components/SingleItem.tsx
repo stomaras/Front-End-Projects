@@ -2,6 +2,7 @@ import React from 'react'
 import { ITask } from '../models/models'
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import customFetch from '../utils/utils';
+import { useDeleteTask, useEditTask } from '../customHooks/reactQueryCustomHooks';
 
 type SingleItemProps = {
     item: ITask;
@@ -10,24 +11,9 @@ type SingleItemProps = {
 const SingleItem = (props:SingleItemProps) => {
     const {item} = props;
     const queryClient = useQueryClient();
-    const {mutate:editTask} = useMutation({
-        mutationFn:({taskId, isDone}:any) => {
-            return customFetch.patch(`/${taskId}`, { isDone })
-        },
-        onSuccess:() => {
-            queryClient.invalidateQueries({queryKey:['tasks']})
-        }
-    })
     
-    const {mutate:deleteTask, isLoading} = useMutation({
-        mutationFn:(taskId:string) => {
-            return customFetch.delete(`/${taskId}`)
-        },
-        onSuccess:() => {
-            queryClient.invalidateQueries({queryKey:['tasks']})
-        }
-    })
-
+    const {editTask} = useEditTask();
+    const {deleteTask, isLoading} = useDeleteTask();
 
 
     const handleTextDecoration = (isDone:boolean) => {

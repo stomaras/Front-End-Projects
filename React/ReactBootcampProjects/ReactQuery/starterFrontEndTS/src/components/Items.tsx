@@ -3,6 +3,7 @@ import { ITask } from '../models/models'
 import SingleItem from './SingleItem';
 import { useQuery } from '@tanstack/react-query';
 import customFetch from '../utils/utils';
+import { useFetchTasks } from '../customHooks/reactQueryCustomHooks';
 
 type ItemProps = {
     items:ITask[];
@@ -10,13 +11,7 @@ type ItemProps = {
 
 const Items = (props:ItemProps) => {
 
-    const {isLoading, data, isError, error} = useQuery({
-      queryKey:['tasks'],
-      queryFn: async () => {
-         const {data} = await customFetch.get('/');
-         return data;
-      },
-    });
+    const {isLoading, isError, data, error} = useFetchTasks()
 
     if(isLoading){
       return <p style={{marginTop:'1rem'}}>Loading ...</p>

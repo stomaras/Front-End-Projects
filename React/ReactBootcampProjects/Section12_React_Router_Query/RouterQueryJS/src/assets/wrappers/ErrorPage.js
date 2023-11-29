@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 const Wrapper = styled.div`
   min-height: 100vh;
   text-align: center;
@@ -15,18 +16,16 @@ const Wrapper = styled.div`
   }
   h3 {
     margin-bottom: 0.5rem;
-  }
-
-  p {
-    line-height: 1.5;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    color: var(--grey-500);
-  }
-  a {
-    color: var(--primary-500);
-    text-transform: capitalize;
-  }
-`;
-
+  }  
+   p {
+     line-height: 1.5;
+     margin-top: 0.5rem;
+     margin-bottom: 1rem;
+     color: var(--grey-500);
+   }
+   a {
+     color: var(--primary-500);
+     text-transform: capitalize;
+   }
+`
 export default Wrapper;

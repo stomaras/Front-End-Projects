@@ -6,6 +6,7 @@ import { About, HomeLayout, Cocktail, Landing, Error, Newsletter, SinglePageErro
 
 import { loader as landingLoader } from './pages/Landing'
 import { loader as singleCocktailLoader } from "./pages/Cocktail";
+import {action as newsletterAction} from "./pages/Newsletter";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       {
         path:'/newsletter',
         element: <Newsletter/>,
+        action:newsletterAction,
       },
       {
         path:'/error',

@@ -1,0 +1,35 @@
+export interface IDrink {
+    idDrink:string;
+    strDrink:string;
+    strDrinkAlternate:string | null;
+    strTags:string |null;
+    strVideo:string | null;
+    strCategory: string | null;
+    strIBA: string | null;
+    strAlcoholic: string | null;
+    strGlass: string | null;
+    strInstructions: string | null;
+    strInstructionsES: string | null;
+    strInstructionsDE: string | null;
+    strInstructionsFR: string | null;
+    strInstructionsIT: string | null;
+    strDrinkThumb:string;
+    strIngredient1:string | null;
+    strIngredient2:string | null;
+    strIngredient3:string | null;
+    strIngredient4:string | null;
+    strIngredient5:string | null;
+    strIngredient6:string | null;
+    strIngredient7:string | null;
+    strIngredient8:string | null;
+    strIngredient9:string | null;
+    strIngredient10:string | null;
+    strIngredient11:string | null;
+    strIngredient12:string | null;
+    strIngredient13:string | null;
+    strIngredient14:string | null;
+    strIngredient15:string | null;
+    strImageSource:string | null;
+    strImageAttribution:string | null;
+    dateModified:string | null;
+}

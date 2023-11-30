@@ -1,5 +1,5 @@
 import React from 'react'
-import Wrapper from '../assets/wrappers/CocktailList';
+import Wrapper from '../assets/wrappers/SearchForm';
 import {Form, useNavigation} from "react-router-dom";
 
 

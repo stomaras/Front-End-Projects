@@ -7,6 +7,7 @@ import Cocktail from './pages/Cocktail'
 import Newsletter from './pages/Newsletter'
 import Error from './pages/Error'
 
+import {loader as landingLoader} from "./pages/Landing"; 
 // errors always bubble up set up an error element at parent
 
 const router = createBrowserRouter([
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
     children:[
       {
         index:true,
-        element:<Landing/>
+        element:<Landing/>,
+        loader:landingLoader,
       },
       {
         path:'cocktail',

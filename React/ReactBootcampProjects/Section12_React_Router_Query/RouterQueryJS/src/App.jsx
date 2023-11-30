@@ -3,10 +3,22 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './App.css'
 
 import { About, HomeLayout, Cocktail, Landing, Error, Newsletter, SinglePageError } from './pages'
-
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query"
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { loader as landingLoader } from './pages/Landing'
 import { loader as singleCocktailLoader } from "./pages/Cocktail";
 import {action as newsletterAction} from "./pages/Newsletter";
+
+
+// staleTime means how long the query is going to be valid
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries:{
+      staleTime: 1000 * 60 * 5,
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {
@@ -47,7 +59,10 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router}/>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}/> 
+      <ReactQueryDevtools initialIsOpen={false}/>
+    </QueryClientProvider>
     </>
   )
 }

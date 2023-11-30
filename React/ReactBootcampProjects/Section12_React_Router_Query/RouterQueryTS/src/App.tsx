@@ -8,6 +8,9 @@ import Newsletter from './pages/Newsletter'
 import Error from './pages/Error'
 
 import {loader as landingLoader} from "./pages/Landing"; 
+import {loader as SingleCocktailLoader} from "./pages/Cocktail";
+
+import SinglePageError from './pages/SinglePageError'
 // errors always bubble up set up an error element at parent
 
 const router = createBrowserRouter([
@@ -23,7 +26,9 @@ const router = createBrowserRouter([
       },
       {
         path:'cocktail/:id',
-        element:<Cocktail/>
+        element:<Cocktail/>,
+        errorElement:<SinglePageError/>,
+        loader:SingleCocktailLoader
       },
       {
         path:'newsletter',

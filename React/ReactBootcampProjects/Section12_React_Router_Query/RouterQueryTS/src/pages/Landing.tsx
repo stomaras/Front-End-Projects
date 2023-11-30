@@ -4,14 +4,14 @@ import axios from 'axios'
 import { IDrink } from '../models/models';
 import CockailList from '../components/CockailList';
 
-export interface LoaderObject {
+export interface LandingObject {
   drinks:IDrink[];
   searchTerm:string;
 }
 
 const cocktailSearchUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 
-export const loader = async () :Promise<LoaderObject> => {
+export const loader = async () :Promise<LandingObject> => {
   const searchTerm = 'margarita'
   const response = await axios.get(`${cocktailSearchUrl}${searchTerm}`);
   console.log(response);
@@ -22,7 +22,7 @@ export const loader = async () :Promise<LoaderObject> => {
 
 const Landing = () => {
 
-  const {drinks, searchTerm} = useLoaderData()
+  const {drinks, searchTerm} = useLoaderData() as LandingObject;
   console.log(drinks,searchTerm);
   return (
     <CockailList drinks={drinks}/>

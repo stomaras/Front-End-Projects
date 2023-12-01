@@ -21,3 +21,5 @@ connects our app to redux
 
 ### Hero Icons
 https://heroicons.com/
+
+const url = "https://www.couse-api.com/react-useReducer-cart-project"

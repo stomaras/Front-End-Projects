@@ -9,7 +9,6 @@ export interface CocktailListProps {
 
 const CockailList = (props:CocktailListProps) => {
     const {drinks} = props;
-    console.log(drinks);
     if(!drinks){
         return (
             <h4 style={{textAlign:'center'}}>No matching Cocktails found...</h4>

@@ -12,19 +12,30 @@ interface CocktailDetails {
 }
 
 
+const getValidIngredients = (drink:IDrink) => {
+  const KeysIngredients = Object.keys(drink)
+  const ValuesIngredients = Object.values(drink);
+  let ingredients = []
+  for(let i=0; i<=KeysIngredients.length-1; i++){
+    if(KeysIngredients[i].startsWith('strIngredient')){
+      ingredients.push(ValuesIngredients[i])
+    }
+  }
+
+  let validIngredients = ingredients.filter((ingredient) => ingredient !== null);
+  return validIngredients; 
+}
+
 export const loader = async(data:any) => {
-  console.log(data);
   const {params} = data;
   const {id} = params;
   const response = await axios.get(`${singleCocktailUrl}${params.id}`);
   let singleDrink = response.data.drinks[0];
-  console.log(singleDrink);
   return {id, singleDrink};
 }
 
 const Cocktail = () => {
   const {id, singleDrink} = useLoaderData() as CocktailDetails;
-  console.log(singleDrink);
   
   const {
     strDrink: name,
@@ -35,9 +46,8 @@ const Cocktail = () => {
     strInstructions: instructions,
   } = singleDrink;
 
-
-
-
+  let validIngredients = getValidIngredients(singleDrink);
+  console.log(validIngredients);
   return (
     <Wrapper>
       <header>
@@ -62,6 +72,12 @@ const Cocktail = () => {
           <p>
             <span className="drink-data">glass:</span>
             {glass}
+          </p>
+          <p>
+            <span className="drink-data">ingredients :</span>
+            {validIngredients.map((item, index) => {
+              return <span className='ing' key={index}>{item}{index < validIngredients.length -1 ? ',': ''}</span>
+            })}
           </p>
           <p>
             <span className="drink-data">instructions:</span>

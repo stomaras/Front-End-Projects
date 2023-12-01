@@ -14,8 +14,6 @@ const cocktailSearchUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.ph
 export const loader = async () :Promise<LandingObject> => {
   const searchTerm = 'margarita'
   const response = await axios.get(`${cocktailSearchUrl}${searchTerm}`);
-  console.log(response);
-  
 
   return {drinks:response.data.drinks, searchTerm:searchTerm};
 }
@@ -23,7 +21,6 @@ export const loader = async () :Promise<LandingObject> => {
 const Landing = () => {
 
   const {drinks, searchTerm} = useLoaderData() as LandingObject;
-  console.log(drinks,searchTerm);
   return (
     <CockailList drinks={drinks}/>
     

@@ -8,7 +8,7 @@ const singleCocktailUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.ph
 
 interface CocktailDetails {
   id:number;
-  drinks:IDrink[];
+  singleDrink:IDrink;
 }
 
 
@@ -17,14 +17,59 @@ export const loader = async(data:any) => {
   const {params} = data;
   const {id} = params;
   const response = await axios.get(`${singleCocktailUrl}${params.id}`);
-  let drinks = response.data;
-  return {id, drinks};
+  let singleDrink = response.data.drinks[0];
+  console.log(singleDrink);
+  return {id, singleDrink};
 }
 
 const Cocktail = () => {
-  const {id, drinks} = useLoaderData() as CocktailDetails;
+  const {id, singleDrink} = useLoaderData() as CocktailDetails;
+  console.log(singleDrink);
+  
+  const {
+    strDrink: name,
+    strDrinkThumb: image,
+    strAlcoholic: info,
+    strCategory:category,
+    strGlass:glass,
+    strInstructions: instructions,
+  } = singleDrink;
+
+
+
+
   return (
-    <div>Cocktail</div>
+    <Wrapper>
+      <header>
+        <Link to="/" className='btn'>back home</Link>
+        <h3>{name}</h3>
+      </header>
+      <div className="drink">
+        <img src={image} alt={name} className='img' />
+        <div className="drink-info">
+          <p>
+            <span className="drink-data">name: </span>
+            {name}
+          </p>
+          <p>
+            <span className="drink-data">category: </span>
+            {category}
+          </p>
+          <p>
+            <span className="drink-data">info: </span>
+            {info}
+          </p>
+          <p>
+            <span className="drink-data">glass:</span>
+            {glass}
+          </p>
+          <p>
+            <span className="drink-data">instructions:</span>
+            {instructions}
+          </p>
+        </div>
+      </div>
+    </Wrapper>
   )
 }
 

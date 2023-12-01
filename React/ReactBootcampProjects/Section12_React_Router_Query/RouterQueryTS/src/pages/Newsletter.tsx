@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActionFunction, redirect } from 'react-router-dom';
+import { ActionFunction, redirect, useNavigation } from 'react-router-dom';
 import {Form} from "react-router-dom";
 import axios from "axios";
 import { toast } from 'react-toastify';
@@ -9,15 +9,25 @@ const newsletterUrl = "https://www.course-api.com/cocktails-newsletter";
 export const action:ActionFunction = async ({request}) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
-  console.log(data);
-  const response = await axios.post(newsletterUrl, data);
-  toast.success(response.data.msg);
-  return redirect('/');
-  return null;
+  try {
+    const response = await axios.post(newsletterUrl, data);
+    toast.success(response.data.msg);
+    return redirect('/');
+  }catch(error:any){
+    console.log(error);
+    toast.error(error?.response?.data?.msg);
+    return error;
+  }
+
 }
 
 
 const Newsletter = () => {
+
+  const navigation = useNavigation();
+  const isSubmiting = navigation.state === 'submitting';
+
+
   return (
     <Form className="form" method='POST'>
       <h4 style={{textAlign:'center', marginBottom:"2rem"}}>
@@ -44,8 +54,8 @@ const Newsletter = () => {
         </label>
         <input type="email" className='form-input' name='email' id='email' />
       </div>
-      <button type='submit' className='btn btn-block' style={{marginTop:'0.5rem'}}>
-        submit
+      <button type='submit' className='btn btn-block' style={{marginTop:'0.5rem'}} disabled={isSubmiting}>
+        {isSubmiting ? 'submitting': 'submit'}
       </button>
     </Form>
   )

@@ -9,6 +9,7 @@ import Error from './pages/Error'
 
 import {loader as landingLoader} from "./pages/Landing"; 
 import {loader as SingleCocktailLoader} from "./pages/Cocktail";
+import {action as newsletterAction} from "./pages/Newsletter";
 
 import SinglePageError from './pages/SinglePageError'
 // errors always bubble up set up an error element at parent
@@ -32,7 +33,8 @@ const router = createBrowserRouter([
       },
       {
         path:'newsletter',
-        element:<Newsletter/>
+        element:<Newsletter/>,
+        action:newsletterAction,
       },
       {
         path:'about',

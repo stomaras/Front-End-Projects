@@ -15,12 +15,28 @@ const Form = (props:FormProps) => {
     const [lastNameError, setLastNameError] = useState(false);
     const [emailError, setEmailError] = useState(false);
 
+    const clearForm = () => {
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+    }
+
+    const showError = () => {
+        setFirstNameError(true);
+        setLastNameError(true);
+        setEmailError(true);
+    }
+
+    const hideError = () => {
+        setFirstNameError(false);
+        setLastNameError(false);
+        setEmailError(false);
+    }
+
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if(firstName === '' || lastName === '' || email === ''){
-            setFirstNameError(true);
-            setLastNameError(true);
-            setEmailError(true);
+            showError();
             let student :IStudent = {
                 firstName: '',
                 lastName: '',
@@ -28,17 +44,13 @@ const Form = (props:FormProps) => {
             }
             props.handleSubmit(student);
         }else {
-            setFirstNameError(false);
-            setLastNameError(false);
-            setEmailError(false);
+            hideError();
             let student :IStudent = {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
             }
-            setFirstName('');
-            setLastName('');
-            setEmail('');
+            clearForm();
             props.handleSubmit(student);
         }
     }

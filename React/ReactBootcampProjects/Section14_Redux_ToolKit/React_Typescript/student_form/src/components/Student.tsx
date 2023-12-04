@@ -13,9 +13,15 @@ const Student = (props:StudentsProps) => {
 
   return (
     <article className='student'>
-      <span className='student__firstName'>FirstName:</span>{firstName}
-      <span className='student__lastName'>LastName:</span>{lastName}
-      <span className='student__email'>Email:</span>{email}
+      <div className="info">
+        <span className='student__firstName'>FirstName:</span> <span>{firstName}</span> 
+      </div>
+      <div className="info">
+        <span className='student__lastName'>LastName:</span> <span>{lastName}</span> 
+      </div>
+      <div className="info">
+        <span className='student__email'>Email:</span> <span>{email}</span>
+      </div>
     </article>
   )
 }

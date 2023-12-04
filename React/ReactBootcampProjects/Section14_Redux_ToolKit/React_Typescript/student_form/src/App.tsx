@@ -12,12 +12,11 @@ function App() {
     email: ''
   }
 
-  const [firstStudent, setFirstStudent] = useState<IStudent>(studentState)
+  const [initialStudent, setInitialStudent] = useState<IStudent>(studentState)
 
 
   const addStudent = (student:IStudent) => {
-      setFirstStudent(student);
-      console.log(student);
+      setInitialStudent(student);
   }
 
 
@@ -26,7 +25,7 @@ function App() {
     <>
     <div className='app'>
       <Form handleSubmit={addStudent}/>
-      <Students student={firstStudent}/>
+      <Students student={initialStudent}/>
     </div>
 
     </>

@@ -26,13 +26,19 @@ const Form = (props:FormProps) => {
                 lastName: '',
                 email: '',
             }
-            return student;
+            props.handleSubmit(student);
         }else {
+            setFirstNameError(false);
+            setLastNameError(false);
+            setEmailError(false);
             let student :IStudent = {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
             }
+            setFirstName('');
+            setLastName('');
+            setEmail('');
             props.handleSubmit(student);
         }
     }
@@ -54,17 +60,17 @@ const Form = (props:FormProps) => {
         <legend>Student Form</legend>
         <div className='form-row'>
             <label htmlFor="firstName">firstName</label>
-            <input type="text" name='firstName' id='firstName' onChange={handleChangeFirstName}/>
+            <input type="text" name='firstName' id='firstName' onChange={handleChangeFirstName} value={firstName}/>
         </div>
         {firstNameError && <span className='error-span'>This Field is required</span>}
         <div className="form-row">
             <label htmlFor="lastName">lastName</label>
-            <input type="text" name='lastName' id='lastName' onChange={handleChangeLastName}/>
+            <input type="text" name='lastName' id='lastName' onChange={handleChangeLastName} value={lastName}/>
         </div>
         {lastNameError && <span className='error-span'>This Field is required</span>}
         <div className="form-row">
             <label htmlFor="email">email</label>
-            <input type="email" name='email' id='email' onChange={handleChangeEmail}/>
+            <input type="email" name='email' id='email' onChange={handleChangeEmail} value={email}/>
         </div>
         {emailError && <span className='error-span'>This Field is required</span>}
         <button type='submit' className='save_button'>save</button>

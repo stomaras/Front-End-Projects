@@ -55,3 +55,7 @@ body {
   height: 2rem;
   border-radius: 4px;
 }
+
+.error-span {
+  color: red;
+}

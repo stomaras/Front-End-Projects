@@ -2,16 +2,19 @@ import React from 'react'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { actionCreators } from '../state/index';
+import { useActions } from '../hooks/useActions';
+import { useSelector } from 'react-redux';
 
 
 const RepositoriesList:React.FC = () => {
     const [term, setTerm] = useState('');
-    const dispatch = useDispatch();
+    const {searchRepositories} = useActions();
+    const {data, error, loading} = useSelector((state:any) => state.repositories);
 
     const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("term");
-        const data = dispatch(actionCreators.searchRepositories(term) as any);
+        const data = searchRepositories(term);
         console.log(data);
     }
 

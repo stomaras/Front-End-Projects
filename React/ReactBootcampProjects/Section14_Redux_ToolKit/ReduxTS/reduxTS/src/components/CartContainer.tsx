@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CartItem from './CartItem'
+import {  useTypedSelector } from '../hooks/useTypedSelector';
+import { useDispatch } from 'react-redux';
+import { clearCart } from '../state/action-creators';
+import { Action } from '../state/actions/index';
+
 
 const CartContainer = () => {
+    
+    let cart, products;
+
+    cart = useTypedSelector((state) => state.cart);
+
+
+    const dispatch = useDispatch();
+
+    const handleClear = () => {
+        dispatch(clearCart())
+    }
+
+    products = cart.cartItems;
+
+    
   return (
     <section className='cart'>
         {/* cart header */}
@@ -10,7 +30,9 @@ const CartContainer = () => {
         </header>
         {/* cart items */}
         <div>
-            <CartItem/>
+            {products.map((product) => {
+                return <CartItem key={product.id} amount={product.amount} title={product.title} id={product.id} img={product.img} price={product.price}/>
+            })}
         </div>
         {/*cart footer*/}
         <footer>
@@ -20,7 +42,7 @@ const CartContainer = () => {
                     total <span>$10</span>
                 </h4>
             </div>
-            <button className='btn clear-btn'>clear cart</button>
+            <button className='btn clear-btn' onClick={handleClear}>clear cart</button>
         </footer>
     </section>
   )

@@ -1,7 +1,11 @@
 import React from 'react'
 import {FaCartPlus} from "react-icons/fa"
+import { useSelector } from 'react-redux'
+import { useTypedSelector } from '../hooks/useTypedSelector'
 
 const Navbar = () => {
+
+
   return (
     <nav>
         <div className="nav-center">

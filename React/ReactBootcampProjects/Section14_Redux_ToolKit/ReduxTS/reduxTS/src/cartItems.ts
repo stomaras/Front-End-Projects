@@ -1,4 +1,6 @@
-const cartItems = [
+import { IProduct } from "./models/models";
+
+const cartItems:IProduct[] = [
   {
     id: 'rec1JZlfCIBOPdcT2',
     title: 'Samsung Galaxy S8',

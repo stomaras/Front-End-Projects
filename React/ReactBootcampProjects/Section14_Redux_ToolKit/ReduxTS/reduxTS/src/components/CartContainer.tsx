@@ -13,14 +13,17 @@ const CartContainer = () => {
     cart = useTypedSelector((state) => state.cart);
 
 
+
     const dispatch = useDispatch();
 
+
+    products = cart.cartItems;
+    console.log("products",products);
+
+    
     const handleClear = () => {
         dispatch(clearCart())
     }
-
-    products = cart.cartItems;
-
     
   return (
     <section className='cart'>

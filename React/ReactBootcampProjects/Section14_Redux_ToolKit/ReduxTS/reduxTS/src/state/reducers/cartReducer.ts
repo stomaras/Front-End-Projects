@@ -24,13 +24,22 @@ const reducer = (state:CartState = initialState, action:Action):CartState => {
                 cartItems:initialState.cartItems,
                 amount:initialState.amount,
                 total:initialState.total,
-                isLoading:initialState.isLoading,
+                isLoading:false,
             }
         case ActionType.CLEAR_CART:
             return {
                 cartItems:[],
                 amount:0,
                 total:0,
+                isLoading:false
+            }
+        case ActionType.REMOVE:
+            const itemId = action.payload;
+            initialState.cartItems= initialState.cartItems.filter((item) => item.id !== itemId);
+            return {
+                cartItems:initialState.cartItems,
+                amount:initialState.amount,
+                total:initialState.total,
                 isLoading:false
             }
         default:

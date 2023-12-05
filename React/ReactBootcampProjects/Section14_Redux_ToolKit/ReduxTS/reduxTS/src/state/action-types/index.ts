@@ -1,6 +1,7 @@
 export enum ActionType {
     GET_PRODUCTS = 'GET_PRODUCTS',
     CLEAR_CART = 'CLEAR_CART',
+    REMOVE = "REMOVE",
     INCREASE = 'INCREASE',
     DECREASE = 'DECREASE',
 }

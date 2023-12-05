@@ -6,11 +6,16 @@ import { initialState } from "../reducers/cartReducer";
 
 export const getProducts = () => ({
     type:ActionType.GET_PRODUCTS,
-    products: initialState.cartItems,
+    payload: initialState.cartItems,
 })
 
 export const clearCart = () => ({
     type:ActionType.CLEAR_CART,
-    products:[],
+    payload:[],
+})
+
+export const removeItem = (id:string) => ({
+    type:ActionType.REMOVE,
+    payload:id,
 })
 

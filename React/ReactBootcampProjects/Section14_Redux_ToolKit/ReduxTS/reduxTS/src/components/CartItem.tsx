@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 import { useDispatch } from 'react-redux';
-import { removeItem } from '../state/action-creators';
+import { increaseItem, removeItem } from '../state/action-creators';
 
 export interface CartItemProps {
     amount:number;
@@ -34,7 +34,7 @@ const CartItem = (props:CartItemProps) => {
         </div>
         <div>
             {/*increase amount */}
-            <button className="amount-btn">
+            <button className="amount-btn" onClick={() => dispatch(increaseItem(id))}>
                 <FaChevronUp/>
             </button>
             {/* amount */}

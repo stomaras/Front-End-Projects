@@ -28,5 +28,10 @@ interface IncreaseProductAction {
     payload:string;
 }
 
+interface DecreaseProductAction {
+    type:ActionType.DECREASE;
+    payload:string;
+}
 
-export type Action = ClearCartAction | GetProductsAction | RemoveProductAction | IncreaseProductAction;
+
+export type Action = ClearCartAction | GetProductsAction | RemoveProductAction | IncreaseProductAction | DecreaseProductAction;

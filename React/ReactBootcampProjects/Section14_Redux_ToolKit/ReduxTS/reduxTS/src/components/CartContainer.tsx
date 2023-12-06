@@ -12,8 +12,6 @@ const CartContainer = () => {
 
     cart = useTypedSelector((state) => state.cart);
 
-
-
     const dispatch = useDispatch();
 
 

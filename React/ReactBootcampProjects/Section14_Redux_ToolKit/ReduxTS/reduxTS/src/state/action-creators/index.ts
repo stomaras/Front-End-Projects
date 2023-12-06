@@ -21,3 +21,8 @@ export const increaseItem = (id:string) => ({
     type:ActionType.INCREASE,
     payload:id,
 });
+
+export const decreaseItem = (id:string) => ({
+    type:ActionType.DECREASE,
+    payload:id,
+});

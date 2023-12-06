@@ -54,7 +54,18 @@ const reducer = (state:CartState = initialState, action:Action):CartState => {
                     total:initialState.total,
                     isLoading:false,
                 }
-            
+        case ActionType.DECREASE:
+            for (let i = 0; i<= initialState.cartItems.length -1; i++){
+                if(initialState.cartItems[i].id === action.payload){
+                    initialState.cartItems[i].amount--;
+                }
+            }
+            return {
+                cartItems:initialState.cartItems,
+                amount:initialState.amount,
+                total:initialState.total,
+                isLoading:false,
+            }
         default:
             return state;
     }

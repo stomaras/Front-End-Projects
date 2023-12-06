@@ -21,6 +21,10 @@ const CartItem = (props:CartItemProps) => {
         dispatch(removeItem(id))
     }
 
+    const handleIncrease = (id:string) => (e:React.MouseEventHandler<HTMLButtonElement>) => {
+        dispatch(increaseItem(id))
+    }
+
 
     const {id, img, title, price, amount} = props;
   return (
@@ -30,11 +34,11 @@ const CartItem = (props:CartItemProps) => {
             <h4>{title}</h4>
             <h4 className="item-price">{price}</h4>
             {/* remove button */}
-            <button className='remove-btn' onClick={() => dispatch(removeItem(id))}>remove</button>
+            <button className='remove-btn' onClick={handleRemove(id)}>remove</button>
         </div>
         <div>
             {/*increase amount */}
-            <button className="amount-btn" onClick={() => dispatch(increaseItem(id))}>
+            <button className="amount-btn" onClick={handleIncrease(id)}>
                 <FaChevronUp/>
             </button>
             {/* amount */}

@@ -1,13 +1,6 @@
 import { IProduct } from "../../models/models";
 import { ActionType } from "../action-types";
 
-const product:IProduct = {
-    id: "",
-    title: "",
-    price: "",
-    img: "",
-    amount: 0
-}
 
 interface ClearCartAction {
     type:ActionType.CLEAR_CART;
@@ -33,5 +26,9 @@ interface DecreaseProductAction {
     payload:string;
 }
 
+interface CalculateTotalsAction {
+    type:ActionType.CALCULATE_TOTALS
+}
 
-export type Action = ClearCartAction | GetProductsAction | RemoveProductAction | IncreaseProductAction | DecreaseProductAction;
+
+export type Action = ClearCartAction | GetProductsAction | RemoveProductAction | IncreaseProductAction | DecreaseProductAction | CalculateTotalsAction;

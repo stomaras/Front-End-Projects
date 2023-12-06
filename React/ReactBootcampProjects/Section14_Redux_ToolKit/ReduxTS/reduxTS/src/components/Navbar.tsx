@@ -3,8 +3,13 @@ import {FaCartPlus} from "react-icons/fa"
 import { useSelector } from 'react-redux'
 import { useTypedSelector } from '../hooks/useTypedSelector'
 
-const Navbar = () => {
+export interface NavbarProps {
+  amount:number;
+}
 
+const Navbar = (props:NavbarProps) => {
+
+  const {amount} = props;
 
   return (
     <nav>
@@ -13,7 +18,7 @@ const Navbar = () => {
             <div className="nav-container">
                 <FaCartPlus/>
                 <div className="amount-container">
-                    <p className="total-amount">10</p>
+                    <p className="total-amount">{amount}</p>
                 </div>
             </div>
         </div>

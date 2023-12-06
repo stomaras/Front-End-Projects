@@ -4,4 +4,11 @@ export enum ActionType {
     REMOVE = "REMOVE",
     INCREASE = 'INCREASE',
     DECREASE = 'DECREASE',
+    CALCULATE_TOTALS = 'CALCULATE_TOTALS',
+}
+
+export enum ActionTypeModal {
+    OPEN_MODAL = 'OPEN_MODAL',
+    CANCEL = 'CANCEL',
+    CONFIRM = 'CONFIRM',
 }

@@ -6,7 +6,7 @@ const cartItems:IProduct[] = [
     title: 'Samsung Galaxy S8',
     price: '399.99',
     img: 'https://images2.imgbox.com/c2/14/zedmXgs6_o.png',
-    amount: 1,
+    amount: 3,
   },
   {
     id: 'recB6qcHPxb62YJ75',

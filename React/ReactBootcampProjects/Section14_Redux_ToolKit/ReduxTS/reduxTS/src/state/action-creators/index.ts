@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ActionType } from "../action-types";
+import { ActionTypeModal } from "../action-types";
 import { initialState } from "../reducers/cartReducer";
 
 export const getProducts = () => ({
@@ -26,3 +27,17 @@ export const decreaseItem = (id:string) => ({
     type:ActionType.DECREASE,
     payload:id,
 });
+
+export const calculateTotals = () => ({
+    type:ActionType.CALCULATE_TOTALS
+})
+
+/*************************************Action Creators for Modal ************************************/
+
+export const cancel = () => ({
+    type:ActionTypeModal.CANCEL
+});
+
+export const openModal = () => ({
+    type:ActionTypeModal.OPEN_MODAL
+})

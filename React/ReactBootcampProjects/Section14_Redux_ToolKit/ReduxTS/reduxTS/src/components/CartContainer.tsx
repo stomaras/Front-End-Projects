@@ -1,26 +1,38 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import CartItem from './CartItem'
-import {  useTypedSelector } from '../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
-import { clearCart } from '../state/action-creators';
-import { Action } from '../state/actions/index';
+import {  clearCart, openModal } from '../state/action-creators';
+import { IProduct } from '../models/models';
 
+export interface CartContainerProps {
+    products:IProduct[];
+    total:number;
+    amount:number;
+}
 
-const CartContainer = () => {
+const CartContainer = (props:CartContainerProps) => {
     
-    let cart, products;
+    const {products, total, amount} = props;
 
-    cart = useTypedSelector((state) => state.cart);
+//   let cart, products;
 
+//   cart = useTypedSelector((state) => state.cart);
     const dispatch = useDispatch();
 
+    const handleOpenModal = () => {
+        dispatch(openModal())
+    }
 
-    products = cart.cartItems;
-    console.log("products",products);
+    if(amount < 1){
 
-    
-    const handleClear = () => {
-        dispatch(clearCart())
+        return (
+            <section className='cart'>
+            {/* cart header */}
+            <header>
+                <h2>Your Bug is currently empty</h2>
+            </header>            
+        </section>
+        );
     }
     
   return (
@@ -40,10 +52,10 @@ const CartContainer = () => {
             <hr />
             <div className="cart-total">
                 <h4>
-                    total <span>$10</span>
+                    total <span>${total.toFixed(2)}</span>
                 </h4>
             </div>
-            <button className='btn clear-btn' onClick={handleClear}>clear cart</button>
+            <button className='btn clear-btn' onClick={handleOpenModal}>clear cart</button>
         </footer>
     </section>
   )

@@ -1,5 +1,7 @@
 import React from 'react'
 import {links} from "../data/data";
+import heroImg from "../project-assets/hero.svg";
+import {FaGithubSquare, FaLinkedin, FaTwitterSquare} from "react-icons/fa";
 
 const Navbar = () => {
   return (

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { 
 About,
 Cart,
@@ -14,6 +14,7 @@ Login,
 } from './pages'
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
 
 
 
@@ -69,9 +70,22 @@ const router = createBrowserRouter([
   }
 ])
 
+const lightTheme = {
+  pageBackground:'#fff'
+}
 
+const darktheme = {
+  pageBackground:'#000'
+}
+
+const themes = {
+  light:lightTheme,
+  dark:darktheme
+}
 
 const App = () => {
+
+  const [theme, setTheme] = useState('light')
   return (
     <RouterProvider router={router}></RouterProvider>
   )

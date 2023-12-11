@@ -2,9 +2,14 @@ import React, { useState } from 'react'
 import { NavLink, useSearchParams } from 'react-router-dom'
 import {BsCart3, BsMoonFill, BsSunFill} from "react-icons/bs";
 import NavLinks  from './NavLinks';
+import {HiMoon} from "react-icons/hi";
+import {FaSun} from "react-icons/fa";
 
+interface ThemeTogglerProps {
+    themeToggler: () => void;
+}
 
-const Navbar = () => {
+const Navbar = ({themeToggler}:ThemeTogglerProps) => {
 
     const [theme, setTheme] = useState(false);
 
@@ -38,11 +43,18 @@ const Navbar = () => {
             <div className="navbar-end">
                 {/*Theme Set Up*/}
                 <label htmlFor="" className='swap swap-rotate'>
-                    <input type="checkbox" onChange={handleTheme} />
-                    {/*sun*/}
-                    <BsSunFill className='swap-on h-4 w-4'/>
-                    {/*moon*/}
-                    <BsMoonFill className='swap-off h-4 w-4'/>
+                    <button id='checkbox' onClick={themeToggler} onChange={() => false} >
+                    {window.localStorage.getItem('theme') !== 'light' ? (
+                        <>
+                            <HiMoon/>
+                        </>
+                    ):(
+                        <>
+                            <FaSun/>
+                        </>
+                    )}
+                    </button>
+                    
                 </label>
                 <NavLink to='/cart' className='btn btn-ghost btn-circle btn-md ml-4'>
                     <div className="indicator">

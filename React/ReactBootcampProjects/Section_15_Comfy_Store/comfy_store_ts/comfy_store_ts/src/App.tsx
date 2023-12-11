@@ -14,7 +14,13 @@ Login,
 } from './pages'
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
+
+import ErrorElement from "./components/ErrorElement";
+
+// loaders 
+import {loader as landingLoader} from "./pages/Landing";
+
+// actions
 
 
 
@@ -26,7 +32,9 @@ const router = createBrowserRouter([
     children: [
       {
         index:true,
-        element:<Landing/>
+        element:<Landing/>,
+        errorElement:<ErrorElement/>,
+        loader:landingLoader,
       },
       {
         path:'products',
@@ -70,24 +78,14 @@ const router = createBrowserRouter([
   }
 ])
 
-const lightTheme = {
-  pageBackground:'#fff'
-}
-
-const darktheme = {
-  pageBackground:'#000'
-}
-
-const themes = {
-  light:lightTheme,
-  dark:darktheme
-}
 
 const App = () => {
 
-  const [theme, setTheme] = useState('light')
+
   return (
+
     <RouterProvider router={router}></RouterProvider>
+
   )
 }
 

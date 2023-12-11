@@ -1,13 +1,13 @@
 import React from 'react'
-import { Hero } from '../components'
+import { FeaturedProducts, Hero } from '../components'
 import { customFetch } from '../utils'
+import { IProduct } from '../models/models'
 
 const url = '/products?featured=true'
 
-export const loader = async () => {
+export const loader = async ()=> {
   const response = await customFetch(url);
-  console.log(response);
-  const products = response.data.data;
+  const products:IProduct[] = response.data.data;
   console.log(products);
   return {products};
 }
@@ -16,6 +16,7 @@ const Landing = () => {
   return (
     <>
         <Hero/>
+        <FeaturedProducts/>
     </>
   )
 }

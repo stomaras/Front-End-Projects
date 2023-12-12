@@ -8,7 +8,6 @@ const url = '/products?featured=true'
 export const loader = async ()=> {
   const response = await customFetch(url);
   const products:IProduct[] = response.data.data;
-  console.log(products);
   return {products};
 }
 

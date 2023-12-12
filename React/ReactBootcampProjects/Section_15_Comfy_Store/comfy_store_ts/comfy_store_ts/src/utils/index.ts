@@ -14,4 +14,3 @@ export const formatPrice = (price:string) => {
     }).format((Number(price) / 100))
     return dollarsAmount;
 };
-

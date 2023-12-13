@@ -91,6 +91,10 @@ button:focus-visible {
   gap: 2rem;
 }
 
+.error-span {
+  color: red;
+}
+
 .users-full {
   display: flex;
   flex-direction: row;

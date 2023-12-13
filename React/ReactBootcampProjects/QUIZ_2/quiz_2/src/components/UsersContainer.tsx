@@ -3,46 +3,14 @@ import React, {  useState, useEffect } from 'react'
 import {  IUsers } from '../models/models';
 import { UsersService } from '../services/UserService';
 
-interface IState {
-    loading:boolean;
+export interface UsersContainer {
     users:IUsers[];
-    errorMsg:string;
 }
 
-const UsersContainer:React.FC = () => {
+const UsersContainer = ({users}:UsersContainer) => {
 
-    const url = 'https://jsonplaceholder.typicode.com/users'
     const [search, setSearch] = useState('');
 
-    const [state, setState] = useState<IState>({
-        loading:false,
-        users:[] as IUsers[],
-        errorMsg:'',
-    });
-
-    // network request
-    useEffect(() => {
-        setState({...state, loading:true})
-        UsersService.getAllUsers()
-            .then((res) => 
-                setState({
-                    ...state,
-                    loading:false,
-                    users: res.data,
-                })
-            ).catch((err) => 
-              setState({
-                ...state,
-                loading:false,
-                errorMsg:err.message,
-              })  
-            );
-    },[])
-    
-
-    const {loading, users, errorMsg} = state;
-
-    
 
 
   return (

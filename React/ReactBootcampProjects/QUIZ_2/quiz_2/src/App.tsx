@@ -55,11 +55,19 @@ function App() {
     });
   }
 
+  const sortUsers = (users:IUsers[]) => {
+    state.users = users.sort((user1, user2) => (user1.name > user2.name) ? 1 : -1);
+    setState({
+      ...state,
+      users:state.users
+    })
+  }
+
   return (
     <>
     <div className='app'>
       <Form handleSubmit={addUser}/>
-      <UsersContainer users={state.users}/>
+      <UsersContainer users={state.users} sortUsers={sortUsers}/>
     </div>
 
     </>

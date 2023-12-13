@@ -5,26 +5,31 @@ import { UsersService } from '../services/UserService';
 
 export interface UsersContainer {
     users:IUsers[];
+    sortUsers:(users:IUsers[]) => void;
+    
 }
 
-const UsersContainer = ({users}:UsersContainer) => {
+const UsersContainer = ({users, sortUsers}:UsersContainer) => {
 
     const [search, setSearch] = useState('');
-
-
+    
+    const handleSort = (e:React.MouseEvent<HTMLElement>) => {
+        sortUsers(users)
+    }
 
   return (
     <div className='users'>
         <div className="search">
             <input type="search" onChange={(e) => setSearch(e.target.value)}/>
-            <button type='button'>sort</button>
+            <button type='button' onClick={handleSort}>sort</button>
         </div>
         <div className="users-full">
             {users.filter((user) => {
                 return search.toLowerCase() === '' 
                     ? user 
                     : user.name.toLowerCase().includes(search);
-            }).map((user) => {
+            })
+            .map((user) => {
                     return (
                         <div className="userContainer" key={user.id}>
                         <article className='userContainer__article'>

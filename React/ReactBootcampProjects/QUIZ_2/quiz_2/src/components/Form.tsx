@@ -132,7 +132,7 @@ const Form = (props:FormProps) => {
                 id: 0,
                 name: name,
                 username: userName,
-                email: '',
+                email: email,
                 address: {
                     street: '',
                     suite: '',

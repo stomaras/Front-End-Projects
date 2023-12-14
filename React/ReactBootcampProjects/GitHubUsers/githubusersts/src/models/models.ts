@@ -112,7 +112,6 @@ export interface IUser {
     size: number;
     stargazers_count: number;
     watchers_count: number;
-    language: string;
     has_issues: boolean;
     has_projects: boolean;
     has_downloads: boolean;

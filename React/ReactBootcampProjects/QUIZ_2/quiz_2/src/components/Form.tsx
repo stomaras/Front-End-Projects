@@ -189,7 +189,7 @@ const Form = (props:FormProps) => {
             <label htmlFor="phone">Phone:</label>
             <input type="tel" id='phone' onChange={handlePhone} value={phone}/>
         </div>
-        {phoneError && <span className='errorSpan'>You must add a phone number</span>}
+        {phoneError && <span className='error-span'>You must add a phone number</span>}
         <button type='submit'>Add</button>
     </form>
   )

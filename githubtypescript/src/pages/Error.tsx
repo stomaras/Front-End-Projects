@@ -19,7 +19,7 @@ const Wrapper = styled.section`
     place-items: center;
     background: #0d989a;
     min-height: 100vh;
-    
+    min-width: 320px;
     text-align: center;
     h1 {
         font-size: 5rem;

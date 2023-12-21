@@ -1,4 +1,6 @@
-export default [
+import { IRepo } from "../../models/models";
+
+const repos : IRepo[] = [
   {
     id: 239164394,
     node_id: "MDEwOlJlcG9zaXRvcnkyMzkxNjQzOTQ=",
@@ -13526,3 +13528,6 @@ export default [
     default_branch: "master",
   },
 ];
+
+
+export default repos;

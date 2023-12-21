@@ -1,7 +1,7 @@
 import React from 'react';
 import { GithubContext } from '../context/context';
 import styled from 'styled-components';
-import { GoRepo, GoGist } from 'react-icons/go';
+import { GoRepo } from 'react-icons/go';
 import { FiUsers, FiUserPlus } from 'react-icons/fi';
 
 const UserInfo = () => {
@@ -33,7 +33,7 @@ const UserInfo = () => {
     },
     {
       id:4,
-      icon:<GoGist className='icon'/>,
+      icon:<GoRepo className='icon'/>,
       label:'gists',
       value:public_gists,
       color:'yellow'
@@ -81,7 +81,6 @@ const Wrapper = styled.section`
       display: grid;
       place-items: center;
       border-radius: 50%;
-
     }
     .icon {
       font-size: 1.5rem;

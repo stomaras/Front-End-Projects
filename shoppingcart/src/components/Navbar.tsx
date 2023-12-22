@@ -5,15 +5,25 @@ import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import CartButtons from './CartButtons'
 import { links } from '../utils/constants'
+import { useModalContext } from '../context/products_context'
 
 const Nav = () => {
+
+  const modalInfo = useModalContext();
+
+  const handleOpenSidebar = ()=> {
+    
+    modalInfo.openSidebar();
+  }
+
+
   return <NavContainer>
     <div className="nav-center">
       <div className="nav-header">
         <Link to="/">
           <img src={logo} alt="comfy sloth" />
         </Link>
-        <button type='button' className='nav-toggle'>
+        <button type='button' className='nav-toggle' onClick={handleOpenSidebar}>
            <FaBars/>
         </button>
       </div>

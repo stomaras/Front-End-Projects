@@ -2,10 +2,13 @@ import React from 'react'
 import { FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { useModalContext } from '../context/products_context'
 
 const CartButtons = () => {
+  const modalInfo = useModalContext();
+  const {isSidebarOpen} = modalInfo.state;
   return <Wrapper className='cart-btn-wrapper'>
-    <Link to="/cart" className='cart-btn'>
+    <Link to="/cart" className='cart-btn' onClick={() => {modalInfo.closeSidebar()}}>
       Cart
       <span className="cart-container">
         <FaShoppingCart/>

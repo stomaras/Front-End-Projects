@@ -1,20 +1,24 @@
 import React from 'react'
 import logo from '../assets/logo.svg'
 import { Link } from 'react-router-dom'
-import { useProductsContext } from '../context/products_context'
+import { useModalContext } from '../context/products_context'
 import { FaTimes } from 'react-icons/fa'
 import { links } from '../utils/constants';
 import styled from 'styled-components'
 import CartButtons from './CartButtons'
 import { useUserContext } from '../context/user_context'
+import { ModalProvider } from '../context/products_context'
 
 const Sidebar = () => {
-  const isOpen :boolean = true
+  const modalInfo = useModalContext();
+
+  console.log(modalInfo.state.isSidebarOpen);
+  
   return <SidebarContainer>
-    <aside className={`${isOpen ? 'sidebar show-sidebar':'sidebar'}`}>
+    <aside className={`${modalInfo.state.isSidebarOpen ? 'sidebar show-sidebar':'sidebar'}`}>
       <div className="sidebar-header">
         <img src={logo} alt="comfy sloth" className='logo'/>
-        <button className='close-btn' type='button'><FaTimes/></button>
+        <button className='close-btn' type='button' onClick={() => modalInfo.closeSidebar()}><FaTimes/></button>
       </div>
       <ul className='links'>
         {links.map(({id, text, url}) => {
@@ -25,7 +29,7 @@ const Sidebar = () => {
           )
         })}
         <li>
-          <Link to='/checkout'>checkout</Link>
+          <Link to='/checkout' onClick={() => modalInfo.closeSidebar()}>checkout</Link>
         </li>
       </ul>
       <CartButtons/>

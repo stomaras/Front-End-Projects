@@ -1,21 +1,33 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useReducer} from "react";
 
 
-interface QuizState {
-    gameState: "idle" | "fetching" | "ready";
-};
+export type Status = "idle" | "fetching" | "ready";
 
-const initialState:QuizState = {
-    gameState:'idle'
+interface QuizContext {
+    state:QuizState,
+    dispatch:React.Dispatch<QuizAction>
 }
 
-const QuizContext = createContext<QuizState>(initialState)
+interface QuizState {
+    gameStatus: Status;
+};
+
+type QuizAction = {type:"setStatus"; payload:Status}
+
+const initialState:QuizState = {
+    gameStatus:'idle'
+}
+
+const QuizContext = createContext<QuizContext>({
+    state:initialState,
+    dispatch: () => null
+})
 
 export function QuizProvider({children}:{children:React.ReactNode}){
-    const [state, dispatch] = useState(initialState);
+    const [state, dispatch] = useReducer(QuizReducer, initialState);
 
     return (
-        <QuizContext.Provider value={state}>
+        <QuizContext.Provider value={{state, dispatch}}>
             {children}
         </QuizContext.Provider>
     )
@@ -24,6 +36,20 @@ export function QuizProvider({children}:{children:React.ReactNode}){
 export function useQuiz() {
     return useContext(QuizContext)
 }
+
+function QuizReducer(state:QuizState, action:QuizAction):QuizState {
+    switch(action.type) {
+        case "setStatus":
+            return {...state, gameStatus:action.payload};
+        default:
+            throw new Error("Unknown action");
+    }
+}
+
+
+
+
+
 
 /*
 ReactNode: covers all possible types

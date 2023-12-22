@@ -6,12 +6,14 @@ import { useQuiz } from './context/context'
 
 function App() {
 
-  const state = useQuiz();
+  const {state, dispatch} = useQuiz();
   console.log(state);
   
 
   return (
     <>
+    <h2>Status: {state.gameStatus}</h2>
+    <button onClick={() => {dispatch({type:"setStatus", payload:"fetching"})}}>Set Loading</button>
     </>
   )
 }

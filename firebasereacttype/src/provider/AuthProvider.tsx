@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { AuthContext } from "../context/AuthContext"
 import firebase from "firebase/compat/app"
-import {  auth } from "../utils/firebaseSetup";
+import { auth } from "../utils/firebaseSetup";
 
 export type AuthProviderProps = {
     children:React.ReactNode;

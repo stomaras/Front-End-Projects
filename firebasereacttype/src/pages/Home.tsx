@@ -1,5 +1,6 @@
 import React from 'react'
 import { homeClasses } from './Home/homeClasses'
+import Header from '../components/Header/Header'
 
 const Home = () => {
 
@@ -7,6 +8,7 @@ const Home = () => {
 
   return (
     <>
+        <Header/>
         <div className={container}>
             <div className={cardContainer}>
                 <h5 className={title}>Firebase Auth</h5>

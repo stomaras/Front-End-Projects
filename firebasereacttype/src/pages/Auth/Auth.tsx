@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { authClasses } from './authClasses'
 import { useForm } from 'react-hook-form'
 import { AuthForm, authFormSchema } from '../../models/Form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from 'firebase/auth'
 import {setDoc, doc} from "firebase/firestore";
 import { auth, db } from '../../firebase'
-import { useAppDispatch } from '../../hooks/storeHook'
+import { useAppDispatch, useAppSelector } from '../../hooks/storeHook'
 import { login } from '../../features/authSlice'
 import ResetPassword from '../../components/ResetPassword/ResetPassword'
 
@@ -43,6 +43,15 @@ const Auth = () => {
     const [resetPasswordError, setResetPasswordError] = useState<string | null>(null);
 
     const dispatch = useAppDispatch();
+
+    const {user} = useAppSelector((state) => state.auth);
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if(Boolean(user)) { 
+            navigate("/")
+        }
+    },[user, navigate])
 
     const handleFormSubmit = async(data:AuthForm) => {
         setLoading(true);

@@ -1,13 +1,18 @@
-import React, { FC, useState } from 'react'
+import  { Dispatch, FC, SetStateAction, useState } from 'react'
 
 interface ResetPasswordProps {
     isOpen:boolean;
     onClose: () => void;
+    handlePasswordReset: () => Promise<void>;
+    resetPasswordEmail:string;
+    resetPasswordSuccess: string | null;
+    resetPasswordError: string | null;
+    setResetPasswordEmail: Dispatch<SetStateAction<string>>
 }
 
 const ResetPassword: FC<ResetPasswordProps> = (props) => {
 
-    const {isOpen, onClose} = props;
+    const {isOpen, onClose, handlePasswordReset, resetPasswordEmail, resetPasswordSuccess, resetPasswordError, setResetPasswordEmail} = props;
 
     const [email, setEmail] = useState("");
 
@@ -20,16 +25,19 @@ const ResetPassword: FC<ResetPasswordProps> = (props) => {
       <h1 className="text-2xl font-bold mb-4">Password Reset</h1>
       <input
         type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={resetPasswordEmail}
+        onChange={(e) => setResetPasswordEmail(e.target.value)}
         placeholder="Email"
         className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-4"
       />
       <button
         className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg"
+        onClick={handlePasswordReset}
       >
         Reset Password
       </button>
+      {resetPasswordSuccess && <p className='text-green-500 mt-2'>{resetPasswordSuccess}</p>}
+      {resetPasswordError && <p className='text-red-500 mt-2'>{resetPasswordError}</p>}
       <button
         onClick={onClose}
         className="text-gray-500 mt-4 text-sm underline hover:text-gray-700"

@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { AuthForm, authFormSchema } from '../../models/Form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useSearchParams } from 'react-router-dom'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from 'firebase/auth'
 import {setDoc, doc} from "firebase/firestore";
 import { auth, db } from '../../firebase'
 import { useAppDispatch } from '../../hooks/storeHook'
@@ -38,6 +38,9 @@ const Auth = () => {
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [resetPassword, setResetPassword] = useState(false);
+    const [resetPasswordEmail, setResetPasswordEmail] = useState('');
+    const [resetPasswordSuccess, setResetPasswordSuccess] = useState<string | null>(null);
+    const [resetPasswordError, setResetPasswordError] = useState<string | null>(null);
 
     const dispatch = useAppDispatch();
 
@@ -82,23 +85,34 @@ const Auth = () => {
         
     }
 
+    const handlePasswordReset = async () => {
+        if(!resetPasswordEmail.length) return;
+        try {
+            await sendPasswordResetEmail(auth, resetPasswordEmail);
+            setResetPasswordSuccess("Password reset email sent. Please check yout inbox");
+            setResetPasswordError(null);
+        }catch(error:any) {
+
+        }
+    }
+
     const handleAuthType = () => {
         setAuthState(prevAuthType => prevAuthType === 'login' ? 'sign-up' : 'login');
     }
-
-
 
     const {register, handleSubmit, formState: {errors}} = useForm<AuthForm>({
         resolver:yupResolver(authFormSchema),
     });
 
 
-
-
-
   return (
     <>
-    <ResetPassword isOpen={resetPassword} onClose={() => setResetPassword(false)}/>
+    <ResetPassword isOpen={resetPassword} onClose={() => setResetPassword(false)} handlePasswordReset={handlePasswordReset} 
+        resetPasswordEmail={resetPasswordEmail} 
+        resetPasswordSuccess={resetPasswordSuccess}
+        resetPasswordError={resetPasswordError}
+        setResetPasswordEmail={setResetPasswordEmail}
+        />
     <div className={container}>
         <div className='w-full max-w-sm rounded-lg bg-state-700/30 shadow'>
             {errorMessage && <p className='bg-red-500 px-3py-2 text-center rounded-md text-white'>
@@ -122,7 +136,6 @@ const Auth = () => {
                         {errors.password ? <span className='text-red-700'>{errors.password.message}</span> : <></>}
                         <input type="password" placeholder='*********' className={input} {...register('confirmPassword')}/>
                         {errors.confirmPassword ? <span className='text-red-700'>{errors.confirmPassword.message}</span> : <></>}
-
                     </div>
                     <button disabled={loading} className={button}>Sign {authState === 'login' ? 'in': 'up'} with email</button>
 

@@ -1,33 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect } from 'react'
 import './App.css'
+import { useQuiz } from './context/QuizContext'
+import Score from './components/Score'
+import Game from './components/Game'
+import { Question, QuestionsResponse } from './context/QuizContext'
+import FullPageLoader from "../src/components/FullPageLoader";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const {state, dispatch} = useQuiz();
+  console.log(state);
+
+
+  async function fetchQuestion() {
+
+    try {
+      dispatch({type:'setStatus', payload:"fetching"});
+      const response = await fetch('https://opentdb.com/api.php?amount=1&category=18');
+      let data: QuestionsResponse = await(response.json());
+      if(data.response_code === 0) {
+        let question:Question = data.results[0];
+        console.log(question);
+        
+        dispatch({type:'setStatus', payload:"ready"})
+      }else {
+        dispatch({type:"setStatus", payload:'error'})
+      }
+    }catch(err) {
+      dispatch({type:"setStatus", payload:'error'})
+    }     
+  }
+
+  useEffect(() => {
+    if(state.gameStatus === "idle"){
+      fetchQuestion();
+    }
+  })
+  
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    {
+      state.gameStatus === 'fetching' ? 
+      <FullPageLoader/> : state.gameStatus == 'error' ?
+      <p>Error...</p> : state.gameStatus == 'ready' ?
+      <> 
+      <Game/>
+      <Score/> 
+      </>:''
+    }
     </>
   )
 }

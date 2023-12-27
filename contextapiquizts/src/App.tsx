@@ -23,7 +23,8 @@ function App() {
         let question:Question = data.results[0];
         console.log(question);
         
-        dispatch({type:'setStatus', payload:"ready"})
+        dispatch({type:'setStatus', payload:"ready"});
+        dispatch({type:'setQuestion', payload:question});
       }else {
         dispatch({type:"setStatus", payload:'error'})
       }

@@ -15,9 +15,6 @@ export interface QuestionsResponse {
     results:Question[];
 }
 
-
-
-
 interface QuizContext {
     state:QuizState;
     dispatch: React.Dispatch<QuizAction>
@@ -28,16 +25,15 @@ export type Status = "idle" | "fetching" | "ready" | "error";
 
 interface QuizState {
     gameStatus: Status;
+    question: Question | null;
 }
 
 const initialState :QuizState= {
-    gameStatus:"idle"
+    gameStatus:"idle",
+    question: null,
 }
 
-type QuizAction = {
-    type:"setStatus";
-    payload: Status;
-}
+type QuizAction = { type:"setStatus"; payload: Status;} | {type:'setQuestion'; payload:Question}
 
 
 const QuizContext = createContext<QuizContext>({
@@ -67,6 +63,8 @@ function QuizReducer(state:QuizState, action:QuizAction):QuizState{
     switch(action.type){
         case "setStatus":
             return {...state, gameStatus: action.payload};
+        case "setQuestion":
+            return {...state, question:action.payload};
         default:
             throw new Error("Unknown action")
     }

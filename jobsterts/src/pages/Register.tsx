@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Logo } from '../components'
 import Wrapper from "../assets/wrappers/RegisterPage";
 import FormRow from '../components/FormRow';
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, store } from '../features/store';
 import { useAppSelector } from '../features/hooks';
 import { loginUser, registerUser, userSelector } from '../features/user/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 export interface RegisterState {
     name:string;
@@ -26,7 +27,7 @@ const initialState:RegisterState = {
 const Register = () => {
 
     const [values, setValues] = useState(initialState);
-
+    const navigate = useNavigate();
     const {user, isLoading} = useAppSelector(userSelector)
     const dispatch = useDispatch<AppDispatch>();
 
@@ -53,6 +54,14 @@ const Register = () => {
     const toggleMember = () => {
         setValues({...values, isMember:!values.isMember})
     }
+
+    useEffect(() => {
+        if(user){
+            setTimeout(() => {
+                navigate('/');
+            },2000);
+        }
+    },[user]);
 
   return (
     <Wrapper className='full-page'>

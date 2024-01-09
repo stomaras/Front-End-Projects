@@ -7,11 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { store } from '../features/store';
 import { userSelector } from '../features/user/userSlice';
 import { useAppSelector } from '../features/hooks';
-import { toggleSidebar } from '../features/user/userSlice';
+import { toggleSidebar, logoutUser } from '../features/user/userSlice';
 
 
 const Navbar = () => {
 
+    const [showLogo, setShowLogo] = useState(false);
     const dispatch = useDispatch();
     const {user} = useAppSelector(userSelector)
 
@@ -33,18 +34,18 @@ const Navbar = () => {
                 <button
                     type='button'
                     className='btn'
-                    onClick={() => console.log('toggle logout dropdown')}
+                    onClick={() => setShowLogo(!showLogo)}
                 >
                     <FaUserCircle/>
                     {user?.name}
                     <FaCaretDown/>
                 </button>
-                <div className='dropdown show-dropdown'>
+                <div className={showLogo ? 'dropdown show-dropdown' : 'dropdown'}>
                     <button
                         type='button'
                         className='dropdown-btn'
                         onClick={() => {
-                            console.log('logout user')
+                            dispatch(logoutUser())
                         }}
                     >
                         Logout

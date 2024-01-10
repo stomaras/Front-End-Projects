@@ -8,7 +8,10 @@ import { addUserToLocalStorage, removeUserFromLocalStorage } from "../../utils/l
 export interface User {
     name?:string;
     email:string;
-    password:string
+    password:string;
+    lastName?:string;
+    location?:string;
+    token?:string;
 }
 
 export interface UserState {
@@ -44,6 +47,21 @@ export const loginUser = createAsyncThunk('user/loginUser', async(user:User, thu
         }
     }
 );
+type AsyncThunkConfig = {
+    state: RootState
+}
+export const updateUser = createAsyncThunk('user/updateUser',async(user:User, thunkAPI) => {
+    try {
+        const resp = await customFetch.patch('/auth/updateUser', user,{
+            headers: {
+                authorization:`Bearer ${thunkAPI.getState().user.user.token}`
+            }
+        })
+        return resp.data;
+    }catch(error){
+
+    }
+})
 
 const userSlice = createSlice({
     name:'user',

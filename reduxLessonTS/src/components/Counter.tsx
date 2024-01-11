@@ -1,7 +1,7 @@
 import classes from './Counter.module.css';
 import { useAppSelector, useAppDispatch } from '../store';
 import { useDispatch } from 'react-redux';
-import { addCounter, decreaseCounter } from '../store/counterSlice';
+import { addCounter, decreaseCounter, addCounterBy5 } from '../store/counterSlice';
 
 const Counter = () => {
 
@@ -15,6 +15,10 @@ const Counter = () => {
     dispatch(decreaseCounter())
   }
 
+  const incrementHanlderBy5 = (e:React.MouseEvent<HTMLButtonElement>) => {
+    dispatch(addCounterBy5())
+  }
+
   const toggleCounterHandler = () => {};
   return (
     <main className={classes.counter}>
@@ -23,6 +27,7 @@ const Counter = () => {
       <div>
         <button onClick={incrementHandler}>Increment</button>
         <button onClick={decrementHanlder}>Decrement</button>
+        <button onClick={incrementHanlderBy5}>Increment By 5</button>
       </div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
     </main>

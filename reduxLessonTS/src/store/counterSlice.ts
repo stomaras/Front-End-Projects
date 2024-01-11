@@ -19,6 +19,11 @@ export const counterSlice = createSlice({
                 counter:state.counter + 1,
             }
         },
+        addCounterBy5:(state:CounterState, action:PayloadAction) => {
+            return {
+                counter:state.counter + 5,
+            }
+        },
         decreaseCounter:(state:CounterState, action:PayloadAction) => {
             return {
                 counter:state.counter - 1
@@ -29,4 +34,4 @@ export const counterSlice = createSlice({
 
 
 export default counterSlice.reducer;
-export const {addCounter, decreaseCounter} = counterSlice.actions;
+export const {addCounter, decreaseCounter, addCounterBy5} = counterSlice.actions;

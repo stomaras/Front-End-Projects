@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../store';
 
 const CartButton = (props:any) => {
   const dispatch = useAppDispatch();
+  const cartQunatity = useAppSelector((state) => state.cart.totalQuantity)
 
   const toggleCartHanlder = () => {
     dispatch(toggle())  
@@ -12,7 +13,7 @@ const CartButton = (props:any) => {
   return (
     <button className={classes.button} onClick={toggleCartHanlder}>
       <span>My Cart</span>
-      <span className={classes.badge}>1</span>
+      <span className={classes.badge}>{cartQunatity}</span>
     </button>
   );
 };

@@ -1,7 +1,25 @@
 import classes from './CartItem.module.css';
+import { useAppDispatch } from '../../store';
+import { removeItemFromCart, addItemToCart } from '../../store/cart-slice';
 
 const CartItem = (props:any) => {
-  const { title, quantity, total, price } = props.item;
+  const { title, quantity, total, price, id } = props.item;
+
+  const dispatch = useAppDispatch();
+
+  const removeItemHanlder = () => {
+    dispatch(removeItemFromCart(id));
+  }
+
+  const addItemHanlder = () => {
+    dispatch(addItemToCart({
+      title: title,
+      itemId: id,
+      price: price,
+      quantity: quantity,
+      totalPrice: total,
+    }))
+  }
 
   return (
     <li className={classes.item}>
@@ -17,8 +35,8 @@ const CartItem = (props:any) => {
           x <span>{quantity}</span>
         </div>
         <div className={classes.actions}>
-          <button>-</button>
-          <button>+</button>
+          <button onClick={removeItemHanlder}>-</button>
+          <button onClick={addItemHanlder}>+</button>
         </div>
       </div>
     </li>

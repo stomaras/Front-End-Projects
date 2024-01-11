@@ -1,6 +1,6 @@
 export interface Item {
     title:string;
-    itemId:number;
+    itemId:string;
     price:number;
     quantity:number;
     totalPrice:number;

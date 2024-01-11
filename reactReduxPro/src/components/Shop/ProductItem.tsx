@@ -1,8 +1,31 @@
 import Card from '../UI/Card';
 import classes from './ProductItem.module.css';
+import { useAppDispatch, useAppSelector } from '../../store';
+import { addItemToCart, removeItemFromCart } from '../../store/cart-slice';
+import { Item } from '../../models/models';
 
-const ProductItem = (props:any) => {
-  const { title, price, description } = props;
+export interface ProductItemProps {
+  id:string;
+  title:string;
+  price:number;
+  description:string;
+}
+
+const ProductItem = (props:ProductItemProps) => {
+  const { id, title, price, description } = props;
+
+  const dispatch = useAppDispatch();
+
+  const addToCartHanlder = () => {
+    
+    dispatch(addItemToCart({
+      itemId: id,
+      title: title,
+      price: price,
+      quantity: 0,
+      totalPrice: 0
+    }))
+  }
 
   return (
     <li className={classes.item}>
@@ -13,7 +36,7 @@ const ProductItem = (props:any) => {
         </header>
         <p>{description}</p>
         <div className={classes.actions}>
-          <button>Add to Cart</button>
+          <button onClick={addToCartHanlder}>Add to Cart</button>
         </div>
       </Card>
     </li>

@@ -260,3 +260,8 @@ h1 {
     transform: translateY(0);
   }
 }
+
+main {
+  margin: 2rem auto;
+  text-align: center;
+}

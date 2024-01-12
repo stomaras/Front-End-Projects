@@ -5,3 +5,9 @@ export interface Item {
     quantity:number;
     totalPrice:number;
 }
+
+export interface Notify {
+    status:string;
+    title:string;
+    message:string;
+}

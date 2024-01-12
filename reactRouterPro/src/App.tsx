@@ -4,6 +4,7 @@ import Products from "./pages/Products"
 import { Link } from "react-router-dom"
 import RootLayout from "./pages/Root"
 import Error from "./pages/Error"
+import ProductDetail from "./pages/ProductDetail"
 
 const router = createBrowserRouter([
   {
@@ -11,9 +12,9 @@ const router = createBrowserRouter([
     element:<RootLayout/>,
     errorElement:<Error/>,
     children:[
-      {path:'/', element:<Home/>},
+      {index:true, element:<Home/>},
       {path:'/products', element:<Products/>},
-      {}
+      {path:'/products/:productId', element:<ProductDetail/>}
     ],
   }
 

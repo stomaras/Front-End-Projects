@@ -29,7 +29,7 @@ const Error = () => {
     <>
         <MainNavigation/>
         <PageContent title={customError.title}>
-            <p>{customError.message}</p>
+        <p>{customError.message}</p>
         </PageContent>
     </>
 

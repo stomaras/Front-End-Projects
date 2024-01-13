@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import EventsList from "../components/EventsList";
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, json } from 'react-router-dom';
 import { Event } from '../models/models';
 
 export interface EventsResponse {
@@ -31,8 +31,7 @@ const EventsPage = () => {
 export default EventsPage;
 
 export async function loader() {
-        const response:EventsResponse = await fetch('http://localhost:8080/events');
-        console.log("response", response);
+        const response = await fetch('http://localhost:8080/events');
         if(!response.ok){
             throw new Response(JSON.stringify({message:'Could not fetch events.'}), {
                 status:500

@@ -1,6 +1,11 @@
 import classes from './EventsList.module.css';
+import { Event } from '../models/models';
 
-function EventsList({ events }:any) {
+export interface EventsListProps {
+  events:Event[];
+}
+
+function EventsList({ events }:EventsListProps) {
   return (
     <div className={classes.events}>
       <h1>All Events</h1>

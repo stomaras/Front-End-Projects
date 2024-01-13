@@ -7,7 +7,7 @@ function EventForm({ method, event }:any) {
   function cancelHandler() {
     navigate('..');
   }
-
+localStorage
   return (
     <form className={classes.form}>
       <p>

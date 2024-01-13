@@ -1,5 +1,5 @@
 import React from 'react'
-import{useParams, useLoaderData, ActionFunctionArgs, Params} from "react-router-dom";
+import{useParams, useRouteLoaderData, ActionFunctionArgs, Params} from "react-router-dom";
 import EventItem from '../components/EventItem';
 import { Event } from '../models/models';
 import { ParamParseKey, LoaderFunctionArgs } from 'react-router-dom';
@@ -9,13 +9,7 @@ export interface EventData {
 }
 
 const EventDetailPage = () => {
-    const params = useParams();
-
-    const data = useLoaderData() as EventData;
-    console.log("details data", data);
-    console.log(data.event);
-    
-    
+    const data = useRouteLoaderData('event-detail');    
   return (
     <EventItem event={data.event}/>
   )

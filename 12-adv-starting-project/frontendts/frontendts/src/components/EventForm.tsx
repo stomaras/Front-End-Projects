@@ -1,8 +1,13 @@
 import { useNavigate } from 'react-router-dom';
-
+import { Event } from '../models/models';
 import classes from './EventForm.module.css';
 
-function EventForm({ method, event }:any) {
+export interface EventFormProps {
+  method:any;
+  event:Event;
+}
+
+function EventForm({ method, event }:EventFormProps) {
   const navigate = useNavigate();
   function cancelHandler() {
     navigate('..');
@@ -12,7 +17,7 @@ localStorage
     <form className={classes.form}>
       <p>
         <label htmlFor="title">Title</label>
-        <input id="title" type="text" name="title" required />
+        <input id="title" type="text" name="title" required defaultValue={event ? event.title : ''} />
       </p>
       <p>
         <label htmlFor="image">Image</label>
@@ -20,11 +25,11 @@ localStorage
       </p>
       <p>
         <label htmlFor="date">Date</label>
-        <input id="date" type="date" name="date" required />
+        <input id="date" type="date" name="date" required defaultValue={event ? event.date : ''}/>
       </p>
       <p>
         <label htmlFor="description">Description</label>
-        <textarea id="description" name="description" rows="5" required />
+        <textarea id="description" name="description" rows="5" required defaultValue={event ? event.description : ''}/>
       </p>
       <div className={classes.actions}>
         <button type="button" onClick={cancelHandler}>

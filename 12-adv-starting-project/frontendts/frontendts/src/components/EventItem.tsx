@@ -1,14 +1,20 @@
 import classes from './EventItem.module.css';
 import { Event } from '../models/models';
-import { Link } from 'react-router-dom';
+import { Link, useSubmit } from 'react-router-dom';
 
 export interface EventItemProps {
   event:Event;
 }
 
 function EventItem({ event }:EventItemProps) {
+  const submit = useSubmit();
+
   function startDeleteHandler() {
-    // ...
+    const proceed = window.confirm('Are you sure?');
+
+    if(proceed){
+      submit(null, {method:'delete'})
+    }
   }
 
   return (

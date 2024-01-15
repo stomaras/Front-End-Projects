@@ -33,10 +33,13 @@ export async function action({request, params}) {
     body: JSON.stringify(eventData)
   });
 
+  if((await response).status === 422){
+    return response;
+  }
+
   if(!(await response).ok){
     throw json({message:'could not save event'},{status:500})
   }
-  console.log("redirect");
   
   return redirect('/events');
 }

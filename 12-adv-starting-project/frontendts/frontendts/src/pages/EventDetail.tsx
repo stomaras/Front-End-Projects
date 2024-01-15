@@ -1,5 +1,5 @@
 import React from 'react'
-import{useParams, useRouteLoaderData, ActionFunctionArgs, Params} from "react-router-dom";
+import{useParams, useRouteLoaderData, ActionFunctionArgs, Params, json, redirect} from "react-router-dom";
 import EventItem from '../components/EventItem';
 import { Event } from '../models/models';
 import { ParamParseKey, LoaderFunctionArgs } from 'react-router-dom';
@@ -34,4 +34,21 @@ export async function loader({request, params}:{request:Request, params:DetailPa
     }else {
         return response;
     }
+}
+
+export async function action({params, request}) {
+    const eventId = params.eventId
+    const response = fetch(`http://localhost:8080/events/${eventId}`, {
+        method:request.method,
+    });
+
+    if(!(await response).ok) {
+        throw json(
+            {message:'Could not delete event.'},
+            {
+                status:500,
+            }
+        );
+    }
+    return redirect('/events');
 }

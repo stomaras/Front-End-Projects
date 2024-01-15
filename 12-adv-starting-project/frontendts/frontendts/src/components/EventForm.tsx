@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Event } from '../models/models';
 import classes from './EventForm.module.css';
+import { Form } from 'react-router-dom';
 
 export interface EventFormProps {
   method:any;
@@ -14,7 +15,7 @@ function EventForm({ method, event }:EventFormProps) {
   }
 localStorage
   return (
-    <form className={classes.form}>
+    <Form className={classes.form} method='post'>
       <p>
         <label htmlFor="title">Title</label>
         <input id="title" type="text" name="title" required defaultValue={event ? event.title : ''} />
@@ -37,7 +38,7 @@ localStorage
         </button>
         <button>Save</button>
       </div>
-    </form>
+    </Form>
   );
 }
 

@@ -9,7 +9,7 @@ const NewEventPage = () => {
   }
 
   return (
-    <EventForm/>
+    <EventForm method='post'/>
   )
 }
 

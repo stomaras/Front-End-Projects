@@ -13,6 +13,7 @@ import RootLayout from './pages/Root';
 import EventsRootLayout from './pages/EventsRoot';
 import { loader as eventsLoader } from './pages/Events';
 import Error from './pages/Error';
+import {action as manipulateEventAction} from "./components/EventForm";
 
 
 const router = createBrowserRouter([
@@ -42,14 +43,16 @@ const router = createBrowserRouter([
                 action: deleteEventAction,
               },
               {
-                path:'edit', element:<EditEventPage/>,
+                path:'edit', 
+                element:<EditEventPage/>, 
+                action:manipulateEventAction
               }
             ],  
           },
           { 
             path:'new', 
             element:<NewEventPage/>,
-            action: newEventAction,
+            action: manipulateEventAction,
           },
       ]},
     ]

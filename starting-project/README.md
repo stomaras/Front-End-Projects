@@ -1,8 +1,15 @@
-# React + Vite
+### Tanstack Query can simplify your life as developer
+install it 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+npm install @tanstack/react-query
 
-Currently, two official plugins are available:
+Tanstack Query does not send http requests
+At least not on its own you have to write the code that sends the actual http requests
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tanstack Query then manages the data, errors, caching & much more.
+
+caches response data 
+
+gcTime: define how long the data in the cache will be kept default is 5 minutes
+
+isLoading: will not be true if a query is just disabled

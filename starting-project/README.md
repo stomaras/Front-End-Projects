@@ -13,3 +13,9 @@ caches response data
 gcTime: define how long the data in the cache will be kept default is 5 minutes
 
 isLoading: will not be true if a query is just disabled
+
+useMutation does not send immediately a request when a component is render but only when you tell it 
+to send that request , which you do with the help of mutate function
+isPending from useMutation will be true if request is on the way or false otherwise
+
+every time i rerender a component react-query executed behind the scenes 

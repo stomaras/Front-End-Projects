@@ -5,6 +5,11 @@ import ErrorBlock from '../UI/ErrorBlock.jsx';
 import EventItem from './EventItem.jsx';
 import { fetchEvents } from '../../util/http.js';
 
+
+// i want to make sure that the data was fetched here is marked as stale 
+// and refetch is triggered , we can do this by one method which provided from useQuery with one method 
+// which invalidate one or more queries.Allow us to tell react query that the data that are connected to a react 
+// query is outdated and should refetched.
 export default function NewEventsSection() {
   // every get http request also should have a query key in order to know the request and cache data that yielded by this request
   const { data, isPending, isError, error, refetch } = useQuery({

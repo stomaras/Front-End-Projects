@@ -1,20 +1,85 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import Modal from '../UI/Modal.jsx';
 import EventForm from './EventForm.jsx';
+import { useQuery, useMutation } from '@tanstack/react-query';
+import { fetchEvent, updateEvent } from '../../util/http.js';
+import {LoadingIndicator} from "../UI/LoadingIndicator.jsx";
+import ErrorBlock from '../UI/ErrorBlock.jsx';
+import {queryClient} from "../../util/http.js";
 
 export default function EditEvent() {
   const navigate = useNavigate();
+  const params = useParams();
 
-  function handleSubmit(formData) {}
+  const {data, isPending, isError, error} = useQuery({
+    queryKey: ['events',params.id],
+    queryFn: ({signal}) => fetchEvent({signal, id:params.id})
+  });
 
-  function handleClose() {
+  const {mutate} = useMutation({
+    mutationFn:updateEvent,
+    onMutate: async(data) => {
+      const newEvent = data.event;
+      // manipulate the cached data without waiting for a response
+      // we cancel all on going queries in order not to fetch old data
+      await queryClient.cancelQueries({queryKey:['events', params.id]});
+      const previousEvent = queryClient.getQueryData(['events',params.id]);
+      queryClient.setQueryData(['events', params.id], newEvent);
+      return {previousEvent: previousEvent}
+    },
+    // if the mutation fails we rolling back this optimistic query 
+    onError:(error, data, context) => {
+      queryClient.setQueryData(['events', params.id], context.previousEvent)
+    },
+    // will be called whenever the mutation is done no matter if failed or succeeded
+    onSettled:() => {
+      queryClient.invalidateQueries(['events',params.id]);
+    }
+  });
+
+  function handleSubmit(formData) {
+    mutate({id: params.id, event: formData});
     navigate('../');
+    handleClose();
   }
 
-  return (
-    <Modal onClose={handleClose}>
-      <EventForm inputData={null} onSubmit={handleSubmit}>
+  function handleClose() {
+    navigate(`../events/${params.id}`);
+  }
+
+  let content;
+
+  if(isPending) {
+    content = (
+      <div className='center'>
+        <LoadingIndicator/>
+      </div>
+    );
+  }
+
+  if(isError) {
+    content = (
+      <>
+        <ErrorBlock 
+          title='Failed to load event' 
+          message={
+            error?.info.message || 'Failed to load event. Please check your inputs and try again later'
+          }
+        />
+        <div className="form-actions">
+          <Link to='../' className='button'>
+            Okay
+          </Link>
+        </div>
+      </>
+    )
+  }
+
+
+  if(data) {
+    content = (
+      <EventForm inputData={data} onSubmit={handleSubmit}>
         <Link to="../" className="button-text">
           Cancel
         </Link>
@@ -22,6 +87,9 @@ export default function EditEvent() {
           Update
         </button>
       </EventForm>
-    </Modal>
-  );
+    )
+  }
+
+
+  return <Modal onClose={handleClose}>{content}</Modal>;
 }

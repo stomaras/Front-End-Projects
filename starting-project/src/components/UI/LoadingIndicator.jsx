@@ -1,4 +1,4 @@
-export default function LoadingIndicator() {
+export const LoadingIndicator = () =>  {
   return (
     <div className="lds-ring">
       <div></div>
@@ -8,3 +8,5 @@ export default function LoadingIndicator() {
     </div>
   );
 }
+
+export default LoadingIndicator

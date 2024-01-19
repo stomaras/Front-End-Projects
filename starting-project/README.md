@@ -19,3 +19,5 @@ to send that request , which you do with the help of mutate function
 isPending from useMutation will be true if request is on the way or false otherwise
 
 every time i rerender a component react-query executed behind the scenes 
+
+onMutate will execute before this process is done and before you get back a response

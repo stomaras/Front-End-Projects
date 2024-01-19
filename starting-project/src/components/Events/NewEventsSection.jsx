@@ -13,8 +13,8 @@ import { fetchEvents } from '../../util/http.js';
 export default function NewEventsSection() {
   // every get http request also should have a query key in order to know the request and cache data that yielded by this request
   const { data, isPending, isError, error, refetch } = useQuery({
-    queryKey:['events'],
-    queryFn:fetchEvents,
+    queryKey:['events', {max:3}],
+    queryFn:({signal, queryKey}) => fetchEvents({signal, ...queryKey[1]}),
     staleTime: 0,
     gcTime: 30000,
   });

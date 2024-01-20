@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
+import { Event } from '../../models/models';
 
 export interface EventItemProps {
-  event:any
+  event:Event
 }
 
 export default function EventItem({ event }:EventItemProps) {

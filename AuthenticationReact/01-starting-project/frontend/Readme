@@ -1,0 +1,9 @@
+Decoupled Applications we use authentication tokens 
+
+Create(but not store) "permission"
+token on a server & send it to the client
+validity can be checked by backend that created that token 
+Client attaches token to future requests for protected resources
+Server can the verify the attached token
+
+Client ===> Request(with credentials) ===> Server (Back end) ===> Response Auth token

@@ -41,8 +41,17 @@ export const productSlice = createSlice({
     reducers:{
         toggleFav: (state:ProductState,action:any) => {
             const prodIndex = state.products.findIndex((product) => product.id === action.payload)
-            console.log(prodIndex);
-            
+            const newFavStatus = !state.products[prodIndex].isFavorite;
+            console.log(newFavStatus);
+            const updatedProducts = [...state.products];
+            updatedProducts[prodIndex] = {
+                ...state.products[prodIndex],
+                isFavorite: newFavStatus,
+            };
+            return {
+                ...state,
+                products:updatedProducts
+            }
         }
     }
 });

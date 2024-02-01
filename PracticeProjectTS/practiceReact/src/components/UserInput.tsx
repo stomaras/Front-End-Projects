@@ -1,32 +1,15 @@
 
 import React from 'react'
 import { useState } from 'react'
+import { UserState } from '../App'
 
-export interface UserState {
-    initialInvestment:number;
-    annualInvestment:number;
-    expectedReturn:number;
-    duration:number;
+
+export interface UserInputProps {
+    handleChange:(inputIdentifier:string, newValue:string) => any
+    userInput:UserState;
 }
 
-const intialState:UserState = {
-        initialInvestment:1000,
-        annualInvestment: 1200,
-        expectedReturn: 6,
-        duration:10
-}
-
-const UserInput = () => {
-    const [userInput, setUserInput] = useState<UserState>(intialState);
-
-    const handleChange = (inputIdentifier:string, newValue:string) => {
-        setUserInput(prevUserInput => {
-            return {
-                ...prevUserInput,
-                [inputIdentifier]:newValue
-            }
-        })
-    }
+const UserInput = ({handleChange, userInput}:UserInputProps) => {
 
   return (
     <section id='user-input'>

@@ -13,7 +13,7 @@ const MealItem = ({meal}) => {
                 <p className='meal-item-description'>{meal.description}</p>
             </div>
             <p className='meal-item-actions'>
-                <Button>Add to Cart</Button>
+                <button>Add to Cart</button>
             </p>
         </article>
     </li>

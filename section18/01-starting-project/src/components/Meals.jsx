@@ -24,7 +24,6 @@ const Meals = () => {
         }
 
         fetchMeals();
-        console.log(loadedMeals);
     },[loadedMeals]);
 
   return (

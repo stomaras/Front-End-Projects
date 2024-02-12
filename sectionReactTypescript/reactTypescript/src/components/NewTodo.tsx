@@ -1,5 +1,11 @@
 import { useRef } from "react";
-const NewTodo = () => {
+import classes from "./NewTodo.module.css"
+
+export interface NewTodoProps {
+    onAddTodo:(enteredText:string) => void;
+}
+
+const NewTodo = (props:NewTodoProps) => {
 
     const toDoTextInputRef = useRef<HTMLInputElement>(null);
 
@@ -14,10 +20,11 @@ const NewTodo = () => {
             return;
         }
 
-        
+        props.onAddTodo(enteredText);
+
     }
 
-    return <form onSubmit={submitHandler}>
+    return <form onSubmit={submitHandler} className={classes.form}>
         <label htmlFor="text">Todo Text</label>
         <input type="text" id="text" ref={toDoTextInputRef}/>
         <button>Add Todo</button>

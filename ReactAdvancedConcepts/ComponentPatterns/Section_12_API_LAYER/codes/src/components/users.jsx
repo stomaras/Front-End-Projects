@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { withAsync } from "../helpers/with-async";
 import { PENDING, apiStatus } from "../constants/api-status";
 import { useApiStatus } from "../api/hooks/useApiStatus";
+import LazyLoader from "./lazy-loader";
 
 const ApiStatus = "IDLE" | "PENDING" | "SUCCESS" | "ERROR";
 
@@ -100,7 +101,9 @@ function Users() {
   return (
     <Container>
       <FetchButton onClick={initFetchUsers}>
-        {isFetchUsersStatusPending ? 'Loading...':'Fetch Users'}
+        <LazyLoader show={isFetchUsersStatusPending} delay={500} default="Fetch Users">
+
+        </LazyLoader>
       </FetchButton>
       <FlexContainer>
         <ContentContainer>

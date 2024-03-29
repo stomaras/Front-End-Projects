@@ -3,12 +3,22 @@ import { fetchUser } from "../api/userApi";
 import styled from "styled-components";
 import { withAsync } from "../helpers/with-async";
 import { PENDING, apiStatus } from "../constants/api-status";
+import { useApiStatus } from "../api/hooks/useApiStatus";
 
 const ApiStatus = "IDLE" | "PENDING" | "SUCCESS" | "ERROR";
 
 const useFetchUsers = () => {
   const [users, setUsers] = useState([]);
-  const [fetchUsersStatus, setFetchUsersStatus] = useState(apiStatus.IDLE);
+  const {
+    status: fetchUsersStatus,
+    setStatus: setFetchUsersStatus,
+    isIdle: isFetchUsersStatusIdle,
+    isPending: isFetchUsersStatusPending,
+    isSuccess: isFetchUsersStatusSuccess,
+    isError: isFetchUsersStatusError,
+  } = useApiStatus(apiStatus.IDLE);
+
+  // const [fetchUsersStatus, setFetchUsersStatus] = useState(apiStatus.IDLE);
 
   const initFetchUsers = async () => {
     setFetchUsersStatus(apiStatus.PENDING);
@@ -32,7 +42,10 @@ const useFetchUsers = () => {
 
   return {
     users,
-    fetchUsersStatus,
+    isFetchUsersStatusError,
+    isFetchUsersStatusPending,
+    isFetchUsersStatusSuccess,
+    isFetchUsersStatusIdle,
     initFetchUsers,
   };
 };
@@ -70,7 +83,15 @@ const FetchButton = styled.button`
 `;
 
 function Users() {
-  const { users, fetchUsersStatus , initFetchUsers } = useFetchUsers();
+  const { 
+    users, 
+    isFetchUsersStatusError, 
+    isFetchUsersStatusIdle,
+    isFetchUsersStatusPending, 
+    isFetchUsersStatusSuccess,
+    fetchUsersStatus, 
+    initFetchUsers
+  } = useFetchUsers();
 
   useEffect(() => {
     initFetchUsers();
@@ -79,7 +100,7 @@ function Users() {
   return (
     <Container>
       <FetchButton onClick={initFetchUsers}>
-        {fetchUsersStatus === apiStatus.PENDING ? 'Loading...':'Fetch Users'}
+        {isFetchUsersStatusPending ? 'Loading...':'Fetch Users'}
       </FetchButton>
       <FlexContainer>
         <ContentContainer>

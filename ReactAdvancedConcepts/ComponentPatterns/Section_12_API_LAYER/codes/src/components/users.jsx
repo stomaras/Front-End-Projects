@@ -102,7 +102,6 @@ function Users() {
     <Container>
       <FetchButton onClick={initFetchUsers}>
         <LazyLoader show={isFetchUsersStatusPending} delay={500} default="Fetch Users">
-
         </LazyLoader>
       </FetchButton>
       <FlexContainer>

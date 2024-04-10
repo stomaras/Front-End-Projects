@@ -4,9 +4,10 @@ import { useState } from 'react';
 export interface PlayerProps {
     initialName: string;
     symbol: string;
+    isActive: boolean;
 }
 
-const Player = ({initialName, symbol}:PlayerProps) => {
+const Player = ({initialName, symbol, isActive}:PlayerProps) => {
 
     const [player, setPlayer] = useState(initialName)
     const [isEditing, setIsEditing] = useState(false);
@@ -26,7 +27,7 @@ const Player = ({initialName, symbol}:PlayerProps) => {
     }
 
   return (
-    <li>
+    <li className={isActive ? 'active':undefined}>
         <span className='player'>
             {playerName}
             <span className='player-symbol'>{symbol}</span>

@@ -3,11 +3,18 @@ import User from './User';
 import { Component } from 'react';
 import classes from './Users.module.css';
 
-const DUMMY_USERS = [
-  { id: 'u1', name: 'Max' },
-  { id: 'u2', name: 'Manuel' },
-  { id: 'u3', name: 'Julie' },
-];
+
+/*
+Class Based Components can not use Hooks:
+
+1) componentDidMount() ---> called once a component mounted -> evaluated and rendered by React ---> useEffect(...,[])
+2) componentDidUpdate() ---> called once a component updated -> evaluated and rendered by React ---> useEffect(...,[dependency])
+3) componentWillUnmount() ---> called right before component is unmounted from DOM -> evaluated and rendered by React ---> 
+useEffect(() => {
+  return () => {...}
+},[]);
+
+*/
 
 class Users extends Component {
   constructor(){
@@ -16,6 +23,14 @@ class Users extends Component {
       showUsers: true
     };
   }
+
+  componentDidUpdate() {
+    
+    if (this.state.users.length ===0){
+      throw new Error("No users provided");
+    }
+  }
+
   toggleUsersHandler(){
     this.setState((curState) => {
       return {
@@ -27,7 +42,7 @@ class Users extends Component {
   render() {  
     const usersList = (
       <ul>
-        {DUMMY_USERS.map((user) => (
+        {this.props.users.map((user) => (
           <User key={user.id} name={user.name} />
         ))}
       </ul>

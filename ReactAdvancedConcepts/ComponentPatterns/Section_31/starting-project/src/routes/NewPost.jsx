@@ -1,6 +1,6 @@
 import classes from "./NewPost.module.css";
 import { useState } from "react";
-
+import Modal from "../components/Modal";
 function NewPost({onCancel, onAddPost}) {
 
     const [enteredBody, setEnteredBody] = useState('');
@@ -26,7 +26,8 @@ function NewPost({onCancel, onAddPost}) {
     }
 
     return (
-        <form className={classes.form} onSubmit={submitHandler}>
+        <Modal>
+                    <form className={classes.form} onSubmit={submitHandler}>
             <p>
                 <label htmlFor="body">Text</label>
                 <textarea id="body" required rows="3" onChange={bodyChangeHandler}></textarea>
@@ -40,6 +41,8 @@ function NewPost({onCancel, onAddPost}) {
                 <button>Submit</button>
             </p>
         </form>
+        </Modal>
+
     )
 }
 
